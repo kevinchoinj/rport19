@@ -1,0 +1,64 @@
+/*======================================
+=                GAMING                =
+======================================*/
+.gaming_link {
+  font-weight: 600;
+  color: #aaa;
+  -webkit-transition: .2s ease-out;
+  -moz-transition: .2s ease-out;
+  -o-transition: .2s ease-out;
+  transition: .2s ease-out;
+}
+.gaming_link:hover,
+.gaming_link:active,
+.gaming_link:focus,
+.gaming_indicator:hover,
+.gaming_indicator:active,
+.gaming_indicator:focus {
+  text-decoration: none;
+  color: #666;
+}
+/*======================================
+=               CAROUSEL              =
+======================================*/
+.gaming_carousel_wrapper {
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.gaming_carousel_wrapper .scroll-content {
+  display: flex !important;
+  width: 100vw;
+  height: 50vh;
+}
+.gaming_carousel_wrapper .scrollbar-thumb-x,
+.gaming_carousel_wrapper .scrollbar-track-x.show{
+  display: flex !important;
+}
+.gaming_carousel_object {
+  padding: 28px;
+  height: 50vh;
+  width: auto;
+  box-sizing: border-box;
+}
+.gaming_carousel_image {
+  height: 100%;
+}
+.gaming_footer_area {
+  height: 20vh;
+  width: 100%;
+}
+@media screen and (max-width: 768px) {
+  .gaming_carousel_wrapper .scroll-content {
+    height: auto;
+    flex-direction: column;
+  }
+  .gaming_carousel_image {
+    height: auto;
+    width: 100vw;
+  }
+  .gaming_carousel_object {
+    padding: 0px;
+    height: auto;
+  }
+}

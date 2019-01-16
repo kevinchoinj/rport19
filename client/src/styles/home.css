@@ -1,0 +1,108 @@
+.home_background{
+  -webkit-transition: .8s ease-out;
+  -moz-transition: .8s ease-out;
+  -o-transition: .8s ease-out;
+  transition:.8s ease-out;
+  width:100%;
+  height:100vh;
+  overflow:hidden;
+  position:absolute;
+  left:0px;
+}
+.home_background--hidden{
+  left:-100%;
+}
+.home_background__video{
+  position:absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  background-size: cover;
+}
+
+.home_bar{
+  position:fixed;
+  width:100%;
+  height:100px;
+  background-color: #101010;
+  -webkit-transition: 0.8s ease-out;
+  -moz-transition: 0.8s ease-out;
+  -o-transition: 0.8s ease-out;
+  transition:0.8s ease-out;
+  bottom: 0px;
+}
+
+.home_bar--hidden{
+  bottom: -100px;
+}
+
+.logo{
+  position: absolute;
+  top: 25px;
+  width: 100%;
+  -webkit-transition: .8s ease-out;
+  -moz-transition: .8s ease-out;
+  -o-transition: .8s ease-out;
+  transition:.8s ease-out;
+}
+
+.logo_inner{
+  background: transparent;
+  height:  60px;
+  position: absolute;
+  left: 25px;
+  cursor: pointer;
+}
+.logo_link{
+  text-decoration: none;
+  font-size: 14px;
+  letter-spacing: 3px;
+  color: #fff;
+  font-family:'Open Sans', Helvetica;
+  -webkit-transition: .4s ease-out;
+  -moz-transition: .4s ease-out;
+  -o-transition: .4s ease-out;
+  transition:.4s ease-out;
+}
+.logo_last {
+  opacity: .5;
+}
+.logo_link:hover, .logo_link:focus{
+  text-decoration: none;
+}
+.contact{
+  position: fixed;
+  bottom:25px;
+  width: 100%;
+  -webkit-transition: .8s ease-out;
+  -moz-transition: .8s ease-out;
+  -o-transition: .8s ease-out;
+  transition:.8s ease-out;
+  height:  3em;
+}
+.contact_inner{
+  background: transparent;
+  height:  3em;
+  position: absolute;
+  left: 25px;
+}
+.contact_link{
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 130%;
+  letter-spacing: 1px;
+  color: #000;
+  font-family:'Open Sans', Helvetica, sans-serif;
+  -webkit-transition: .4s ease-out;
+  -moz-transition: .4s ease-out;
+  -o-transition: .4s ease-out;
+  transition:.4s ease-out;
+
+}

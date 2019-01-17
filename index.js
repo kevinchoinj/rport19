@@ -92,6 +92,7 @@ app.post('/projects/post', urlencodedParser, (req, res) => {
       url: req.body.url,
       link: req.body.link,
       created_at: Date.now(),
+      updated_at: Date.now(),
     }).then(
       function(data, headers, status) {
         res.send(data);
@@ -113,7 +114,28 @@ app.post('/projects/delete', urlencodedParser, (req, res) => {
       res.send(err);
     });
 });
+app.post('/projects/edit', urlencodedParser, (req, res) => {
+  couch.update(dbName, {
+    _id: req.body.id,
+    _rev: req.body.rev,
 
+    name: req.body.name,
+    link: req.body.link,
+
+    createdAt: req.body.createdAt,
+    url: req.body.url,
+    awsKey: req.body.awsKey,
+
+    updatedAt: Date.now(),
+  }).then(
+    function(data, headers, status) {
+      res.send(data);
+    },
+    function(error) {
+      res.send(error);
+    }
+  )
+});
 /*======================================
 =               AWS S3                =
 ======================================*/

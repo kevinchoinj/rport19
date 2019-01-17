@@ -6,8 +6,10 @@ import AdminMenu from 'admin/menu/AdminMenu';
 
 import {pageData} from 'data/pageData';
 
+import GetMiscProjects from 'components/services/GetMiscProjects';
 import Admin from 'admin/pages/AdminHome';
 import AdminMiscProjects from 'admin/pages/AdminMiscProjects';
+import AdminMiscProjectsEdit from 'admin/pages/AdminMiscProjectsEdit';
 
 class RoutesAdmin extends Component {
 
@@ -21,6 +23,7 @@ class RoutesAdmin extends Component {
   render() {
     return (
       <div className="admin_panel" id="admin_panel">
+        <GetMiscProjects/>
         <div className="admin_nav__left">
           <AdminMenu/>
         </div>
@@ -29,6 +32,7 @@ class RoutesAdmin extends Component {
           <Switch>
             <Route exact path={pageData.adminHome} render={(props)=> <Admin {...props} />}/>
             <Route exact path={pageData.adminMiscProjects} render={(props)=><AdminMiscProjects {...props} />}/>
+            <Route exact path={pageData.adminMiscProjects+'/:id'} render={(props)=><AdminMiscProjectsEdit {...props} />}/>
           </Switch>
         </div>
 

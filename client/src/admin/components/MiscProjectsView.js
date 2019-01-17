@@ -3,6 +3,8 @@ import { Component } from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as imagesActions from 'actions/images';
+import {Link} from 'react-router-dom';
+import {pageData} from 'data/pageData';
 
 class DatabaseList extends Component {
 
@@ -17,21 +19,21 @@ class DatabaseList extends Component {
     } = this.props;
 
     return (
-      <div>
+      <div className="admin_login_container">
         {miscProjects.length > 2 ? miscProjects.map((value, key) => {
           return (
             <div className="misc_image__container" key={key}>
               <div className="misc_title">
                 {value.value.name}
               </div>
-              <a
-                href={value.value.link}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              {value.value.link}
+              <Link to={pageData.adminMiscProjects+'/'+value.id}>
                 <img src={value.value.url} alt={value.value.name} className="misc_image"/>
-              </a>
-              <div onClick={()=>this.deleteContent(value.id, value.doc._rev, value.value.awsKey)}>
+              </Link>
+              <div
+                className="admin_delete"
+                onClick={()=>this.deleteContent(value.id, value.doc._rev, value.value.awsKey)}
+              >
                 delete
               </div>
               <br/><br/>

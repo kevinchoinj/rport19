@@ -1,8 +1,5 @@
+import {history} from 'store';
 const upload = require('superagent');
-
-export const FETCH_VIEW_STARTED = Symbol('FETCH_VIEW_STARTED');
-export const FETCH_VIEW_SUCCEEDED = Symbol('FETCH_VIEW_SUCCEEDED');
-export const FETCH_VIEW_FAILURE = Symbol('FETCH_VIEW_FAILURE');
 
 export const FETCH_MISC_PROJECTS_STARTED = Symbol('FETCH_MISC_PROJECTS_STARTED');
 export const FETCH_MISC_PROJECTS_SUCCEEDED = Symbol('FETCH_MISC_PROJECTS_SUCCEEDED');
@@ -11,6 +8,10 @@ export const FETCH_MISC_PROJECTS_FAILURE = Symbol('FETCH_MISC_PROJECTS_FAILURE')
 export const ADD_MISC_PROJECTS_STARTED = Symbol('ADD_MISC_PROJECTS_STARTED');
 export const ADD_MISC_PROJECTS_SUCCEEDED = Symbol('ADD_MISC_PROJECTS_SUCCEEDED');
 export const ADD_MISC_PROJECTS_FAILURE = Symbol('ADD_MISC_PROJECTS_FAILURE');
+
+export const EDIT_MISC_PROJECTS_STARTED = Symbol('EDIT_MISC_PROJECTS_STARTED');
+export const EDIT_MISC_PROJECTS_SUCCEEDED = Symbol('EDIT_MISC_PROJECTS_SUCCEEDED');
+export const EDIT_MISC_PROJECTS_FAILURE = Symbol('EDIT_MISC_PROJECTS_FAILURE');
 
 export const REMOVE_IMAGE_STARTED = Symbol('REMOVE_IMAGE_STARTED');
 export const REMOVE_IMAGE_SUCCEEDED = Symbol('REMOVE_IMAGE_SUCCEEDED');
@@ -24,11 +25,6 @@ export const ADD_IMAGE_STARTED = Symbol('ADD_IMAGE_STARTED');
 export const ADD_IMAGE_SUCCEEDED = Symbol('ADD_IMAGE_SUCCEEDED');
 export const ADD_IMAGE_FAILURE = Symbol('ADD_IMAGE_FAILURE');
 
-
-const fetchViewStarted = request => ({type: FETCH_VIEW_STARTED, request});
-const fetchViewSucceeded = data => ({type: FETCH_VIEW_SUCCEEDED, data});
-const fetchViewFailure = (data, error) => ({type: FETCH_VIEW_FAILURE, data, error});
-
 const fetchMiscProjectsStarted = request => ({type: FETCH_MISC_PROJECTS_STARTED, request});
 const fetchMiscProjectsSucceeded = data => ({type: FETCH_MISC_PROJECTS_SUCCEEDED, data});
 const fetchMiscProjectsFailure = (data, error) => ({type: FETCH_MISC_PROJECTS_FAILURE, data, error});
@@ -36,6 +32,10 @@ const fetchMiscProjectsFailure = (data, error) => ({type: FETCH_MISC_PROJECTS_FA
 const addMiscProjectsStarted = request => ({type: ADD_MISC_PROJECTS_STARTED, request});
 const addMiscProjectsSucceeded = data => ({type: ADD_MISC_PROJECTS_SUCCEEDED, data});
 const addMiscProjectsFailure = (data, error) => ({type: ADD_MISC_PROJECTS_FAILURE, data, error});
+
+const editMiscProjectsStarted = request => ({type: EDIT_MISC_PROJECTS_STARTED, request});
+const editMiscProjectsSucceeded = data => ({type: EDIT_MISC_PROJECTS_SUCCEEDED, data});
+const editMiscProjectsFailure = (data, error) => ({type: EDIT_MISC_PROJECTS_FAILURE, data, error});
 
 const removeImageStarted = request => ({type: REMOVE_IMAGE_STARTED, request});
 const removeImageSucceeded = data => ({type: REMOVE_IMAGE_SUCCEEDED, data});
@@ -54,27 +54,6 @@ function handleErrors(response) {
     throw Error(response.statusText);
   }
   return response;
-}
-
-/*======================================
-=             SINGLE VIEW              =
-======================================*/
-function getViewData() {
-  return () => {
-    return fetch('/data/view');
-  };
-}
-export function fetchViewData() {
-  return (dispatch) => {
-    dispatch(fetchViewStarted());
-    return dispatch(getViewData())
-      .then(handleErrors)
-      .then(res => res.json())
-      .then(json => {
-        dispatch(fetchViewSucceeded(json));
-      })
-      .catch(error => dispatch(fetchViewFailure(error)));
-  };
 }
 
 /*======================================
@@ -130,7 +109,43 @@ export function addMiscProjectsThenUpdate(values) {
       .then(()=>dispatch(fetchMiscProjects()));
   };
 }
+/*======================================
+=             EDIT IMAGE               =
+======================================*/
+function putMiscProjects(data) {
+  return () => {
+    return fetch('/projects/edit',
+      {
+        method: 'POST',
+        headers: {
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+  };
+}
+export function editMiscProjects(values) {
+  return (dispatch) => {
+    dispatch(editMiscProjectsStarted());
+    return dispatch(putMiscProjects(values))
+      .then(handleErrors)
+      .then(res => res.json())
+      .then(json => {
+        dispatch(editMiscProjectsSucceeded(json));
+      })
+      .catch(error => dispatch(editMiscProjectsFailure(error)));
+  };
+}
 
+export function editMiscProjectsThenUpdate(values, path) {
+  return (dispatch) => {
+    dispatch(editMiscProjects(values))
+      .then(()=>{
+        dispatch(fetchMiscProjects());
+        history.push(path);
+      });
+  };
+}
 /*======================================
 =            REMOVE IMAGE              =
 ======================================*/

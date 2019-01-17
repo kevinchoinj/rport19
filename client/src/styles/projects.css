@@ -387,6 +387,7 @@
   -webkit-transition: .4s ease-out;
   -moz-transition: .4s ease-out;
   -o-transition: .4s ease-out;
+  cursor: pointer;
   transition: .4s ease-out;
 }
 .misc_image:hover {
@@ -395,7 +396,6 @@
 .misc_image__container {
   width: 360px;
   display: inline-block;
-  cursor: pointer;
   margin: 14px;
   padding-top: 14px;
   max-width: 100vw;

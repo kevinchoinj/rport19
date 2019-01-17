@@ -5,7 +5,6 @@ import * as authActions from 'actions/authentication';
 import * as imagesActions from 'actions/images';
 
 import MiscProjectsForm from 'admin/forms/MiscProjectsForm';
-import GetMiscProjects from 'components/services/GetMiscProjects';
 import MiscProjectsView from 'admin/components/MiscProjectsView';
 
 class AdminMiscProjects extends React.Component {
@@ -17,7 +16,6 @@ class AdminMiscProjects extends React.Component {
   render(){
     return (
       <div>
-        <GetMiscProjects/>
         <div className="admin_container">
           <div className="admin_title">
             Edit Gallery

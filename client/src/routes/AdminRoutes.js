@@ -75,11 +75,14 @@ class CheckLogin extends Component {
       backgroundSize: 'cover',
       width: '100vw',
       height: '100vh',
-      position: 'relative',
+      position: 'fixed',
+      top: '0px',
+      left: '0px',
     }
 
     return (
       <div style={backgroundStyle}>
+        <div style={backgroundStyle}/>
         <SetUser/>
         <LoginDisplay
           loggedIn = {loggedIn}

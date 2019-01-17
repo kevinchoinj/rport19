@@ -19,23 +19,21 @@ class AdminMenu extends React.Component {
 
     return (
       <div className="admin_menu_wrapper">
-        <div className="admin_menu_container">
-          {menuValues.map((value, index)=>(
-            <div key={index}>
-              <Link
-                to={value.link}
-                className = 'admin_menu_link'
-              >
-                {value.text}
-              </Link>
-            </div>
-          ))}
-          <div
-            className="admin_nav__link"
-            onClick={()=>this.signOut()}
-          >
-          Log Out
+        {menuValues.map((value, index)=>(
+          <div key={index}>
+            <Link
+              to={value.link}
+              className = 'admin_nav__link'
+            >
+              {value.text}
+            </Link>
           </div>
+        ))}
+        <div
+          className="admin_nav__link"
+          onClick={()=>this.signOut()}
+        >
+        Log Out
         </div>
       </div>
     );

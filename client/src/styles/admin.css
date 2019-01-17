@@ -64,7 +64,10 @@
   display: flex;
   flex-direction: row;
   flex-grow: 1;
-  min-height: 100vh;
+  height: 100vh;
+}
+.admin_panel .scroll-content {
+  display: flex;
 }
 .admin_right{
   width: 1280px;
@@ -98,7 +101,6 @@
 .admin_container__body {
   padding: 16px;
   display: flex;
-  justify-content: center;
 }
 .admin_title {
   font-size: 36px;
@@ -120,15 +122,42 @@
 ======================================*/
 .admin_menu_wrapper {
   font-family: 'Open Sans', Helvetica, sans-serif;
-  padding: 100px 14px 0px 14px;
+  padding-top: 100px;
   line-height: 200%;
+  min-width: 300px;
 }
-.admin_nav__link {
+.admin_nav_link {
+  box-sizing: border-box;
+  display: flex;
+  padding: 3px 14px;
   text-decoration: none;
   color: var(--white-color);
   cursor: pointer;
   transition: .2s ease-out;
+  justify-content: flex-end;
 }
-.admin_nav__link:hover {
+.admin_nav_link:hover {
   color: var(--grey-light-color);
+  background-color: rgba(158,158,158,0.2);
+}
+
+/*======================================
+=             ADMIN FORM              =
+======================================*/
+.admin_dropzone {
+  height: 150px;
+  width: 150px;
+  border: 2px dashed var(--grey-light-color);
+  color: var(--grey-light-color);
+  display: flex;
+  justify-content: center;
+  margin: 14px 0px;
+  cursor: pointer;
+  font-size: 13px;
+  padding: 24px;
+  box-sizing: border-box;
+}
+.form_error {
+  font-size: 13px;
+  margin: 0px 8px;
 }

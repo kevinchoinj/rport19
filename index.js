@@ -90,8 +90,7 @@ app.post('/projects/post', urlencodedParser, (req, res) => {
       name: req.body.name,
       awsKey: req.body.awsKey,
       url: req.body.url,
-      price: req.body.price,
-      quantity: req.body.quantity,
+      link: req.body.link,
       created_at: Date.now(),
     }).then(
       function(data, headers, status) {

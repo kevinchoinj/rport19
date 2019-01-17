@@ -13,7 +13,7 @@ class AdminMenu extends React.Component {
   render(){
 
     const menuValues = [
-      {text: 'Admin Home', link: pageData.adminHome},
+      {text: 'Home', link: pageData.adminHome},
       {text: 'Edit Gallery', link: pageData.adminMiscProjects},
     ];
 
@@ -23,14 +23,14 @@ class AdminMenu extends React.Component {
           <div key={index}>
             <Link
               to={value.link}
-              className = 'admin_nav__link'
+              className = "admin_nav_link"
             >
-              {value.text}
+                {value.text}
             </Link>
           </div>
         ))}
         <div
-          className="admin_nav__link"
+          className="admin_nav_link"
           onClick={()=>this.signOut()}
         >
         Log Out

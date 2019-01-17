@@ -399,6 +399,7 @@
   margin: 14px;
   padding-top: 14px;
   max-width: 100vw;
+  object-fit: cover;
 }
 .misc_title {
   margin-bottom: 14px;
@@ -410,8 +411,6 @@
   justify-content: center;
   flex-wrap: wrap;
 }
-
-
 
 /*======================================
 =            LOAD IN IMAGE             =

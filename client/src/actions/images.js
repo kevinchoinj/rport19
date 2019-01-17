@@ -4,25 +4,21 @@ export const FETCH_VIEW_STARTED = Symbol('FETCH_VIEW_STARTED');
 export const FETCH_VIEW_SUCCEEDED = Symbol('FETCH_VIEW_SUCCEEDED');
 export const FETCH_VIEW_FAILURE = Symbol('FETCH_VIEW_FAILURE');
 
-export const ADD_IMAGE_URL_STARTED = Symbol('ADD_IMAGE_URL_STARTED');
-export const ADD_IMAGE_URL_SUCCEEDED = Symbol('ADD_IMAGE_URL_SUCCEEDED');
-export const ADD_IMAGE_URL_FAILURE = Symbol('ADD_IMAGE_URL_FAILURE');
+export const FETCH_MISC_PROJECTS_STARTED = Symbol('FETCH_MISC_PROJECTS_STARTED');
+export const FETCH_MISC_PROJECTS_SUCCEEDED = Symbol('FETCH_MISC_PROJECTS_SUCCEEDED');
+export const FETCH_MISC_PROJECTS_FAILURE = Symbol('FETCH_MISC_PROJECTS_FAILURE');
 
-export const FETCH_STORE_PHOTOS_STARTED = Symbol('FETCH_STORE_PHOTOS_STARTED');
-export const FETCH_STORE_PHOTOS_SUCCEEDED = Symbol('FETCH_STORE_PHOTOS_SUCCEEDED');
-export const FETCH_STORE_PHOTOS_FAILURE = Symbol('FETCH_STORE_PHOTOS_FAILURE');
-
-export const ADD_STORE_PHOTOS_STARTED = Symbol('ADD_STORE_PHOTOS_STARTED');
-export const ADD_STORE_PHOTOS_SUCCEEDED = Symbol('ADD_STORE_PHOTOS_SUCCEEDED');
-export const ADD_STORE_PHOTOS_FAILURE = Symbol('ADD_STORE_PHOTOS_FAILURE');
+export const ADD_MISC_PROJECTS_STARTED = Symbol('ADD_MISC_PROJECTS_STARTED');
+export const ADD_MISC_PROJECTS_SUCCEEDED = Symbol('ADD_MISC_PROJECTS_SUCCEEDED');
+export const ADD_MISC_PROJECTS_FAILURE = Symbol('ADD_MISC_PROJECTS_FAILURE');
 
 export const REMOVE_IMAGE_STARTED = Symbol('REMOVE_IMAGE_STARTED');
 export const REMOVE_IMAGE_SUCCEEDED = Symbol('REMOVE_IMAGE_SUCCEEDED');
 export const REMOVE_IMAGE_FAILURE = Symbol('REMOVE_IMAGE_FAILURE');
 
-export const REMOVE_STORE_PHOTOS_STARTED = Symbol('REMOVE_STORE_PHOTOS_STARTED');
-export const REMOVE_STORE_PHOTOS_SUCCEEDED = Symbol('REMOVE_STORE_PHOTOS_SUCCEEDED');
-export const REMOVE_STORE_PHOTOS_FAILURE = Symbol('REMOVE_STORE_PHOTOS_FAILURE');
+export const REMOVE_MISC_PROJECTS_STARTED = Symbol('REMOVE_MISC_PROJECTS_STARTED');
+export const REMOVE_MISC_PROJECTS_SUCCEEDED = Symbol('REMOVE_MISC_PROJECTS_SUCCEEDED');
+export const REMOVE_MISC_PROJECTS_FAILURE = Symbol('REMOVE_MISC_PROJECTS_FAILURE');
 
 export const ADD_IMAGE_STARTED = Symbol('ADD_IMAGE_STARTED');
 export const ADD_IMAGE_SUCCEEDED = Symbol('ADD_IMAGE_SUCCEEDED');
@@ -33,25 +29,21 @@ const fetchViewStarted = request => ({type: FETCH_VIEW_STARTED, request});
 const fetchViewSucceeded = data => ({type: FETCH_VIEW_SUCCEEDED, data});
 const fetchViewFailure = (data, error) => ({type: FETCH_VIEW_FAILURE, data, error});
 
-const addImageUrlStarted = request => ({type: ADD_IMAGE_URL_STARTED, request});
-const addImageUrlSucceeded = data => ({type: ADD_IMAGE_URL_SUCCEEDED, data});
-const addImageUrlFailure = (data, error) => ({type: ADD_IMAGE_URL_FAILURE, data, error});
+const fetchMiscProjectsStarted = request => ({type: FETCH_MISC_PROJECTS_STARTED, request});
+const fetchMiscProjectsSucceeded = data => ({type: FETCH_MISC_PROJECTS_SUCCEEDED, data});
+const fetchMiscProjectsFailure = (data, error) => ({type: FETCH_MISC_PROJECTS_FAILURE, data, error});
 
-const fetchStorePhotosStarted = request => ({type: FETCH_STORE_PHOTOS_STARTED, request});
-const fetchStorePhotosSucceeded = data => ({type: FETCH_STORE_PHOTOS_SUCCEEDED, data});
-const fetchStorePhotosFailure = (data, error) => ({type: FETCH_STORE_PHOTOS_FAILURE, data, error});
-
-const addStorePhotosStarted = request => ({type: ADD_STORE_PHOTOS_STARTED, request});
-const addStorePhotosSucceeded = data => ({type: ADD_STORE_PHOTOS_SUCCEEDED, data});
-const addStorePhotosFailure = (data, error) => ({type: ADD_STORE_PHOTOS_FAILURE, data, error});
+const addMiscProjectsStarted = request => ({type: ADD_MISC_PROJECTS_STARTED, request});
+const addMiscProjectsSucceeded = data => ({type: ADD_MISC_PROJECTS_SUCCEEDED, data});
+const addMiscProjectsFailure = (data, error) => ({type: ADD_MISC_PROJECTS_FAILURE, data, error});
 
 const removeImageStarted = request => ({type: REMOVE_IMAGE_STARTED, request});
 const removeImageSucceeded = data => ({type: REMOVE_IMAGE_SUCCEEDED, data});
 const removeImageFailure = (data, error) => ({type: REMOVE_IMAGE_FAILURE, data, error});
 
-const removeStorePhotosStarted = request => ({type: REMOVE_STORE_PHOTOS_STARTED, request});
-const removeStorePhotosSucceeded = data => ({type: REMOVE_STORE_PHOTOS_SUCCEEDED, data});
-const removeStorePhotosFailure = (data, error) => ({type: REMOVE_STORE_PHOTOS_FAILURE, data, error});
+const removeMiscProjectsStarted = request => ({type: REMOVE_MISC_PROJECTS_STARTED, request});
+const removeMiscProjectsSucceeded = data => ({type: REMOVE_MISC_PROJECTS_SUCCEEDED, data});
+const removeMiscProjectsFailure = (data, error) => ({type: REMOVE_MISC_PROJECTS_FAILURE, data, error});
 
 const addImageStarted = request => ({type: ADD_IMAGE_STARTED, request});
 const addImageSucceeded = data => ({type: ADD_IMAGE_SUCCEEDED, data});
@@ -86,64 +78,28 @@ export function fetchViewData() {
 }
 
 /*======================================
-=           POST IMAGE URL           =
-======================================*/
-function postImageUrl(data) {
-  return () => {
-    return fetch('/images/url',
-      {
-        method: 'POST',
-        headers: {
-          'Content-type': 'application/json'
-        },
-        body: JSON.stringify(data)
-      });
-  };
-}
-export function addImageUrl(values) {
-  return (dispatch) => {
-    dispatch(addImageUrlStarted());
-    return dispatch(postImageUrl(values))
-      .then(handleErrors)
-      .then(res => res.json())
-      .then(json => {
-        dispatch(addImageUrlSucceeded(json));
-      })
-      .catch(error => dispatch(addImageUrlFailure(error)));
-  };
-}
-
-export function addImageUrlThenUpdate(values) {
-  return (dispatch) => {
-    dispatch(addImageUrl(values))
-      .then(()=>dispatch(fetchViewData()));
-  };
-}
-//requires ()=>dispatch for fetchViewData or data is fetched before content is added
-
-/*======================================
 =            STORE PHOTOS           =
 ======================================*/
 
-function getStorePhotos() {
+function getMiscProjects() {
   return () => {
     return fetch('/projects/view');
   };
 }
-export function fetchStorePhotos() {
+export function fetchMiscProjects() {
   return (dispatch) => {
-    dispatch(fetchStorePhotosStarted());
-    return dispatch(getStorePhotos())
+    dispatch(fetchMiscProjectsStarted());
+    return dispatch(getMiscProjects())
       .then(handleErrors)
       .then(res => res.json())
       .then(json => {
-        dispatch(fetchStorePhotosSucceeded(json));
+        dispatch(fetchMiscProjectsSucceeded(json));
       })
-      .catch(error => dispatch(fetchStorePhotosFailure(error)));
+      .catch(error => dispatch(fetchMiscProjectsFailure(error)));
   };
 }
 
-function postStorePhotos(data) {
+function postMiscProjects(data) {
   return () => {
     return fetch('/projects/post',
       {
@@ -155,23 +111,23 @@ function postStorePhotos(data) {
       });
   };
 }
-export function addStorePhotos(values) {
+export function addMiscProjects(values) {
   return (dispatch) => {
-    dispatch(addStorePhotosStarted());
-    return dispatch(postStorePhotos(values))
+    dispatch(addMiscProjectsStarted());
+    return dispatch(postMiscProjects(values))
       .then(handleErrors)
       .then(res => res.json())
       .then(json => {
-        dispatch(addStorePhotosSucceeded(json));
+        dispatch(addMiscProjectsSucceeded(json));
       })
-      .catch(error => dispatch(addStorePhotosFailure(error)));
+      .catch(error => dispatch(addMiscProjectsFailure(error)));
   };
 }
 
-export function addStorePhotosThenUpdate(values) {
+export function addMiscProjectsThenUpdate(values) {
   return (dispatch) => {
-    dispatch(addStorePhotos(values))
-      .then(()=>dispatch(fetchStorePhotos()));
+    dispatch(addMiscProjects(values))
+      .then(()=>dispatch(fetchMiscProjects()));
   };
 }
 
@@ -205,9 +161,9 @@ export function removeImage (awsKey) {
   };
 }
 
-function deleteStorePhotos(id, rev) {
+function deleteMiscProjects(id, rev) {
   return () => {
-    return fetch('/projects/delete/',
+    return fetch('/projects/delete',
       {
         method: 'POST',
         headers: {
@@ -220,31 +176,31 @@ function deleteStorePhotos(id, rev) {
       });
   };
 }
-export function removeStorePhotos(id, rev, awsKey) {
+export function removeMiscProjects(id, rev, awsKey) {
   return (dispatch) => {
-    dispatch(removeStorePhotosStarted());
-    return dispatch(deleteStorePhotos(id, rev))
+    dispatch(removeMiscProjectsStarted());
+    return dispatch(deleteMiscProjects(id, rev))
       .then(handleErrors)
       .then(res => res.json())
       .then(json => {
-        dispatch(removeStorePhotosSucceeded(json));
+        dispatch(removeMiscProjectsSucceeded(json));
         dispatch(removeImage(awsKey));
       })
-      .catch(error => dispatch(removeStorePhotosFailure(error)));
+      .catch(error => dispatch(removeMiscProjectsFailure(error)));
   };
 }
 //requires ()=>dispatch for fetchViewData or data is fetched before content is added
-export function removeStorePhotosThenUpdate(id, rev, awsKey) {
+export function removeMiscProjectsThenUpdate(id, rev, awsKey) {
   return (dispatch) => {
-    dispatch(removeStorePhotos(id, rev, awsKey))
-      .then(()=>dispatch(fetchStorePhotos()));
+    dispatch(removeMiscProjects(id, rev, awsKey))
+      .then(()=>dispatch(fetchMiscProjects()));
   };
 }
 /*======================================
 =             AWS BUCKET               =
 ======================================*/
 
-function postStorePhotoImage(data) {
+function postS3Image(data) {
   return () => {
     return upload.post('/images/post')
       .attach('awsAction', data.image[0]);
@@ -254,12 +210,15 @@ function postStorePhotoImage(data) {
 export function addStorePhotoImageAndUrl (data) {
   return (dispatch) => {
     dispatch(addImageStarted());
-    return dispatch(postStorePhotoImage(data))
+    return dispatch(postS3Image(data))
       .end((err, res) => {
         if (res) {
           dispatch(addImageSucceeded(res.body.url));
-          const storeData = Object.assign({url: res.body.url, awsKey: res.body.awsKey}, data);
-          dispatch(addStorePhotosThenUpdate(storeData));
+          const s3Data = Object.assign({
+            url: res.body.url,
+            awsKey: res.body.awsKey
+          }, data);
+          dispatch(addMiscProjectsThenUpdate(s3Data));
         }
         else if (err) {
           dispatch(addImageFailure(err));

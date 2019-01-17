@@ -1,12 +1,12 @@
 import {
   FETCH_VIEW_SUCCEEDED,
-  FETCH_STORE_PHOTOS_SUCCEEDED,
+  FETCH_MISC_PROJECTS_SUCCEEDED,
 } from 'actions/images';
 
 const DEFAULT_STATE={
   databaseNames: {},
   viewData: {},
-  storePhotos: {},
+  miscProjects: {},
 };
 
 export default(state=DEFAULT_STATE, payload)=>
@@ -18,10 +18,10 @@ export default(state=DEFAULT_STATE, payload)=>
       ...state,
       viewData: payload.data
     };
-  case FETCH_STORE_PHOTOS_SUCCEEDED:
+  case FETCH_MISC_PROJECTS_SUCCEEDED:
     return state = {
       ...state,
-      storePhotos: payload.data
+      miscProjects: payload.data
     };
   default:
     return state;

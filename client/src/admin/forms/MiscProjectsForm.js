@@ -3,9 +3,8 @@ import { Field, reduxForm, reset } from 'redux-form';
 import Dropzone from 'react-dropzone';
 import {connect} from 'react-redux';
 /* https://github.com/BBB/dropzone-redux-form-example */
-import PreviewImage from './PreviewImage';
 import classNames from 'classnames';
-const required = value => (value ? undefined : 'Required');
+const required = value => (value ? undefined : '*Required');
 
 const RenderField = ({
   input,
@@ -17,7 +16,7 @@ const RenderField = ({
     <input {...input}
       placeholder={placeholder}
       type={type}
-      className="user_form_field"
+      className="admin_form__field"
     />
     {touched &&
       ((error && <span className="form_error">{error}</span>) ||
@@ -38,7 +37,7 @@ const renderDropzoneInput = (field, {nameValue}) => {
           return (
             <div
               {...getRootProps()}
-              className={classNames('dropzone', {'dropzone--isActive': isDragActive})}
+              className={classNames('admin_dropzone', {'admin_dropzone--isActive': isDragActive})}
             >
               <input {...getInputProps()} />
               {
@@ -50,38 +49,29 @@ const renderDropzoneInput = (field, {nameValue}) => {
           );
         }}
       </Dropzone>
+      {files && Array.isArray(files) && (
+        <div className="admin_form">
+          {files.map((file, i) =>
+            <div key={i} className="spacing_bottom">
+              {file.name}
+            </div>
+          )}
+        </div>
+      )}
     </div>
       {field.meta.touched &&
         field.meta.error &&
         <span className="error">{field.meta.error}</span>}
       <div>
+
         <button
           type="submit"
-          className="admin_button_large"
+          className="admin_form__button"
         >
           Submit
         </button>
       </div>
-      {files && Array.isArray(files) && (
-        <div className="admin_form">
-          {files.map((file, i) =>
-            <div key={i}>
-              <div>
-                <div className="admin_title">
-                  Preview
-                </div>
-                <div className="custom_all">
-                  <div key={i} className="custom_wrapper">
-                    <PreviewImage
-                      image={file.preview}
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
-        </div>
-      )}
+
     </div>
   );
 };
@@ -95,31 +85,24 @@ class ImagePostForm extends React.Component {
     return (
       <form onSubmit={handleSubmit} autoComplete="off" className="admin_form">
 
-
-        <div className="admin_label">
-          Name
+      <div className="spacing_bottom">
+          <Field
+            name="name"
+            component={RenderField}
+            type="text"
+            validate={[required]}
+            placeholder="Title"
+          />
         </div>
-        <Field
-          name="name"
-          component={RenderField}
-          className="admin_form_field"
-          type="text"
-          validate={[required]}
-          placeholder="Title"
-        />
-
-        <div className="admin_label">
-          Url
+        <div className="spacing_bottom">
+          <Field
+            name="link"
+            component={RenderField}
+            type="text"
+            validate={[required]}
+            placeholder="link"
+          />
         </div>
-        <Field
-          name="url"
-          component={RenderField}
-          className="admin_form_field"
-          type="text"
-          validate={[required]}
-          placeholder="url"
-        />
-
         <div>
           <Field
             name="image"

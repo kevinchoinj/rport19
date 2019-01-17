@@ -12,7 +12,7 @@ import 'styles/notfound.css';
 import 'styles/admin.css';
 
 import SiteRoutes from 'routes/SiteRoutes';
-import AdminRoutes from 'routes/AdminRoutes';
+import CheckLogin from 'routes/CheckLogin';
 
 import Preload from 'components/Preload';
 import PageLoading from 'components/PageLoading';
@@ -24,7 +24,7 @@ class App extends React.Component {
     return (
       <div className="App" id="main_app">
         <Switch>
-          <Route path="/shodyra/admin" render={(props) => <AdminRoutes {...props}/>}/>
+          <Route path="/shodyra/admin" render={(props) => <CheckLogin {...props}/>}/>
           <Route path="/" render={(props) => <SiteRoutes {...props}/>}/>
         </Switch>
         <Preload/>

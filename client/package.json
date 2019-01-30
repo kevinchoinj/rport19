@@ -21,7 +21,7 @@
     "smooth-scrollbar": "^8.3.1",
     "superagent": "^4.1.0"
   },
-  "proxy": "http://localhost:1503",
+  "proxy": "http://localhost:5000",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

@@ -25,7 +25,7 @@ class AdminMenu extends React.Component {
               to={value.link}
               className = "admin_nav_link"
             >
-                {value.text}
+              {value.text}
             </Link>
           </div>
         ))}
@@ -33,7 +33,12 @@ class AdminMenu extends React.Component {
           className="admin_nav_link"
           onClick={()=>this.signOut()}
         >
-        Log Out
+          Log Out
+        </div>
+        <div>
+          <Link to={pageData.homeLink} className = "admin_nav_link">
+            Back to site
+          </Link>
         </div>
       </div>
     );

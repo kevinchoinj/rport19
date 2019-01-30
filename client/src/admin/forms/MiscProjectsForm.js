@@ -28,37 +28,37 @@ const renderDropzoneInput = (field, {nameValue}) => {
   const files = field.input.value;
   return (
     <div>
-     <div className="form_dropzone__wrapper">
-      <Dropzone
-        onDrop={( filesToUpload, e ) => field.input.onChange(filesToUpload)}
+      <div className="form_dropzone__wrapper">
+        <Dropzone
+          onDrop={( filesToUpload, e ) => field.input.onChange(filesToUpload)}
 
-      >
-        {({getRootProps, getInputProps, isDragActive}) => {
-          return (
-            <div
-              {...getRootProps()}
-              className={classNames('admin_dropzone', {'admin_dropzone--isActive': isDragActive})}
-            >
-              <input {...getInputProps()} />
-              {
-                isDragActive ?
-                  <p>Drop files here...</p> :
-                  <p>Try dropping some files here, or click to select files to upload.</p>
-              }
-            </div>
-          );
-        }}
-      </Dropzone>
-      {files && Array.isArray(files) && (
-        <div className="admin_form">
-          {files.map((file, i) =>
-            <div key={i} className="spacing_bottom">
-              {file.name}
-            </div>
-          )}
-        </div>
-      )}
-    </div>
+        >
+          {({getRootProps, getInputProps, isDragActive}) => {
+            return (
+              <div
+                {...getRootProps()}
+                className={classNames('admin_dropzone', {'admin_dropzone--isActive': isDragActive})}
+              >
+                <input {...getInputProps()} />
+                {
+                  isDragActive ?
+                    <p>Drop files here...</p> :
+                    <p>Try dropping some files here, or click to select files to upload.</p>
+                }
+              </div>
+            );
+          }}
+        </Dropzone>
+        {files && Array.isArray(files) && (
+          <div className="admin_form">
+            {files.map((file, i) =>
+              <div key={i} className="spacing_bottom">
+                {file.name}
+              </div>
+            )}
+          </div>
+        )}
+      </div>
       {field.meta.touched &&
         field.meta.error &&
         <span className="error">{field.meta.error}</span>}
@@ -85,7 +85,7 @@ class ImagePostForm extends React.Component {
     return (
       <form onSubmit={handleSubmit} autoComplete="off" className="admin_form">
 
-      <div className="spacing_bottom">
+        <div className="spacing_bottom">
           <Field
             name="name"
             component={RenderField}

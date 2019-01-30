@@ -145,6 +145,7 @@ app.post('/images/post', upload.single('awsAction'), (req, res) => {
     Key: Date.now().toString() + req.file.originalname,
     Body: req.file.buffer,
     ACL: 'public-read',
+    ContentType: req.file.mimetype,
   }, function(err, data) {
     var params = this.request.params;
     var region = this.request.httpRequest.region;
@@ -187,7 +188,7 @@ app.post('/images/delete', urlencodedParser, (req, res) => {
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname+'/client/build/index.html'));
 });
-const port = process.env.PORT || 1503;
+const port = process.env.PORT || 5000;
 
 server = app.listen(port, function(){
   console.log(`server is running on port ${port}`)

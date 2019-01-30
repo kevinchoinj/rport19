@@ -25,8 +25,10 @@ class DatabaseList extends Component {
             <div className="misc_image__container" key={key}>
               <div className="misc_title">
                 {value.value.name}
+                <br/>
+                {value.value.link}
               </div>
-              {value.value.link}
+
               <Link to={pageData.adminMiscProjects+'/'+value.id}>
                 <img src={value.value.url} alt={value.value.name} className="misc_image"/>
               </Link>

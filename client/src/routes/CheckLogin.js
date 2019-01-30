@@ -60,7 +60,7 @@ class CheckLogin extends Component {
       position: 'fixed',
       top: '0px',
       left: '0px',
-    }
+    };
 
     return (
       <div style={backgroundStyle}>

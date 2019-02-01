@@ -26,6 +26,7 @@ import sc1 from 'images/gaming/sc.jpg';
 import sc2 from 'images/gaming/sc1.png';
 import sc3 from 'images/gaming/sc3.png';
 
+import lol0 from 'images/gaming/lol0.png';
 import lol1 from 'images/gaming/lol1.png';
 import lol2 from 'images/gaming/lol2.png';
 import lol3 from 'images/gaming/lol3.png';
@@ -97,6 +98,7 @@ class GamingMisc extends React.Component {
       {id: sc3},
     ];
     const LOL_ARRAY = [
+      {id: lol0},
       {id: lol1},
       {id: lol2},
       {id: lol3},
@@ -247,13 +249,13 @@ class GamingMisc extends React.Component {
             title="LEAGUE OF LEGENDS"
             displayName="lol"
           >
-            Diamond League (top 0.5%) 2010 - 2018.
+            Diamond League (top 0.5%) 2010 - 2019.
             <div>
               <a href="http://na.op.gg/summoner/userName=shodyra"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="gaming_link">
-                Profile with diamond rating in Seasons 4, 5, 6, 7, and 8.
+                Profile with diamond rating in Seasons 4, 5, 6, 7, 8, and 9.
               </a>
             </div>
           </Update>

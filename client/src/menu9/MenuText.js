@@ -54,19 +54,20 @@ class MenuText extends React.Component{
 
     const menuValues = [
       {value: '00', text: 'Home', link: '/', pageName: 'home'},
-      {value: '01', text: 'TooCool', link: '/projects/tcfs', pageName: 'tcfs'},
-      {value: '02', text: 'Delilah', link: '/projects/delilah', pageName: 'delilah'},
-      {value: '03', text: 'Wildcat', link: '/projects/wildcat', pageName: 'wildcat'},
-      {value: '04', text: 'DrJart+', link: '/projects/drjart', pageName: 'drjart'},
-      {value: '05', text: 'Waterloo', link: '/projects/uwloo', pageName: 'uwloo'},
-      {value: '06', text: 'Harvard', link: '/projects/harvard', pageName: 'harvard'},
-      {value: '07', text: 'Discord', link: '/projects/discord', pageName: 'discord'},
-      {value: '08', text: 'LastFM', link: '/projects/lastfm', pageName: 'lastfm'},
-      {value: '09', text: 'Leida', link: '/projects/leida', pageName: 'leida'},
-      {value: '10', text: 'Smile', link: '/projects/wns', pageName: 'wns'},
-      {value: '11', text: 'Library', link: '/projects/library', pageName: 'library'},
-      {value: '12', text: 'Gaming', link: '/gaming', pageName: 'gaming'},
-      {value: '13', text: 'Misc', link: '/projects/misc', pageName: 'misc'},
+      {value: '01', text: 'Delilah', link: '/projects/delilah', pageName: 'delilah'},
+      {value: '02', text: 'Novaruu', link: '/projects/novaruu', pageName: 'novaruu'},
+      {value: '03', text: 'TooCool', link: '/projects/tcfs', pageName: 'tcfs'},
+      {value: '04', text: 'Wildcat', link: '/projects/wildcat', pageName: 'wildcat'},
+      {value: '05', text: 'DrJart+', link: '/projects/drjart', pageName: 'drjart'},
+      {value: '06', text: 'Waterloo', link: '/projects/uwloo', pageName: 'uwloo'},
+      {value: '07', text: 'Harvard', link: '/projects/harvard', pageName: 'harvard'},
+      {value: '08', text: 'Discord', link: '/projects/discord', pageName: 'discord'},
+      {value: '09', text: 'LastFM', link: '/projects/lastfm', pageName: 'lastfm'},
+      {value: '10', text: 'Leida', link: '/projects/leida', pageName: 'leida'},
+      {value: '11', text: 'Smile', link: '/projects/wns', pageName: 'wns'},
+      {value: '12', text: 'Library', link: '/projects/library', pageName: 'library'},
+      {value: '13', text: 'Gaming', link: '/gaming', pageName: 'gaming'},
+      {value: '14', text: 'Misc', link: '/projects/misc', pageName: 'misc'},
     ];
 
     return(

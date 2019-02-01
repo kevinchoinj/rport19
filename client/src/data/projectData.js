@@ -68,10 +68,32 @@ import wnsmobile1 from 'images/wns/5.jpg';
 import wnsmobile2 from 'images/wns/6.jpg';
 import wnsmobile3 from 'images/wns/7.jpg';
 
+import novaruubanner from 'images/novaruu/banner.jpg';
+import novaruu1 from 'images/novaruu/1.png';
+import novaruu2 from 'images/novaruu/2.png';
+import novaruu3 from 'images/novaruu/3.png';
+import novaruumobile1 from 'images/novaruu/4.png';
+import novaruumobile2 from 'images/novaruu/5.png';
+import novaruumobile3 from 'images/novaruu/6.png';
+
 import harvardbanner from 'images/harvard/image1.png';
 import harvard1 from 'images/harvard/image2.png';
 
 export const projectData = {
+  novaruu: {
+    bannerImage: novaruubanner,
+    bannerTextOne: 'Novaruu',
+    bannerTextTwo: '2019',
+    bannerTextThree: 'Javascript React Node.js',
+    bannerTextFour: 'https://novaruu.com',
+    aboutText: 'Novaruu is a Twitch.tv streamer',
+    bodyImageOne: novaruu1,
+    bodyImageTwo: novaruu2,
+    bodyImageThree: novaruu3,
+    mobileImageOne: novaruumobile1,
+    mobileImageTwo: novaruumobile2,
+    mobileImageThree: novaruumobile3,
+  },
   delilah: {
     bannerImage: deliliahbanner,
     bannerTextOne: 'Delilah\'s 2nd Chance',

@@ -30,9 +30,7 @@ class BackgroundImageDisplay extends React.Component{
     );
 
     return(
-      <div
-        onClick = {()=>this.toggleMenu(pathName)}
-      >
+      <div onClick = {()=>this.toggleMenu(pathName)}>
         <div className={backgroundClassName} style={{backgroundImage: 'url('+backgroundName+')'}}/>
       </div>
     );
@@ -41,7 +39,7 @@ class BackgroundImageDisplay extends React.Component{
 
 export default connect(
   (state) => ({
-    menuDisplay:state.menu.menuDisplay,
+    menuDisplay: state.menu.menuDisplay,
   }),
   dispatch => ({
     menuActions: bindActionCreators(menuActions, dispatch),

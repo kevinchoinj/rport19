@@ -10,6 +10,8 @@ import banner16 from 'images/uwloo/banner.jpg';
 import banner17 from 'images/wildcat/banner.jpg';
 import banner18 from 'images/wns/banner.jpg';
 import banner19 from 'images/delilahs/banner.jpg';
+import banner20 from 'images/novaruu/banner.jpg';
+
 import {connect} from 'react-redux';
 import * as menuActions from 'actions/menu';
 import {bindActionCreators} from 'redux';
@@ -26,6 +28,7 @@ const preloadImages = [
   {imageFile: banner17, altText:''},
   {imageFile: banner18, altText:''},
   {imageFile: banner19, altText:''},
+  {imageFile: banner20, altText:''},
 ];
 
 class Preload extends React.Component {

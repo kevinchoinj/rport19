@@ -20,6 +20,7 @@ import gaming from 'images/chess.jpg';
 import miscbanner from 'images/heroku/herokubanner.png';
 import delilah from 'images/delilahs/banner.jpg';
 import harvard from 'images/harvard/image1.png';
+import novaruu from 'images/novaruu/banner.jpg';
 
 import MenuText from 'menu9/MenuText';
 import TopRightDisplay from 'menu9/TopRightDisplay';
@@ -131,6 +132,7 @@ class MenuPanel extends React.Component{
     );
     const backgroundValues = [
       {pathName: '/', isActive: hoverOption==='home', backgroundName: home},
+      {pathName: '/projects/novaruu', isActive: hoverOption==='novaruu', backgroundName: novaruu},
       {pathName: '/projects/uwloo', isActive: hoverOption==='uwloo', backgroundName: uwloo},
       {pathName: '/projects/tcfs', isActive: hoverOption==='tcfs', backgroundName: tcfs},
       {pathName: '/projects/wildcat', isActive: hoverOption==='wildcat', backgroundName: wildcat},

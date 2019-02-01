@@ -153,6 +153,9 @@
 .nine_menu_panel__links--display .nine_menu_panel__container:nth-child(14) {
   animation-delay: .8s
 }
+.nine_menu_panel__links--display .nine_menu_panel__container:nth-child(15) {
+  animation-delay: .9s
+}
 
 .nine_menu_panel__link {
   width: 100%;

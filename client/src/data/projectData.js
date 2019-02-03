@@ -53,12 +53,12 @@ import tcfsmobile2 from 'images/tcfs/6.jpg';
 import tcfsmobile3 from 'images/tcfs/7.jpg';
 
 import wildcatbanner from 'images/wildcat/banner.jpg';
-import wildcat1 from 'images/wildcat/2.jpg';
-import wildcat2 from 'images/wildcat/1.jpg';
-import wildcat3 from 'images/wildcat/3.jpg';
-import wildcatmobile1 from 'images/wildcat/5.jpg';
-import wildcatmobile2 from 'images/wildcat/6.jpg';
-import wildcatmobile3 from 'images/wildcat/7.jpg';
+import wildcat1 from 'images/wildcat/1.jpg';
+import wildcat2 from 'images/wildcat/2.png';
+import wildcat3 from 'images/wildcat/3.png';
+import wildcatmobile1 from 'images/wildcat/5.png';
+import wildcatmobile2 from 'images/wildcat/6.png';
+import wildcatmobile3 from 'images/wildcat/7.png';
 
 import wnsbanner from 'images/wns/banner.jpg';
 import wns1 from 'images/wns/1.jpg';

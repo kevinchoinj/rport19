@@ -7,6 +7,7 @@ import Update from 'components/Update';
 import Scrollbar from 'smooth-scrollbar';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
+import * as menuActions from 'actions/menu';
 import * as scrollActions from 'actions/scroll';
 
 import GamingCarousel from 'components/LightboxGallery';
@@ -65,6 +66,7 @@ class GamingMisc extends React.Component {
   }
 
   componentDidMount() {
+    this.props.menuActions.toggleMenu(false);
     this.focusDiv();
     var myDiv = document.getElementById('main_app');
     myDiv.scrollTop = 0;
@@ -355,6 +357,7 @@ export default connect(
   () => ({
   }),
   dispatch => ({
+    menuActions: bindActionCreators(menuActions, dispatch),
     scrollActions: bindActionCreators(scrollActions, dispatch),
   }),
 )(GamingMisc);

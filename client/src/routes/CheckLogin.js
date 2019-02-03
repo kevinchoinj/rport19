@@ -30,7 +30,7 @@ const LoginDisplay = ({loggedIn, login, email,}) => {
           </div>
         </div>
         <Link
-          to={pageData.homeLink}
+          to={pageData.home}
           className="admin_login__return"
         >
           Return to Site

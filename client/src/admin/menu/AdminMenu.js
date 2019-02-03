@@ -36,7 +36,7 @@ class AdminMenu extends React.Component {
           Log Out
         </div>
         <div>
-          <Link to={pageData.homeLink} className = "admin_nav_link">
+          <Link to={pageData.home} className = "admin_nav_link">
             Back to site
           </Link>
         </div>

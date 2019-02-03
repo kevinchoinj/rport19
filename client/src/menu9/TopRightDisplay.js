@@ -3,6 +3,8 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as menuActions from 'actions/menu';
 import {pageData} from 'data/pageData';
+import FontAwesome from 'react-fontawesome';
+import {Link} from 'react-router-dom';
 
 class TopRightDisplay extends React.Component{
   setSection = (value) => {
@@ -23,13 +25,38 @@ class TopRightDisplay extends React.Component{
           {pageData.emailAddress}
         </div>
         <div className="contact_link nine_menu_top_right__line">
-          <a
-            href={pageData.githubLink}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-          GitHub
-          </a>
+
+          <div className="contact_icon">
+            <a
+              href={pageData.githubLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FontAwesome name="github"/>
+            </a>
+          </div>
+
+          <div className="contact_icon">
+            <a
+              href={pageData.musicLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FontAwesome name="music"/>
+            </a>
+          </div>
+
+          <div className="contact_icon">
+            <Link to={pageData.gaming}>
+              <FontAwesome name="gamepad"/>
+            </Link>
+          </div>
+
+          <div className="contact_icon">
+            <a href={'mailto:'+pageData.emailAddress}>
+              <FontAwesome name="envelope"/>
+            </a>
+          </div>
         </div>
       </div>
     );

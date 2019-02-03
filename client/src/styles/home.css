@@ -23,9 +23,6 @@
   position: absolute;
   top: 25px;
   width: 100%;
-  -webkit-transition: .8s ease-out;
-  -moz-transition: .8s ease-out;
-  -o-transition: .8s ease-out;
   transition:.8s ease-out;
 }
 .logo_inner{
@@ -41,9 +38,6 @@
   letter-spacing: 3px;
   color: #fff;
   font-family:'Open Sans', Helvetica;
-  -webkit-transition: .4s ease-out;
-  -moz-transition: .4s ease-out;
-  -o-transition: .4s ease-out;
   transition:.4s ease-out;
 }
 .logo_last {
@@ -55,29 +49,30 @@
 .contact{
   position: fixed;
   bottom:25px;
-  width: 100%;
-  -webkit-transition: .8s ease-out;
-  -moz-transition: .8s ease-out;
-  -o-transition: .8s ease-out;
-  transition:.8s ease-out;
-  height:  3em;
-}
-.contact_inner{
-  background: transparent;
-  height:  3em;
-  position: absolute;
   left: 25px;
 }
-.contact_link{
-  text-decoration: none;
+.contact_inner{
+  left: 25px;
+  display: flex;
+  flex-direction: column;
   font-size: 14px;
-  line-height: 130%;
+}
+.contact_link {
+  display: flex;
+
+  font-size: 36px;
+}
+.contact_inner a {
+  text-decoration: none;
   letter-spacing: 1px;
   color: #000;
   font-family:'Open Sans', Helvetica, sans-serif;
-  -webkit-transition: .4s ease-out;
-  -moz-transition: .4s ease-out;
-  -o-transition: .4s ease-out;
   transition:.4s ease-out;
-
+}
+.contact_icon {
+  margin: 0px 6px;
+  box-sizing: border-box;
+}
+.contact_inner a:hover {
+  color: #666;
 }

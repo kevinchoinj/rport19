@@ -59,6 +59,7 @@ import wildcat3 from 'images/wildcat/3.png';
 import wildcatmobile1 from 'images/wildcat/5.png';
 import wildcatmobile2 from 'images/wildcat/6.png';
 import wildcatmobile3 from 'images/wildcat/7.png';
+import wildcatvideo from 'images/wildcat/video.mp4';
 
 import wnsbanner from 'images/wns/banner.jpg';
 import wns1 from 'images/wns/1.jpg';
@@ -75,6 +76,7 @@ import novaruu3 from 'images/novaruu/3.png';
 import novaruumobile1 from 'images/novaruu/4.png';
 import novaruumobile2 from 'images/novaruu/5.png';
 import novaruumobile3 from 'images/novaruu/6.png';
+import novaruuvideo from 'images/novaruu/video.mp4';
 
 import harvardbanner from 'images/harvard/image1.png';
 import harvard1 from 'images/harvard/image2.png';
@@ -87,6 +89,7 @@ export const projectData = {
     bannerTextThree: 'Javascript React Node.js',
     bannerTextFour: 'https://novaruu.com',
     aboutText: 'Novaruu is a Twitch.tv streamer',
+    video: novaruuvideo,
     bodyImageOne: novaruu1,
     bodyImageTwo: novaruu2,
     bodyImageThree: novaruu3,
@@ -224,6 +227,7 @@ export const projectData = {
     bannerTextThree: 'Javascript React',
     bannerTextFour: 'https://www.ashleywildcat.com/',
     aboutText: 'Ashley Wildcat is a session wrestler and model. She is a member of Ring Card Girls, Fitness Models international, and USWO Wrestling. She has worked with Ladies of Wrestling. Pro Wrestling Chicago, and ESport Fitness Batavia. She worked with Eternal Elegance and appeared in BeautyLook Magazine.',
+    video: wildcatvideo,
     bodyImageOne: wildcat1,
     bodyImageTwo: wildcat2,
     bodyImageThree: wildcat3,

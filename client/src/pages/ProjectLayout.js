@@ -11,6 +11,7 @@ import {connect} from 'react-redux';
 import * as scrollActions from 'actions/scroll';
 
 import MobileImages from 'components/MobileImages';
+import ProjectVideo from 'components/ProjectVideo';
 
 const MobileImageView = ({ projectMobileVisible, pageValues }) => {
   if (pageValues.mobileImageOne &&
@@ -139,14 +140,24 @@ class ProjectLayout extends React.Component {
             </div>
           }
 
+          {pageValues.bodyImageOne && pageValues.video ?
+            <ProjectVideo
+              backgroundImage = {pageValues.bodyImageOne}
+              backgroundVideo = {pageValues.video}
+            />
+            :null
+          }
+
           <div className="full_width" id="project_2">
-            <LoadIn  isVisible={this.state.project2Visible}>
-              <img
-                src={pageValues.bodyImageOne}
-                className="project_fillimage"
-                alt=""
-              />
-            </LoadIn>
+            {!pageValues.video && pageValues.bodyImageOne ?
+              <LoadIn isVisible={this.state.project2Visible}>
+                <img
+                  src={pageValues.bodyImageOne}
+                  className="project_fillimage"
+                  alt=""
+                />
+              </LoadIn>
+              :null}
           </div>
 
           <div className="full_width" id="project_3">

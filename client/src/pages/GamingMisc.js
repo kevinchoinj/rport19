@@ -57,7 +57,7 @@ import misc3 from 'images/gaming/misc3.jpg';
 import misc4 from 'images/gaming/misc4.jpg';
 import misc5 from 'images/gaming/misc5.png';
 import misc6 from 'images/gaming/misc6.png';
-import misc7 from 'images/gaming/misc7.png';
+import misc8 from 'images/gaming/misc8.png';
 
 class GamingMisc extends React.Component {
 
@@ -129,7 +129,7 @@ class GamingMisc extends React.Component {
       {id: neo3},
     ];
     const MISC_ARRAY = [
-      {id: misc7},
+      {id: misc8},
       {id: misc2},
       {id: misc4},
       {id: misc1},
@@ -340,7 +340,7 @@ class GamingMisc extends React.Component {
             MTG Arena - Semi-infinite in MTG Arena draft.
             Generated about 400 booster packs (~$400) over the course of a weekend with a starting base of $50.
             <br/>
-            MTG Arena - Mythic Rank shortly after release of ranked.
+            MTG Arena - Mythic Constructed/Limited; Rank 31st globally for Limited with ~80+% winrate.
           </Update>
           <GamingCarousel
             carouselId = "#carousel_9"

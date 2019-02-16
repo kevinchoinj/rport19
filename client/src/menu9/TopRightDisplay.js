@@ -12,19 +12,19 @@ class TopRightDisplay extends React.Component{
   }
   render(){
     return(
-      <div className="nine_menu_top_right">
-        <div className="nine_menu_top_right__title">
-          <div className="nine_menu_top_right__first">K E V I N</div>
+      <div className="menu_top_right">
+        <div className="menu_top_right__title">
+          <div className="menu_top_right__first">K E V I N</div>
           <div>&nbsp;</div>
-          <div className="nine_menu_top_right__last">C H O I</div>
+          <div className="menu_top_right__last">C H O I</div>
         </div>
-        <div className="nine_menu_top_right__line">
+        <div className="menu_top_right__line">
           B.Sc Computer Science - Rensselaer Polytechnic Institute (RPI)
         </div>
-        <div className="nine_menu_top_right__line">
+        <div className="menu_top_right__line">
           {pageData.emailAddress}
         </div>
-        <div className="contact_link nine_menu_top_right__line">
+        <div className="contact_link menu_top_right__line">
 
           <div className="contact_icon">
             <a

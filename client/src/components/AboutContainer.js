@@ -1,5 +1,5 @@
 import React from 'react';
-import LoadIn from 'components/LoadIn';
+import LoadIn from 'components/animations/LoadIn';
 
 export default class About extends React.Component {
   render() {

@@ -3,7 +3,7 @@ import React from 'react';
 import 'App.css';
 import 'styles/home.css';
 import 'styles/projects.css';
-import 'styles/menunine.css';
+import 'styles/menu.css';
 import 'styles/gaming.css';
 import 'styles/preload.css';
 import 'styles/animations.css';

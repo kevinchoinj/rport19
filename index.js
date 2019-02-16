@@ -7,6 +7,7 @@ const cors = require('cors');
 const NodeCouchDb = require('node-couchdb');
 const AWS = require('aws-sdk');
 const bluebird = require('bluebird');
+const compression = require('compression');
 
 let couchUsername;
 let couchPassword;
@@ -61,6 +62,7 @@ const upload = multer({
 const app = express();
 
 app.use(cors());
+app.use(compression());
 
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, 'client/build')));

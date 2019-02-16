@@ -10,7 +10,7 @@ const LinkDivWrapper = ({hoverOption, pageName, children}) => {
   if (window.innerWidth >= 768) {
     return (
       <div
-        className = "nine_menu_panel__link_div"
+        className = "menu_panel__link_div"
         onMouseOver={()=>hoverOption(pageName)}
       >
         {children}
@@ -19,7 +19,7 @@ const LinkDivWrapper = ({hoverOption, pageName, children}) => {
   }
   else {
     return (
-      <div className = "nine_menu_panel__link_div">
+      <div className = "menu_panel__link_div">
         {children}
       </div>
     );
@@ -46,9 +46,9 @@ class MenuText extends React.Component{
     } = this.props;
 
     const menuClassName = classNames(
-      'nine_menu_panel__links',
+      'menu_panel__links',
       {
-        'nine_menu_panel__links--display': menuDisplay,
+        'menu_panel__links--display': menuDisplay,
       }
     );
 
@@ -73,19 +73,19 @@ class MenuText extends React.Component{
     return(
       <div className = {menuClassName} id="menu_scrollbar">
         {menuValues.map((value, index)=>(
-          <div className="nine_menu_panel__container" key={index}>
+          <div className="menu_panel__container" key={index}>
             <div
-              className = "nine_menu_panel__link"
+              className = "menu_panel__link"
               onClick = {()=>this.toggleMenu(value.link)}
             >
               <LinkDivWrapper
                 pageName={value.pageName}
                 hoverOption={this.hoverOption}
               >
-                <div className="nine_number">
+                <div className="number">
                   {value.value}
                 </div>
-                <div className="nine_menu_panel__link_title">
+                <div className="menu_panel__link_title">
                   {value.text}
                 </div>
               </LinkDivWrapper>

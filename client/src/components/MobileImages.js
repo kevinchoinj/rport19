@@ -1,5 +1,5 @@
 import React from 'react';
-import LoadIn from 'components/LoadIn';
+import OverlayBottom from 'components/animations/OverlayBottom';
 
 const CardObject = ({loadDelay, image, isVisible, selectedCard, setSelected, cardNumber}) => {
   const cardOffsets = [
@@ -12,7 +12,7 @@ const CardObject = ({loadDelay, image, isVisible, selectedCard, setSelected, car
   };
   return (
     <div className="mobile_images_column" onMouseEnter={()=>setSelected(cardNumber)}>
-      <LoadIn
+      <OverlayBottom
         isVisible = {isVisible}
         loadDelay={loadDelay}
       >
@@ -22,7 +22,7 @@ const CardObject = ({loadDelay, image, isVisible, selectedCard, setSelected, car
           className="project_fillimage"
           alt=''
         />
-      </LoadIn>
+      </OverlayBottom>
     </div>
   );
 };
@@ -70,7 +70,7 @@ export default class MobileImages extends React.Component {
             setSelected={this.setSelected}
             cardNumber = {1}
             isVisible={isVisible}
-            loadDelay=".2s"
+            loadDelay=".4s"
             image={image2}
           />
           <CardObject
@@ -78,7 +78,7 @@ export default class MobileImages extends React.Component {
             setSelected={this.setSelected}
             cardNumber = {2}
             isVisible={isVisible}
-            loadDelay=".4s"
+            loadDelay=".8s"
             image={image3}
           />
         </div>

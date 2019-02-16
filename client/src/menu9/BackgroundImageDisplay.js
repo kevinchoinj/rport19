@@ -23,9 +23,9 @@ class BackgroundImageDisplay extends React.Component{
     }=this.props;
 
     const backgroundClassName = classNames(
-      'nine_menu_background',
+      'menu_background',
       {
-        'nine_menu_background--display': isActive && menuDisplay
+        'menu_background--display': isActive && menuDisplay
       }
     );
 

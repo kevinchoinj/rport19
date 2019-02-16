@@ -1,5 +1,5 @@
 import React from 'react';
-import LoadIn from 'components/LoadIn';
+import LoadIn from 'components/animations/LoadIn';
 
 const LABEL_ONE = 'TITLE';
 const LABEL_TWO = 'YEAR';

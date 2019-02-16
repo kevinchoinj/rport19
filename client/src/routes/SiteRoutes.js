@@ -10,7 +10,7 @@ import Home from 'pages/Home';
 import NotFound from 'pages/NotFound';
 import ProjectLayout from 'pages/ProjectLayout';
 
-import MenuWrap from 'menu9/MenuWrap';
+import MenuPanel from 'menu9/MenuPanel';
 import MenuButton from 'menu9/MenuButton';
 
 import {projectData} from 'data/projectData';
@@ -35,7 +35,7 @@ class SiteRoutes extends React.Component {
           <Route exact path={pageData.gaming} render={(props) => <GamingMisc {...props}/>}/>
           <Route component={NotFound} />
         </Switch>
-        <MenuWrap/>
+        <MenuPanel/>
         <MenuButton/>
       </div>
     );

@@ -71,7 +71,7 @@ import wnsmobile3 from 'images/wns/7.jpg';
 
 import novaruubanner from 'images/novaruu/banner.jpg';
 import novaruu1 from 'images/novaruu/1.png';
-import novaruu2 from 'images/novaruu/2.png';
+import novaruu2 from 'images/novaruu/2.jpg';
 import novaruu3 from 'images/novaruu/3.png';
 import novaruumobile1 from 'images/novaruu/4.png';
 import novaruumobile2 from 'images/novaruu/5.png';

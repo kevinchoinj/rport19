@@ -8,21 +8,19 @@ export default class Background extends React.Component{
     } = this.props;
 
     return(
-      <div className="full_width">
-        <video
-          playsInline
-          autoPlay
-          muted
-          loop
-          poster={backgroundImage}
-          className="project_video"
-        >
-          <source
-            src={backgroundVideo}
-            type="video/mp4"
-          />
-        </video>
-      </div>
+      <video
+        playsInline
+        autoPlay
+        muted
+        loop
+        poster={backgroundImage}
+        className="project_video"
+      >
+        <source
+          src={backgroundVideo}
+          type="video/mp4"
+        />
+      </video>
     );
   }
 }

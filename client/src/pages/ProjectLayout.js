@@ -4,13 +4,14 @@ import BannerContainer from 'components/BannerContainer';
 import AboutContainer from 'components/AboutContainer';
 
 import Scrollbar from 'smooth-scrollbar';
-import LoadIn from 'components/LoadIn';
+import LoadIn from 'components/animations/LoadIn';
+import OverlayBottom from 'components/animations/OverlayBottom';
 
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as scrollActions from 'actions/scroll';
 
-import MobileImages from 'components/MobileImages';
+import MobileImagesStatic from 'components/mobileimages/MobileImagesStatic';
 import ProjectVideo from 'components/ProjectVideo';
 
 const MobileImageView = ({ projectMobileVisible, pageValues }) => {
@@ -19,7 +20,7 @@ const MobileImageView = ({ projectMobileVisible, pageValues }) => {
       pageValues.mobileImageThree
   ) {
     return (
-      <MobileImages
+      <MobileImagesStatic
         isVisible = {projectMobileVisible}
         image1={pageValues.mobileImageOne}
         image2={pageValues.mobileImageTwo}
@@ -63,6 +64,7 @@ class ProjectLayout extends React.Component {
       this.props.scrollActions.checkScroll(offset.y);
     });
 
+
     let projectAbout = document.querySelector('#project_about');
     let project1 = document.querySelector('#project_1');
     let project2 = document.querySelector('#project_2');
@@ -80,6 +82,8 @@ class ProjectLayout extends React.Component {
         projectMobileVisible: scrollbar.isVisible(projectMobile),
       });
     }.bind(this));
+
+    this.scrollbar = scrollbar;
   }
 
   render() {
@@ -140,48 +144,63 @@ class ProjectLayout extends React.Component {
             </div>
           }
 
-          {pageValues.bodyImageOne && pageValues.video ?
-            <ProjectVideo
-              backgroundImage = {pageValues.bodyImageOne}
-              backgroundVideo = {pageValues.video}
-            />
-            :null
-          }
-
           <div className="full_width" id="project_2">
+            <OverlayBottom
+              isVisible={this.state.project2Visible}
+              loadDelay=".4s"
+            >
+              {pageValues.bodyImageOne && pageValues.video ?
+                <ProjectVideo
+                  backgroundImage = {pageValues.bodyImageOne}
+                  backgroundVideo = {pageValues.video}
+                />
+                :null
+              }
+            </OverlayBottom>
+
+
             {!pageValues.video && pageValues.bodyImageOne ?
-              <LoadIn isVisible={this.state.project2Visible}>
+              <OverlayBottom
+                isVisible={this.state.project2Visible}
+                loadDelay=".4s"
+              >
                 <img
                   src={pageValues.bodyImageOne}
                   className="project_fillimage"
                   alt=""
+                  onLoad={()=>this.scrollbar.update()}
                 />
-              </LoadIn>
+              </OverlayBottom>
               :null}
           </div>
 
           <div className="full_width" id="project_3">
-            <LoadIn isVisible={this.state.project3Visible}>
+            <OverlayBottom
+              isVisible={this.state.project3Visible}
+              loadDelay=".4s"
+            >
               <img
                 src={pageValues.bodyImageTwo}
                 className="project_fillimage"
                 alt=""
+                onLoad={()=>this.scrollbar.update()}
               />
-            </LoadIn>
+            </OverlayBottom>
           </div>
 
           <div className="full_width" id="project_4">
-            <LoadIn  isVisible={this.state.project4Visible}>
+            <OverlayBottom
+              isVisible={this.state.project4Visible}
+              loadDelay=".4s"
+            >
               <img
                 src={pageValues.bodyImageThree}
                 className="project_fillimage"
                 alt=""
+                onLoad={()=>this.scrollbar.update()}
               />
-            </LoadIn>
+            </OverlayBottom>
           </div>
-
-
-
         </div>
 
         <div id="project_mobile">

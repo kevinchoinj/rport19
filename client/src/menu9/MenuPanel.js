@@ -67,8 +67,8 @@ const RightTextDisplay = ({hoverOption}) => {
 const RightTextAreaDisplay = ({title, year, body, noDetails}) => {
   if (noDetails){
     return (
-      <div className="nine_text_right">
-        <div className="nine_text_right__title">
+      <div className="text_right">
+        <div className="text_right__title">
           {title}
         </div>
       </div>
@@ -76,22 +76,22 @@ const RightTextAreaDisplay = ({title, year, body, noDetails}) => {
   }
   else {
     return (
-      <div className="nine_text_right">
-        <div className="nine_text_right__title">
+      <div className="text_right">
+        <div className="text_right__title">
           {title}
         </div>
-        <div className="nine_text_right__subcontainer">
-          <div className="nine_text_right__subtitle">
-            <div className="nine_text_right__label">
+        <div className="text_right__subcontainer">
+          <div className="text_right__subtitle">
+            <div className="text_right__label">
             Year:
             </div>
-            <div className="nine_text_right__subvalue">
+            <div className="text_right__subvalue">
               {year}
             </div>
           </div>
         </div>
 
-        <div className="nine_text_right__subtext">
+        <div className="text_right__subtext">
           {body}
         </div>
       </div>
@@ -111,23 +111,29 @@ class MenuPanel extends React.Component{
       hoverOption,
     } = this.props;
 
-    const backgroundClassName = classNames(
-      'nine_menu_background',
+    const wrapperName = classNames(
+      'menu_wrapper',
       {
-        'nine_menu_background--display':menuDisplay && hoverOption,
+        'menu_wrapper--display':menuDisplay
+      }
+    );
+    const backgroundClassName = classNames(
+      'menu_background',
+      {
+        'menu_background--display':menuDisplay && hoverOption,
       }
     );
 
     const menuClassNameLeft = classNames(
-      'nine_menu_panel__left',
+      'menu_panel__left',
       {
-        'nine_menu_panel__left--display':menuDisplay
+        'menu_panel__left--display':menuDisplay
       }
     );
     const menuClassNameRight = classNames(
-      'nine_menu_panel__right',
+      'menu_panel__right',
       {
-        'nine_menu_panel__right--display':menuDisplay
+        'menu_panel__right--display':menuDisplay
       }
     );
     const backgroundValues = [
@@ -148,7 +154,7 @@ class MenuPanel extends React.Component{
       {pathName: '/projects/misc', isActive: hoverOption==='misc', backgroundName: miscbanner},
     ];
     return(
-      <div>
+      <div className={wrapperName}>
         <div className={backgroundClassName}/>
         {backgroundValues.map((value, index)=>(
           <div key={index}>

@@ -9,27 +9,16 @@ const AWS = require('aws-sdk');
 const bluebird = require('bluebird');
 const compression = require('compression');
 
-let couchUsername;
-let couchPassword;
-let couchViewUrl;
-let dbName;
-
-let awsAccessKey;
-let awsSecretKey;
-let awsBucketName;
-
 let jsonData = require('./config.json');
-couchUsername = jsonData.couchUsername;
-couchPassword = jsonData.couchPassword;
+const couchUsername = jsonData.couchUsername;
+const couchPassword = jsonData.couchPassword;
 
-dbName = jsonData.dbName;
-couchViewUrl = jsonData.couchViewUrl;
+const dbName = jsonData.dbName;
+const couchViewUrl = jsonData.couchViewUrl;
 
-awsAccessKey = jsonData.awsAccessKey;
-awsSecretKey = jsonData.awsSecretKey;
-awsBucketName = jsonData.awsBucketName;
-authClientId = jsonData.authClientId;
-authDomain = jsonData.authDomain;
+const awsAccessKey = jsonData.awsAccessKey;
+const awsSecretKey = jsonData.awsSecretKey;
+const awsBucketName = jsonData.awsBucketName;
 
 /*======================================
 =               AWS S3                =
@@ -153,7 +142,7 @@ app.post('/images/post', upload.single('awsAction'), (req, res) => {
     var region = this.request.httpRequest.region;
     res.send({
       awsKey: params.Key,
-      url: 'https://s3-' + region + '.amazonaws.com/' + params.Bucket + '/' + params.Key
+      url: `https://s3-${region}.amazonaws.com/${params.Bucket}/${params.Key}`
     });
   });
 });
@@ -188,7 +177,7 @@ app.post('/images/delete', urlencodedParser, (req, res) => {
 // The "catchall" handler: for any request that doesn't
 // match one above, send back React's index.html file.
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname+'/client/build/index.html'));
+  res.sendFile(path.join(`${__dirname}/client/build/index.html`));
 });
 const port = process.env.PORT || 5000;
 

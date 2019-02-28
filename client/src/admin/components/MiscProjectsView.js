@@ -29,7 +29,7 @@ class DatabaseList extends Component {
                 {value.value.link}
               </div>
 
-              <Link to={pageData.adminMiscProjects+'/'+value.id}>
+              <Link to={`${pageData.adminMiscProjects}/${value.id}`}>
                 <img src={value.value.url} alt={value.value.name} className="misc_image"/>
               </Link>
               <div

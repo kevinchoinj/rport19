@@ -7,7 +7,7 @@ export default class Background extends React.Component{
   render(){
 
     const backgroundVideo={
-      background: 'url('+backgroundImage+') no-repeat',
+      background: `url(${backgroundImage}) no-repeat`,
     };
 
     return(

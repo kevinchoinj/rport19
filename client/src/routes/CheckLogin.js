@@ -53,7 +53,7 @@ class CheckLogin extends Component {
     }=this.props;
 
     const backgroundStyle = {
-      backgroundImage: 'url('+backgroundImage+')',
+      backgroundImage: `url(${backgroundImage})`,
       backgroundSize: 'cover',
       width: '100vw',
       height: '100vh',

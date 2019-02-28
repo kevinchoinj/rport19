@@ -53,7 +53,7 @@ class TopRightDisplay extends React.Component{
           </div>
 
           <div className="contact_icon">
-            <a href={'mailto:'+pageData.emailAddress}>
+            <a href={`mailto:${pageData.emailAddress}`}>
               <FontAwesome name="envelope"/>
             </a>
           </div>

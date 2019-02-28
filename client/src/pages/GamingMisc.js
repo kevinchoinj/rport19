@@ -16,6 +16,10 @@ import wow1 from 'images/gaming/wow1.png';
 import wow2 from 'images/gaming/wow2.png';
 import wow3 from 'images/gaming/wow3.png';
 import wow4 from 'images/gaming/wow4.png';
+import wow5 from 'images/gaming/wow5.png';
+import wow6 from 'images/gaming/wow6.png';
+import wow7 from 'images/gaming/wow7.png';
+import wow0 from 'images/gaming/wow0.png';
 
 import hs1 from 'images/gaming/hs5.png';
 import hs2 from 'images/gaming/hs7.png';
@@ -82,10 +86,14 @@ class GamingMisc extends React.Component {
   render() {
 
     const WOW_ARRAY = [
+      {id: wow0},
       {id: wow1},
       {id: wow2},
       {id: wow3},
       {id: wow4},
+      {id: wow5},
+      {id: wow6},
+      {id: wow7},
     ];
     const HS_ARRAY = [
       {id: hs1},
@@ -191,7 +199,46 @@ class GamingMisc extends React.Component {
                 Image of rank 1 on a different battlegroup with 197 wins - 34 losses
               </a>
             </div>
-
+            <div>
+              <a href="https://web.archive.org/web/20090609065129/http://www.arenajunkies.com:80/rankings/3v3/us"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="gaming_link">
+                Archive 80th place 3v3 team Globally June 2009
+              </a>
+            </div>
+            <div>
+              <a href="http://web.archive.org/web/20100416021904/http://www.arenajunkies.com:80/team/2v2/US/Auchindoun/LIGHTS_PVP/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="gaming_link">
+                Archive 99th place 2v2 team Globally April 2010
+              </a>
+            </div>
+            <div>
+              <a href="http://web.archive.org/web/20100527125254/http://www.arenajunkies.com:80/team/3v3/US/Auchindoun/L_S_D/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="gaming_link">
+                Archive 108th place 3v3 team Globally May 2010
+              </a>
+            </div>
+            <div>
+              <a href="https://web.archive.org/web/20100314071257/http://www.arenajunkies.com/rankings/player/US/Shaman"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="gaming_link">
+                Archive 21st place Shaman Globally March 2010
+              </a>
+            </div>
+            <div>
+              <a href="http://web.archive.org/web/20090618115850/http://www.arenajunkies.com/team/5v5/US/Mug'thol/Scallywags"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="gaming_link">
+                Archive 5th place 5v5 Team Globally June 2009
+              </a>
+            </div>
           </Update>
 
           <GamingCarousel

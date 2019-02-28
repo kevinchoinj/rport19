@@ -8,7 +8,7 @@ const CardObject = ({loadDelay, image, isVisible, selectedCard, setSelected, car
     {0: '-4px', 1: '0px', 2: '4px'},
   ];
   const offsetStyle = {
-    transform: 'translateY('+cardOffsets[cardNumber][selectedCard]+')',
+    transform: `translateY(${cardOffsets[cardNumber][selectedCard]})`,
   };
   return (
     <div className="mobile_images_column" onMouseEnter={()=>setSelected(cardNumber)}>

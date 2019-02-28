@@ -32,7 +32,7 @@ class RoutesAdmin extends Component {
           <Switch>
             <Route exact path={pageData.adminHome} render={(props)=> <Admin {...props} />}/>
             <Route exact path={pageData.adminMiscProjects} render={(props)=><AdminMiscProjects {...props} />}/>
-            <Route exact path={pageData.adminMiscProjects+'/:id'} render={(props)=><AdminMiscProjectsEdit {...props} />}/>
+            <Route exact path={`${pageData.adminMiscProjects}/:id`} render={(props)=><AdminMiscProjectsEdit {...props} />}/>
           </Switch>
         </div>
 

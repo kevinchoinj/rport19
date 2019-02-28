@@ -28,7 +28,7 @@ class SiteRoutes extends React.Component {
           {
             Object.keys(projectData).map((key, index) => {
               return (
-                <Route exact path={pageData.projects+'/'+key} render={(props)=><ProjectLayout pageValues={projectData[key]} {...props} key={index}/>}/>
+                <Route exact path={`${pageData.projects}/${key}`} render={(props)=><ProjectLayout pageValues={projectData[key]} {...props} key={index}/>}/>
               );
             })
           }

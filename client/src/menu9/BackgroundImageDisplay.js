@@ -31,7 +31,7 @@ class BackgroundImageDisplay extends React.Component{
 
     return(
       <div onClick = {()=>this.toggleMenu(pathName)}>
-        <div className={backgroundClassName} style={{backgroundImage: 'url('+backgroundName+')'}}/>
+        <div className={backgroundClassName} style={{backgroundImage: `url(${backgroundName})`}}/>
       </div>
     );
   }

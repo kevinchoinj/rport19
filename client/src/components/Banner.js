@@ -10,7 +10,7 @@ class Banner extends React.Component {
     } = this.props;
 
     const projectBannerImage={
-      backgroundImage: 'url('+bgimage+')',
+      backgroundImage: `url(${bgimage})`,
       marginTop: bannerOffset,
       opacity: opacity,
     };
@@ -42,6 +42,6 @@ export default connect(
     return {
       bannerOffset,
       opacity,
-    }
+    };
   },
 )(Banner);

@@ -6,7 +6,6 @@ import * as scrollActions from 'actions/scroll';
 import Scrollbar from 'smooth-scrollbar';
 
 import GetMiscProjects from 'components/services/GetMiscProjects';
-import Bannerimage from 'images/heroku/herokubanner.png';
 import BannerContainer from 'components/BannerContainer';
 
 class ProjectMisc extends React.Component {
@@ -38,7 +37,7 @@ class ProjectMisc extends React.Component {
       <div className="project_wrapper" id="misc_body"  ref="theDiv" tabIndex="0">
         <GetMiscProjects/>
         <BannerContainer
-          bgimage={Bannerimage}
+          bgimage='/static/images/heroku/herokubanner.jpg'
           line1="Misc Projects"
         />
         <div className="project_body">

@@ -1,13 +1,10 @@
 import React from 'react';
-import backgroundImage from 'images/daytime.jpg';
-import backgroundMp4 from 'images/daytime.mp4';
-import backgroundWebm from 'images/daytime.webm';
 
 export default class Background extends React.Component{
   render(){
 
     const backgroundVideo={
-      background: `url(${backgroundImage}) no-repeat`,
+      background: 'url(/static/images/daytime.jpg) no-repeat',
     };
 
     return(
@@ -17,16 +14,16 @@ export default class Background extends React.Component{
           autoPlay
           muted
           loop
-          poster={backgroundImage}
+          poster='/static/images/daytime.jpg'
           className="home_background__video"
           style={backgroundVideo}
         >
           <source
-            src={backgroundWebm}
+            src='/static/images/daytime.webm'
             type="video/webm"
           />
           <source
-            src={backgroundMp4}
+            src='/static/images/daytime.mp4'
             type="video/mp4"
           />
         </video>

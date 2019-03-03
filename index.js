@@ -55,6 +55,7 @@ app.use(compression());
 
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, 'client/build')));
+app.use('/static', express.static('public'));
 
 app.use( bodyParser.json() );       // to support JSON-encoded bodies
 var urlencodedParser = bodyParser.urlencoded({extended: false});

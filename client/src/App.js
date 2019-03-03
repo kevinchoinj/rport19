@@ -14,9 +14,6 @@ import 'styles/admin.css';
 import SiteRoutes from 'routes/SiteRoutes';
 import CheckLogin from 'routes/CheckLogin';
 
-import Preload from 'components/Preload';
-import PageLoading from 'components/PageLoading';
-
 import {Switch, Route} from 'react-router-dom';
 
 class App extends React.Component {
@@ -27,8 +24,6 @@ class App extends React.Component {
           <Route path="/shodyra/admin" render={(props) => <CheckLogin {...props}/>}/>
           <Route path="/" render={(props) => <SiteRoutes {...props}/>}/>
         </Switch>
-        <Preload/>
-        <PageLoading/>
       </div>
     );
   }

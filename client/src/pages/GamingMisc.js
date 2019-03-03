@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import BannerContainer from 'components/BannerContainer';
-import bannerImage from 'images/chess.jpg';
 import Update from 'components/Update';
 import Scrollbar from 'smooth-scrollbar';
 import {bindActionCreators} from 'redux';
@@ -11,57 +10,6 @@ import * as menuActions from 'actions/menu';
 import * as scrollActions from 'actions/scroll';
 
 import GamingCarousel from 'components/LightboxGallery';
-
-import wow1 from 'images/gaming/wow1.png';
-import wow2 from 'images/gaming/wow2.png';
-import wow3 from 'images/gaming/wow3.png';
-import wow4 from 'images/gaming/wow4.png';
-import wow5 from 'images/gaming/wow5.png';
-import wow6 from 'images/gaming/wow6.png';
-import wow7 from 'images/gaming/wow7.png';
-import wow0 from 'images/gaming/wow0.png';
-
-import hs1 from 'images/gaming/hs5.png';
-import hs2 from 'images/gaming/hs7.png';
-import hs3 from 'images/gaming/hs3.png';
-import hs4 from 'images/gaming/hs6.png';
-import hs5 from 'images/gaming/hs4.png';
-
-import sc1 from 'images/gaming/sc.jpg';
-import sc2 from 'images/gaming/sc1.png';
-import sc3 from 'images/gaming/sc3.png';
-
-import lol0 from 'images/gaming/lol0.png';
-import lol1 from 'images/gaming/lol1.png';
-import lol2 from 'images/gaming/lol2.png';
-import lol3 from 'images/gaming/lol3.png';
-import lol4 from 'images/gaming/lol4.png';
-import lol5 from 'images/gaming/lol5.png';
-
-import ow1 from 'images/gaming/ow2.png';
-import ow2 from 'images/gaming/ow3.png';
-import ow3 from 'images/gaming/ow5.png';
-import ow4 from 'images/gaming/ow6.png';
-
-import diablo1 from 'images/gaming/diablo1.png';
-import diablo2 from 'images/gaming/diablo2.png';
-import diablo3 from 'images/gaming/diablo3.png';
-
-import pokemon1 from 'images/gaming/pokemon1.png';
-import pokemon2 from 'images/gaming/pokemon2.png';
-import pokemon3 from 'images/gaming/pokemon3.png';
-
-import neo1 from 'images/gaming/neo1.png';
-import neo2 from 'images/gaming/neo2.png';
-import neo3 from 'images/gaming/neo3.png';
-
-import misc1 from 'images/gaming/misc1.jpg';
-import misc2 from 'images/gaming/misc2.jpg';
-import misc3 from 'images/gaming/misc3.jpg';
-import misc4 from 'images/gaming/misc4.jpg';
-import misc5 from 'images/gaming/misc5.png';
-import misc6 from 'images/gaming/misc6.png';
-import misc8 from 'images/gaming/misc8.png';
 
 class GamingMisc extends React.Component {
 
@@ -86,70 +34,70 @@ class GamingMisc extends React.Component {
   render() {
 
     const WOW_ARRAY = [
-      {id: wow0},
-      {id: wow1},
-      {id: wow2},
-      {id: wow3},
-      {id: wow4},
-      {id: wow5},
-      {id: wow6},
-      {id: wow7},
+      {id: '/static/images/gaming/wow0.png'},
+      {id: '/static/images/gaming/wow1.png'},
+      {id: '/static/images/gaming/wow2.png'},
+      {id: '/static/images/gaming/wow3.png'},
+      {id: '/static/images/gaming/wow4.png'},
+      {id: '/static/images/gaming/wow5.png'},
+      {id: '/static/images/gaming/wow6.png'},
+      {id: '/static/images/gaming/wow7.png'},
     ];
     const HS_ARRAY = [
-      {id: hs1},
-      {id: hs2},
-      {id: hs3},
-      {id: hs4},
-      {id: hs5},
+      {id: '/static/images/gaming/hs5.png'},
+      {id: '/static/images/gaming/hs7.png'},
+      {id: '/static/images/gaming/hs3.png'},
+      {id: '/static/images/gaming/hs6.png'},
+      {id: '/static/images/gaming/hs4.png'},
     ];
     const SC_ARRAY = [
-      {id: sc1},
-      {id: sc2},
-      {id: sc3},
+      {id: '/static/images/gaming/sc.png'},
+      {id: '/static/images/gaming/sc1.png'},
+      {id: '/static/images/gaming/sc3.png'},
     ];
     const LOL_ARRAY = [
-      {id: lol0},
-      {id: lol1},
-      {id: lol2},
-      {id: lol3},
-      {id: lol4},
-      {id: lol5},
+      {id: '/static/images/gaming/lol0.png'},
+      {id: '/static/images/gaming/lol1.png'},
+      {id: '/static/images/gaming/lol2.png'},
+      {id: '/static/images/gaming/lol3.png'},
+      {id: '/static/images/gaming/lol4.png'},
+      {id: '/static/images/gaming/lol5.png'},
     ];
     const OW_ARRAY = [
-      {id: ow1},
-      {id: ow2},
-      {id: ow3},
-      {id: ow4},
+      {id: '/static/images/gaming/ow2.png'},
+      {id: '/static/images/gaming/ow3.png'},
+      {id: '/static/images/gaming/ow5.png'},
+      {id: '/static/images/gaming/ow6.png'},
     ];
     const D3_ARRAY = [
-      {id: diablo1},
-      {id: diablo2},
-      {id: diablo3},
+      {id: '/static/images/gaming/diablo1.png'},
+      {id: '/static/images/gaming/diablo2.png'},
+      {id: '/static/images/gaming/diablo3.png'},
     ];
     const POKEMON_ARRAY = [
-      {id: pokemon1},
-      {id: pokemon2},
-      {id: pokemon3},
+      {id: '/static/images/gaming/pokemon1.png'},
+      {id: '/static/images/gaming/pokemon2.png'},
+      {id: '/static/images/gaming/pokemon3.png'},
     ];
     const NEO_ARRAY = [
-      {id: neo1},
-      {id: neo2},
-      {id: neo3},
+      {id: '/static/images/gaming/neo1.png'},
+      {id: '/static/images/gaming/neo2.png'},
+      {id: '/static/images/gaming/neo3.png'},
     ];
     const MISC_ARRAY = [
-      {id: misc8},
-      {id: misc2},
-      {id: misc4},
-      {id: misc1},
-      {id: misc5},
-      {id: misc6},
-      {id: misc3},
+      {id: '/static/images/gaming/misc8.png'},
+      {id: '/static/images/gaming/misc2.jpg'},
+      {id: '/static/images/gaming/misc4.jpg'},
+      {id: '/static/images/gaming/misc1.jpg'},
+      {id: '/static/images/gaming/misc5.png'},
+      {id: '/static/images/gaming/misc6.png'},
+      {id: '/static/images/gaming/misc3.jpg'},
     ];
 
     return (
       <div className='project_wrapper' id="gaming_body" tabIndex="0" ref="theDiv">
         <BannerContainer
-          bgimage={bannerImage}
+          bgimage='/static/images/chess.jpg'
           line1="Misc Games"
         />
         <div className='project_body'>

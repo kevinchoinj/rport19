@@ -10,8 +10,6 @@ import AdminRoutes from 'routes/AdminRoutes';
 
 import {pageData} from 'data/pageData';
 
-import backgroundImage from 'images/admin/background.jpg';
-
 let json = require('config.json');
 let emailAddress= json.emailAddress;
 
@@ -53,7 +51,7 @@ class CheckLogin extends Component {
     }=this.props;
 
     const backgroundStyle = {
-      backgroundImage: `url(${backgroundImage})`,
+      backgroundImage: 'url(/static/images/admin/background.jpg)',
       backgroundSize: 'cover',
       width: '100vw',
       height: '100vh',

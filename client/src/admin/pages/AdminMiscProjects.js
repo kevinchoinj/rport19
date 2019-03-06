@@ -15,7 +15,7 @@ class AdminMiscProjects extends React.Component {
 
   render(){
     return (
-      <div>
+      <React.Fragment>
         <div className="admin_container">
           <div className="admin_title">
             Edit Gallery
@@ -25,7 +25,7 @@ class AdminMiscProjects extends React.Component {
           </div>
         </div>
         <MiscProjectsView/>
-      </div>
+      </React.Fragment>
     );
   }
 }

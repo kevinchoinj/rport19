@@ -12,11 +12,11 @@ class Home extends React.Component{
   }
   render(){
     return(
-      <div>
+      <React.Fragment>
         <Background/>
         <Logo/>
         <Contact/>
-      </div>
+      </React.Fragment>
     );
   }
 }

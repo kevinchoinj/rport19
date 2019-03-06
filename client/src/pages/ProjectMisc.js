@@ -42,7 +42,7 @@ class ProjectMisc extends React.Component {
         />
         <div className="project_body">
           <div className="misc_wrap">
-            {miscProjects.length > 2 ? miscProjects.map((value, key)=> (
+            {miscProjects.length > 2 && miscProjects.map((value, key)=> (
               <div className="misc_image__container" key={key}>
                 <div className="misc_title">
                   {value.value.name}
@@ -54,7 +54,7 @@ class ProjectMisc extends React.Component {
                   <img src={value.value.url} alt="" className="misc_image"/>
                 </a>
               </div>
-            )):null}
+            ))}
           </div>
         </div>
       </div>

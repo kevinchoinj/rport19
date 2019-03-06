@@ -21,14 +21,21 @@ class SiteRoutes extends React.Component {
 
     /* key prop rerenders component when it is the same component being used between routes */
     return (
-      <div>
+      <React.Fragment>
         <Switch>
           <Route exact path={pageData.home} render={(props) => <Home {...props}/>}/>
           <Route exact path={pageData.miscProjects} render={(props) => <ProjectMisc {...props}/>}/>
           {
             Object.keys(projectData).map((key, index) => {
               return (
-                <Route exact path={`${pageData.projects}/${key}`} render={(props)=><ProjectLayout pageValues={projectData[key]} {...props} key={index}/>}/>
+                <Route
+                  key={index}
+                  exact path={`${pageData.projects}/${key}`}
+                  render={(props)=>
+                    <ProjectLayout pageValues={projectData[key]}
+                      {...props}
+                    />
+                  }/>
               );
             })
           }
@@ -37,7 +44,7 @@ class SiteRoutes extends React.Component {
         </Switch>
         <MenuPanel/>
         <MenuButton/>
-      </div>
+      </React.Fragment>
     );
   }
 }

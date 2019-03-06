@@ -159,7 +159,7 @@ class ProjectLayout extends React.Component {
             </OverlayBottom>
 
 
-            {!pageValues.video && pageValues.bodyImageOne ?
+            {!pageValues.video && pageValues.bodyImageOne &&
               <OverlayBottom
                 isVisible={this.state.project2Visible}
                 loadDelay=".25s"
@@ -170,8 +170,7 @@ class ProjectLayout extends React.Component {
                   alt=""
                   onLoad={()=>this.scrollbar.update()}
                 />
-              </OverlayBottom>
-              :null}
+              </OverlayBottom>}
           </div>
 
           <div className="full_width" id="project_3">

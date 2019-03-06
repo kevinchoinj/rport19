@@ -11,7 +11,7 @@ const RenderField = ({
   placeholder,
   meta: { touched, error, warning }
 }) => (
-  <div>
+  <React.Fragment>
     <input {...input}
       placeholder={placeholder}
       type={type}
@@ -20,7 +20,7 @@ const RenderField = ({
     {touched &&
       ((error && <span className="form_error">{error}</span>) ||
         (warning && <span className="form_error">{warning}</span>))}
-  </div>
+  </React.Fragment>
 );
 
 

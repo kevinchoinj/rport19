@@ -20,7 +20,7 @@ class DatabaseList extends Component {
 
     return (
       <div className="admin_login_container">
-        {miscProjects.length > 2 ? miscProjects.map((value, key) => {
+        {miscProjects.length > 2 && miscProjects.map((value, key) => {
           return (
             <div className="misc_image__container" key={key}>
               <div className="misc_title">
@@ -41,7 +41,7 @@ class DatabaseList extends Component {
               <br/><br/>
             </div>
           );
-        }):null}
+        })}
 
       </div>
     );

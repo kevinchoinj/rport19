@@ -12,7 +12,7 @@ const RenderField = ({
   placeholder,
   meta: { touched, error, warning }
 }) => (
-  <div>
+  <React.Fragment>
     <input {...input}
       placeholder={placeholder}
       type={type}
@@ -21,7 +21,7 @@ const RenderField = ({
     {touched &&
       ((error && <span className="form_error">{error}</span>) ||
         (warning && <span className="form_error">{warning}</span>))}
-  </div>
+  </React.Fragment>
 );
 
 const renderDropzoneInput = (field, {nameValue}) => {
@@ -63,7 +63,6 @@ const renderDropzoneInput = (field, {nameValue}) => {
         field.meta.error &&
         <span className="error">{field.meta.error}</span>}
       <div>
-
         <button
           type="submit"
           className="admin_form__button"

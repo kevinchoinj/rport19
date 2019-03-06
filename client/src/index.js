@@ -11,9 +11,7 @@ const StoreInstance = Store();
 ReactDOM.render(
   <Provider store={StoreInstance}>
     <ConnectedRouter history={history}>
-      <div>
-        <App />
-      </div>
+      <App />
     </ConnectedRouter>
   </Provider>
   , document.getElementById('root'));

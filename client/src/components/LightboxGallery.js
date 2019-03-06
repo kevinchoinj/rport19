@@ -18,16 +18,14 @@ export default class Gallerycomp extends React.Component{
 
     if (imageArray.length >=2){
       return (
-        <div>
-          <Viewer
-            carouselId = {carouselId}
-            images={imageArray.map(({ caption, id }) => ({
-              src: makeUnsplashSrc(id),
-              thumbnail: makeUnsplashThumbnail(id),
-              caption,
-            }))
-            } />
-        </div>
+        <Viewer
+          carouselId = {carouselId}
+          images={imageArray.map(({ caption, id }) => ({
+            src: makeUnsplashSrc(id),
+            thumbnail: makeUnsplashThumbnail(id),
+            caption,
+          }))
+          }/>
       );
     }
     else return null;

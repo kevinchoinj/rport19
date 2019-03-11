@@ -1,0 +1,11 @@
+{
+  "couchUsername": "CouchDB Username",
+  "couchPassword": "CouchDB Password",
+
+  "couchViewUrl": "_design/COUCHDB_VIEW_NAME/_view/COUCHDB_VIEW_NAME?include_docs=true",
+  "dbName": "CouchDB database Name",
+
+  "awsBucketName" : "AWS Bucket Name",
+  "awsAccessKey": "AWS Access Key",
+  "awsSecretKey" : "AWS Secret Key"
+}

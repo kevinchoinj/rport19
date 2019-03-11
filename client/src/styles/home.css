@@ -5,6 +5,15 @@
   position: absolute;
   left: 0px;
 }
+.home_background:after {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  background-color: rgba(0,0,0,.5);
+}
 .home_background--hidden{
   transform: translateX(-100%);
 }
@@ -65,7 +74,7 @@
 .contact_inner a {
   text-decoration: none;
   letter-spacing: 1px;
-  color: #000;
+  color: #ddd;
   font-family:'Open Sans', Helvetica, sans-serif;
   transition:.4s ease-out;
 }

@@ -197,9 +197,9 @@
   position: fixed;
 
   top: 0px;
-  right: 10px;
-  height: 195px;
-  width: 114px;
+  right: 0px;
+  height: 150px;
+  width: 100px;
   cursor: pointer;
 
   mix-blend-mode:  difference;

@@ -1,10 +1,10 @@
 import React from 'react';
 
-export default class Background extends React.Component{
+export default class Background extends React.PureComponent{
   render(){
 
     const backgroundVideo={
-      background: 'url(/static/images/daytime.jpg) no-repeat',
+      background: 'url(/static/images/daytime.png) no-repeat',
     };
 
     return(
@@ -14,14 +14,10 @@ export default class Background extends React.Component{
           autoPlay
           muted
           loop
-          poster='/static/images/daytime.jpg'
+          poster='/static/images/daytime.png'
           className="home_background__video"
           style={backgroundVideo}
         >
-          <source
-            src='/static/images/daytime.webm'
-            type="video/webm"
-          />
           <source
             src='/static/images/daytime.mp4'
             type="video/mp4"

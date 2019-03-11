@@ -18,7 +18,6 @@ import {pageData} from 'data/pageData';
 
 class SiteRoutes extends React.Component {
   render() {
-
     /* key prop rerenders component when it is the same component being used between routes */
     return (
       <React.Fragment>

@@ -12,6 +12,6 @@ ReactDOM.render(
   <Provider store={StoreInstance}>
     <ConnectedRouter history={history}>
       <App />
-    </ConnectedRouter>
+    </ConnectedRouter>  
   </Provider>
   , document.getElementById('root'));

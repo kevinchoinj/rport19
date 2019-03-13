@@ -24,7 +24,7 @@
   .full_width {
     margin-left: 0px;
     width: 100vw;
-    margin-bottom: 5vh;
+    margin-bottom: 0px;
   }
 }
 
@@ -59,7 +59,7 @@
 .project_banner{
   height: 100vh;
   width: 100%;
-  background-color: #0c0c0d;
+  background-color: var(--black-color);
   overflow: hidden;
   top: 0px;
 }
@@ -83,7 +83,7 @@
 .project_banner_text{
   height: 270px;
   width: 100vw;
-  background-color: #0c0c0d;
+  background-color: var(--black-color);
   position: absolute;
   bottom: 0px;
   color: #fff;
@@ -152,7 +152,7 @@
 }
 
 .project_body{
-  background-color: #0c0c0d;
+  background-color: var(--black-color);
   width: 100vw;
   color: #eeeded;
   overflow: hidden;
@@ -182,6 +182,9 @@
 }
 
 @media screen and (max-width: 992px) {
+  .project_body {
+    padding-top: 0px;
+  }
   .project_banner_text {
     padding-top: 0px;
   }
@@ -210,7 +213,7 @@
   display: flex;
   flex-direction: row;
   padding: 100px 0px;
-  color: #000;
+  color: var(--black-color);
 }
 .about_title {
   position: relative;
@@ -234,8 +237,8 @@
 ======================================*/
 .update{
   width:100%;
-  background-color: #0c0c0d;
-  color: #fff;
+  background-color: var(--black-color);
+  color: #ccc;
   transition:.4s ease-in-out;
 
   font-size:16px;
@@ -246,6 +249,12 @@
   display: flex;
   flex-direction: column;
   padding: 100px 0px;
+}
+.update a {
+  color: #666;
+}
+.update a:hover {
+  color: #aaa;
 }
 .update_content {
   display: flex;
@@ -272,7 +281,7 @@
 
 .mobile_images__wrapper {
   bottom: 0px;
-  background-color: #0c0c0d;
+  background-color: var(--black-color);
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -383,7 +392,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #0c0c0d;
+  background-color: var(--black-color);
   position: absolute;
   transition-duration: .6s;
   transition-timing-function: ease-in;
@@ -496,7 +505,7 @@
   left: 0px;
   width: 100%;
   height: 100%;
-  background-color: #0c0c0d;
+  background-color: var(--black-color);
   transform: translateX(0px);
 }
 .load_image__container--display .load_image__mask:after {

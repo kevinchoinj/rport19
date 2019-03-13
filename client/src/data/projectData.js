@@ -7,7 +7,7 @@ export const projectData = {
     bannerTextFour: 'https://novaruu.com',
     aboutText: 'Novaruu is a Twitch.tv streamer',
     video: '/static/images/novaruu/video.mp4',
-    bodyImageOne: '/static/images/novaruu/1.png',
+    bodyImageOne: '/static/images/novaruu/1.jpg',
     bodyImageTwo: '/static/images/novaruu/2.jpg',
     bodyImageThree: '/static/images/novaruu/3.png',
     mobileImageOne: '/static/images/novaruu/4.png',

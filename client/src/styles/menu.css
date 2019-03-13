@@ -20,7 +20,6 @@
 .menu_panel__left{
   height: 100vh;
   width: 33vw;
-  min-width: 510px;
   position: fixed;
   pointer-events: none;
   background-color: var(--black-color);
@@ -151,7 +150,7 @@
   width: calc(33vw + 20px);
   transition: .2s ease-out;
   line-height: 120px;
-  font-family: 'Quicksand', Helvetica, sans-serif;
+  font-family: 'Raleway', Helvetica, sans-serif;
 }
 .menu_panel__link:hover,
 .menu_panel__link:focus{
@@ -185,9 +184,6 @@
 
   mix-blend-mode:  difference;
   will-change: opacity;
-  -webkit-transition: .25s ease-out;
-  -moz-transition: .25s ease-out;
-  -o-transition: .25s ease-out;
   transition: .25s ease-out;
   z-index: 10;
   display: flex;
@@ -344,10 +340,8 @@
   .menu_panel__links {
     width: 50vw;
   }
-
-
 }
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 768px) {
   .menu_panel__left {
     left: -100vw;
     width: 100vw;

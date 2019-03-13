@@ -147,7 +147,7 @@ class ProjectLayout extends React.Component {
           <div className="full_width" id="project_2">
             <OverlayBottom
               isVisible={this.state.project2Visible}
-              loadDelay=".25s"
+              loadDelay=".1s"
             >
               {pageValues.bodyImageOne && pageValues.video ?
                 <ProjectVideo
@@ -162,7 +162,7 @@ class ProjectLayout extends React.Component {
             {!pageValues.video && pageValues.bodyImageOne &&
               <OverlayBottom
                 isVisible={this.state.project2Visible}
-                loadDelay=".25s"
+                loadDelay=".1s"
               >
                 <img
                   src={pageValues.bodyImageOne}
@@ -176,7 +176,7 @@ class ProjectLayout extends React.Component {
           <div className="full_width" id="project_3">
             <OverlayBottom
               isVisible={this.state.project3Visible}
-              loadDelay=".25s"
+              loadDelay=".1s"
             >
               <img
                 src={pageValues.bodyImageTwo}
@@ -190,7 +190,7 @@ class ProjectLayout extends React.Component {
           <div className="full_width" id="project_4">
             <OverlayBottom
               isVisible={this.state.project4Visible}
-              loadDelay=".25s"
+              loadDelay=".1s"
             >
               <img
                 src={pageValues.bodyImageThree}

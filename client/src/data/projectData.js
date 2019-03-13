@@ -104,7 +104,7 @@ export const projectData = {
     bodyImageTwo: '/static/images/leida/2.jpg',
     bodyImageThree: '/static/images/leida/3.jpg',
     mobileImageOne: '/static/images/leida/5.jpg',
-    mobileImageTwo: '/static/images/lastfm/6.jpg',
+    mobileImageTwo: '/static/images/leida/6.jpg',
     mobileImageThree: '/static/images/leida/7.jpg',
   },
   library: {

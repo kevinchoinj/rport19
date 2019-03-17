@@ -1,4 +1,19 @@
 export const projectData = {
+  kaitlyn: {
+    bannerImage: '/static/images/kaitlyn/banner.jpg',
+    bannerTextOne: 'Kaitlyn',
+    bannerTextTwo: '2019',
+    bannerTextThree: 'Javascript React Node.js',
+    bannerTextFour: '',
+    aboutText: 'Kaitlyn is a Twitch.tv streamer',
+    video: '/static/images/kaitlyn/video.mp4',
+    bodyImageOne: '/static/images/kaitlyn/1.jpg',
+    bodyImageTwo: '/static/images/kaitlyn/2.jpg',
+    bodyImageThree: '/static/images/kaitlyn/3.png',
+    mobileImageOne: '/static/images/kaitlyn/4.png',
+    mobileImageTwo: '/static/images/kaitlyn/5.png',
+    mobileImageThree: '/static/images/kaitlyn/6.png',
+  },
   novaruu: {
     bannerImage: '/static/images/novaruu/banner.jpg',
     bannerTextOne: 'Novaruu',
@@ -9,7 +24,7 @@ export const projectData = {
     video: '/static/images/novaruu/video.mp4',
     bodyImageOne: '/static/images/novaruu/1.jpg',
     bodyImageTwo: '/static/images/novaruu/2.jpg',
-    bodyImageThree: '/static/images/novaruu/3.png',
+    bodyImageThree: '/static/images/novaruu/3.jpg',
     mobileImageOne: '/static/images/novaruu/4.png',
     mobileImageTwo: '/static/images/novaruu/5.png',
     mobileImageThree: '/static/images/novaruu/6.png',

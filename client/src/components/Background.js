@@ -4,7 +4,7 @@ export default class Background extends React.PureComponent{
   render(){
 
     const backgroundVideo={
-      background: 'url(/static/images/daytime.png) no-repeat',
+      background: 'url(/static/images/daytimelight.jpg) no-repeat',
     };
 
     return(
@@ -14,7 +14,7 @@ export default class Background extends React.PureComponent{
           autoPlay
           muted
           loop
-          poster='/static/images/daytime.png'
+          poster='/static/images/daytimelight.jpg'
           className="home_background__video"
           style={backgroundVideo}
         >

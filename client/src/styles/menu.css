@@ -84,7 +84,6 @@
   overflow: auto;
   height: 100vh;
   width: 33vw;
-  min-width: 530px;
   overflow-x: hidden;
 }
 .menu_panel__links--display{
@@ -146,8 +145,6 @@
   text-decoration: none;
   color: #616161;
   font-size: 66px;
-  min-width: 530px;
-  width: calc(33vw + 20px);
   transition: .2s ease-out;
   line-height: 120px;
   font-family: 'Raleway', Helvetica, sans-serif;
@@ -161,6 +158,7 @@
   display: flex;
   padding-left: 28px;
   padding-right: 28px;
+  box-sizing: border-box;
 }
 .menu_panel__link_div:hover .menu_panel__link{
   color: #fff;
@@ -329,9 +327,6 @@
 @media screen and (max-width: 1590px) {
   .menu_panel__left {
     left: -50vw;
-    width: 50vw;
-  }
-  .menu_panel__link {
     width: 50vw;
   }
   .menu_panel__left--display {

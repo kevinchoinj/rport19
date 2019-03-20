@@ -79,18 +79,20 @@ class GamingMisc extends React.Component {
       {id: '/static/images/gaming/pokemon2.png'},
       {id: '/static/images/gaming/pokemon3.png'},
     ];
+    const MTG_ARRAY = [
+      {id: '/static/images/gaming/misc8.png'},
+      {id: '/static/images/gaming/misc7.png'},
+      {id: '/static/images/gaming/misc5.png'},
+    ];
     const NEO_ARRAY = [
       {id: '/static/images/gaming/neo1.png'},
       {id: '/static/images/gaming/neo2.png'},
       {id: '/static/images/gaming/neo3.png'},
     ];
     const MISC_ARRAY = [
-      {id: '/static/images/gaming/misc8.png'},
       {id: '/static/images/gaming/misc2.jpg'},
       {id: '/static/images/gaming/misc4.jpg'},
       {id: '/static/images/gaming/misc1.jpg'},
-      {id: '/static/images/gaming/misc5.png'},
-      {id: '/static/images/gaming/misc6.png'},
       {id: '/static/images/gaming/misc3.jpg'},
     ];
 
@@ -311,6 +313,20 @@ class GamingMisc extends React.Component {
           />
 
           <Update
+            title="MAGIC: THE GATHERING"
+          >
+            Paper MTG - Experience in multiple formats including Limited, Standard, Modern, and Legacy from 2010 to 2014. Generated ~$25,000 in prize earnings and card speculation/trading/selling.
+            <br/>
+            MTG Arena - Rank 31st globally for Limited 2019 . Mythic Constructed/Limited.
+            <br/>
+
+          </Update>
+          <GamingCarousel
+            carouselId = "#carousel_8"
+            imageArray = {MTG_ARRAY}
+          />
+
+          <Update
             title="NEOPETS"
           >
             A children's game site in the early 2000s, which boasted approximately 35 million unique users and 11 million unique IP addresses per month in 2005.
@@ -329,13 +345,6 @@ class GamingMisc extends React.Component {
             WoW - Gladiator (2400+) rating after an eight year break from the game
             <br/>
             Path of Exile - Multiple level ~90 characters
-            <br/>
-            MTG - Experience in multiple formats including Limited, Standard, Modern, and Legacy from 2010 to 2014
-            <br/>
-            MTG Arena - Semi-infinite in MTG Arena draft.
-            Generated about 400 booster packs (~$400) over the course of a weekend with a starting base of $50.
-            <br/>
-            MTG Arena - Mythic Constructed/Limited; Rank 31st globally for Limited with ~80+% winrate.
           </Update>
           <GamingCarousel
             carouselId = "#carousel_9"

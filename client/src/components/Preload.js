@@ -15,7 +15,7 @@ const preloadImages = [
   {imageFile: '/static/images/wildcat/banner.jpg', altText:''},
   {imageFile: '/static/images/wns/banner.jpg', altText:''},
   {imageFile: '/static/images/delilahs/banner.jpg', altText:''},
-  {imageFile: '/static/images/novaruu/banner.jpg', altText:''},
+  {imageFile: '/static/images/novaruu/1.png', altText:''},
 ];
 
 class Preload extends React.Component {

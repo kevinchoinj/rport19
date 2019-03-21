@@ -7,5 +7,7 @@
 
   "awsBucketName" : "AWS Bucket Name",
   "awsAccessKey": "AWS Access Key",
-  "awsSecretKey" : "AWS Secret Key"
+  "awsSecretKey" : "AWS Secret Key",
+
+  "dbErrors": "errors"
 }

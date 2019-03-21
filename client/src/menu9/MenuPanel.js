@@ -122,7 +122,7 @@ class MenuPanel extends React.Component{
     );
     const backgroundValues = [
       {pathName: '/', isActive: hoverOption==='home', backgroundName: '/static/images/daytime.png'},
-      {pathName: '/projects/novaruu', isActive: hoverOption==='novaruu', backgroundName: '/static/images/novaruu/banner.jpg'},
+      {pathName: '/projects/novaruu', isActive: hoverOption==='novaruu', backgroundName: '/static/images/novaruu/1.png'},
       {pathName: '/projects/kaitlyn', isActive: hoverOption==='kaitlyn', backgroundName: '/static/images/kaitlyn/banner.jpg'},
       {pathName: '/projects/uwloo', isActive: hoverOption==='uwloo', backgroundName: '/static/images/uwloo/banner.jpg'},
       {pathName: '/projects/tcfs', isActive: hoverOption==='tcfs', backgroundName: '/static/images/tcfs/toocool.jpg'},

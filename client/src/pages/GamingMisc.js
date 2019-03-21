@@ -333,7 +333,7 @@ class GamingMisc extends React.Component {
             Accumulated approximately between 150,000,000 and 200,000,000 'neopoints', in-game currency, in assets over the course of one year.
           </Update>
           <GamingCarousel
-            carouselId = "#carousel_8"
+            carouselId = "#carousel_9"
             imageArray = {NEO_ARRAY}
           />
 
@@ -347,7 +347,7 @@ class GamingMisc extends React.Component {
             Path of Exile - Multiple level ~90 characters
           </Update>
           <GamingCarousel
-            carouselId = "#carousel_9"
+            carouselId = "#carousel_10"
             imageArray = {MISC_ARRAY}
           />
 

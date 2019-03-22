@@ -21,6 +21,7 @@ const {
   couchGet,
   couchPost,
   couchPut,
+  couchDelete,
 } = require('./couch.js');
 
 const {
@@ -93,17 +94,18 @@ app.post('/projects/post', urlencodedParser, (req, res) => {
 app.post('/projects/delete', urlencodedParser, (req, res) => {
   const id = req.body.id;
   const rev = req.body.rev;
-  couch.del(dbName, id, rev). then(
-    function(data, headers, status) {
-      res.send(data);
-    },
-    function(err) {
-      res.send(err);
-    });
+  couchDelete(dbName, id, rev)
+  .then((data) => {
+    res.send(data);
+  })
+  .catch((error) => {
+    res.send(error);
+    sendError('Express', error, 'Project Delete Error');
+  });
 });
 
 app.post('/projects/edit', urlencodedParser, (req, res) => {
-  couch.update(dbName, {
+  couchPut(dbName, {
     _id: req.body.id,
     _rev: req.body.rev,
     name: req.body.name,
@@ -112,14 +114,14 @@ app.post('/projects/edit', urlencodedParser, (req, res) => {
     url: req.body.url,
     awsKey: req.body.awsKey,
     updatedAt: Date.now(),
-  }).then(
-    function(data, headers, status) {
-      res.send(data);
-    },
-    function(error) {
-      res.send(error);
-    }
-  )
+  })
+  .then((data) => {
+    res.send(data);
+  })
+  .catch((error) => {
+    res.send(error);
+    sendError('Express', error, 'Project Delete Error');
+  });
 });
 /*======================================
 =               AWS S3                =

@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 import classNames from 'classnames';
 import {history} from 'store';
 import Scrollbar from 'smooth-scrollbar';
+import {Link} from 'react-router-dom';
 
 const LinkDivWrapper = ({hoverOption, pageName, children}) => {
   if (window.innerWidth >= 768) {
@@ -75,9 +76,9 @@ class MenuText extends React.Component{
       <div className = {menuClassName} id="menu_scrollbar">
         {menuValues.map((value, index)=>(
           <div className="menu_panel__container" key={index}>
-            <div
+            <Link
+              to={value.link}
               className = "menu_panel__link"
-              onClick = {()=>this.toggleMenu(value.link)}
             >
               <LinkDivWrapper
                 pageName={value.pageName}
@@ -90,7 +91,7 @@ class MenuText extends React.Component{
                   {value.text}
                 </div>
               </LinkDivWrapper>
-            </div>
+            </Link>
           </div>
         ))}
       </div>

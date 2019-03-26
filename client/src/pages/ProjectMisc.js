@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as scrollActions from 'actions/scroll';
+import * as menuActions from 'actions/menu';
 
 import GetMiscProjects from 'components/services/GetMiscProjects';
 import BannerContainer from 'components/BannerContainer';
@@ -11,6 +12,7 @@ class ProjectMisc extends React.Component {
   componentDidMount() {
     window.scrollTo(0, 0);
     this.focusDiv();
+    this.props.menuActions.toggleMenu(false);
   }
 
   focusDiv() {
@@ -57,6 +59,7 @@ export default connect(
     miscProjects: state.images.miscProjects,
   }),
   dispatch => ({
+    menuActions: bindActionCreators(menuActions, dispatch),
     scrollActions: bindActionCreators(scrollActions, dispatch),
   }),
 )(ProjectMisc);

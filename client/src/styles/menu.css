@@ -16,7 +16,6 @@
 .menu_panel__right--display{
   transform: translateX(-33vw);
 }
-
 .menu_panel__left{
   height: 100vh;
   width: 33vw;
@@ -29,11 +28,9 @@
   z-index: 3;
   -webkit-overflow-scrolling: touch;
 }
-
 .menu_panel__left--display{
   transform: translateX(33vw);
 }
-
 .indicator {
   font-size: 24px;
   color: #aaa;
@@ -54,13 +51,11 @@
   background-position: center center;
   background-size: cover;
   pointer-events: none;
-  transform: scale(1.02,1.02);
 }
 .menu_background--display{
   pointer-events: auto;
   opacity: 1;
   transition: var(--transition-long);
-  transform: scale(1,1);
 }
 .menu_background__home {
   position:absolute;
@@ -137,30 +132,22 @@
 .menu_panel__links--display .menu_panel__container:nth-child(15) {
   animation-delay: .9s
 }
+.menu_panel__links--display .menu_panel__container:nth-child(16) {
+  animation-delay: 1s
+}
 
 .menu_panel__link {
   width: 100%;
-  cursor: pointer;
-  text-decoration: none;
-  color: #616161;
   font-size: 66px;
   transition: var(--transition-medium);
   line-height: 120px;
   font-family: 'Raleway', Helvetica, sans-serif;
-}
-.menu_panel__link:hover,
-.menu_panel__link:focus{
-  color: #ccc;
-  text-decoration: none;
 }
 .menu_panel__link_div {
   display: flex;
   padding-left: 28px;
   padding-right: 28px;
   box-sizing: border-box;
-}
-.menu_panel__link_div:hover .menu_panel__link{
-  color: #fff;
 }
 .number {
   float: left;
@@ -236,7 +223,6 @@
 
 .seveteen_menu_btn__letter {
   font-weight: 600;
-  font-family: 'Open Sans', sans-serif;
   color: #fff;
   font-size: 11px;
   line-height: 150%;
@@ -293,7 +279,6 @@
   position: absolute;
   padding: 0px 40px 120px 40px;
   bottom: 0px;
-  font-family: 'Open Sans', sans-serif;
 }
 .text_right__title {
   font-size: 28px;
@@ -372,13 +357,11 @@
   color: #ccc;
   opacity: 1;
   font-size: 14px;
-  font-family: 'Open Sans', Helvetica, sans-serif;
 }
 .menu_top_right__line {
   margin: 6px 0px 0px 0px;
 }
 .menu_top_right__title {
-  text-decoration: none;
   font-size:14px;
   letter-spacing: 3px;
   color: #ccc;
@@ -390,16 +373,6 @@
 }
 .menu_top_right__last {
   opacity: .5;
-}
-.menu_top_right .contact_link a{
-  color: #616161;
-  font-size: 24px;
-  text-decoration: none;
-  transition: var(--transition-medium);
-  font-weight: 600;
-}
-.menu_top_right .contact_link a:hover {
-  color: #ccc;
 }
 .menu_panel__right--display .menu_top_right {
   animation: RightTextAppear .3s linear;

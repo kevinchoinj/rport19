@@ -48,7 +48,6 @@
   min-width: 255px;
   border-radius: 3px;
   color: var(--white-color);
-  font-family: 'Open Sans', Helvetica, sans-serif;
 }
 .admin_form__field::placeholder {
   color: var(--white-color);
@@ -61,16 +60,13 @@
   color: var(--white-color);
   cursor: pointer;
   transition: var(--transition-medium);
-  font-family: 'Open Sans', Helvetica, sans-serif;
 }
 .admin_form__button:hover {
   background-color: rgba(0,0,0,.2);
 }
 .admin_login__return {
   margin-top: 8px;
-  text-decoration: none;
   color: var(--white-color);
-  font-family: 'Open Sans', Helvetica, sans-serif;
   font-size: 12px;
   transition: var(--transition-medium);
 }
@@ -114,7 +110,6 @@
   box-shadow: 0px 0px 50px 0px rgba(0,0,0,0.75);
   display: flex;
   flex-direction: column;
-  font-family: 'Open Sans', Helvetica, sans-serif;
   color: #babcc4;
   margin-bottom: 14px;
 }
@@ -141,7 +136,6 @@
 =             ADMIN MENU              =
 ======================================*/
 .admin_menu_wrapper {
-  font-family: 'Open Sans', Helvetica, sans-serif;
   padding-top: 100px;
   line-height: 200%;
   min-width: 300px;
@@ -151,7 +145,6 @@
   box-sizing: border-box;
   display: flex;
   padding: 3px 14px;
-  text-decoration: none;
   color: var(--white-color);
   cursor: pointer;
   transition: var(--transition-medium);
@@ -191,7 +184,6 @@
   color: var(--white-color);
   cursor: pointer;
   transition: var(--transition-medium);
-  font-family: 'Open Sans', Helvetica, sans-serif;
   font-size: 13px;
   text-align: center;
   box-sizing: border-box;

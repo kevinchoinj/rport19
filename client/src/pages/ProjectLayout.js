@@ -9,11 +9,12 @@ import OverlayBottom from 'components/animations/OverlayBottom';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as scrollActions from 'actions/scroll';
+import * as menuActions from 'actions/menu';
 
 import MobileImagesStatic from 'components/mobileimages/MobileImagesStatic';
 import ProjectVideo from 'components/ProjectVideo';
 
-import { LazyLoadComponent } from 'react-lazy-load-image-component';
+import LazyLoad from 'components/services/LazyLoad';
 
 const MobileImageView = ({ projectMobileVisible, pageValues }) => {
   if (pageValues.mobileImageOne &&
@@ -38,6 +39,7 @@ class ProjectLayout extends React.Component {
   componentDidMount() {
     window.scrollTo(0, 0);
     this.focusDiv();
+    this.props.menuActions.toggleMenu(false);
   }
 
   focusDiv() {
@@ -67,7 +69,7 @@ class ProjectLayout extends React.Component {
 
         <div className="project_body">
           {pageValues.bodyTextOne &&
-            <div className="project_body_text project_body_text--top">
+            <div className="project_body_text">
               <LoadIn>
                 <span  className="project_smallfont">
                   OVERVIEW
@@ -99,37 +101,37 @@ class ProjectLayout extends React.Component {
 
             {!pageValues.video && pageValues.bodyImageOne &&
               <OverlayBottom loadDelay=".1s">
-                <LazyLoadComponent>
+                <LazyLoad>
                   <img
                     src={pageValues.bodyImageOne}
                     className="project_fillimage"
                     alt=""
                   />
-                </LazyLoadComponent>
+                </LazyLoad>
               </OverlayBottom>}
           </div>
 
           <div className="full_width">
             <OverlayBottom loadDelay=".1s">
-              <LazyLoadComponent>
+              <LazyLoad>
                 <img
                   src={pageValues.bodyImageTwo}
                   className="project_fillimage"
                   alt=""
                 />
-              </LazyLoadComponent>
+              </LazyLoad>
             </OverlayBottom>
           </div>
 
           <div className="full_width">
             <OverlayBottom loadDelay=".1s">
-              <LazyLoadComponent>
+              <LazyLoad>
                 <img
                   src={pageValues.bodyImageThree}
                   className="project_fillimage"
                   alt=""
                 />
-              </LazyLoadComponent>
+              </LazyLoad>
             </OverlayBottom>
           </div>
         </div>
@@ -145,6 +147,7 @@ export default connect(
   () => ({
   }),
   dispatch => ({
+    menuActions: bindActionCreators(menuActions, dispatch),
     scrollActions: bindActionCreators(scrollActions, dispatch),
   }),
 )(ProjectLayout);

@@ -3,21 +3,27 @@ body{
   overflow-x: hidden;
   background-color: #101010;
   margin: 0;
+  font-family: 'Open Sans', Helvetica, sans-serif;
 }
 body a {
+  color: var(--color-link);
   text-decoration: none;
+  transition: var(--transition-medium);
+}
+body a:hover {
+  color: var(--color-link-hover);
 }
 body * {
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
-
 :root {
   --white-color: #fff;
   --grey-light-color: #ddd;
+  --color-link: #666;
+  --color-link-hover: #aaa;
   --admin-container-color: rgba(255, 255, 255, .2);
   --black-color: #000;
-
-  --transition-medium: .2s ease-in;
+  --transition-medium: .25s ease-in-out;
   --transition-long: .4s ease-in;
 }
 .App {

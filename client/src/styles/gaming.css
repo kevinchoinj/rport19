@@ -1,21 +1,4 @@
 /*======================================
-=                GAMING                =
-======================================*/
-.gaming_link {
-  font-weight: 600;
-  color: #aaa;
-  transition: var(--transition-medium);
-}
-.gaming_link:hover,
-.gaming_link:active,
-.gaming_link:focus,
-.gaming_indicator:hover,
-.gaming_indicator:active,
-.gaming_indicator:focus {
-  text-decoration: none;
-  color: #666;
-}
-/*======================================
 =               CAROUSEL              =
 ======================================*/
 .gaming_carousel_wrapper {

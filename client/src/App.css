@@ -15,8 +15,10 @@ body * {
   --grey-light-color: #ddd;
   --admin-container-color: rgba(255, 255, 255, .2);
   --black-color: #000;
-}
 
+  --transition-medium: .2s ease-in;
+  --transition-long: .4s ease-in;
+}
 .App {
   position:fixed;
   height: 100vh;
@@ -28,13 +30,7 @@ body * {
   -webkit-overflow-scrolling: touch;
 }
 .no_select {
-  -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror HTML */
-       -moz-user-select: none; /* Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome and Opera */
+  user-select: none;
 }
 .scrollbar-thumb-x,
 .scrollbar-track-x.show {

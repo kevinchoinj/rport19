@@ -140,6 +140,9 @@ app.post('/images/post', upload.single('awsAction'), (req, res) => {
       awsKey: params.Key,
       url: `https://s3-${region}.amazonaws.com/${params.Bucket}/${params.Key}`
     });
+    if (err) {
+      sendError('Express', error, 'AWS S3 Upload error');
+    }
   });
 });
 

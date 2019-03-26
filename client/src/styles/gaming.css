@@ -4,7 +4,7 @@
 .gaming_link {
   font-weight: 600;
   color: #aaa;
-  transition: .2s ease-out;
+  transition: var(--transition-medium);
 }
 .gaming_link:hover,
 .gaming_link:active,

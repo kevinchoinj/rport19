@@ -34,10 +34,10 @@ const couchPost = (database, newData) => new Promise((resolve) => {
     })
   );
 });
+
 const couchDelete = (database, id, rev) => new Promise((resolve) => {
   resolve(couch.del(database, id, rev));
 });
-
 
 const couchPut = (database, newData) => new Promise((resolve, reject) => {
   resolve(couch.update(database, newData));

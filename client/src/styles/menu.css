@@ -11,7 +11,7 @@
   position: fixed;
   right: -33vw;
   background-color: var(--black-color);
-  transition: .4s ease-out;
+  transition: var(--transition-long);
 }
 .menu_panel__right--display{
   transform: translateX(-33vw);
@@ -23,7 +23,7 @@
   position: fixed;
   pointer-events: none;
   background-color: var(--black-color);
-  transition: .4s ease-out;
+  transition: var(--transition-long);
   overflow: hidden;
   left: -33vw;
   z-index: 3;
@@ -59,7 +59,7 @@
 .menu_background--display{
   pointer-events: auto;
   opacity: 1;
-  transition: .5s ease-out;
+  transition: var(--transition-long);
   transform: scale(1,1);
 }
 .menu_background__home {
@@ -78,7 +78,6 @@
   opacity: 1;
 }
 .menu_panel__links{
-  transition: 1s ease-out;
   z-index: 4;
   pointer-events: none;
   overflow: auto;
@@ -145,7 +144,7 @@
   text-decoration: none;
   color: #616161;
   font-size: 66px;
-  transition: .2s ease-out;
+  transition: var(--transition-medium);
   line-height: 120px;
   font-family: 'Raleway', Helvetica, sans-serif;
 }
@@ -182,7 +181,7 @@
 
   mix-blend-mode:  difference;
   will-change: opacity;
-  transition: .25s ease-out;
+  transition: var(--transition-medium);
   z-index: 10;
   display: flex;
   flex-direction: column;
@@ -396,7 +395,7 @@
   color: #616161;
   font-size: 24px;
   text-decoration: none;
-  transition: .2s ease-out;
+  transition: var(--transition-medium);
   font-weight: 600;
 }
 .menu_top_right .contact_link a:hover {

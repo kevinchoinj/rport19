@@ -33,7 +33,6 @@
   position: absolute;
   top: 25px;
   width: 100%;
-  transition:.8s ease-out;
 }
 .logo_inner{
   background: transparent;
@@ -48,7 +47,7 @@
   letter-spacing: 3px;
   color: #fff;
   font-family:'Open Sans', Helvetica;
-  transition:.4s ease-out;
+  transition: var(--transition-medium);
 }
 .logo_last {
   opacity: .5;
@@ -77,7 +76,7 @@
   letter-spacing: 1px;
   color: #ddd;
   font-family:'Open Sans', Helvetica, sans-serif;
-  transition:.4s ease-out;
+  transition: var(--transition-medium);
 }
 .contact_icon {
   margin: 0px 6px;

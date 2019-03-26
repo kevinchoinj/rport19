@@ -19,10 +19,7 @@
   top: 0px;
   left: 0px;
   background-color: #111;
-  -webkit-transition: .4s ease-out;
-  -moz-transition: .4s ease-out;
-  -o-transition: .4s ease-out;
-  transition:.4s ease-out;
+  transition: var(--transition-medium);
   opacity: 1;
   display: flex;
   justify-content: center;

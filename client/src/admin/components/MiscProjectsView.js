@@ -38,7 +38,6 @@ class DatabaseList extends Component {
               >
                 delete
               </div>
-              <br/><br/>
             </div>
           );
         })}

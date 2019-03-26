@@ -50,19 +50,9 @@ class CheckLogin extends Component {
       email,
     }=this.props;
 
-    const backgroundStyle = {
-      backgroundImage: 'url(/static/images/admin/background.jpg)',
-      backgroundSize: 'cover',
-      width: '100vw',
-      height: '100vh',
-      position: 'fixed',
-      top: '0px',
-      left: '0px',
-    };
-
     return (
-      <div style={backgroundStyle}>
-        <div style={backgroundStyle}/>
+      <div>
+        <div className="admin_background"/>
         <SetUser/>
         <LoginDisplay
           loggedIn = {loggedIn}

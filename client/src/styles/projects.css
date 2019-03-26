@@ -90,7 +90,7 @@
   font-size: 10px;
   line-height: 20px;
   letter-spacing: 0px;
-  transition:.4s ease-out;
+  transition: var(--transition-medium);
   letter-spacing: 4px;
   animation: NineFadeIn .3s linear;
   animation-fill-mode: both;
@@ -118,7 +118,7 @@
   text-decoration: none;
   color:#616161;
   font-weight: 600;
-  transition:.4s ease-out;
+  transition: var(--transition-medium);
 }
 .project_banner_text__small a:hover {
   color: #fff;
@@ -337,7 +337,7 @@
 ======================================*/
 .load_in_object {
   opacity: 0;
-  transition:.4s ease-out;
+  transition: var(--transition-medium);
   transform: scale(.95,.95) translateY(50px);
   animation: HideObject .4s linear;
   animation-fill-mode: both;
@@ -414,25 +414,6 @@
   transform: translateY(0px);
   opacity: 1;
 }
-/*
-.overlay_bottom img {
-  transform: translateY(25%);
-  transition-duration: .6s;
-  transition-timing-function: ease-out;
-}
-.overlay_bottom img {
-  transition-delay: .4s;
-}
-.mobile_images_column:nth-child(2) .overlay_bottom img {
-  transition-delay: .6s;
-}
-.mobile_images_column:nth-child(3) .overlay_bottom img {
-  transition-delay: .8s;
-}
-.overlay_bottom--display img {
-  transform: translateY(0px);
-}
-*/
 @media screen and (max-width: 992px) {
   .overlay_bottom__overlay {
     transform:  translateY(-100%) !important;

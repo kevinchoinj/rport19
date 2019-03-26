@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 
 import BannerContainer from 'components/BannerContainer';
 import Update from 'components/Update';
-import Scrollbar from 'smooth-scrollbar';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as menuActions from 'actions/menu';
@@ -12,25 +11,16 @@ import * as scrollActions from 'actions/scroll';
 import GamingCarousel from 'components/LightboxGallery';
 
 class GamingMisc extends React.Component {
+  componentDidMount() {
+    window.scrollTo(0, 0);
+    this.focusDiv();
+    this.props.menuActions.toggleMenu(false);
+  }
 
   focusDiv() {
     ReactDOM.findDOMNode(this.refs.theDiv).focus();
   }
 
-  componentDidMount() {
-    this.props.menuActions.toggleMenu(false);
-    this.focusDiv();
-    var myDiv = document.getElementById('main_app');
-    myDiv.scrollTop = 0;
-    this.props.scrollActions.checkScroll(0);
-    const scrollbar = Scrollbar.init(document.querySelector('#gaming_body'), {
-      alwaysShowTracks: true,
-      syncCallbacks: true,
-    });
-    scrollbar.addListener(({ offset }) => {
-      this.props.scrollActions.checkScroll(offset.y);
-    });
-  }
   render() {
 
     const WOW_ARRAY = [

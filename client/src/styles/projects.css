@@ -1,16 +1,6 @@
 /*======================================
 =          PROJECT WRAPPER            =
 ======================================*/
-.projects_wrapper{
-  height: 100vh;
-  position: absolute;
-  width: 100%;
-  overflow: hidden;
-  pointer-events: none;
-}
-.projects_wrapper--display{
-  pointer-events: auto;
-}
 .full_width {
   margin-left: 8.33333333%;
   margin-bottom: 20vh;
@@ -23,7 +13,7 @@
 @media screen and (max-width: 992px) {
   .full_width {
     margin-left: 0px;
-    width: 100vw;
+    width: 100%;
     margin-bottom: 0px;
   }
 }
@@ -42,9 +32,7 @@
   transition: box-shadow .4s ease, transform 1s ease-out;
 }
 .project_wrapper{
-  position: absolute;
-  height: 100vh;
-  width: 100vw;
+  width: 100%;
   overflow-y: auto;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
@@ -64,7 +52,7 @@
 }
 .project_banner_image{
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -73,7 +61,7 @@
 }
 .project_banner_mask {
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   top: 0px;
   left: -100vw;
   background-color: rgba(12,12,13,.9);
@@ -81,7 +69,7 @@
 }
 .project_banner_text{
   height: 270px;
-  width: 100vw;
+  width: 100%;
   background-color: var(--black-color);
   position: absolute;
   bottom: 0px;
@@ -152,7 +140,7 @@
 
 .project_body{
   background-color: var(--black-color);
-  width: 100vw;
+  width: 100%;
   color: #eeeded;
   overflow: hidden;
   padding-top: 100px;
@@ -202,7 +190,7 @@
 }
 
 .project_about{
-  width: 100vw;
+  width: 100%;
   background-color:#eeeded;
   font-size: 14px;
   line-height: 30px;
@@ -441,7 +429,7 @@
   display: inline-block;
   margin: 14px;
   padding-top: 14px;
-  max-width: 100vw;
+  max-width: 100%;
   object-fit: cover;
 }
 .misc_title {

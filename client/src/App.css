@@ -1,7 +1,8 @@
 body{
-  width:100vw;
+  width:100%;
   overflow-x: hidden;
   background-color: #101010;
+  margin: 0;
 }
 body a {
   text-decoration: none;
@@ -20,32 +21,13 @@ body * {
   --transition-long: .4s ease-in;
 }
 .App {
-  position:fixed;
-  height: 100vh;
-  width: 100vw;
-  top: 0px;
-  left: 0px;
-  overflow-y: auto;
+  width: 100%;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
 }
 .no_select {
   user-select: none;
 }
-.scrollbar-thumb-x,
-.scrollbar-track-x.show {
-  /*display: none !important;*/
-  cursor: pointer;
-}
-.project_wrapper .scrollbar-thumb-x,
-.project_wrapper .scrollbar-track-x.show {
-  display: none !important;
-}
-.scrollbar-thumb-y,
-.scrollbar-track-y.show {
-  cursor: pointer;
-}
-
 .spacing_bottom {
   margin-bottom: 16px;
 }

@@ -1,18 +1,40 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import classNames from 'classnames';
 
 class LoadIn extends React.Component{
+  state = {
+    response: false,
+  };
+
+  componentDidMount() {
+    this.getDistanceFromTop();
+    window.addEventListener('scroll', this.getDistanceFromTop);
+    window.addEventListener('resize', this.getDistanceFromTop);
+  }
+  componentWillUnmount(){
+    window.removeEventListener('scroll', this.getDistanceFromTop);
+    window.removeEventListener('resize', this.getDistanceFromTop);
+  }
+
+  getDistanceFromTop = () => {
+    this.setState({
+      yValue: (ReactDOM.findDOMNode(this).getBoundingClientRect().top),
+    });
+  }
+
   render(){
     const {
       loadDelay,
-      isVisible,
-      onPageLoad,
     } = this.props;
+    const {
+      yValue,
+    } = this.state;
 
     const objectName = classNames(
       'overlay_bottom',
       {
-        'overlay_bottom--display': onPageLoad ? true : isVisible,
+        'overlay_bottom--display': yValue < window.innerHeight,
       }
     );
 

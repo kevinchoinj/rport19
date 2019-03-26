@@ -3,30 +3,20 @@ import ReactDOM from 'react-dom';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as scrollActions from 'actions/scroll';
-import Scrollbar from 'smooth-scrollbar';
 
 import GetMiscProjects from 'components/services/GetMiscProjects';
 import BannerContainer from 'components/BannerContainer';
 
 class ProjectMisc extends React.Component {
+  componentDidMount() {
+    window.scrollTo(0, 0);
+    this.focusDiv();
+  }
 
   focusDiv() {
     ReactDOM.findDOMNode(this.refs.theDiv).focus();
   }
 
-  componentDidMount() {
-    this.focusDiv();
-    var myDiv = document.getElementById('main_app');
-    myDiv.scrollTop = 0;
-    this.props.scrollActions.checkScroll(0);
-    const scrollbar = Scrollbar.init(document.querySelector('#misc_body'), {
-      alwaysShowTracks: true,
-      syncCallbacks: true,
-    });
-    scrollbar.addListener(({ offset }) => {
-      this.props.scrollActions.checkScroll(offset.y);
-    });
-  }
   render() {
 
     const {
@@ -34,7 +24,7 @@ class ProjectMisc extends React.Component {
     } = this.props;
 
     return (
-      <div className="project_wrapper" id="misc_body"  ref="theDiv" tabIndex="0">
+      <div className="project_wrapper" ref="theDiv" tabIndex="0">
         <GetMiscProjects/>
         <BannerContainer
           bgimage='/static/images/heroku/herokubanner.png'

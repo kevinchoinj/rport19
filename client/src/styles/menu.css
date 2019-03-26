@@ -1,6 +1,6 @@
 .page_wrapper {
   height: 100vh;
-  width: 100vw;
+  width: 100%;
 }
 .page_wrapper--display {
   overflow-y: hidden;
@@ -46,7 +46,7 @@
 .menu_background{
   cursor: pointer;
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   position: fixed;
   opacity: 0;
   background-color: var(--black-color);
@@ -260,7 +260,7 @@
 
 .sample_header {
   position: absolute;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   background-repeat: no-repeat;
   background-position: center top;
@@ -268,7 +268,7 @@
   z-index:0;
 }
 .sample_placeholder {
-  width: 100vw;
+  width: 100%;
   height: 100vh;
 }
 .sample_text {
@@ -281,7 +281,7 @@
   top: 0px;
   left: 0px;
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   overflow: hidden;
   pointer-events: none;
   z-index: 9;
@@ -338,11 +338,11 @@
 @media screen and (max-width: 768px) {
   .menu_panel__left {
     left: -100vw;
-    width: 100vw;
+    width: 100%;
     min-width: 0px;
   }
   .menu_panel__link {
-    width: 100vw;
+    width: 100%;
     min-width: 0px;
     font-size: 48px;
     line-height: 80px;
@@ -351,7 +351,7 @@
     transform: translateX(100vw);
   }
   .menu_panel__links {
-    width: 100vw;
+    width: 100%;
   }
   .menu_panel__links .scroll-content {
     padding-bottom: 100px;

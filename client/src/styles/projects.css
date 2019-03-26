@@ -56,8 +56,9 @@
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  position: absolute;
+  position: fixed;
   top: 0px;
+  z-index:-1;
 }
 .project_banner_mask {
   height: 100vh;

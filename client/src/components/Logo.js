@@ -13,13 +13,13 @@ class Logo extends React.Component{
 
   render(){
     return(
-      <div className="logo">
+      <header className="logo">
         <div className="logo_inner" onClick={()=>this.toggleMenu()}>
           <span className="logo_link">
             <span className="logo_first">K E V I N</span>&nbsp;<span className="logo_last">C H O I</span>
           </span>
         </div>
-      </div>
+      </header>
     );
   }
 }

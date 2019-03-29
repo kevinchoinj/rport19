@@ -39,9 +39,11 @@ class ProjectMisc extends React.Component {
                 <div className="misc_title">
                   {value.value.name}
                 </div>
-                <a href={value.value.link}
+                <a
+                  href={value.value.link}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label={value.value.name}
                 >
                   <img src={value.value.url} alt="" className="misc_image"/>
                 </a>

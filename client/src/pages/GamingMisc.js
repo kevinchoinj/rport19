@@ -101,6 +101,7 @@ class GamingMisc extends React.Component {
             Peak rating of ~2900 Elo. 8th highest rated player in the world and highest rated shaman in the world in 2008.
             <div>
               <a href="https://i.imgur.com/Lu7P1xd.png"
+                aria-label="gaming link"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="gaming_link">
@@ -109,6 +110,7 @@ class GamingMisc extends React.Component {
             </div>
             <div>
               <a href="https://i.imgur.com/xQ2XFmo.png"
+                aria-label="gaming link"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="gaming_link">
@@ -117,6 +119,7 @@ class GamingMisc extends React.Component {
             </div>
             <div>
               <a href="https://i.imgur.com/Y9YGLGD.jpg"
+                aria-label="gaming link"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="gaming_link">
@@ -125,6 +128,7 @@ class GamingMisc extends React.Component {
             </div>
             <div>
               <a href="http://web.archive.org/web/20090618080239/http://www.arenajunkies.com/char/US/Mug'thol/Myhope/"
+                aria-label="gaming link"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="gaming_link">
@@ -133,6 +137,7 @@ class GamingMisc extends React.Component {
             </div>
             <div>
               <a href="https://i.imgur.com/VIWFIwx.png"
+                aria-label="gaming link"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="gaming_link">
@@ -141,6 +146,7 @@ class GamingMisc extends React.Component {
             </div>
             <div>
               <a href="https://web.archive.org/web/20090609065129/http://www.arenajunkies.com:80/rankings/3v3/us"
+                aria-label="gaming link"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="gaming_link">
@@ -149,6 +155,7 @@ class GamingMisc extends React.Component {
             </div>
             <div>
               <a href="http://web.archive.org/web/20100416021904/http://www.arenajunkies.com:80/team/2v2/US/Auchindoun/LIGHTS_PVP/"
+                aria-label="gaming link"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="gaming_link">
@@ -157,6 +164,7 @@ class GamingMisc extends React.Component {
             </div>
             <div>
               <a href="http://web.archive.org/web/20100527125254/http://www.arenajunkies.com:80/team/3v3/US/Auchindoun/L_S_D/"
+                aria-label="gaming link"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="gaming_link">
@@ -165,6 +173,7 @@ class GamingMisc extends React.Component {
             </div>
             <div>
               <a href="https://web.archive.org/web/20100314071257/http://www.arenajunkies.com/rankings/player/US/Shaman"
+                aria-label="gaming link"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="gaming_link">
@@ -173,6 +182,7 @@ class GamingMisc extends React.Component {
             </div>
             <div>
               <a href="http://web.archive.org/web/20090618115850/http://www.arenajunkies.com/team/5v5/US/Mug'thol/Scallywags"
+                aria-label="gaming link"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="gaming_link">
@@ -193,6 +203,7 @@ class GamingMisc extends React.Component {
             19th highest rated arena player in North America May 2017, 90th Highest arena player in North America January 2018.
             <div>
               <a href="http://us.battle.net/hearthstone/en/blog/20838076/top-hearthstone-players-may-2017-6-8-2017"
+                aria-label="gaming link"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="gaming_link">
@@ -201,6 +212,7 @@ class GamingMisc extends React.Component {
             </div>
             <div>
               <a href="https://playhearthstone.com/en-us/blog/21513836"
+                aria-label="gaming link"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="gaming_link">
@@ -221,6 +233,7 @@ class GamingMisc extends React.Component {
             Master League (top 2%) in 2010.
             <div>
               <a href="http://us.battle.net/sc2/en/profile/847646/1/LighTs/"
+                aria-label="gaming link"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="gaming_link">
@@ -241,6 +254,7 @@ class GamingMisc extends React.Component {
             Diamond League (top 0.5%) 2010 - 2019.
             <div>
               <a href="http://na.op.gg/summoner/userName=shodyra"
+                aria-label="gaming link"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="gaming_link">
@@ -276,6 +290,7 @@ class GamingMisc extends React.Component {
             2012 while earning ~$3,000 through the 'Real Money Auction House'.
             <div>
               <a href="https://us.battle.net/d3/en/profile/Shodyra-1119/hero/87303905"
+                aria-label="gaming link"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="gaming_link">

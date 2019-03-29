@@ -62,7 +62,7 @@ function handleErrors(response) {
 
 function getMiscProjects() {
   return () => {
-    return fetch('/projects/view');
+    return fetch('/api/v1/project');
   };
 }
 export function fetchMiscProjects() {
@@ -72,7 +72,7 @@ export function fetchMiscProjects() {
       .then(handleErrors)
       .then(res => res.json())
       .then(json => {
-        dispatch(fetchMiscProjectsSucceeded(json));
+        dispatch(fetchMiscProjectsSucceeded(json.data));
       })
       .catch(error => dispatch(fetchMiscProjectsFailure(error)));
   };
@@ -80,7 +80,7 @@ export function fetchMiscProjects() {
 
 function postMiscProjects(data) {
   return () => {
-    return fetch('/projects/post',
+    return fetch('/api/v1/project',
       {
         method: 'POST',
         headers: {
@@ -114,9 +114,9 @@ export function addMiscProjectsThenUpdate(values) {
 ======================================*/
 function putMiscProjects(data) {
   return () => {
-    return fetch('/projects/edit',
+    return fetch('/api/v1/project',
       {
-        method: 'POST',
+        method: 'PUT',
         headers: {
           'Content-type': 'application/json'
         },
@@ -152,9 +152,9 @@ export function editMiscProjectsThenUpdate(values, path) {
 
 function deleteImage(awsKey) {
   return () => {
-    return fetch('/images/delete',
+    return fetch('/api/v1/aws',
       {
-        method: 'POST',
+        method: 'DELETE',
         headers: {
           'Content-type': 'application/json'
         },
@@ -178,9 +178,9 @@ export function removeImage (awsKey) {
 
 function deleteMiscProjects(id, rev) {
   return () => {
-    return fetch('/projects/delete',
+    return fetch('/api/v1/project',
       {
-        method: 'POST',
+        method: 'DELETE',
         headers: {
           'Content-type': 'application/json'
         },
@@ -217,7 +217,7 @@ export function removeMiscProjectsThenUpdate(id, rev, awsKey) {
 
 function postS3Image(data) {
   return () => {
-    return upload.post('/images/post')
+    return upload.post('/api/v1/aws')
       .attach('awsAction', data.image[0]);
   };
 }

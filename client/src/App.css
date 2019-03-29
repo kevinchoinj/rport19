@@ -10,7 +10,8 @@ body a {
   text-decoration: none;
   transition: var(--transition-medium);
 }
-body a:hover {
+body a:hover,
+body a:focus {
   color: var(--color-link-hover);
 }
 body * {

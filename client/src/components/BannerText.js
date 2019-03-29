@@ -19,6 +19,7 @@ const TextDisplay = ({textLine, loadDelay, label}) => {
           <span className='project_banner_text__small'>
             <a
               href={textLine}
+              aria-label={`${label} link`}
               target="_blank"
               rel="noopener noreferrer"
             >

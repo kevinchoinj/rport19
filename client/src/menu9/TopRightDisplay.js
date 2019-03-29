@@ -28,6 +28,7 @@ class TopRightDisplay extends React.Component{
 
           <div className="contact_icon">
             <a
+              aria-label="github"
               href={pageData.githubLink}
               target="_blank"
               rel="noopener noreferrer"
@@ -38,6 +39,7 @@ class TopRightDisplay extends React.Component{
 
           <div className="contact_icon">
             <a
+              aria-label="music"
               href={pageData.musicLink}
               target="_blank"
               rel="noopener noreferrer"
@@ -47,13 +49,19 @@ class TopRightDisplay extends React.Component{
           </div>
 
           <div className="contact_icon">
-            <Link to={pageData.gaming}>
+            <Link
+              to={pageData.gaming}
+              aria-label="gaming"
+            >
               <FontAwesome name="gamepad"/>
             </Link>
           </div>
 
           <div className="contact_icon">
-            <a href={`mailto:${pageData.emailAddress}`}>
+            <a
+              href={`mailto:${pageData.emailAddress}`}
+              aria-label="email"
+            >
               <FontAwesome name="envelope"/>
             </a>
           </div>

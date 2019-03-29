@@ -14,6 +14,7 @@ export default class Contact extends React.Component{
             <div className="contact_icon">
               <a
                 href={pageData.githubLink}
+                aria-label="github"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -24,6 +25,7 @@ export default class Contact extends React.Component{
             <div className="contact_icon">
               <a
                 href={pageData.musicLink}
+                aria-label="music"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -32,13 +34,19 @@ export default class Contact extends React.Component{
             </div>
 
             <div className="contact_icon">
-              <Link to={pageData.gaming}>
+              <Link
+                aria-label="gaming"
+                to={pageData.gaming}
+              >
                 <FontAwesome name="gamepad"/>
               </Link>
             </div>
 
             <div className="contact_icon">
-              <a href={`mailto:${pageData.emailAddress}`}>
+              <a
+                href={`mailto:${pageData.emailAddress}`}
+                aria-label="email"
+              >
                 <FontAwesome name="envelope"/>
               </a>
             </div>

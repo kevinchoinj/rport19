@@ -67,6 +67,7 @@ export default class Viewer extends React.Component{
       return (
         <div key={i} className="gaming_carousel_object" onLoad={()=>this.scrollbar.update()}>
           <a
+            aria-label="gaming screenshot"
             href={obj.src}
             onClick={(e)=>this.openLightbox(i,e)}
           >

@@ -4,9 +4,7 @@ import cors from 'cors';
 import compression from 'compression';
 import bodyParser from 'body-parser';
 import router from './routes/index.js';
-/*======================================
-=               SERVER                 =
-======================================*/
+
 const app = express();
 
 app.use(cors());

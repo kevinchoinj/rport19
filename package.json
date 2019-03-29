@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node_modules/.bin/nodemon index.js --exec babel-node --"
+    "mon": "node_modules/.bin/nodemon index.js --exec babel-node --",
+    "start": "node start.js"
   },
   "author": "",
   "license": "ISC",
@@ -24,6 +25,8 @@
     "path": "^0.12.7"
   },
   "devDependencies": {
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
     "nodemon": "^1.18.10"
   }
 }

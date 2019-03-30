@@ -8,7 +8,6 @@ import {projectData} from 'data/projectData';
 
 import MenuText from 'menu9/MenuText';
 import TopRightDisplay from 'menu9/TopRightDisplay';
-import BackgroundImageDisplay from 'menu9/BackgroundImageDisplay';
 
 const RightTextDisplay = ({hoverOption}) => {
   let projectText = projectData[hoverOption];
@@ -101,12 +100,6 @@ class MenuPanel extends React.Component{
         'menu_wrapper--display':menuDisplay
       }
     );
-    const backgroundClassName = classNames(
-      'menu_background',
-      {
-        'menu_background--display':menuDisplay && hoverOption,
-      }
-    );
 
     const menuClassNameLeft = classNames(
       'menu_panel__left',
@@ -120,36 +113,9 @@ class MenuPanel extends React.Component{
         'menu_panel__right--display':menuDisplay
       }
     );
-    const backgroundValues = [
-      {pathName: '/', isActive: hoverOption==='home', backgroundName: '/static/images/daytime.png'},
-      {pathName: '/projects/novaruu', isActive: hoverOption==='novaruu', backgroundName: '/static/images/novaruu/1.png'},
-      {pathName: '/projects/kaitlyn', isActive: hoverOption==='kaitlyn', backgroundName: '/static/images/kaitlyn/banner.jpg'},
-      {pathName: '/projects/uwloo', isActive: hoverOption==='uwloo', backgroundName: '/static/images/uwloo/banner.jpg'},
-      {pathName: '/projects/tcfs', isActive: hoverOption==='tcfs', backgroundName: '/static/images/tcfs/toocool.jpg'},
-      {pathName: '/projects/wildcat', isActive: hoverOption==='wildcat', backgroundName: '/static/images/wildcat/banner.jpg'},
-      {pathName: '/projects/drjart', isActive: hoverOption==='drjart', backgroundName: '/static/images/drjart/banner.png'},
-      {pathName: '/projects/delilah', isActive: hoverOption==='delilah', backgroundName: '/static/images/delilahs/banner.jpg'},
-      {pathName: '/projects/discord', isActive: hoverOption==='discord', backgroundName: '/static/images/discord/banner.jpg'},
-      {pathName: '/projects/lastfm', isActive: hoverOption==='lastfm', backgroundName: '/static/images/lastfm/banner.jpg'},
-      {pathName: '/projects/leida', isActive: hoverOption==='leida', backgroundName: '/static/images/leida/banner.jpg'},
-      {pathName: '/projects/wns', isActive: hoverOption==='wns', backgroundName: '/static/images/wns/banner.jpg'},
-      {pathName: '/projects/library', isActive: hoverOption==='library', backgroundName: '/static/images/library/banner.jpg'},
-      {pathName: '/projects/harvard', isActive: hoverOption==='harvard', backgroundName: '/static/images/harvard/image1.png'},
-      {pathName: '/gaming', isActive: hoverOption==='gaming', backgroundName: '/static/images/chess.jpg'},
-      {pathName: '/projects/misc', isActive: hoverOption==='misc', backgroundName: '/static/images/heroku/herokubanner.png'},
-    ];
+
     return(
       <div className={wrapperName}>
-        <div className={backgroundClassName}/>
-        {backgroundValues.map((value, index)=>(
-          <div key={index}>
-            <BackgroundImageDisplay
-              pathName={value.pathName}
-              isActive={value.isActive}
-              backgroundName={value.backgroundName}
-            />
-          </div>
-        ))}
         <div className={menuClassNameLeft}>
           <MenuText />
         </div>

@@ -6,13 +6,14 @@ import classNames from 'classnames';
 import {history} from 'store';
 import Scrollbar from 'smooth-scrollbar';
 import {Link} from 'react-router-dom';
+import {menuData} from 'menu9/menuData';
 
-const LinkDivWrapper = ({hoverOption, pageName, children}) => {
+const LinkDivWrapper = ({hoverOption, image, children}) => {
   if (window.innerWidth >= 768) {
     return (
       <div
         className = "menu_panel__link_div"
-        onMouseOver={()=>hoverOption(pageName)}
+        onMouseOver={()=>hoverOption(image)}
       >
         {children}
       </div>
@@ -53,35 +54,16 @@ class MenuText extends React.Component{
       }
     );
 
-    const menuValues = [
-      {value: '00', text: 'Home', link: '/', pageName: 'home'},
-      {value: '01', text: 'Delilah', link: '/projects/delilah', pageName: 'delilah'},
-      {value: '02', text: 'Novaruu', link: '/projects/novaruu', pageName: 'novaruu'},
-      {value: '03', text: 'Kaitlyn', link: '/projects/kaitlyn', pageName: 'kaitlyn'},
-      {value: '04', text: 'TooCool', link: '/projects/tcfs', pageName: 'tcfs'},
-      {value: '05', text: 'Wildcat', link: '/projects/wildcat', pageName: 'wildcat'},
-      {value: '06', text: 'DrJart+', link: '/projects/drjart', pageName: 'drjart'},
-      {value: '07', text: 'Waterloo', link: '/projects/uwloo', pageName: 'uwloo'},
-      {value: '08', text: 'Harvard', link: '/projects/harvard', pageName: 'harvard'},
-      {value: '09', text: 'Discord', link: '/projects/discord', pageName: 'discord'},
-      {value: '10', text: 'LastFM', link: '/projects/lastfm', pageName: 'lastfm'},
-      {value: '11', text: 'Leida', link: '/projects/leida', pageName: 'leida'},
-      {value: '12', text: 'Smile', link: '/projects/wns', pageName: 'wns'},
-      {value: '13', text: 'Library', link: '/projects/library', pageName: 'library'},
-      {value: '14', text: 'Gaming', link: '/gaming', pageName: 'gaming'},
-      {value: '15', text: 'Misc', link: '/projects/misc', pageName: 'misc'},
-    ];
-
     return(
       <div className = {menuClassName} id="menu_scrollbar">
-        {menuValues.map((value, index)=>(
+        {menuData.map((value, index)=>(
           <div className="menu_panel__container" key={index}>
             <Link
               to={value.link}
               className = "menu_panel__link"
             >
               <LinkDivWrapper
-                pageName={value.pageName}
+                image={value.image}
                 hoverOption={this.hoverOption}
               >
                 <div className="number">

@@ -49,16 +49,6 @@
   overflow: hidden;
   top: 0px;
 }
-.project_banner_image{
-  height: 100vh;
-  width: 100%;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  position: fixed;
-  top: 0px;
-  z-index:-1;
-}
 .project_banner_text{
   width: 100%;
   background-color: var(--black-color);
@@ -114,6 +104,7 @@
   .project_banner_text__container {
     flex-direction: column;
     box-sizing: border-box;
+    padding: 0 1rem;
   }
   .project_body {
     padding-top: 0;
@@ -192,8 +183,13 @@
   .about_title,
   .about_body,
   .update {
-    margin-left: 8.33333333%;
-    width: 83.33333333%;
+    width: 100%;
+    padding: 0px 1rem;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  .update {
+    margin: 2rem 0;
   }
   .project_about,
   .update_content {

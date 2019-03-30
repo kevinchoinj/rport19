@@ -1,6 +1,5 @@
 export const projectData = {
   kaitlyn: {
-    bannerImage: '/static/images/kaitlyn/banner.jpg',
     bannerTextOne: 'Kaitlyn',
     bannerTextTwo: '2019',
     bannerTextThree: 'Javascript React Node.js',
@@ -15,7 +14,6 @@ export const projectData = {
     mobileImageThree: '/static/images/kaitlyn/6.png',
   },
   novaruu: {
-    bannerImage: '/static/images/novaruu/1.png',
     bannerTextOne: 'Novaruu',
     bannerTextTwo: '2019',
     bannerTextThree: 'Javascript React Node.js',
@@ -30,7 +28,6 @@ export const projectData = {
     mobileImageThree: '/static/images/novaruu/6.png',
   },
   delilah: {
-    bannerImage: '/static/images/delilahs/banner.jpg',
     bannerTextOne: 'Delilah\'s 2nd Chance',
     bannerTextTwo: '2018',
     bannerTextThree: 'Javascript React',
@@ -44,7 +41,6 @@ export const projectData = {
     mobileImageThree: '/static/images/delilahs/6.png',
   },
   discord: {
-    bannerImage: '/static/images/discord/banner.jpg',
     bannerTextOne: 'Discord Bot',
     bannerTextTwo: '2017/2019',
     bannerTextThree: 'Javascript Node.JS',
@@ -58,7 +54,6 @@ export const projectData = {
     bodyImageThree: '/static/images/discord/3.jpg',
   },
   uwloo: {
-    bannerImage: '/static/images/uwloo/banner.jpg',
     bannerTextOne: 'University of Waterloo',
     bannerTextTwo: '2017',
     bannerTextThree: 'Javascript React',
@@ -75,7 +70,6 @@ export const projectData = {
     mobileImageThree: '/static/images/uwloo/7.jpg',
   },
   drjart: {
-    bannerImage: '/static/images/drjart/banner.png',
     bannerTextOne: 'Dr. Jart+ Newsletter',
     bannerTextTwo: '2016',
     bannerTextThree: 'HTML CSS',
@@ -89,7 +83,6 @@ export const projectData = {
     bodyImageThree: '/static/images/drjart/3.jpg',
   },
   lastfm: {
-    bannerImage: '/static/images/lastfm/banner.jpg',
     bannerTextOne: 'Last.fm API site',
     bannerTextTwo: '2017',
     bannerTextThree: 'Javascript React',
@@ -106,7 +99,6 @@ export const projectData = {
     mobileImageThree: '/static/images/lastfm/7.png',
   },
   leida: {
-    bannerImage: '/static/images/leida/banner.jpg',
     bannerTextOne: 'ideal leida',
     bannerTextTwo: '2016',
     bannerTextThree: 'HTML CSS Javascript PHP',
@@ -123,7 +115,6 @@ export const projectData = {
     mobileImageThree: '/static/images/leida/7.jpg',
   },
   library: {
-    bannerImage: '/static/images/library/banner.jpg',
     bannerTextOne: 'WNS Library',
     bannerTextTwo: '2016',
     bannerTextThree: 'HTML CSS',
@@ -136,7 +127,6 @@ export const projectData = {
     bodyImageTwo: '/static/images/library/2.jpg',
   },
   tcfs: {
-    bannerImage: '/static/images/tcfs/toocool.jpg',
     bannerTextOne: 'too cool for school',
     bannerTextTwo: '2016-2017',
     bannerTextThree: 'HTML CSS Javascript',
@@ -153,7 +143,6 @@ export const projectData = {
     mobileImageThree: '/static/images/tcfs/7.jpg',
   },
   wildcat: {
-    bannerImage: '/static/images/wildcat/banner.jpg',
     bannerTextOne: 'Ashley Wildcat',
     bannerTextTwo: '2016-2018',
     bannerTextThree: 'Javascript React',
@@ -168,7 +157,6 @@ export const projectData = {
     mobileImageThree: '/static/images/wildcat/7.png',
   },
   wns: {
-    bannerImage: '/static/images/wns/banner.jpg',
     bannerTextOne: 'Why Not Smile',
     bannerTextTwo: '2016',
     bannerTextThree: 'HTML CSS Javascript',
@@ -185,7 +173,6 @@ export const projectData = {
     mobileImageThree: '/static/images/wns/7.jpg',
   },
   harvard: {
-    bannerImage: '/static/images/harvard/image1.png',
     bannerTextOne: 'Harvard Wheelwright Prize',
     bannerTextTwo: '2016',
     bannerTextThree: 'HTML CSS JQuery',

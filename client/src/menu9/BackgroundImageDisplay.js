@@ -4,11 +4,10 @@ import classNames from 'classnames';
 import * as menuActions from 'actions/menu';
 import {bindActionCreators} from 'redux';
 import {history} from 'store';
-
+import {Link} from 'react-router-dom';
 class BackgroundImageDisplay extends React.Component{
 
   toggleMenu = (path) => {
-    this.props.menuActions.hoverMenuOption('');
     this.props.menuActions.toggleMenu(false);
     history.push(path);
   }
@@ -16,31 +15,40 @@ class BackgroundImageDisplay extends React.Component{
   render(){
 
     const {
-      pathName,
-      isActive,
-      backgroundName,
+      hoverOption,
+      image,
+      link,
+      loadedContent,
       menuDisplay,
     }=this.props;
 
     const backgroundClassName = classNames(
       'menu_background',
       {
-        'menu_background--display': isActive && menuDisplay
+        'menu_background--display':
+        (link===loadedContent && !menuDisplay) ||
+        (image===hoverOption && menuDisplay)
       }
     );
 
     return(
-      <div onClick = {()=>this.toggleMenu(pathName)}>
-        <div className={backgroundClassName} style={{backgroundImage: `url(${backgroundName})`}}/>
-      </div>
+      <Link to={link}>
+        <div className={backgroundClassName}
+          style={{backgroundImage: `url(${image})`}}
+        />
+      </Link>
     );
   }
 }
 
 export default connect(
-  (state) => ({
-    menuDisplay: state.menu.menuDisplay,
-  }),
+  (state) => {
+    return {
+      menuDisplay: state.menu.menuDisplay,
+      hoverOption: state.menu.hoverOption,
+      loadedContent: state.transition.loadedContent,
+    };
+  },
   dispatch => ({
     menuActions: bindActionCreators(menuActions, dispatch),
   }),

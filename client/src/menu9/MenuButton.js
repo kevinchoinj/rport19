@@ -6,7 +6,7 @@ import * as menuActions from 'actions/menu';
 
 class MenuButton extends React.Component{
   toggleMenu = () => {
-    this.props.menuActions.hoverMenuOption('');
+    this.props.menuActions.hoverMenuOption(false);
     this.props.menuActions.toggleMenu(!this.props.menuDisplay);
     document.getElementById('menu_scrollbar').focus();
   }

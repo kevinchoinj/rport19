@@ -17,6 +17,8 @@ import CheckScroll from 'components/services/CheckScroll';
 
 import {projectData} from 'data/projectData';
 import {pageData} from 'data/pageData';
+import BackgroundImageWrapper from 'menu9/BackgroundImageWrapper';
+import MenuFill from 'menu9/MenuFill';
 
 class SiteRoutes extends React.Component {
   render() {
@@ -43,6 +45,8 @@ class SiteRoutes extends React.Component {
           <Route exact path={pageData.gaming} render={(props) => <GamingMisc {...props}/>}/>
           <Route component={NotFound} />
         </Switch>
+        <BackgroundImageWrapper/>
+        <MenuFill/>
         <MenuPanel/>
         <MenuButton/>
         <CheckScroll/>

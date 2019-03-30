@@ -89,7 +89,6 @@ class GamingMisc extends React.Component {
     return (
       <div className='project_wrapper' id="gaming_body" tabIndex="0" ref="theDiv">
         <BannerContainer
-          bgimage='/static/images/chess.jpg'
           line1="Misc Games"
         />
         <div className='project_body'>

@@ -4,7 +4,7 @@ import scroll from 'reducers/scroll';
 import pages from 'reducers/pages';
 import authentication from 'reducers/authentication';
 import images from 'reducers/images';
-
+import transition from 'reducers/transition';
 
 const reducers={
   form: reducerForm,
@@ -15,6 +15,7 @@ const reducers={
 
   authentication,
   images,
+  transition,
 };
 
 export default reducers;

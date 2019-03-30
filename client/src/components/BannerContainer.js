@@ -1,12 +1,10 @@
 import React from 'react';
-import Banner from 'components/Banner.js';
 import BannerText from 'components/BannerText.js';
 
 export default class BannerContainer extends React.Component {
   render() {
 
     const {
-      bgimage,
       line1,
       line2,
       line3,
@@ -15,9 +13,6 @@ export default class BannerContainer extends React.Component {
 
     return (
       <div className="project_banner__container">
-        <Banner
-          bgimage={bgimage}
-        />
         <BannerText
           line1={line1}
           line2={line2}

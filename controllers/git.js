@@ -6,7 +6,7 @@ const {
 class GitController {
 
   getAllCommits(req, res) {
-    fetch(`https://api.github.com/repos/kevinchoinj/kaitlyn-admin/commits`)
+    fetch(`https://api.github.com/repos/kevinchoinj/rport19/commits`)
     .then(res => res.json())
       .then((body) => {
         res.status(200).send({

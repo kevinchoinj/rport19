@@ -29,7 +29,6 @@ class ProjectMisc extends React.Component {
       <div className="project_wrapper" ref="theDiv" tabIndex="0">
         <GetMiscProjects/>
         <BannerContainer
-          bgimage='/static/images/heroku/herokubanner.png'
           line1="Misc Projects"
         />
         <div className="project_body">

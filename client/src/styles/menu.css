@@ -46,7 +46,6 @@
   width: 100%;
   position: fixed;
   opacity: 0;
-  background-color: #111;
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -102,6 +101,18 @@
   font-size: 66px;
   line-height: 120px;
   font-family: 'Raleway', Helvetica, sans-serif;
+  color: var(--white-color);
+  cursor: default;
+}
+.menu_panel__links a {
+  color: var(--color-link);
+  text-decoration: none;
+  transition: var(--transition-medium);
+  cursor: pointer;
+}
+.menu_panel__links a:hover,
+.menu_panel__links a:focus {
+  color: var(--color-link-hover);
 }
 .menu_panel__link_div {
   display: flex;

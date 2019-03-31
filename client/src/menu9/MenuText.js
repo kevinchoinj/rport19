@@ -28,6 +28,26 @@ const LinkDivWrapper = ({hoverOption, image, children}) => {
   }
 };
 
+const CheckCurrentPage = ({loadedContent, link, children}) => {
+  if (loadedContent === link) {
+    return (
+      <div className="menu_panel__link">
+        {children}
+      </div>
+    );
+  }
+  else {
+    return (
+      <Link
+        to={link}
+        className = "menu_panel__link"
+      >
+        {children}
+      </Link>
+    );
+  }
+};
+
 class MenuText extends React.Component{
   toggleMenu = (path) => {
     this.props.menuActions.toggleMenu(false);
@@ -45,6 +65,7 @@ class MenuText extends React.Component{
 
     const {
       menuDisplay,
+      loadedContent,
     } = this.props;
 
     const menuClassName = classNames(
@@ -58,9 +79,9 @@ class MenuText extends React.Component{
       <div className = {menuClassName} id="menu_scrollbar">
         {menuData.map((value, index)=>(
           <div className="menu_panel__container" key={index}>
-            <Link
-              to={value.link}
-              className = "menu_panel__link"
+            <CheckCurrentPage
+              loadedContent={loadedContent}
+              link={value.link}
             >
               <LinkDivWrapper
                 image={value.image}
@@ -73,7 +94,7 @@ class MenuText extends React.Component{
                   {value.text}
                 </div>
               </LinkDivWrapper>
-            </Link>
+            </CheckCurrentPage>
           </div>
         ))}
       </div>
@@ -84,6 +105,7 @@ class MenuText extends React.Component{
 export default connect(
   (state) => ({
     menuDisplay:state.menu.menuDisplay,
+    loadedContent: state.transition.loadedContent,
   }),
   dispatch => ({
     menuActions: bindActionCreators(menuActions, dispatch),

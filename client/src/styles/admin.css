@@ -1,11 +1,11 @@
 .admin_background {
   background-size: cover;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   position: fixed;
   top: 0;
   left: 0;
-  background-image: url(/static/images/admin/background.jpg);
+  background-image: url(/static/images/background.jpg);
   background-repeat: no-repeat;
 }
 .admin_background:after {
@@ -21,7 +21,7 @@
 =             ADMIN LOGIN             =
 ======================================*/
 .admin_login_wrapper {
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -33,10 +33,10 @@
 }
 .admin_login_container {
   display: flex;
-  justify-content: center;
   background-color: var(--admin-container-color);
-  box-shadow: 0px 0px 50px 0px rgba(0,0,0,.75);
-  max-width: 100%;
+  padding: var(--size-small);
+  box-shadow: var(--shadow-box);
+  max-width: 100vw;
   flex-wrap: wrap;
 }
 .admin_form__field {
@@ -48,25 +48,31 @@
   min-width: 255px;
   border-radius: 3px;
   color: var(--white-color);
+  font-family: 'Open Sans', Helvetica, sans-serif;
 }
 .admin_form__field::placeholder {
   color: var(--white-color);
 }
 .admin_form__button {
   width: 100%;
-  background-color: rgba(0,0,0,.4);
+  background-color: var(--color-primary);
+  color: var(--black-color);
   padding: 14px 8px;
   border: none;
-  color: var(--white-color);
   cursor: pointer;
   transition: var(--transition-medium);
+  font-family: 'Open Sans', Helvetica, sans-serif;
+  font-weight: 700;
+  color: var(--grey-light-color);
 }
 .admin_form__button:hover {
-  background-color: rgba(0,0,0,.2);
+  background-color: var(--color-primary-dark);
 }
 .admin_login__return {
   margin-top: 8px;
+  text-decoration: none;
   color: var(--white-color);
+  font-family: 'Open Sans', Helvetica, sans-serif;
   font-size: 12px;
   transition: var(--transition-medium);
 }
@@ -76,6 +82,14 @@
 /*======================================
 =             ADMIN LAYOUT             =
 ======================================*/
+.admin_home {
+  background-color: var(--admin-container-color);
+  box-shadow: var(--shadow-box);
+  display: flex;
+  flex-direction: column;
+  color: #babcc4;
+  padding: var(--size-small);
+}
 .admin_panel{
   display: flex;
   flex-direction: row;
@@ -86,18 +100,18 @@
   display: flex;
 }
 .admin_right{
-  width: 1440px;
+  width: 1280px;
   flex-grow: 0;
   flex-shrink: 1;
-  max-width: calc(100vw - 220px);
+  max-width: calc(100vw - 100px);
   z-index: 1;
-  padding: 20px 100px;
+  padding: 20px 50px;
   box-sizing: border-box;
 }
 .admin_nav__left{
   flex: 1;
   background-color: var(--admin-container-color);
-  box-shadow: 0px 0px 50px 0px rgba(0,0,0,0.75);
+  box-shadow: var(--shadow-box);
   z-index: 5;
   display: flex;
   justify-content: flex-end;
@@ -107,14 +121,15 @@
 }
 .admin_container {
   background-color: var(--admin-container-color);
-  box-shadow: 0px 0px 50px 0px rgba(0,0,0,0.75);
+  box-shadow: var(--shadow-box);
   display: flex;
   flex-direction: column;
+  font-family: 'Open Sans', Helvetica, sans-serif;
   color: #babcc4;
   margin-bottom: 14px;
 }
 .admin_container__body {
-  padding: 16px;
+  padding: var(--size-small);
   display: flex;
 }
 .admin_title {
@@ -132,19 +147,29 @@
 .admin_sortable {
   cursor: move;
 }
+.admin_container__flex {
+  display: flex;
+  background-color: var(--admin-container-color);
+  box-shadow: var(--shadow-box);
+  max-width: 100vw;
+  flex-wrap: wrap;
+}
 /*======================================
 =             ADMIN MENU              =
 ======================================*/
 .admin_menu_wrapper {
+  font-family: 'Open Sans', Helvetica, sans-serif;
   padding-top: 100px;
   line-height: 200%;
   min-width: 300px;
   min-height: 100vh;
+  box-sizing: border-box;
 }
 .admin_nav_link {
   box-sizing: border-box;
   display: flex;
-  padding: 3px 14px;
+  padding: 3px 24px;
+  text-decoration: none;
   color: var(--white-color);
   cursor: pointer;
   transition: var(--transition-medium);
@@ -177,17 +202,42 @@
 }
 .admin_delete {
   cursor: pointer;
-  width: 100%;
-  background-color: rgba(0,0,0,.4);
-  padding: 14px 8px;
-  border: none;
-  color: var(--white-color);
-  cursor: pointer;
-  transition: var(--transition-medium);
   font-size: 13px;
+  margin: 7px 0px;
   text-align: center;
-  box-sizing: border-box;
+  background-color: var(--color-primary);
+  color: var(--black-color);
+  padding: 14px 8px;
+  font-family: 'Open Sans', Helvetica, sans-serif;
+  transition: var(--transition-medium);
+  font-weight: 700;
+  color: var(--grey-light-color);
 }
 .admin_delete:hover {
-  background-color: rgba(0,0,0,.2);
+  background-color: var(--color-primary-dark);
+}
+
+.misc_image__container {
+  color: #fff;
+  font-size: 13px;
+  width: 33%;
+  padding: var(--size-small);
+  box-sizing: border-box;
+}
+.misc_title {
+  margin-bottom: var(--size-small);
+}
+.misc_title__label {
+  font-weight: 600;
+}
+.misc_image {
+  max-width: 100%;
+}
+
+.git__wrapper {
+  margin-top: 1rem;
+}
+.git__row {
+  font-size: .8rem;
+  margin: .5rem 0;
 }

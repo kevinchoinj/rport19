@@ -72,9 +72,6 @@ export function fetchMiscProjects() {
       .then(handleErrors)
       .then(res => res.json())
       .then(json => {
-        console.log(json);
-        console.log('&&');
-        console.log(json.data);
         dispatch(fetchMiscProjectsSucceeded(json.data));
       })
       .catch(error => dispatch(fetchMiscProjectsFailure(error)));

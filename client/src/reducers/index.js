@@ -5,6 +5,7 @@ import pages from 'reducers/pages';
 import authentication from 'reducers/authentication';
 import images from 'reducers/images';
 import transition from 'reducers/transition';
+import git from 'reducers/git';
 
 const reducers={
   form: reducerForm,
@@ -16,6 +17,7 @@ const reducers={
   authentication,
   images,
   transition,
+  git,
 };
 
 export default reducers;

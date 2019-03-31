@@ -26,7 +26,17 @@ body * {
   --black-color: #000;
   --transition-medium: .25s ease-in-out;
   --transition-long: .4s ease-in;
+
+  --admin-container-color: rgba(0, 0, 0, .95);
+	--size-small: 1rem;
+	--size-medium: 1.5rem;
+  --size-large: 3rem;
+  --transition-medium: .2s ease-in;
+  --color-primary: rgba(45,0,78, 1);
+  --color-primary-dark: rgba(75, 0, 128);
+  --shadow-box: 0px 0px 100px 0px rgba(45,0,78, 0.2);
 }
+
 .App {
   width: 100%;
   overflow-x: hidden;

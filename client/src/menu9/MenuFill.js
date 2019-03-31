@@ -12,7 +12,7 @@ class BackgroundImageWrapper extends React.Component{
     const fillClassName = classNames(
       'menu_fill',
       {
-        'menu_fill--display':menuDisplay && (hoverOption === false),
+        'menu_fill--display': menuDisplay && (hoverOption === false),
       }
     );
 

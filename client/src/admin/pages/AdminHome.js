@@ -1,21 +1,17 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import GitView from 'admin/components/GitView';
+import FetchGit from 'admin/services/FetchGit';
 
 class AdminHome extends React.Component {
   render(){
     return (
-      <div className="admin_container">
-        Home
+      <div className="admin_home">
+        Recent Changes
+        <GitView/>
+        <FetchGit/>
       </div>
     );
   }
 }
 
-export default connect(
-  (state, ownProps) => ({
-    loggedIn: state.authentication.loggedIn,
-    email: state.authentication.email,
-  }),
-  dispatch => ({
-  }),
-)(AdminHome);
+export default AdminHome;

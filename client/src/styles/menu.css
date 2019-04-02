@@ -66,9 +66,11 @@
   opacity: 0;
   background-color: #010101;
   transition: .4s ease-in-out;
+  pointer-events: none;
 }
 .menu_fill--display{
   opacity: 1;
+  pointer-events: auto;
 }
 .menu_background__home {
   position:absolute;
@@ -354,20 +356,6 @@
 }
 .menu_top_right__last {
   opacity: .5;
-}
-.menu_panel__right--display .menu_top_right {
-  animation: RightTextAppear .3s linear;
-  animation-fill-mode: both;
-  animation-delay: .4s
-}
-
-@keyframes RightTextAppear {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
 }
 
 .menu_wrapper--display .menu_panel__left {

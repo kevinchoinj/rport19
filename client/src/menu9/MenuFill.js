@@ -6,13 +6,14 @@ class BackgroundImageWrapper extends React.Component{
   render(){
     const {
       menuDisplay,
-      hoverOption
+      hoverOption,
+      isMobile,
     } = this.props;
 
     const fillClassName = classNames(
       'menu_fill',
       {
-        'menu_fill--display': menuDisplay && (hoverOption === false),
+        'menu_fill--display': menuDisplay && (hoverOption === false) && !isMobile,
       }
     );
 
@@ -25,7 +26,8 @@ class BackgroundImageWrapper extends React.Component{
 export default connect(
   (state) => ({
     hoverOption: state.menu.hoverOption,
-    menuDisplay:state.menu.menuDisplay,
+    menuDisplay: state.menu.menuDisplay,
+    isMobile: state.scroll.isMobile,
   }),
   dispatch => ({
   }),

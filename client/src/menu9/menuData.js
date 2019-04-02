@@ -1,5 +1,5 @@
 export const menuData = [
-  {value: '00', text: 'Home', link: '/', image: '/static/images/daytime.png'},
+  {value: '00', text: 'Home', link: '/', image: '/static/images/daytimelight.jpg'},
   {value: '01', text: 'Delilah', link: '/projects/delilah', image: '/static/images/delilahs/banner.jpg'},
   {value: '02', text: 'Novaruu', link: '/projects/novaruu', image: '/static/images/novaruu/1.png'},
   {value: '03', text: 'Kaitlyn', link: '/projects/kaitlyn', image: '/static/images/kaitlyn/banner.jpg'},

@@ -18,9 +18,7 @@ class SiteRoutesWrapper extends React.Component {
   }
   render() {
     return (
-      <div>
-        <SiteRoutes/>
-      </div>
+      <SiteRoutes/>
     );
   }
 }

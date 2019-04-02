@@ -110,8 +110,9 @@
     padding-top: 0;
   }
   .project_body_text {
-    width: 83.33333333%;
-    margin-left: 8.33333333%;
+    width: 100%;
+    padding: 6rem 0;
+    margin-left: 0;
   }
   .project_banner_image {
     filter: none !important;
@@ -249,7 +250,11 @@
     width: 100%;
   }
 }
-
+@media screen and (max-width: 767px) and (orientation: landscape) {
+  .mobile_images_column {
+    width: 33.33333333%;
+  }
+}
 /*======================================
 =               LOAD IN               =
 ======================================*/

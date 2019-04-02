@@ -14,6 +14,7 @@ import MenuPanel from 'menu9/MenuPanel';
 import MenuButton from 'menu9/MenuButton';
 
 import CheckScroll from 'components/services/CheckScroll';
+import DetectMobile from 'components/services/DetectMobile';
 
 import {projectData} from 'data/projectData';
 import {pageData} from 'data/pageData';
@@ -50,6 +51,7 @@ class SiteRoutes extends React.Component {
         <MenuPanel/>
         <MenuButton/>
         <CheckScroll/>
+        <DetectMobile/>
       </React.Fragment>
     );
   }

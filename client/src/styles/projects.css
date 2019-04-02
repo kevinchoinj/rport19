@@ -111,7 +111,7 @@
   }
   .project_body_text {
     width: 100%;
-    padding: 6rem 0;
+    padding: 6rem 1rem;
     margin-left: 0;
   }
   .project_banner_image {
@@ -260,39 +260,13 @@
 ======================================*/
 .load_in_object {
   opacity: 0;
+  transform: translateY(2rem);
   transition: var(--transition-medium);
-  transform: scale(.95,.95) translateY(50px);
-  animation: HideObject .4s linear;
-  animation-fill-mode: both;
-  object-position: 0 0;
 }
 .load_in_object--display {
   opacity: 1;
-  transform: scale(1, 1) translateY(0px);
-  animation: LoadObject .4s linear;
-  animation-fill-mode: both;
+  transform: translateY(0px);
 }
-@keyframes LoadObject {
-  0% {
-    opacity: 0;
-    transform: scale(.95,.95) translateY(50px);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1, 1) translateY(0px);
-  }
-}
-@keyframes HideObject {
-  0% {
-    opacity: 1;
-    transform: scale(1, 1) translateY(0px);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(.95,.95) translateY(50px);
-  }
-}
-
 .project_banner_text__under {
   width: 16.66666667%;
   display: inline-block;
@@ -303,6 +277,11 @@
     width: 83.33333333%;
   }
   .load_in_object {
+    transform: scale(1, 1) translateY(0px) !important;
+    animation: none !important;
+    opacity: 1 !important;
+  }
+  .load_in_object--display {
     transform: scale(1, 1) translateY(0px) !important;
     animation: none !important;
     opacity: 1 !important;

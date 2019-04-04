@@ -4,7 +4,6 @@ import BannerContainer from 'components/BannerContainer';
 import AboutContainer from 'components/AboutContainer';
 
 import LoadIn from 'components/animations/LoadIn';
-import OverlayBottom from 'components/animations/OverlayBottom';
 
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
@@ -88,18 +87,15 @@ class ProjectLayout extends React.Component {
           }
 
           <div className="full_width">
-            <OverlayBottom loadDelay=".1s">
-              {pageValues.bodyImageOne && pageValues.video &&
-                <ProjectVideo
-                  backgroundImage = {pageValues.bodyImageOne}
-                  backgroundVideo = {pageValues.video}
-                />
-              }
-            </OverlayBottom>
+            {pageValues.bodyImageOne && pageValues.video &&
+              <ProjectVideo
+                backgroundImage = {pageValues.bodyImageOne}
+                backgroundVideo = {pageValues.video}
+              />
+            }
 
 
             {!pageValues.video && pageValues.bodyImageOne &&
-              <OverlayBottom loadDelay=".1s">
                 <LazyLoad>
                   <img
                     src={pageValues.bodyImageOne}
@@ -107,31 +103,27 @@ class ProjectLayout extends React.Component {
                     alt=""
                   />
                 </LazyLoad>
-              </OverlayBottom>}
+            }
           </div>
 
           <div className="full_width">
-            <OverlayBottom loadDelay=".1s">
-              <LazyLoad>
-                <img
-                  src={pageValues.bodyImageTwo}
-                  className="project_fillimage"
-                  alt=""
-                />
-              </LazyLoad>
-            </OverlayBottom>
+            <LazyLoad>
+              <img
+                src={pageValues.bodyImageTwo}
+                className="project_fillimage"
+                alt=""
+              />
+            </LazyLoad>
           </div>
 
           <div className="full_width">
-            <OverlayBottom loadDelay=".1s">
-              <LazyLoad>
-                <img
-                  src={pageValues.bodyImageThree}
-                  className="project_fillimage"
-                  alt=""
-                />
-              </LazyLoad>
-            </OverlayBottom>
+            <LazyLoad>
+              <img
+                src={pageValues.bodyImageThree}
+                className="project_fillimage"
+                alt=""
+              />
+            </LazyLoad>
           </div>
         </div>
 

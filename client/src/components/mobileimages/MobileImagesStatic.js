@@ -1,5 +1,4 @@
 import React from 'react';
-import OverlayBottom from 'components/animations/OverlayBottom';
 
 const CardObject = ({loadDelay, image, isVisible}) => {
 
@@ -9,17 +8,12 @@ const CardObject = ({loadDelay, image, isVisible}) => {
 
   return (
     <div className="mobile_images_column">
-      <OverlayBottom
-        isVisible = {isVisible}
-        loadDelay={loadDelay}
-      >
-        <img
-          style={addLoadDelay}
-          src={image}
-          className="project_fillimage"
-          alt=''
-        />
-      </OverlayBottom>
+      <img
+        style={addLoadDelay}
+        src={image}
+        className="project_fillimage"
+        alt=''
+      />
     </div>
   );
 };

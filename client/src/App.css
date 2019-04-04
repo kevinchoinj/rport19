@@ -39,8 +39,12 @@ body * {
 
 .App {
   width: 100%;
-  overflow-x: hidden;
+  overflow: hidden;
   -webkit-overflow-scrolling: touch;
+}
+.skew {
+  transition: transform .25s;
+  will-change: transform;
 }
 .no_select {
   user-select: none;

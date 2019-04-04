@@ -33,7 +33,7 @@ export const projectData = {
     bannerTextThree: 'Javascript React',
     bannerTextFour: 'https://delilahs2ndchance.org',
     aboutText: 'This project was created for a non-profit animal rescue.',
-    bodyImageOne: '/static/images/delilahs/1.jpg',
+    bodyImageOne: '/static/images/delilahs/1.png',
     bodyImageTwo: '/static/images/delilahs/2.png',
     bodyImageThree: '/static/images/delilahs/3.png',
     mobileImageOne: '/static/images/delilahs/4.png',

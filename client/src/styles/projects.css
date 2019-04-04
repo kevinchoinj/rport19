@@ -21,7 +21,7 @@
 =          PROJECT CONTENTS           =
 ======================================*/
 .project_smallfont{
-  font-size: 50px;
+  font-size: 48px;
   line-height: 80px;
   letter-spacing: 4px;
   font-weight: 800;
@@ -92,7 +92,7 @@
   font-size: 14px;
   line-height: 30px;
   letter-spacing: 1px;
-  width: 41.66666667%;
+  width: 66.6%;
   margin-left: 8.33333333%;
   padding-bottom: 3rem;
 }
@@ -113,9 +113,14 @@
     width: 100%;
     padding: 6rem 1rem;
     margin-left: 0;
+    box-sizing:border-box;
   }
   .project_banner_image {
     filter: none !important;
+  }
+  .project_fillimage {
+    padding: 1.5rem 1.5rem 0 1.5rem;
+    box-sizing:border-box;
   }
 }
 
@@ -153,7 +158,12 @@
   width: 100%;
   height: auto;
 }
-
+@media screen and (max-width: 992px) {
+  .project_video {
+    padding: 1.5rem 1.5rem 0 1.5rem;
+    box-sizing:border-box;
+  }
+}
 /*======================================
 =                UPDATE                =
 ======================================*/
@@ -310,11 +320,9 @@
 .overlay_bottom img {
   transform: translateY(100px);
   transition: 1s ease-in;
-  opacity: 0;
 }
 .overlay_bottom--display img {
   transform: translateY(0px);
-  opacity: 1;
 }
 @media screen and (max-width: 992px) {
   .overlay_bottom__overlay {

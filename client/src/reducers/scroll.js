@@ -1,11 +1,13 @@
 import {
   CHECK_SCROLL,
   SET_MOBILE,
+  SET_SKEW,
 } from 'actions/scroll';
 
 const DEFAULT_STATE={
   scrollAmount: 0,
   isMobile: true,
+  skew: ''
 };
 
 export default(state=DEFAULT_STATE, payload)=>
@@ -21,6 +23,11 @@ export default(state=DEFAULT_STATE, payload)=>
     return state = {
       ...state,
       isMobile: payload.payload
+    };
+  case SET_SKEW:
+    return state = {
+      ...state,
+      skew: payload.payload
     };
   default:
     return state;

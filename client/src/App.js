@@ -13,6 +13,7 @@ import 'styles/admin.css';
 
 import SiteRoutesWrapper from 'routes/SiteRoutesWrapper';
 import CheckLogin from 'routes/CheckLogin';
+import SkewCalc from 'components/SkewCalc';
 
 import {Switch, Route} from 'react-router-dom';
 
@@ -20,6 +21,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App" id="main_app">
+        <SkewCalc/>
         <Switch>
           <Route path="/shodyra/admin" render={(props) => <CheckLogin {...props}/>}/>
           <Route path="/" render={(props) => <SiteRoutesWrapper {...props}/>}/>

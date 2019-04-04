@@ -39,7 +39,6 @@ body * {
 
 .App {
   width: 100%;
-  overflow: hidden;
   -webkit-overflow-scrolling: touch;
 }
 .skew {

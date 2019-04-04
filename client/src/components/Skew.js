@@ -1,26 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
-import * as scrollActions from 'actions/scroll';
-
-const section = document.querySelector('section');
-let currentPixel = window.pageYOffset;
 
 class Skew extends React.Component{
-  state = {
-    skew: ''
-  };
-  looper = () => {
-    const newPixel = window.pageYOffset;
-    const diff = newPixel - currentPixel;
-    const speed = diff*0.1;
-    this.props.scrollActions.setSkew(speed);
-    currentPixel = newPixel;
-    requestAnimationFrame(this.looper);
-  }
-  componentDidMount() {
-    this.looper();
-  }
   render(){
     const {
       children,
@@ -44,6 +25,5 @@ export default connect(
     skew: state.scroll.skew,
   }),
   dispatch => ({
-    scrollActions: bindActionCreators(scrollActions, dispatch),
   }),
 )(Skew);

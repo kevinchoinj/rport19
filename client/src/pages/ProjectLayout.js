@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import BannerContainer from 'components/BannerContainer';
 import AboutContainer from 'components/AboutContainer';
 
-import LoadIn from 'components/animations/LoadIn';
+import Skew from 'components/Skew';
 
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
@@ -52,83 +52,77 @@ class ProjectLayout extends React.Component {
 
     return (
       <div className="project_wrapper" ref="theDiv" tabIndex="0">
-        <BannerContainer
-          line1 = {pageValues.bannerTextOne}
-          line2 = {pageValues.bannerTextTwo}
-          line3 = {pageValues.bannerTextThree}
-          line4 = {pageValues.bannerTextFour}
-        />
+        <Skew>
+          <BannerContainer
+            line1 = {pageValues.bannerTextOne}
+            line2 = {pageValues.bannerTextTwo}
+            line3 = {pageValues.bannerTextThree}
+            line4 = {pageValues.bannerTextFour}
+          />
 
-        <div id="project_about">
-          <AboutContainer>
-            {pageValues.aboutText}
-          </AboutContainer>
-        </div>
+          <div id="project_about">
+            <AboutContainer>
+              {pageValues.aboutText}
+            </AboutContainer>
+          </div>
 
-        <div className="project_body">
-          {pageValues.bodyTextOne &&
-            <div className="project_body_text">
-              <LoadIn>
+          <div className="project_body">
+            {pageValues.bodyTextOne &&
+              <div className="project_body_text">
                 <span  className="project_smallfont">
                   OVERVIEW
                 </span>
-              </LoadIn>
-
-              <LoadIn loadDelay=".2s">
                 {pageValues.bodyTextOne}
-              </LoadIn>
-              <LoadIn loadDelay=".3s">
+
                 {pageValues.bodyTextTwo}
-              </LoadIn>
-              <LoadIn loadDelay=".4s">
+
                 {pageValues.bodyTextThree}
-              </LoadIn>
+              </div>
+            }
+
+            <div className="full_width">
+              {pageValues.bodyImageOne && pageValues.video &&
+                <ProjectVideo
+                  backgroundImage = {pageValues.bodyImageOne}
+                  backgroundVideo = {pageValues.video}
+                />
+              }
+
+
+              {!pageValues.video && pageValues.bodyImageOne &&
+                  <LazyLoad>
+                    <img
+                      src={pageValues.bodyImageOne}
+                      className="project_fillimage"
+                      alt=""
+                    />
+                  </LazyLoad>
+              }
             </div>
-          }
 
-          <div className="full_width">
-            {pageValues.bodyImageOne && pageValues.video &&
-              <ProjectVideo
-                backgroundImage = {pageValues.bodyImageOne}
-                backgroundVideo = {pageValues.video}
-              />
-            }
+            <div className="full_width">
+              <LazyLoad>
+                <img
+                  src={pageValues.bodyImageTwo}
+                  className="project_fillimage"
+                  alt=""
+                />
+              </LazyLoad>
+            </div>
 
-
-            {!pageValues.video && pageValues.bodyImageOne &&
-                <LazyLoad>
-                  <img
-                    src={pageValues.bodyImageOne}
-                    className="project_fillimage"
-                    alt=""
-                  />
-                </LazyLoad>
-            }
+            <div className="full_width">
+              <LazyLoad>
+                <img
+                  src={pageValues.bodyImageThree}
+                  className="project_fillimage"
+                  alt=""
+                />
+              </LazyLoad>
+            </div>
           </div>
 
-          <div className="full_width">
-            <LazyLoad>
-              <img
-                src={pageValues.bodyImageTwo}
-                className="project_fillimage"
-                alt=""
-              />
-            </LazyLoad>
-          </div>
-
-          <div className="full_width">
-            <LazyLoad>
-              <img
-                src={pageValues.bodyImageThree}
-                className="project_fillimage"
-                alt=""
-              />
-            </LazyLoad>
-          </div>
-        </div>
-
-        <MobileImageView pageValues = {pageValues}/>
-
+          <MobileImageView pageValues = {pageValues}/>
+        </Skew>
       </div>
     );
   }

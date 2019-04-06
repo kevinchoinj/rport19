@@ -58,6 +58,7 @@
   background-color: #010101;
   transition: .4s ease-in-out;
   pointer-events: none;
+  z-index: 1;
 }
 .menu_fill--display{
   opacity: 1;
@@ -93,7 +94,7 @@
   width: 100%;
   font-size: var(--size-xlarge);
   line-height: 150%;
-  font-family: 'Raleway', Helvetica, sans-serif;
+  font-family: 'Josefin Sans', Helvetica, sans-serif;
   color: var(--white-color);
   cursor: default;
 }

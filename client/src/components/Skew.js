@@ -6,11 +6,14 @@ class Skew extends React.Component{
     const {
       children,
       skew,
+      menuDisplay,
     } = this.props;
 
     const skewStyle = {
-      transform: `skewY(${skew}deg)`
+      transform: `skewY(${skew}deg)`,
+      opacity: menuDisplay ? 0 : 1,
     };
+
     return(
       <section className="skew" style={skewStyle}>
         {children}
@@ -23,6 +26,7 @@ class Skew extends React.Component{
 export default connect(
   (state) => ({
     skew: state.scroll.skew,
+    menuDisplay: state.menu.menuDisplay,
   }),
   dispatch => ({
   }),

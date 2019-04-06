@@ -42,11 +42,12 @@ body * {
   --color-primary-dark: rgba(75, 0, 128);
   --shadow-box: 0px 0px 100px 0px rgba(45,0,78, 0.2);
 }
-@media screen and (max-width: 1440px ) {
+@media screen and (max-width: 1920px ) {
   :root {
     --size-small: .8rem;
     --size-medium: 1.5rem;
     --size-large: 3rem;
+    --size-xlarge: 4rem;
     --size-spacing: 2rem;
     --size-spacing-small: 1.5rem;
     --size-spacing-large: 6rem;
@@ -57,7 +58,7 @@ body * {
   -webkit-overflow-scrolling: touch;
 }
 .skew {
-  transition: transform .25s;
+  transition: .25s ease-in;
   will-change: transform;
 }
 .no_select {

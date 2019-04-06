@@ -31,18 +31,18 @@
 }
 .logo{
   position: fixed;
-  top: 25px;
+  padding: var(--size-spacing);
   width: 100%;
+  top: 0;
+  left: 0;
 }
 .logo_inner{
   background: transparent;
-  height:  60px;
   position: fixed;
-  left: 25px;
   cursor: pointer;
 }
 .logo_link{
-  font-size: 14px;
+  font-size: var(--size-small);
   letter-spacing: 3px;
   color: #fff;
   transition: var(--transition-medium);
@@ -52,18 +52,18 @@
 }
 .contact{
   position: fixed;
-  bottom:25px;
-  left: 25px;
+  bottom:0;
+  left: 0;
+  padding: var(--size-spacing);
 }
 .contact_inner{
-  left: 25px;
   display: flex;
   flex-direction: column;
-  font-size: 14px;
+  font-size: var(--size-small);
 }
 .contact_link {
   display: flex;
-  font-size: 24px;
+  font-size: var(--size-medium);
 }
 .contact_icon {
   margin: 0px 6px;

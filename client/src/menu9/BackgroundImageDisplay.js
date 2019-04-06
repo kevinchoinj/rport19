@@ -4,24 +4,6 @@ import classNames from 'classnames';
 import * as menuActions from 'actions/menu';
 import {bindActionCreators} from 'redux';
 import {history} from 'store';
-import {Link} from 'react-router-dom';
-
-const CheckCurrentPage = ({loadedContent, link, closeMenu, children}) => {
-  if (loadedContent === link) {
-    return (
-      <div onClick={closeMenu}>
-        {children}
-      </div>
-    );
-  }
-  else {
-    return (
-      <Link to={link}>
-        {children}
-      </Link>
-    );
-  }
-};
 
 class BackgroundImageDisplay extends React.Component{
 
@@ -54,15 +36,10 @@ class BackgroundImageDisplay extends React.Component{
     );
 
     return(
-      <CheckCurrentPage
-        loadedContent={loadedContent}
-        link={link}
-        closeMenu = {this.closeMenu}
-      >
-        <div className={backgroundClassName}
-          style={{backgroundImage: `url(${image})`}}
-        />
-      </CheckCurrentPage>
+
+      <div className={backgroundClassName}
+        style={{backgroundImage: `url(${image})`}}
+      />
     );
   }
 }

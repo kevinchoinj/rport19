@@ -21,7 +21,7 @@
 =          PROJECT CONTENTS           =
 ======================================*/
 .project_smallfont{
-  font-size: 48px;
+  font-size: var(--size-large);
   line-height: 80px;
   letter-spacing: 4px;
   font-weight: 800;
@@ -53,9 +53,9 @@
   position: absolute;
   bottom: 0px;
   color: #fff;
-  padding: 6rem 0px;
-  font-size: 10px;
-  line-height: 20px;
+  padding: var(--size-spacing-large) 0px;
+  font-size: var(--size-small);
+  line-height: 150%;
   letter-spacing: 0px;
   transition: var(--transition-medium);
   letter-spacing: 4px;
@@ -68,7 +68,7 @@
 }
 .project_banner_text__container {
   width: 100%;
-  max-width: 1240px;
+  max-width: 66vw;
   padding: 0px 3rem;
   display: flex;
   justify-content: space-between;
@@ -76,7 +76,7 @@
 .project_banner_text__small{
   color: var(--color-link-hover);
   letter-spacing: 0px;
-  font-size: 14px;
+  font-size: var(--size-small);
   line-height: 24px;
 }
 .project_body{
@@ -87,17 +87,19 @@
   padding-top: 6rem;
 }
 .project_body_text{
-  font-size: 14px;
-  line-height: 30px;
+  font-size: var(--size-small);
+  line-height: 150%;
   letter-spacing: 1px;
   width: 66.6%;
   margin-left: 8.33333333%;
-  padding-bottom: 3rem;
+  padding: 0 0 var(--size-spacing-large) 0px;
 }
 
 @media screen and (max-width: 992px) {
   .project_banner_text {
     padding: 3rem 0px;
+    max-width: none;
+    justify-content: flex-start;
   }
   .project_banner_text__container {
     flex-direction: column;
@@ -125,13 +127,13 @@
 .project_about{
   width: 100%;
   background-color:var(--white-color);
-  font-size: 14px;
+  font-size: var(--size-small);
   line-height: 30px;
   letter-spacing: 0px;
   word-wrap: break-word;
   display: flex;
   flex-direction: row;
-  padding: 6rem 0px;
+  padding: var(--size-spacing-large) 0px;
   color: var(--black-color);
 }
 .about_title {
@@ -170,7 +172,7 @@
   background-color: var(--black-color);
   color: #ccc;
   transition:.4s ease-in-out;
-  font-size:16px;
+  font-size: var(--size-small);
   line-height:130%;
   letter-spacing:1px;
   word-wrap: break-word;
@@ -183,7 +185,7 @@
   flex-direction: row;
 }
 .update_smallfont {
-  font-size: 14px;
+  font-size: var(--size-small);
   letter-spacing: 4px;
   font-weight: 600;
 }
@@ -236,10 +238,10 @@
   }
   .mobile_images_column {
     width: 33.3333%;
-    margin-right: 0px;
+    margin-right: 0;
   }
   .mobile_images_row {
-    padding: 0px;
+    padding: 0;
   }
 }
 
@@ -256,6 +258,11 @@
   }
   .mobile_images__container {
     width: 100%;
+  }
+}
+@media screen and (max-width: 767px) and (orientation: landscape) {
+  .mobile_images__container {
+    flex-direction: row;
   }
 }
 @media screen and (max-width: 767px) and (orientation: landscape) {
@@ -340,20 +347,29 @@
   box-shadow: 5px 8px 13.92px 2.08px rgba(155,155,155,.03);
   cursor: pointer;
   transition: .4s ease-out;
+  max-width: 100%;
+}
+.misc_title__label {
+  font-weight: 600;
 }
 .misc_image:hover {
   transform: translateY(-8px);
 }
 .misc_image__container {
-  width: 360px;
   display: inline-block;
   margin: 14px;
   padding-top: 14px;
   max-width: 100%;
   object-fit: cover;
+  color: #fff;
+  font-size: 13px;
+  width: 33%;
+  padding: var(--size-small);
+  box-sizing: border-box;
+  font-size: var(--size-small);
 }
 .misc_title {
-  margin-bottom: 14px;
+  margin-bottom: var(--size-small);
   text-align: center;
   font-family: 'Open Sans', Helvetica, sans-serif;
 }

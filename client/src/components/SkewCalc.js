@@ -8,7 +8,9 @@ class Skew extends React.Component{
   looper = () => {
     const newPixel = window.pageYOffset;
     const diff = newPixel - currentPixel;
-    const speed = diff*0.1;
+    const top = 3;
+    const intensity = 0.15;
+    const speed = top * ((2/(1+Math.exp(-1 * intensity * diff)))-1);
     this.props.scrollActions.setSkew(speed);
     currentPixel = newPixel;
     requestAnimationFrame(this.looper);

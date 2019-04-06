@@ -35,10 +35,10 @@ class MenuButton extends React.Component{
         <div
           className = "seventeen_menu_btn__container"
         >
-          <div className="seveteen_menu_btn__letter">M</div>
-          <div className="seveteen_menu_btn__letter">E</div>
-          <div className="seveteen_menu_btn__letter">N</div>
-          <div className="seveteen_menu_btn__letter">U</div>
+          <div className="seventeen_menu_btn__letter">M</div>
+          <div className="seventeen_menu_btn__letter">E</div>
+          <div className="seventeen_menu_btn__letter">N</div>
+          <div className="seventeen_menu_btn__letter">U</div>
           <div className="seventeen_menu_btn__lines">
             <span
               className = {menuLine1Names}

@@ -28,15 +28,30 @@ body * {
   --transition-long: .4s ease-in;
 
   --admin-container-color: rgba(0, 0, 0, .95);
-	--size-small: 1rem;
-	--size-medium: 1.5rem;
-  --size-large: 3rem;
+	--size-small: .7vw;
+	--size-medium: 1.2vw;
+  --size-large: 2vw;
+  --size-xlarge: 4.5vw;
+
+  --size-spacing: 2vw;
+  --size-spacing-small: 1.5vw;
+  --size-spacing-large: 6vw;
+
   --transition-medium: .2s ease-in;
   --color-primary: rgba(45,0,78, 1);
   --color-primary-dark: rgba(75, 0, 128);
   --shadow-box: 0px 0px 100px 0px rgba(45,0,78, 0.2);
 }
-
+@media screen and (max-width: 1440px ) {
+  :root {
+    --size-small: .8rem;
+    --size-medium: 1.5rem;
+    --size-large: 3rem;
+    --size-spacing: 2rem;
+    --size-spacing-small: 1.5rem;
+    --size-spacing-large: 6rem;
+  }
+}
 .App {
   width: 100%;
   -webkit-overflow-scrolling: touch;

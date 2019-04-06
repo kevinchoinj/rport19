@@ -13,8 +13,6 @@ import * as menuActions from 'actions/menu';
 import MobileImagesStatic from 'components/mobileimages/MobileImagesStatic';
 import ProjectVideo from 'components/ProjectVideo';
 
-import LazyLoad from 'components/services/LazyLoad';
-
 const MobileImageView = ({ projectMobileVisible, pageValues }) => {
   if (pageValues.mobileImageOne &&
       pageValues.mobileImageTwo &&
@@ -69,9 +67,9 @@ class ProjectLayout extends React.Component {
           <div className="project_body">
             {pageValues.bodyTextOne &&
               <div className="project_body_text">
-                <span  className="project_smallfont">
+                <div className="project_smallfont">
                   OVERVIEW
-                </span>
+                </div>
                 {pageValues.bodyTextOne}
 
                 {pageValues.bodyTextTwo}
@@ -90,34 +88,28 @@ class ProjectLayout extends React.Component {
 
 
               {!pageValues.video && pageValues.bodyImageOne &&
-                  <LazyLoad>
-                    <img
-                      src={pageValues.bodyImageOne}
-                      className="project_fillimage"
-                      alt=""
-                    />
-                  </LazyLoad>
+                <img
+                  src={pageValues.bodyImageOne}
+                  className="project_fillimage"
+                  alt=""
+                />
               }
             </div>
 
             <div className="full_width">
-              <LazyLoad>
-                <img
-                  src={pageValues.bodyImageTwo}
-                  className="project_fillimage"
-                  alt=""
-                />
-              </LazyLoad>
+              <img
+                src={pageValues.bodyImageTwo}
+                className="project_fillimage"
+                alt=""
+              />
             </div>
 
             <div className="full_width">
-              <LazyLoad>
-                <img
-                  src={pageValues.bodyImageThree}
-                  className="project_fillimage"
-                  alt=""
-                />
-              </LazyLoad>
+              <img
+                src={pageValues.bodyImageThree}
+                className="project_fillimage"
+                alt=""
+              />
             </div>
           </div>
 

@@ -14,14 +14,15 @@ class TopRightDisplay extends React.Component{
     return(
       <div className="menu_top_right">
         <div className="menu_top_right__title">
-          <div className="menu_top_right__first">K E V I N</div>
-          <div>&nbsp;</div>
+          <div className="menu_top_right__first">K E V I N</div>&nbsp;
           <div className="menu_top_right__last">C H O I</div>
         </div>
         <div className="menu_top_right__line">
-          B.Sc Computer Science - Rensselaer Polytechnic Institute (RPI)
+          B.Sc Computer Science
+          <br/>
+          Rensselaer Polytechnic Institute
         </div>
-        <div className="menu_top_right__line">
+        <div>
           {pageData.emailAddress}
         </div>
         <div className="contact_link menu_top_right__line">

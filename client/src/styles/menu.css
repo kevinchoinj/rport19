@@ -34,7 +34,7 @@
 .menu_background{
   cursor: pointer;
   height: 100vh;
-  width: 100%;
+  width: 100vw;
   position: fixed;
   opacity: 0;
   background-repeat: no-repeat;
@@ -58,7 +58,6 @@
   background-color: #010101;
   transition: .4s ease-in-out;
   pointer-events: none;
-  z-index: 1;
 }
 .menu_fill--display{
   opacity: 1;
@@ -95,18 +94,19 @@
   font-size: var(--size-xlarge);
   line-height: 150%;
   font-family: 'Josefin Sans', Helvetica, sans-serif;
-  color: var(--white-color);
+  color: var(--color-link);
   cursor: default;
 }
 .menu_panel__links a {
-  color: var(--color-link);
+  color: var(--color-grey-light);
   text-decoration: none;
-  transition: var(--transition-medium);
+  transition: 0s;
   cursor: pointer;
 }
 .menu_panel__links a:hover,
 .menu_panel__links a:focus {
-  color: var(--color-link-hover);
+  color: transparent;
+  -webkit-text-stroke: 1px var(--color-grey-light);
 }
 .menu_panel__link_div {
   display: flex;

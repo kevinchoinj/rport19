@@ -1,15 +1,17 @@
 import React from 'react';
 import Lightbox from 'react-images';
 import Scrollbar from 'smooth-scrollbar';
+import ReactDOM from 'react-dom';
 
 export default class Viewer extends React.Component{
-  constructor () {
-    super();
-    this.state = {
-      lightboxIsOpen: false,
-      currentImage: 0,
-    };
-  }
+  state = {
+    lightboxIsOpen: false,
+    currentImage: 0,
+    isDown: false,
+    startX: 0,
+    scrollLeft: 0,
+  };
+
   openLightbox = (index, event) =>{
     event.preventDefault();
     this.setState({
@@ -44,16 +46,41 @@ export default class Viewer extends React.Component{
     this.gotoNext();
   }
 
-  imagehover = () => {
-    this.setState({
-      hover:true
-    });
-  }
-
   componentDidMount() {
     const scrollbar = Scrollbar.init(document.querySelector(this.props.carouselId),
       {alwaysShowTracks: true});
     this.scrollbar = scrollbar;
+
+    const carousel = ReactDOM.findDOMNode(this);
+
+    carousel.addEventListener('mousedown', (e) => {
+      this.setState({
+        isDown: true,
+        startX: e.pageX - carousel.offsetLeft,
+        scrollLeft: carousel.scrollLeft,
+      });
+    });
+
+    carousel.addEventListener('mouseleave', () => {
+      this.setState({
+        isDown: false,
+      });
+    });
+    carousel.addEventListener('mouseup', () => {
+      this.setState({
+        isDown: false,
+      });
+    });
+    carousel.addEventListener('mousemove', (e) => {
+      if (!this.state.isDown) {
+        return;  // stop the fn from running
+      }
+      e.preventDefault();
+      const x = e.pageX - carousel.offsetLeft;
+      const walk = (x - this.state.startX) * 3;
+      scrollbar.scrollTo(this.state.scrollLeft - walk, 0, 600);
+    });
+
   }
 
   renderGallery () {

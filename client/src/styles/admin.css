@@ -47,11 +47,11 @@
   border: 1px solid rgba(255,255,255,.7);
   min-width: 255px;
   border-radius: 3px;
-  color: var(--white-color);
+  color: var(--color-white);
   font-family: 'Open Sans', Helvetica, sans-serif;
 }
 .admin_form__field::placeholder {
-  color: var(--white-color);
+  color: var(--color-white);
 }
 .admin_form__button {
   width: 100%;
@@ -63,7 +63,7 @@
   transition: var(--transition-medium);
   font-family: 'Open Sans', Helvetica, sans-serif;
   font-weight: 700;
-  color: var(--grey-light-color);
+  color: var(--color-grey-light);
 }
 .admin_form__button:hover {
   background-color: var(--color-primary-dark);
@@ -71,13 +71,13 @@
 .admin_login__return {
   margin-top: 8px;
   text-decoration: none;
-  color: var(--white-color);
+  color: var(--color-white);
   font-family: 'Open Sans', Helvetica, sans-serif;
   font-size: 12px;
   transition: var(--transition-medium);
 }
 .admin_login__return:hover {
-  color: var(--grey-light-color);
+  color: var(--color-grey-light);
 }
 /*======================================
 =             ADMIN LAYOUT             =
@@ -170,13 +170,13 @@
   display: flex;
   padding: 3px 24px;
   text-decoration: none;
-  color: var(--white-color);
+  color: var(--color-white);
   cursor: pointer;
   transition: var(--transition-medium);
   justify-content: flex-end;
 }
 .admin_nav_link:hover {
-  color: var(--grey-light-color);
+  color: var(--color-grey-light);
   background-color: rgba(158,158,158,0.2);
 }
 
@@ -186,8 +186,8 @@
 .admin_dropzone {
   height: 150px;
   width: 150px;
-  border: 2px dashed var(--grey-light-color);
-  color: var(--grey-light-color);
+  border: 2px dashed var(--color-grey-light);
+  color: var(--color-grey-light);
   display: flex;
   justify-content: center;
   margin: 14px 0px;
@@ -211,7 +211,7 @@
   font-family: 'Open Sans', Helvetica, sans-serif;
   transition: var(--transition-medium);
   font-weight: 700;
-  color: var(--grey-light-color);
+  color: var(--color-grey-light);
 }
 .admin_delete:hover {
   background-color: var(--color-primary-dark);

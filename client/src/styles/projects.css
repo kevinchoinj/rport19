@@ -82,7 +82,7 @@
 .project_body{
   background-color: var(--black-color);
   width: 100%;
-  color: var(--grey-light-color);
+  color: var(--color-grey-light);
   overflow: hidden;
   padding-top: 6rem;
 }
@@ -126,7 +126,7 @@
 
 .project_about{
   width: 100%;
-  background-color:var(--white-color);
+  background-color:var(--color-white);
   font-size: var(--size-small);
   line-height: 200%;
   letter-spacing: 0px;

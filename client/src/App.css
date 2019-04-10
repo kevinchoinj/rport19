@@ -18,8 +18,8 @@ body * {
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 :root {
-  --white-color: #fff;
-  --grey-light-color: #ddd;
+  --color-white: #fff;
+  --color-grey-light: #ddd;
   --color-link: #666;
   --color-link-hover: #aaa;
   --admin-container-color: rgba(255, 255, 255, .2);
@@ -28,6 +28,8 @@ body * {
   --transition-long: .4s ease-in;
 
   --admin-container-color: rgba(0, 0, 0, .95);
+
+  /*
 	--size-small: .7vw;
 	--size-medium: 1.2vw;
   --size-large: 2vw;
@@ -36,6 +38,7 @@ body * {
   --size-spacing: 2vw;
   --size-spacing-small: 1.5vw;
   --size-spacing-large: 6vw;
+  */
 
   --transition-medium: .2s ease-in;
   --color-primary: rgba(45,0,78, 1);

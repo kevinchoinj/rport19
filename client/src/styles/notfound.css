@@ -4,7 +4,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: var(--white-color);
+  color: var(--color-white);
   flex-direction: column;
 }
 .notfound_title {

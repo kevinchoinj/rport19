@@ -8,16 +8,25 @@ export default class Viewer extends React.Component{
     lightboxIsOpen: false,
     currentImage: 0,
     isDown: false,
+    isMoving: false,
     startX: 0,
     scrollLeft: 0,
   };
 
   openLightbox = (index, event) =>{
-    event.preventDefault();
-    this.setState({
-      currentImage: index,
-      lightboxIsOpen: true,
-    });
+    if (this.state.isMoving) {
+      event.preventDefault();
+      this.setState({
+        isMoving: false,
+      });
+    }
+    else {
+      event.preventDefault();
+      this.setState({
+        currentImage: index,
+        lightboxIsOpen: true,
+      });
+    }
   }
   closeLightbox = () => {
     this.setState({
@@ -54,6 +63,7 @@ export default class Viewer extends React.Component{
     const carousel = ReactDOM.findDOMNode(this);
 
     carousel.addEventListener('mousedown', (e) => {
+      e.preventDefault();
       this.setState({
         isDown: true,
         startX: e.pageX - carousel.offsetLeft,
@@ -75,6 +85,9 @@ export default class Viewer extends React.Component{
       if (!this.state.isDown) {
         return;  // stop the fn from running
       }
+      this.setState({
+        isMoving: true,
+      });
       e.preventDefault();
       const x = e.pageX - carousel.offsetLeft;
       const walk = (x - this.state.startX) * 3;
@@ -92,18 +105,17 @@ export default class Viewer extends React.Component{
 
     const gallery = images.map((obj, i) => {
       return (
-        <div key={i} className="gaming_carousel_object" onLoad={()=>this.scrollbar.update()}>
-          <a
-            aria-label="gaming screenshot"
-            href={obj.src}
-            onClick={(e)=>this.openLightbox(i,e)}
-          >
-            <img
-              src={obj.src}
-              className="gaming_carousel_image"
-              alt="gaming screenshot"
-            />
-          </a>
+        <div
+          key={i}
+          className="gaming_carousel_object"
+          onLoad={()=>this.scrollbar.update()}
+          onClick={(e)=> this.openLightbox(i,e)}
+        >
+          <img
+            src={obj.src}
+            className="gaming_carousel_image"
+            alt="gaming screenshot"
+          />
         </div>
       );
     });

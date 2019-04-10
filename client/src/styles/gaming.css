@@ -5,6 +5,7 @@
   display: flex;
   overflow-x: auto;
   overflow-y: hidden;
+  cursor: grab;
 }
 .gaming_carousel_wrapper .scroll-content {
   display: flex !important;
@@ -23,6 +24,7 @@
 }
 .gaming_carousel_image {
   height: 100%;
+  cursor: pointer;
 }
 .gaming_footer_area {
   height: 20vh;

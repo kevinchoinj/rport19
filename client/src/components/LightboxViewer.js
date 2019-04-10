@@ -57,7 +57,7 @@ export default class Viewer extends React.Component{
       this.setState({
         isDown: true,
         startX: e.pageX - carousel.offsetLeft,
-        scrollLeft: carousel.scrollLeft,
+        scrollLeft: scrollbar.scrollLeft,
       });
     });
 

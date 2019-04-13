@@ -1,12 +1,12 @@
 import thunk from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 import { connectRouter} from 'connected-react-router';
-import createHistory from 'history/createBrowserHistory';
+import {createBrowserHistory} from 'history';
 import {createStore, combineReducers, applyMiddleware, compose} from 'redux';
 
 import reducers from './reducers';
 
-export const history = createHistory();
+export const history = createBrowserHistory();
 
 export default(initialState)=>{
   return createStore(

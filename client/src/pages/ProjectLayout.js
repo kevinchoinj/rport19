@@ -59,7 +59,7 @@ class ProjectLayout extends React.Component {
           />
 
           <div id="project_about">
-            <AboutContainer>
+            <AboutContainer title={pageValues.bannerTextOne}>
               {pageValues.aboutText}
             </AboutContainer>
           </div>
@@ -70,11 +70,11 @@ class ProjectLayout extends React.Component {
                 <div className="project_smallfont">
                   OVERVIEW
                 </div>
-                {pageValues.bodyTextOne}
-
-                {pageValues.bodyTextTwo}
-
-                {pageValues.bodyTextThree}
+                <div className="project_body__body">
+                  {pageValues.bodyTextOne}
+                  {pageValues.bodyTextTwo}
+                  {pageValues.bodyTextThree}
+                </div>
               </div>
             }
 

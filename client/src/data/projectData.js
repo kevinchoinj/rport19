@@ -70,7 +70,7 @@ export const projectData = {
     mobileImageThree: '/static/images/uwloo/7.jpg',
   },
   drjart: {
-    bannerTextOne: 'Dr. Jart+ Newsletter',
+    bannerTextOne: 'Dr. Jart+',
     bannerTextTwo: '2016',
     bannerTextThree: 'HTML CSS',
     bannerTextFour: 'http://us.drjart.com/',

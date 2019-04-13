@@ -23,7 +23,7 @@ const TextDisplay = ({textLine, loadDelay, label}) => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              {textLine}
+              Link
             </a>
           </span>
         </LoadIn>

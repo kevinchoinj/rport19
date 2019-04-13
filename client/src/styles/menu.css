@@ -91,11 +91,16 @@
 }
 .menu_panel__link {
   width: 100%;
-  font-size: var(--size-xlarge);
+  font-size: 4.5vw;
   line-height: 150%;
   font-family: 'Josefin Sans', Helvetica, sans-serif;
   color: var(--color-link);
   cursor: default;
+}
+@media screen and (max-width: 1920px ) {
+  .menu_panel__link {
+    font-size: 4rem;
+  }
 }
 .menu_panel__links a {
   color: var(--color-grey-light);

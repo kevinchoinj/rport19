@@ -1,28 +1,32 @@
 import React from 'react';
-import LoadIn from 'components/animations/LoadIn';
 
 export default class About extends React.Component {
   render() {
     const {
-      isVisible,
+      title,
     } = this.props;
 
     return (
       <div className="project_about">
         <div className="project_smallfont about_title">
-          <LoadIn
-            isVisible = {isVisible}
-          >
-            ABOUT
-          </LoadIn>
+          {title && title.split('').map((value, key) => {
+            if (value === ' ') {
+              return (
+                <div key={key} className="project_smallfont__break">
+                </div>
+              );
+            }
+            else {
+              return (
+                <div key={key} className="project_smallfont__letter">
+                  {value}
+                </div>
+              );
+            }
+          })}
         </div>
         <div className="about_body">
-          <LoadIn
-            isVisible = {isVisible}
-            loadDelay=".2s"
-          >
-            {this.props.children}
-          </LoadIn>
+          {this.props.children}
         </div>
       </div>
     );

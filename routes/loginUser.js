@@ -7,7 +7,8 @@ const {
 } = require('../couch');
 
 module.exports = app => {
-  app.get('/loginUser', (req, res, next) => {
+  app.post('/loginUser', (req, res, next) => {
+    console.log(req.body);
     passport.authenticate('login', (err, user, info) => {
       if (err) {
         console.log(err);

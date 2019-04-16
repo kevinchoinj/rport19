@@ -8,9 +8,17 @@ export const REGISTER_PASSPORT_STARTED = Symbol('REGISTER_PASSPORT_STARTED');
 export const REGISTER_PASSPORT_SUCCEEDED = Symbol('REGISTER_PASSPORT_SUCCEEDED');
 export const REGISTER_PASSPORT_FAILURE = Symbol('REGISTER_PASSPORT_FAILURE');
 
+export const LOGIN_PASSPORT_STARTED = Symbol('LOGIN_PASSPORT_STARTED');
+export const LOGIN_PASSPORT_SUCCEEDED = Symbol('LOGIN_PASSPORT_SUCCEEDED');
+export const LOGIN_PASSPORT_FAILURE = Symbol('LOGIN_PASSPORT_FAILURE');
+
 const registerPassportStarted = request => ({type: REGISTER_PASSPORT_STARTED, request});
 const registerPassportSucceeded = data => ({type: REGISTER_PASSPORT_SUCCEEDED, data});
 const registerPassportFailure = (data, error) => ({type: REGISTER_PASSPORT_FAILURE, data, error});
+
+const loginPassportStarted = request => ({type: LOGIN_PASSPORT_STARTED, request});
+const loginPassportSucceeded = data => ({type: LOGIN_PASSPORT_SUCCEEDED, data});
+const loginPassportFailure = (data, error) => ({type: LOGIN_PASSPORT_FAILURE, data, error});
 
 function handleErrors(response) {
   if (!response.ok) {
@@ -21,21 +29,32 @@ function handleErrors(response) {
 
 export const withRequest = ({request}) => request;
 
-export function loginJWT(data) {
+function loginJWT(data) {
   return () => {
-    let accessString = localStorage.getItem('JWT');
-    if (accessString === null) {
-
-    }
-    return fetch('/findUser', {
+    return fetch('/loginUser', {
       method: 'POST',
-      body: JSON.stringify(data),
       headers: {
-        Authorization: `JWT ${accessString}`
+        'Content-type': 'application/json'
       },
+      body: JSON.stringify(data),
     });
   };
 };
+export function loginPassport(values) {
+  return (dispatch) => {
+    dispatch(loginPassportStarted());
+    return dispatch(loginJWT(values))
+      .then(handleErrors)
+      .then(res => res.json())
+      .then(json => {
+        console.log(json.token);
+        localStorage.setItem('JWT', json.token);
+        dispatch(loginPassportSucceeded(json));
+      })
+      .catch(error => dispatch(loginPassportFailure(error)));
+  };
+}
+
 
 function registerJWT(data) {
   return () => {

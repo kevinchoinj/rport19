@@ -11,6 +11,9 @@ class AdminHome extends React.Component {
   register = values => {
     this.props.authActions.registerPassport(values);
   }
+  login = values => {
+    this.props.authActions.loginPassport(values);
+  }
 
   render(){
     return (
@@ -25,8 +28,18 @@ class AdminHome extends React.Component {
             {name:'username', type: 'text'},
             {name:'password', type: 'text'},
           ]}
-          formName = 'register'
+          formName = 'registerPassport'
           onSubmit={this.register}
+        />
+
+
+        <TextBasicForm
+          textInputs = {[
+            {name:'username', type: 'text'},
+            {name:'password', type: 'text'},
+          ]}
+          formName = 'loginPassport'
+          onSubmit={this.login}
         />
 
         <GitView/>

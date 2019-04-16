@@ -60,18 +60,18 @@ passport.use(
     (username, password, done) => {
       try {
         couchGet('passport', `_design/data/_view/data?key=\"${username}"&include_docs=true`)
-        .then(user => {
-          if (user === null) {
+        .then(data => {
+          if (data.data.rows[0] === null) {
             return done(null, false, { message: 'bad username' });
           } else {
-            bcrypt.compare(password, user.password).then(response => {
+            bcrypt.compare(password, data.data.rows[0].value.password).then(response => {
               if (response !== true) {
                 console.log('passwords do not match');
                 return done(null, false, { message: 'passwords do not match' });
               }
               console.log('user found & authenticated');
               // note the return needed with passport local - remove this return for passport JWT
-              return done(null, user);
+              return done(null, data.data.rows[0].value);
             });
           }
         });

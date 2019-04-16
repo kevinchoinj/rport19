@@ -16,7 +16,7 @@ const TextDisplay = ({textLine, loadDelay, label}) => {
         >
           {label}
           <br/>
-          <span className='project_banner_text__small'>
+          <div className='project_banner_text__small'>
             <a
               href={textLine}
               aria-label={`${label} link`}
@@ -25,7 +25,7 @@ const TextDisplay = ({textLine, loadDelay, label}) => {
             >
               Link
             </a>
-          </span>
+          </div>
         </LoadIn>
       </div>
     );
@@ -39,9 +39,9 @@ const TextDisplay = ({textLine, loadDelay, label}) => {
         >
           {label}
           <br/>
-          <span className='project_banner_text__small'>
+          <div className='project_banner_text__small'>
             {textLine}
-          </span>
+          </div>
         </LoadIn>
       </div>
     );

@@ -1,34 +1,25 @@
 import {
-  AUTH_USER,
-  SIGN_OUT_USER,
-  AUTH_ERROR
+  FIND_PASSPORT_SUCCEEDED,
+  LOGIN_PASSPORT_SUCCEEDED,
 } from 'actions/authentication';
 
 const DEFAULT_STATE={
   loggedIn: false,
-  error: null,
-  email: null,
 };
 
 export default(state=DEFAULT_STATE, payload) => {
   switch(payload.type){
-  case AUTH_USER:
+  case FIND_PASSPORT_SUCCEEDED:
     return {
       ...state,
       loggedIn: true,
       error: null,
-      email: payload.payload.email,
     };
-  case SIGN_OUT_USER:
+  case LOGIN_PASSPORT_SUCCEEDED:
     return {
       ...state,
-      loggedIn: false,
-      error: null
-    };
-  case AUTH_ERROR:
-    return {
-      ...state,
-      error: payload.payload.message
+      loggedIn: true,
+      error: null,
     };
   default:
     return state;

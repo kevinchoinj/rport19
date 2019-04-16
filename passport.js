@@ -92,11 +92,11 @@ passport.use(
   new JWTstrategy(opts, (jwt_payload, done) => {
     try {
       couchGet('passport', `_design/data/_view/data?key=\"${jwt_payload.id}"&include_docs=true`)
-      .then(user => {
-        if (user) {
+      .then(data => {
+        if (data.data.rows[0]) {
           console.log('user found in db in passport');
           // note the return removed with passport JWT - add this return for passport local
-          done(null, user);
+          done(null, data.data.rows[0].value);
         } else {
           console.log('user not found in db');
           done(null, false);

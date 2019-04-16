@@ -1,5 +1,3 @@
-import fire from 'fire';
-import {history} from 'store';
 export const SIGN_OUT_USER = 'SIGN_OUT_USER';
 export const AUTH_ERROR = 'AUTH_ERROR';
 export const AUTH_USER = 'AUTH_USER';
@@ -12,6 +10,10 @@ export const LOGIN_PASSPORT_STARTED = Symbol('LOGIN_PASSPORT_STARTED');
 export const LOGIN_PASSPORT_SUCCEEDED = Symbol('LOGIN_PASSPORT_SUCCEEDED');
 export const LOGIN_PASSPORT_FAILURE = Symbol('LOGIN_PASSPORT_FAILURE');
 
+export const FIND_PASSPORT_STARTED = Symbol('FIND_PASSPORT_STARTED');
+export const FIND_PASSPORT_SUCCEEDED = Symbol('FIND_PASSPORT_SUCCEEDED');
+export const FIND_PASSPORT_FAILURE = Symbol('FIND_PASSPORT_FAILURE');
+
 const registerPassportStarted = request => ({type: REGISTER_PASSPORT_STARTED, request});
 const registerPassportSucceeded = data => ({type: REGISTER_PASSPORT_SUCCEEDED, data});
 const registerPassportFailure = (data, error) => ({type: REGISTER_PASSPORT_FAILURE, data, error});
@@ -19,6 +21,10 @@ const registerPassportFailure = (data, error) => ({type: REGISTER_PASSPORT_FAILU
 const loginPassportStarted = request => ({type: LOGIN_PASSPORT_STARTED, request});
 const loginPassportSucceeded = data => ({type: LOGIN_PASSPORT_SUCCEEDED, data});
 const loginPassportFailure = (data, error) => ({type: LOGIN_PASSPORT_FAILURE, data, error});
+
+const findPassportStarted = request => ({type: FIND_PASSPORT_STARTED, request});
+const findPassportSucceeded = data => ({type: FIND_PASSPORT_SUCCEEDED, data});
+const findPassportFailure = (data, error) => ({type: FIND_PASSPORT_FAILURE, data, error});
 
 function handleErrors(response) {
   if (!response.ok) {
@@ -28,6 +34,42 @@ function handleErrors(response) {
 }
 
 export const withRequest = ({request}) => request;
+
+function findJWT(username, accessString) {
+  return () => {
+    return fetch('/findUser', {
+      method: 'GET',
+      headers: {
+        'Content-type': 'application/json',
+        'Authorization': `JWT ${accessString}`
+      },
+      params:{
+        username: username,
+      },
+    });
+  };
+}
+
+export function findPassport(username) {
+  const accessString = localStorage.getItem('JWT');
+  if (accessString != null) {
+    return (dispatch) => {
+      dispatch(findPassportStarted());
+      return dispatch(findJWT(username, accessString))
+        .then(handleErrors)
+        .then(res => res.json())
+        .then(json => {
+          dispatch(findPassportSucceeded(json));
+        })
+        .catch(error => dispatch(findPassportFailure(error)));
+    };
+  }
+  else {
+    return (dispatch) => {
+      dispatch(findPassportFailure('no token'));
+    };
+  }
+}
 
 function loginJWT(data) {
   return () => {
@@ -54,8 +96,6 @@ export function loginPassport(values) {
       .catch(error => dispatch(loginPassportFailure(error)));
   };
 }
-
-
 function registerJWT(data) {
   return () => {
     return fetch('/registerUser',
@@ -78,73 +118,5 @@ export function registerPassport(values) {
         dispatch(registerPassportSucceeded(json));
       })
       .catch(error => dispatch(registerPassportFailure(error)));
-  };
-}
-
-export function getCurrentUser() {
-  return function (dispatch) {
-    fire.auth().onAuthStateChanged(user => {
-      if (user) {
-        dispatch(authUser(user));
-      } else {
-        dispatch(signOutUser());
-      }
-    });
-  };
-};
-
-export function signUpUser(data) {
-  return function(dispatch) {
-    return fire.auth().createUserWithEmailAndPassword(data.email, data.password)
-      .then(response => {
-        dispatch(authUser());
-      })
-      .catch(error => {
-        dispatch(authError(error));
-      });
-  };
-}
-export const signUpUserThenRedirect = (data, path) => (dispatch, getState) =>
-  dispatch(signUpUser(data))
-    .then(() => history.push(path));
-
-
-export function signInUser(data) {
-  return function(dispatch) {
-    return fire.auth().signInWithEmailAndPassword(data.email, data.password)
-      .then(response => {
-        dispatch(authUser(response));
-      })
-      .catch(error => {
-        dispatch(authError(error));
-      });
-  };
-}
-export const signInUserThenRedirect = (data, path) => (dispatch, getState) =>
-  dispatch(signInUser(data))
-    .then(() => history.push(path));
-
-export function signOutUser() {
-  return function (dispatch) {
-    fire.auth().signOut()
-      .then(() =>{
-        dispatch({
-          type: SIGN_OUT_USER
-        });
-      });
-  };
-}
-
-export function authUser(response) {
-  return {
-    type: AUTH_USER,
-    payload: response,
-  };
-}
-
-export function authError(error) {
-  return {
-    type: AUTH_ERROR,
-    payload: error
   };
 }

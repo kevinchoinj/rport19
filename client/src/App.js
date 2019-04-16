@@ -12,7 +12,7 @@ import 'styles/notfound.css';
 import 'styles/admin.css';
 
 import SiteRoutesWrapper from 'routes/SiteRoutesWrapper';
-import CheckLogin from 'routes/CheckLogin';
+import PassportCheck from 'routes/PassportCheck';
 import SkewCalc from 'components/SkewCalc';
 
 import {Switch, Route} from 'react-router-dom';
@@ -23,7 +23,7 @@ class App extends React.Component {
       <div className="App" id="main_app">
 
         <Switch>
-          <Route path="/shodyra/admin" render={(props) => <CheckLogin {...props}/>}/>
+          <Route path="/shodyra/admin" render={(props) => <PassportCheck {...props}/>}/>
           <Route path="/" render={(props) => <SiteRoutesWrapper {...props}/>}/>
         </Switch>
       </div>

@@ -3,7 +3,7 @@ Portfolio accessible at https://shodyra.com/
 
 ## Necessary Files
 
-config.json, client/src/config.json, client/src/fire.js should be filled in with corresponding data of config_example.json, client/src/config_example.json, and client/src/fire_example.js
+config.json, client/src/config.json should be filled in with corresponding data of config_example.json, client/src/config_example.json
 
 CouchDB is manually set up to create a local database with a view to store AWS S3 data.
 

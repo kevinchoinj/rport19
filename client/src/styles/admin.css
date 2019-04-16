@@ -32,12 +32,16 @@
   left: 0px;
 }
 .admin_login_container {
+  color: #fff;
   display: flex;
   background-color: var(--admin-container-color);
   padding: var(--size-small);
   box-shadow: var(--shadow-box);
   max-width: 100vw;
   flex-wrap: wrap;
+}
+.admin_login__form {
+  margin: 5px;
 }
 .admin_form__field {
   padding: 14px 8px;

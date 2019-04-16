@@ -84,7 +84,8 @@ function postMiscProjects(data) {
       {
         method: 'POST',
         headers: {
-          'Content-type': 'application/json'
+          'Content-type': 'application/json',
+          'Authorization': `JWT ${localStorage.getItem('JWT')}`
         },
         body: JSON.stringify(data)
       });
@@ -118,7 +119,8 @@ function putMiscProjects(data) {
       {
         method: 'PUT',
         headers: {
-          'Content-type': 'application/json'
+          'Content-type': 'application/json',
+          'Authorization': `JWT ${localStorage.getItem('JWT')}`
         },
         body: JSON.stringify(data)
       });
@@ -156,7 +158,8 @@ function deleteImage(awsKey) {
       {
         method: 'DELETE',
         headers: {
-          'Content-type': 'application/json'
+          'Content-type': 'application/json',
+          'Authorization': `JWT ${localStorage.getItem('JWT')}`
         },
         body: JSON.stringify({awsKey: awsKey})
       });

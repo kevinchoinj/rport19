@@ -21,27 +21,30 @@ const LoginDisplay = ({loggedIn, register, login}) => {
       <div className="admin_login_wrapper" id="scroll_admin">
         <div className="admin_login_container">
           <div className="admin_container__body">
-            register
-            <TextBasicForm
-              textInputs = {[
-                {name:'username', type: 'text'},
-                {name:'password', type: 'text'},
-              ]}
-              formName = 'registerPassport'
-              onSubmit={register}
-            />
-
+            <div className="admin_login__form">
+              register
+              <TextBasicForm
+                textInputs = {[
+                  {name:'username', type: 'text'},
+                  {name:'password', type: 'text'},
+                ]}
+                formName = 'registerPassport'
+                onSubmit={register}
+              />
+            </div>
+            <div className="admin_login__form">
             login
-            <TextBasicForm
-              textInputs = {[
-                {name:'username', type: 'text'},
-                {name:'password', type: 'text'},
-              ]}
-              formName = 'loginPassport'
-              onSubmit={login}
-            />
-
+              <TextBasicForm
+                textInputs = {[
+                  {name:'username', type: 'text'},
+                  {name:'password', type: 'text'},
+                ]}
+                formName = 'loginPassport'
+                onSubmit={login}
+              />
+            </div>
           </div>
+
         </div>
         <Link
           to={pageData.home}

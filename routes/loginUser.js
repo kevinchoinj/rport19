@@ -19,9 +19,10 @@ module.exports = app => {
           couchGet('passport', `_design/data/_view/data?key=\"${user.username}"&include_docs=true`)
           .then(data => {
             const token = jwt.sign(
-              {
-                id: data.data.rows[0].value.username
-              }, jwtSecret.secret, {expiresIn: '168h'});
+              { id: data.data.rows[0].value.username},
+              jwtSecret.secret,
+              {expiresIn: '168h'}
+            );
             res.status(200).send({
               auth: true,
               token: token,

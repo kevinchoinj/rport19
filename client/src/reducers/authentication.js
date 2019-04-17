@@ -1,7 +1,7 @@
 import {
   FIND_PASSPORT_SUCCEEDED,
   LOGIN_PASSPORT_SUCCEEDED,
-  LOGOUT_SUCCEEDED,
+  LOG_OUT,
 } from 'actions/authentication';
 
 const DEFAULT_STATE={
@@ -20,7 +20,7 @@ export default(state=DEFAULT_STATE, payload) => {
       ...state,
       loggedIn: true,
     };
-  case LOGOUT_SUCCEEDED:
+  case LOG_OUT:
     return {
       ...state,
       loggedIn: false,

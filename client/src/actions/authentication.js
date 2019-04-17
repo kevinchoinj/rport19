@@ -10,9 +10,7 @@ export const FIND_PASSPORT_STARTED = Symbol('FIND_PASSPORT_STARTED');
 export const FIND_PASSPORT_SUCCEEDED = Symbol('FIND_PASSPORT_SUCCEEDED');
 export const FIND_PASSPORT_FAILURE = Symbol('FIND_PASSPORT_FAILURE');
 
-export const LOGOUT_STARTED = Symbol('LOGOUT_STARTED');
-export const LOGOUT_SUCCEEDED = Symbol('LOGOUT_SUCCEEDED');
-export const LOGOUT_FAILURE = Symbol('LOGOUT_FAILURE');
+export const LOG_OUT = Symbol('LOG_OUT');
 
 const registerPassportStarted = request => ({type: REGISTER_PASSPORT_STARTED, request});
 const registerPassportSucceeded = data => ({type: REGISTER_PASSPORT_SUCCEEDED, data});
@@ -25,10 +23,6 @@ const loginPassportFailure = (data, error) => ({type: LOGIN_PASSPORT_FAILURE, da
 const findPassportStarted = request => ({type: FIND_PASSPORT_STARTED, request});
 const findPassportSucceeded = data => ({type: FIND_PASSPORT_SUCCEEDED, data});
 const findPassportFailure = (data, error) => ({type: FIND_PASSPORT_FAILURE, data, error});
-
-const logoutStarted = request => ({type: LOGOUT_STARTED, request});
-const logoutSucceeded = data => ({type: LOGOUT_SUCCEEDED, data});
-const logoutFailure = (data, error) => ({type: LOGOUT_FAILURE, data, error});
 
 function handleErrors(response) {
   if (!response.ok) {
@@ -136,19 +130,10 @@ function logoutUser(accessString) {
     });
   };
 }
-export function logout() {
-  const accessString = localStorage.getItem('JWT');
-  if (accessString != null) {
-    return (dispatch) => {
-      dispatch(logoutStarted());
-      return dispatch(logoutUser(accessString))
-        .then(handleErrors)
-        .then(res => res.json())
-        .then(json => {
-          dispatch(logoutSucceeded(json));
-          localStorage.clear();
-        })
-        .catch(error => dispatch(logoutFailure(error)));
-    };
-  }
-}
+
+export const logout = () => {
+  localStorage.clear();
+  return{
+    type: LOG_OUT,
+  };
+};

@@ -8,7 +8,7 @@ import * as authActions from 'actions/authentication';
 class AdminMenu extends React.Component {
 
   signOut = () => {
-    this.props.authActions.signOutUser();
+    this.props.authActions.logout();
   }
   render(){
 

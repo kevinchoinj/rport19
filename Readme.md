@@ -26,18 +26,3 @@ npm start
 npm install
 npm start
 ```
-
-**Firebase**
-
-https://console.firebase.google.com/u/0/?pli=1
-```
-Project settings
-Your Apps
-</>
-Copy config data from web app popup to fire.js
-Authentication
-Sign-in-method
-Email/Password: Enabled
-```
-
-To create administrative account, insert RegistrationForm in react client to replace LoginForm to create new firebase account then replace with LoginForm afterward. Corresponding email goes in client/src/config.json.

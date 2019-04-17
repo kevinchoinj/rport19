@@ -55,7 +55,7 @@ passport.use(
     {
       usernameField: 'username',
       passwordField: 'password',
-      session: false,
+      session: true,
     },
     (username, password, done) => {
       try {

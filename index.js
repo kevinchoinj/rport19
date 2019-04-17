@@ -19,6 +19,7 @@ require ('./passport');
 require('./routes/loginUser')(app);
 require('./routes/registerUser')(app);
 require('./routes/findUser')(app);
+require('./routes/logoutUser')(app);
 //require('./routes/deleteUser')(app);
 //require('./routes/updateUser')(app);
 

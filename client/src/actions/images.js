@@ -186,7 +186,8 @@ function deleteMiscProjects(id, rev) {
       {
         method: 'DELETE',
         headers: {
-          'Content-type': 'application/json'
+          'Content-type': 'application/json',
+          'Authorization': `JWT ${Cookies.get('JWT')}`
         },
         body: JSON.stringify({
           id: id,
@@ -222,7 +223,8 @@ export function removeMiscProjectsThenUpdate(id, rev, awsKey) {
 function postS3Image(data) {
   return () => {
     return upload.post('/api/v1/aws')
-      .attach('awsAction', data.image[0]);
+      .attach('awsAction', data.image[0])
+      .set('Authorization', `JWT ${Cookies.get('JWT')}`);
   };
 }
 

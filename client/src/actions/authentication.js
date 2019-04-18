@@ -1,3 +1,5 @@
+import Cookies from 'js-cookie';
+
 export const REGISTER_PASSPORT_STARTED = Symbol('REGISTER_PASSPORT_STARTED');
 export const REGISTER_PASSPORT_SUCCEEDED = Symbol('REGISTER_PASSPORT_SUCCEEDED');
 export const REGISTER_PASSPORT_FAILURE = Symbol('REGISTER_PASSPORT_FAILURE');
@@ -49,7 +51,7 @@ function findJWT(username, accessString) {
 }
 
 export function findPassport(username) {
-  const accessString = localStorage.getItem('JWT');
+  const accessString = Cookies.get('JWT');
   if (accessString != null) {
     return (dispatch) => {
       dispatch(findPassportStarted());
@@ -87,8 +89,8 @@ export function loginPassport(values) {
       .then(handleErrors)
       .then(res => res.json())
       .then(json => {
-        console.log(json.token);
-        localStorage.setItem('JWT', json.token);
+        //secure: true only for https so doesn't work on localhost
+        Cookies.set('JWT', json.token, {secure: true, expires: 7});
         dispatch(loginPassportSucceeded(json));
       })
       .catch(error => dispatch(loginPassportFailure(error)));
@@ -117,22 +119,10 @@ export function registerPassport(values) {
       })
       .catch(error => dispatch(registerPassportFailure(error)));
   };
-}
-
-function logoutUser(accessString) {
-  return () => {
-    return fetch('/logoutUser', {
-      method: 'GET',
-      headers: {
-        'Content-type': 'application/json',
-        'Authorization': `JWT ${accessString}`
-      },
-    });
-  };
-}
+};
 
 export const logout = () => {
-  localStorage.clear();
+  Cookies.remove('JWT');
   return{
     type: LOG_OUT,
   };

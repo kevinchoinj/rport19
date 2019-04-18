@@ -1,4 +1,5 @@
 import {history} from 'store';
+import Cookies from 'js-cookie';
 const upload = require('superagent');
 
 export const FETCH_MISC_PROJECTS_STARTED = Symbol('FETCH_MISC_PROJECTS_STARTED');
@@ -85,7 +86,7 @@ function postMiscProjects(data) {
         method: 'POST',
         headers: {
           'Content-type': 'application/json',
-          'Authorization': `JWT ${localStorage.getItem('JWT')}`
+          'Authorization': `JWT ${Cookies.get('JWT')}`
         },
         body: JSON.stringify(data)
       });
@@ -120,7 +121,7 @@ function putMiscProjects(data) {
         method: 'PUT',
         headers: {
           'Content-type': 'application/json',
-          'Authorization': `JWT ${localStorage.getItem('JWT')}`
+          'Authorization': `JWT ${Cookies.get('JWT')}`
         },
         body: JSON.stringify(data)
       });
@@ -159,7 +160,7 @@ function deleteImage(awsKey) {
         method: 'DELETE',
         headers: {
           'Content-type': 'application/json',
-          'Authorization': `JWT ${localStorage.getItem('JWT')}`
+          'Authorization': `JWT ${Cookies.get('JWT')}`
         },
         body: JSON.stringify({awsKey: awsKey})
       });

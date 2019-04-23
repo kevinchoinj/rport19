@@ -35,7 +35,7 @@ class ProjectsController {
 
   createProject(req, res) {
     return couchPost(dbName, {
-      name: req.body.text,
+      name: req.body.name,
       link: req.body.link,
       position: req.body.position,
       awsKey: req.body.awsKey,

@@ -1,7 +1,7 @@
 const fetch = require('node-fetch');
 const {
   sendError,
-} = require('../errors.js');
+} = require('../couch.js');
 
 class GitController {
 

@@ -1,12 +1,9 @@
 const NodeCouchDb = require('node-couchdb');
 
-const {
-  sendError,
-} = require('./errors.js');
-
 let jsonData = require('./config.json');
 const couchUsername = jsonData.couchUsername;
 const couchPassword = jsonData.couchPassword;
+const dbErrors = jsonData.dbErrors;
 
 const couch = new NodeCouchDb({
   auth: {
@@ -14,6 +11,15 @@ const couch = new NodeCouchDb({
     password: couchPassword,
   }
 });
+
+const sendError = (component, error, text) => {
+  couchPost(dbErrors, {
+    app: 'rport19',
+    component: component,
+    error: error,
+    text: text,
+  });
+};
 
 const couchGet = (database, databaseViewUrl) => new Promise((resolve, reject) => {
   resolve(couch.get(database, databaseViewUrl));
@@ -50,7 +56,6 @@ const updateDatabase = (databaseName, databaseViewUrl, newData) => new Promise((
 
   resolve(couch.get(databaseName, databaseViewUrl).then(
     function(data) {
-      console.log(data);
       if (data.data.rows[0]) {
         let dataObject = data.data.rows[0];
         couch.update(databaseName, Object.assign({
@@ -83,4 +88,5 @@ module.exports = {
   couchDelete,
   couchPut,
   updateDatabase,
+  sendError,
 };

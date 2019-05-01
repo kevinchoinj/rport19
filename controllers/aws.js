@@ -2,7 +2,7 @@ const AWS = require('aws-sdk');
 const bluebird = require('bluebird');
 const {
   sendError,
-} = require('../errors.js');
+} = require('../couch.js');
 
 let jsonData = require('../config.json');
 const awsAccessKey = jsonData.awsAccessKey;

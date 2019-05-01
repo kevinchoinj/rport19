@@ -3,10 +3,8 @@ const {
   couchPost,
   couchPut,
   couchDelete,
-} = require('../couch.js');
-const {
   sendError,
-} = require('../errors.js');
+} = require('../couch.js');
 
 let jsonData = require('../config.json');
 const dbName = jsonData.dbName;

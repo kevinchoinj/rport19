@@ -13,7 +13,6 @@ import ProjectLayout from 'pages/ProjectLayout';
 import MenuPanel from 'menu9/MenuPanel';
 import MenuButton from 'menu9/MenuButton';
 
-import CheckScroll from 'components/services/CheckScroll';
 import DetectMobile from 'components/services/DetectMobile';
 
 import {projectData} from 'data/projectData';
@@ -48,7 +47,6 @@ class SiteRoutes extends React.Component {
         <BackgroundImageWrapper/>
         <MenuPanel/>
         <MenuButton/>
-        <CheckScroll/>
         <DetectMobile/>
       </React.Fragment>
     );

@@ -18,6 +18,8 @@
         "always"
     ],
     "react/jsx-uses-vars": [2],
-    "eslint linebreak-style": [0, "error", "windows"]
-  }
+    "eslint linebreak-style": [0, "error", "windows"],
+    "react-hooks/rules-of-hooks": "error"
+  },
+  "plugins": ["react-hooks"]
 }

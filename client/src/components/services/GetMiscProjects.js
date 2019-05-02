@@ -1,21 +1,18 @@
-import React from 'react';
-import { bindActionCreators } from 'redux';
+import {useEffect} from 'react';
 import { connect } from 'react-redux';
 import * as imagesActions from 'actions/images';
 
-class GetMiscProjects extends React.Component {
-  componentDidMount() {
-    this.props.imagesActions.fetchMiscProjects();
-  }
-  render() {
-    return null;
-  }
-}
+const GetMiscProjects = props => {
+  useEffect(() => {
+    props.fetchMiscProjects();
+  });
+  return null;
+};
 
-export default connect(
-  () => ({
-  }),
-  dispatch => ({
-    imagesActions: bindActionCreators(imagesActions, dispatch),
-  }),
-)(GetMiscProjects);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchMiscProjects: () => dispatch(imagesActions.fetchMiscProjects()),
+  };
+};
+
+export default connect (null, mapDispatchToProps)(GetMiscProjects);

@@ -57,7 +57,9 @@ export default class Viewer extends React.Component{
 
   componentDidMount() {
     const scrollbar = Scrollbar.init(document.querySelector(this.props.carouselId),
-      {alwaysShowTracks: true});
+      {
+        alwaysShowTracks: false,
+      });
     this.scrollbar = scrollbar;
 
     const carousel = ReactDOM.findDOMNode(this);
@@ -127,21 +129,27 @@ export default class Viewer extends React.Component{
   render(){
 
     return (
-      <div className="gaming_carousel_wrapper" id={this.props.carouselId.slice(1)}>
-        {this.renderGallery()}
-        <Lightbox
-          currentImage={this.state.currentImage}
-          images={this.props.images}
-          isOpen={this.state.lightboxIsOpen}
-          onClickImage={this.handleClickImage}
-          onClickNext={this.gotoNext}
-          onClickPrev={this.gotoPrevious}
-          onClickThumbnail={this.gotoImage}
-          onClose={this.closeLightbox}
-          showThumbnails={this.props.showThumbnails}
-          theme={this.props.theme}
-          backdropClosesModal={true}
-        />
+      <div className="gaming_carousel__wrapper">
+        <div className="gaming_carousel__container" id={this.props.carouselId.slice(1)}>
+          {this.renderGallery()}
+          <Lightbox
+            currentImage={this.state.currentImage}
+            images={this.props.images}
+            isOpen={this.state.lightboxIsOpen}
+            onClickImage={this.handleClickImage}
+            onClickNext={this.gotoNext}
+            onClickPrev={this.gotoPrevious}
+            onClickThumbnail={this.gotoImage}
+            onClose={this.closeLightbox}
+            showThumbnails={this.props.showThumbnails}
+            theme={this.props.theme}
+            backdropClosesModal={true}
+          />
+        </div>
+        <div className="indicators">
+          <div>&lsaquo;</div>
+          <div>&rsaquo;</div>
+        </div>
       </div>
     );
   }

@@ -1,11 +1,9 @@
 import {
-  CHECK_SCROLL,
   SET_MOBILE,
   SET_SKEW,
 } from 'actions/scroll';
 
 const DEFAULT_STATE={
-  scrollAmount: 0,
   isMobile: true,
   skew: ''
 };
@@ -13,12 +11,6 @@ const DEFAULT_STATE={
 export default(state=DEFAULT_STATE, payload)=>
 {
   switch(payload.type){
-  case CHECK_SCROLL:
-    state = {
-      ...state,
-      scrollAmount: payload.scrollAmount
-    };
-    return state;
   case SET_MOBILE:
     return state = {
       ...state,

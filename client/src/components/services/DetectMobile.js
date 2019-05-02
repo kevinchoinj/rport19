@@ -1,28 +1,26 @@
-import React from 'react';
-import {bindActionCreators} from 'redux';
+import {useEffect} from 'react';
 import {connect} from 'react-redux';
 import * as scrollActions from 'actions/scroll';
 
-/*Detects of device has touch screen for background-position: fixed on banner*/
-class DetectMobile extends React.Component {
-  componentDidMount(){
-    let c = 'ontouchstart' in window || navigator.msMaxTouchPoints;
-    if (c) {
-      this.props.scrollActions.setMobile(true);
-    }
-    else {
-      this.props.scrollActions.setMobile(false);
-    }
-  }
-  render(){
-    return null;
-  }
-}
+const DetectMobile = props => {
+  useEffect(() => {
+    props.setMobile();
+  });
+  return null;
+};
 
-export default connect(
-  (state, ownProps) => ({
-  }),
-  dispatch => ({
-    scrollActions: bindActionCreators(scrollActions, dispatch),
-  }),
-)(DetectMobile);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setMobile: () => {
+      let c = 'ontouchstart' in window || navigator.msMaxTouchPoints;
+      if (c) {
+        dispatch(scrollActions.setMobile(true));
+      }
+      else {
+        dispatch(scrollActions.setMobile(false));
+      }
+    },
+  };
+};
+
+export default connect (null, mapDispatchToProps)(DetectMobile);

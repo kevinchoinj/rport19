@@ -162,8 +162,8 @@
 .seventeen_menu_btn:hover .seventeen_menu_line1 {
   transform: translate(-50%, -30%) rotate(90deg) scaleY(0.7);
 }
-.seventeen_menu_btn__container .seventeen_menu_line1--display,
-.seventeen_menu_btn:hover .seventeen_menu_line1--display{
+.seventeen_menu_btn__container--display .seventeen_menu_line1,
+.seventeen_menu_btn:hover .seventeen_menu_btn__container--display .seventeen_menu_line1{
   transform: translate(-50%, -50%) rotate(-45deg);
 }
 .seventeen_menu_line2{
@@ -179,8 +179,8 @@
 .seventeen_menu_btn:hover .seventeen_menu_line2 {
   transform: translate(-50%, -70%) rotate(90deg) scaleY(0.7);
 }
-.seventeen_menu_btn__container .seventeen_menu_line2--display,
-.seventeen_menu_btn:hover .seventeen_menu_line2--display {
+.seventeen_menu_btn__container--display .seventeen_menu_line2,
+.seventeen_menu_btn:hover .seventeen_menu_btn__container--display .seventeen_menu_line2 {
   transform: translate(-50%, -50%) rotate(45deg);
 }
 

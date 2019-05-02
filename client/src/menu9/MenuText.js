@@ -6,7 +6,7 @@ import classNames from 'classnames';
 import {history} from 'store';
 import Scrollbar from 'smooth-scrollbar';
 import {Link} from 'react-router-dom';
-import {menuData} from 'menu9/menuData';
+import {menuData} from 'data/menuData';
 
 const LinkDivWrapper = ({hoverOption, image, children}) => {
   if (window.innerWidth >= 768) {

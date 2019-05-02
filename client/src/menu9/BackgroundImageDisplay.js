@@ -2,57 +2,40 @@ import React from 'react';
 import {connect} from 'react-redux';
 import classNames from 'classnames';
 import * as menuActions from 'actions/menu';
-import {bindActionCreators} from 'redux';
 import {history} from 'store';
 
-class BackgroundImageDisplay extends React.Component{
+const BackgroundImageDisplay = ({hoverOption, image, link, loadedContent, menuDisplay, toggleMenu}) => {
+  const backgroundClassName = classNames(
+    'menu_background',
+    {
+      'menu_background--display':
+      (link===loadedContent && !menuDisplay) ||
+      (image===hoverOption && menuDisplay)
+    }
+  );
+  return(
+    <div className={backgroundClassName}
+      style={{backgroundImage: `url(${image})`}}
+      onClick={() => toggleMenu(link, menuDisplay)}
+    />
+  );
+};
 
-  toggleMenu = (path) => {
-    this.props.menuActions.toggleMenu(false);
-    history.push(path);
-  }
+const mapStateToProps = (state) => {
+  return {
+    menuDisplay: state.menu.menuDisplay,
+    hoverOption: state.menu.hoverOption,
+    loadedContent: state.transition.loadedContent,
+  };
+};
 
-  closeMenu = (path) => {
-    this.props.menuActions.toggleMenu(false);
-  }
+const mapDispatchToProps = (dispatch) => {
+  return {
+    toggleMenu: (path, menuDisplay) => {
+      dispatch(menuActions.toggleMenu(!menuDisplay));
+      history.push(path);
+    }
+  };
+};
 
-  render(){
-
-    const {
-      hoverOption,
-      image,
-      link,
-      loadedContent,
-      menuDisplay,
-    }=this.props;
-
-    const backgroundClassName = classNames(
-      'menu_background',
-      {
-        'menu_background--display':
-        (link===loadedContent && !menuDisplay) ||
-        (image===hoverOption && menuDisplay)
-      }
-    );
-
-    return(
-
-      <div className={backgroundClassName}
-        style={{backgroundImage: `url(${image})`}}
-      />
-    );
-  }
-}
-
-export default connect(
-  (state) => {
-    return {
-      menuDisplay: state.menu.menuDisplay,
-      hoverOption: state.menu.hoverOption,
-      loadedContent: state.transition.loadedContent,
-    };
-  },
-  dispatch => ({
-    menuActions: bindActionCreators(menuActions, dispatch),
-  }),
-)(BackgroundImageDisplay);
+export default connect (mapStateToProps, mapDispatchToProps)(BackgroundImageDisplay);

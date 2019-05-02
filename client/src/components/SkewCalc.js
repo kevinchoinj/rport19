@@ -35,6 +35,7 @@ const useAnimationFrame = callback => {
   }, []);
 };
 
+//relearn: 'if you have pure functions created inside the component everytime the component is instantiated you will construct that function again'
 const calcSpeed = (currentPixel, setCurrentPixel) => {
   const newPixel = window.pageYOffset;
   const diff = newPixel - currentPixel;

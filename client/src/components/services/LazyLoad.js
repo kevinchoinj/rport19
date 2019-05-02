@@ -1,3 +1,4 @@
+import React from 'react';
 import { LazyLoadComponent } from 'react-lazy-load-image-component';
 
 const LazyLoad = ({children}) => {
@@ -11,5 +12,6 @@ const LazyLoad = ({children}) => {
   else {
     return children;
   }
-}
+};
+
 export default LazyLoad;

@@ -1,34 +1,36 @@
 import React from 'react';
-import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as menuActions from 'actions/menu';
 
-class Logo extends React.Component{
+const Logo = props => {
+  return(
+    <header className="logo">
+      <div
+        className="logo_inner"
+        onClick={() => props.toggleMenu(props.menuDisplay)}
+      >
+        <span className="logo_link">
+          <span className="logo_first">K E V I N</span>&nbsp;<span className="logo_last">C H O I</span>
+        </span>
+      </div>
+    </header>
+  );
+};
 
-  toggleMenu = () => {
-    this.props.menuActions.hoverMenuOption('');
-    this.props.menuActions.toggleMenu(!this.props.menuDisplay);
-    document.getElementById('menu_scrollbar').focus();
-  }
+const mapStateToProps = (state) => {
+  return {
+    menuDisplay: state.menu.menuDisplay,
+  };
+};
 
-  render(){
-    return(
-      <header className="logo">
-        <div className="logo_inner" onClick={()=>this.toggleMenu()}>
-          <span className="logo_link">
-            <span className="logo_first">K E V I N</span>&nbsp;<span className="logo_last">C H O I</span>
-          </span>
-        </div>
-      </header>
-    );
-  }
-}
+const mapDispatchToProps = (dispatch) => {
+  return {
+    toggleMenu: (menuDisplay) => {
+      dispatch(menuActions.hoverMenuOption(''));
+      dispatch(menuActions.toggleMenu(!menuDisplay));
+      document.getElementById('menu_scrollbar').focus();
+    }
+  };
+};
 
-export default connect(
-  (state) => ({
-    menuDisplay:state.menu.menuDisplay,
-  }),
-  dispatch => ({
-    menuActions: bindActionCreators(menuActions, dispatch),
-  }),
-)(Logo);
+export default connect (mapStateToProps, mapDispatchToProps)(Logo);

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import Skew from 'components/Skew';
-import BannerContainer from 'components/BannerContainer';
+import Banner from 'components/Banner';
 import Update from 'components/Update';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
@@ -90,7 +90,7 @@ class GamingMisc extends React.Component {
     return (
       <div className='project_wrapper' id="gaming_body" tabIndex="0" ref="theDiv">
         <Skew>
-          <BannerContainer
+          <Banner
             line1="Misc Games"
           />
           <div className='project_body'>

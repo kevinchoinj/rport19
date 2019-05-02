@@ -7,7 +7,7 @@ import * as menuActions from 'actions/menu';
 import Skew from 'components/Skew';
 
 import GetMiscProjects from 'components/services/GetMiscProjects';
-import BannerContainer from 'components/BannerContainer';
+import Banner from 'components/Banner';
 
 class ProjectMisc extends React.Component {
   componentDidMount() {
@@ -30,7 +30,7 @@ class ProjectMisc extends React.Component {
       <div className="project_wrapper" ref="theDiv" tabIndex="0">
         <Skew>
           <GetMiscProjects/>
-          <BannerContainer
+          <Banner
             line1="Misc Projects"
           />
           <div className="project_body">

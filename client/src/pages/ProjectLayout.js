@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import BannerContainer from 'components/BannerContainer';
+import Banner from 'components/Banner';
 import AboutContainer from 'components/AboutContainer';
 
 import Skew from 'components/Skew';
@@ -51,7 +51,7 @@ class ProjectLayout extends React.Component {
     return (
       <div className="project_wrapper" ref="theDiv" tabIndex="0">
         <Skew>
-          <BannerContainer
+          <Banner
             line1 = {pageValues.bannerTextOne}
             line2 = {pageValues.bannerTextTwo}
             line3 = {pageValues.bannerTextThree}

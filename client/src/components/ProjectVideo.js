@@ -1,26 +1,21 @@
 import React from 'react';
 
-export default class Background extends React.Component{
-  render(){
-    const {
-      backgroundVideo,
-      backgroundImage,
-    } = this.props;
+const Background = ({backgroundVideo, backgroundImage}) => {
+  return(
+    <video
+      playsInline
+      autoPlay
+      muted
+      loop
+      poster={backgroundImage}
+      className="project_video"
+    >
+      <source
+        src={backgroundVideo}
+        type="video/mp4"
+      />
+    </video>
+  );
+};
 
-    return(
-      <video
-        playsInline
-        autoPlay
-        muted
-        loop
-        poster={backgroundImage}
-        className="project_video"
-      >
-        <source
-          src={backgroundVideo}
-          type="video/mp4"
-        />
-      </video>
-    );
-  }
-}
+export default Background;

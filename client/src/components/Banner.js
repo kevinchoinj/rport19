@@ -1,13 +1,8 @@
 import React from 'react';
 import LoadIn from 'components/animations/LoadIn';
 
-const LABEL_ONE = 'TITLE';
-const LABEL_TWO = 'YEAR';
-const LABEL_THREE = 'LANG';
-const LABEL_FOUR = 'LINK';
-
 const TextDisplay = ({textLine, loadDelay, label}) => {
-  if (label === LABEL_FOUR && textLine) {
+  if (label === 'LINK' && textLine) {
     return (
       <div className="project_banner_text__under">
         <LoadIn
@@ -51,41 +46,35 @@ const TextDisplay = ({textLine, loadDelay, label}) => {
   }
 };
 
-export default class Banner extends React.Component {
-  render() {
-
-    const {
-      line1,
-      line2,
-      line3,
-      line4,
-    } = this.props;
-
-    return (
+const Banner = ({line1, line2, line3, line4}) => {
+  return (
+    <div className="project_banner__container">
       <div className="project_banner_text">
         <div className="project_banner_text__container">
           <TextDisplay
             textLine = {line1}
             loadDelay = "0s"
-            label = {LABEL_ONE}
+            label = 'TITLE'
           />
           <TextDisplay
             textLine = {line2}
             loadDelay = "0.2s"
-            label = {LABEL_TWO}
+            label = 'YEAR'
           />
           <TextDisplay
             textLine = {line3}
             loadDelay = "0.4s"
-            label = {LABEL_THREE}
+            label = 'LANG'
           />
           <TextDisplay
             textLine = {line4}
             loadDelay = "0.6s"
-            label = {LABEL_FOUR}
+            label = 'LINK'
           />
         </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
+
+export default Banner;

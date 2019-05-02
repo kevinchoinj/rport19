@@ -5,7 +5,7 @@ import * as imagesActions from 'actions/images';
 const GetMiscProjects = props => {
   useEffect(() => {
     props.fetchMiscProjects();
-  });
+  }, []);
   return null;
 };
 

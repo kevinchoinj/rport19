@@ -51,7 +51,9 @@ const MenuText = ({menuDisplay, loadedContent, hoverOption}) => {
     Scrollbar.init(document.querySelector('#menu_scrollbar'), {
       alwaysShowTracks: true,
     });
-  });
+  }, []);
+  //empty array '[]' means call it only after initial render
+
   const menuClassName = classNames(
     'menu_panel__links',
     {
@@ -59,8 +61,8 @@ const MenuText = ({menuDisplay, loadedContent, hoverOption}) => {
     }
   );
   return(
-    <div className = {menuClassName} id="menu_scrollbar">
-      {menuData.map((value, index)=>(
+    <div className={menuClassName} id="menu_scrollbar">
+      {menuData.map((value, index) => (
         <div className="menu_panel__container" key={index}>
           <CheckCurrentPage
             loadedContent={loadedContent}

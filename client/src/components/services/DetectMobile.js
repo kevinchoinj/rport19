@@ -5,7 +5,7 @@ import * as scrollActions from 'actions/scroll';
 const DetectMobile = props => {
   useEffect(() => {
     props.setMobile();
-  });
+  }, []);
   return null;
 };
 

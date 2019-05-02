@@ -1,9 +1,7 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import * as menuActions from 'actions/menu';
-import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import classNames from 'classnames';
-import {history} from 'store';
 import Scrollbar from 'smooth-scrollbar';
 import {Link} from 'react-router-dom';
 import {menuData} from 'data/menuData';
@@ -48,66 +46,57 @@ const CheckCurrentPage = ({loadedContent, link, children}) => {
   }
 };
 
-class MenuText extends React.Component{
-  toggleMenu = (path) => {
-    this.props.menuActions.toggleMenu(false);
-    history.push(path);
-  }
-  hoverOption = (option) => {
-    this.props.menuActions.hoverMenuOption(option);
-  }
-  componentDidMount(){
+const MenuText = ({menuDisplay, loadedContent, hoverOption}) => {
+  useEffect(() => {
     Scrollbar.init(document.querySelector('#menu_scrollbar'), {
       alwaysShowTracks: true,
     });
-  }
-  render(){
-
-    const {
-      menuDisplay,
-      loadedContent,
-    } = this.props;
-
-    const menuClassName = classNames(
-      'menu_panel__links',
-      {
-        'menu_panel__links--display': menuDisplay,
-      }
-    );
-
-    return(
-      <div className = {menuClassName} id="menu_scrollbar">
-        {menuData.map((value, index)=>(
-          <div className="menu_panel__container" key={index}>
-            <CheckCurrentPage
-              loadedContent={loadedContent}
-              link={value.link}
+  });
+  const menuClassName = classNames(
+    'menu_panel__links',
+    {
+      'menu_panel__links--display': menuDisplay,
+    }
+  );
+  return(
+    <div className = {menuClassName} id="menu_scrollbar">
+      {menuData.map((value, index)=>(
+        <div className="menu_panel__container" key={index}>
+          <CheckCurrentPage
+            loadedContent={loadedContent}
+            link={value.link}
+          >
+            <LinkDivWrapper
+              image={value.image}
+              hoverOption={hoverOption}
             >
-              <LinkDivWrapper
-                image={value.image}
-                hoverOption={this.hoverOption}
-              >
-                <div className="number">
-                  {value.value}
-                </div>
-                <div className="menu_panel__link_title">
-                  {value.text}
-                </div>
-              </LinkDivWrapper>
-            </CheckCurrentPage>
-          </div>
-        ))}
-      </div>
-    );
-  }
-}
+              <div className="number">
+                {value.value}
+              </div>
+              <div className="menu_panel__link_title">
+                {value.text}
+              </div>
+            </LinkDivWrapper>
+          </CheckCurrentPage>
+        </div>
+      ))}
+    </div>
+  );
+};
 
-export default connect(
-  (state) => ({
+const mapStateToProps = (state) => {
+  return {
     menuDisplay:state.menu.menuDisplay,
     loadedContent: state.transition.loadedContent,
-  }),
-  dispatch => ({
-    menuActions: bindActionCreators(menuActions, dispatch),
-  }),
-)(MenuText);
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    hoverOption: (option) => {
+      dispatch(menuActions.hoverMenuOption(option));
+    }
+  };
+};
+
+export default connect (mapStateToProps, mapDispatchToProps)(MenuText);

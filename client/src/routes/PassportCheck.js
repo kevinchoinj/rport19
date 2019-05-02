@@ -1,8 +1,6 @@
-import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
+import React from 'react';
 import { connect } from 'react-redux';
 import * as authActions from 'actions/authentication';
-import * as imagesActions from 'actions/images';
 import {Link} from 'react-router-dom';
 import AdminRoutes from 'routes/AdminRoutes';
 import TextBasicForm from 'admin/forms/TextBasicForm';
@@ -57,42 +55,37 @@ const LoginDisplay = ({loggedIn, register, login}) => {
   }
 };
 
-class CheckLogin extends Component {
-  register = values => {
-    this.props.authActions.registerPassport(values);
-  }
-  login = values => {
-    this.props.authActions.loginPassport(values);
-  }
+const PassportCheck = ({loggedIn, login, register}) => {
+  return (
+    <div>
+      <PassportTicket/>
+      <div className="admin_background"/>
+      <LoginDisplay
+        loggedIn = {loggedIn}
+        login={login}
+        register={register}
+      />
+    </div>
+  );
+};
 
-  render() {
 
-    const {
-      loggedIn,
-    }=this.props;
-
-    return (
-      <div>
-        <PassportTicket/>
-        <div className="admin_background"/>
-        <LoginDisplay
-          loggedIn = {loggedIn}
-          signOut={this.signOut}
-          login={this.login}
-          register={this.register}
-        />
-      </div>
-    );
-  }
-}
-
-export default connect(
-  (state, ownProps) => ({
+const mapStateToProps = (state) => {
+  return {
     loggedIn: state.authentication.loggedIn,
     email: state.authentication.email,
-  }),
-  dispatch => ({
-    authActions: bindActionCreators(authActions, dispatch),
-    imagesActions: bindActionCreators(imagesActions, dispatch),
-  }),
-)(CheckLogin);
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    login: (values) => {
+      dispatch(authActions.loginPassport(values));
+    },
+    register: (values) => {
+      dispatch(authActions.registerPassport(values));
+    }
+  };
+};
+
+export default connect (mapStateToProps, mapDispatchToProps)(PassportCheck);

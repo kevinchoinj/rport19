@@ -82,61 +82,57 @@ const RightTextAreaDisplay = ({title, year, body, noDetails}) => {
   }
 };
 
-class MenuPanel extends React.Component{
-  toggleMenu = (path) => {
-    this.props.menuActions.hoverMenuOption('');
-    this.props.menuActions.toggleMenu(false);
-    history.push(path);
-  }
-  render(){
-    const {
-      menuDisplay,
-      hoverOption,
-    } = this.props;
+const MenuPanel = ({toggleMenu, menuDisplay, hoverOption}) => {
+  const wrapperName = classNames(
+    'menu_wrapper',
+    {
+      'menu_wrapper--display':menuDisplay
+    }
+  );
 
-    const wrapperName = classNames(
-      'menu_wrapper',
-      {
-        'menu_wrapper--display':menuDisplay
-      }
-    );
+  const menuClassNameLeft = classNames(
+    'menu_panel__left',
+    {
+      'menu_panel__left--display':menuDisplay
+    }
+  );
+  const menuClassNameRight = classNames(
+    'menu_panel__right',
+    {
+      'menu_panel__right--display':menuDisplay
+    }
+  );
 
-    const menuClassNameLeft = classNames(
-      'menu_panel__left',
-      {
-        'menu_panel__left--display':menuDisplay
-      }
-    );
-    const menuClassNameRight = classNames(
-      'menu_panel__right',
-      {
-        'menu_panel__right--display':menuDisplay
-      }
-    );
-
-    return(
-      <div className={wrapperName}>
-        <div className={menuClassNameLeft}>
-          <MenuText />
-        </div>
-        <div className = {menuClassNameRight}>
-          <TopRightDisplay />
-          <RightTextDisplay
-            hoverOption={hoverOption}
-          />
-        </div>
+  return(
+    <div className={wrapperName}>
+      <div className={menuClassNameLeft}>
+        <MenuText />
       </div>
-    );
-  }
-}
+      <div className = {menuClassNameRight}>
+        <TopRightDisplay />
+        <RightTextDisplay
+          hoverOption={hoverOption}
+        />
+      </div>
+    </div>
+  );
+};
 
-export default connect(
-  (state) => ({
+const mapStateToProps = (state) => {
+  return {
     hoverOption: state.menu.hoverOption,
     menuDisplay:state.menu.menuDisplay,
-    currentPage: state.menu.currentPage,
-  }),
-  dispatch => ({
-    menuActions: bindActionCreators(menuActions, dispatch),
-  }),
-)(MenuPanel);
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    toggleMenu: (path) => {
+      dispatch(menuActions.hoverMenuOption(''));
+      dispatch(menuActions.toggleMenu(false));
+      history.push(path);
+    }
+  };
+};
+
+export default connect (mapStateToProps, mapDispatchToProps)(MenuPanel);

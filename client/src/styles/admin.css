@@ -98,7 +98,7 @@
   display: flex;
   flex-direction: row;
   flex-grow: 1;
-  height: 100vh;
+  min-height: 100vh;
 }
 .admin_panel .scroll-content {
   display: flex;

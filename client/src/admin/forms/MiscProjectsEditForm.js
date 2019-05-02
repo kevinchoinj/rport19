@@ -23,47 +23,39 @@ const RenderField = ({
   </React.Fragment>
 );
 
+let MiscProjectsEditForm = ({handleSubmit, error}) => {
+  return (
+    <form onSubmit={handleSubmit} autoComplete="off" className="admin_form">
+      <div className="spacing_bottom">
+        <Field
+          name="name"
+          component={RenderField}
+          type="text"
+          validate={[required]}
+          placeholder="Title"
+        />
+      </div>
+      <div className="spacing_bottom">
+        <Field
+          name="link"
+          component={RenderField}
+          type="text"
+          validate={[required]}
+          placeholder="link"
+        />
+      </div>
+      {error && <div className="form_error">{error}</div>}
+      <button
+        type="submit"
+        className="admin_form__button"
+      >
+        Submit
+      </button>
+    </form>
+  );
+};
 
-class ImagePostForm extends React.Component {
-  render() {
-    const {
-      handleSubmit,
-      error,
-    } = this.props;
-
-    return (
-      <form onSubmit={handleSubmit} autoComplete="off" className="admin_form">
-        <div className="spacing_bottom">
-          <Field
-            name="name"
-            component={RenderField}
-            type="text"
-            validate={[required]}
-            placeholder="Title"
-          />
-        </div>
-        <div className="spacing_bottom">
-          <Field
-            name="link"
-            component={RenderField}
-            type="text"
-            validate={[required]}
-            placeholder="link"
-          />
-        </div>
-        {error && <div className="form_error">{error}</div>}
-        <button
-          type="submit"
-          className="admin_form__button"
-        >
-          Submit
-        </button>
-      </form>
-    );
-  }
-}
-
-function mapStateToProps(state, props){
+const mapStateToProps = (state, props) => {
   const projectData = _.find(state.images.miscProjects, {'id': props.id});
   const projectDoc = projectData ? projectData.doc : null;
   return{
@@ -80,15 +72,11 @@ function mapStateToProps(state, props){
       awsKey: projectDoc ? projectDoc.awsKey : null,
     },
   };
-}
-function mapDispatchToProps(dispatch){
-  return {
-  };
+};
 
-}
-ImagePostForm = reduxForm({
+MiscProjectsEditForm = reduxForm({
   form: 'miscProjectsEdit',
   enableReinitialize: true,
-})(ImagePostForm);
+})(MiscProjectsEditForm);
 
-export default connect(mapStateToProps, mapDispatchToProps)(ImagePostForm);
+export default connect(mapStateToProps, null)(MiscProjectsEditForm);

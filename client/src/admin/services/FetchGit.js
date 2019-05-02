@@ -1,21 +1,18 @@
-import React from 'react';
-import { bindActionCreators } from 'redux';
+import {useEffect} from 'react';
 import { connect } from 'react-redux';
 import * as gitActions from 'actions/git';
 
-class FetchGit extends React.Component {
-  componentDidMount() {
-    this.props.gitActions.fetchGit();
-  }
-  render() {
-    return null;
-  }
-}
+const FetchGit = props => {
+  useEffect(() => {
+    props.fetchGit();
+  }, []);
+  return null;
+};
 
-export default connect(
-  () => ({
-  }),
-  dispatch => ({
-    gitActions: bindActionCreators(gitActions, dispatch),
-  }),
-)(FetchGit);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchGit: () => dispatch(gitActions.fetchGit()),
+  };
+};
+
+export default connect (null, mapDispatchToProps)(FetchGit);

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 
-const renderField = ({
+const RenderField = ({
   input,
   type,
   placeholder,
@@ -28,7 +28,7 @@ const LoginForm = props => {
           name="email"
           placeholder="Username"
           type="text"
-          component={renderField}
+          component={RenderField}
         />
       </div>
       <div className="spacing_bottom">
@@ -36,7 +36,7 @@ const LoginForm = props => {
           name="password"
           placeholder="Password"
           type="password"
-          component={renderField}
+          component={RenderField}
         />
       </div>
       {error && <strong>{error}</strong>}

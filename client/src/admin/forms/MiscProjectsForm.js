@@ -24,7 +24,7 @@ const RenderField = ({
   </React.Fragment>
 );
 
-const renderDropzoneInput = (field, {nameValue}) => {
+const renderDropzoneInput = (field) => {
   const files = field.input.value;
   return (
     <div>
@@ -75,49 +75,41 @@ const renderDropzoneInput = (field, {nameValue}) => {
   );
 };
 
-class ImagePostForm extends React.Component {
-  render() {
-    const { handleSubmit,
-      error,
-    } = this.props;
+let ImagePostForm = ({handleSubmit, error}) => {
+  return (
+    <form onSubmit={handleSubmit} autoComplete="off" className="admin_form">
 
-    return (
-      <form onSubmit={handleSubmit} autoComplete="off" className="admin_form">
+      <div className="spacing_bottom">
+        <Field
+          name="name"
+          component={RenderField}
+          type="text"
+          validate={[required]}
+          placeholder="Title"
+        />
+      </div>
+      <div className="spacing_bottom">
+        <Field
+          name="link"
+          component={RenderField}
+          type="text"
+          validate={[required]}
+          placeholder="link"
+        />
+      </div>
+      <div>
+        <Field
+          name="image"
+          component={renderDropzoneInput}
+          instructions="Add Image"
+        />
+      </div>
+      {error && <div className="form_error">{error}</div>}
+    </form>
+  );
+};
 
-        <div className="spacing_bottom">
-          <Field
-            name="name"
-            component={RenderField}
-            type="text"
-            validate={[required]}
-            placeholder="Title"
-          />
-        </div>
-        <div className="spacing_bottom">
-          <Field
-            name="link"
-            component={RenderField}
-            type="text"
-            validate={[required]}
-            placeholder="link"
-          />
-        </div>
-        <div>
-          <Field
-            name="image"
-            component={renderDropzoneInput}
-            instructions="Add Image"
-          />
-        </div>
-
-        {error && <div className="form_error">{error}</div>}
-
-      </form>
-    );
-  }
-}
-
-function mapStateToProps(state, prop){
+const mapStateToProps = (state, prop) => {
   return{
     initialValues: {
       name: '',
@@ -126,11 +118,7 @@ function mapStateToProps(state, prop){
       },
     },
   };
-}
-function mapDispatchToProps(dispatch){
-  return {
-  };
-}
+};
 
 const afterSubmit = (result, dispatch) =>
   dispatch(reset('miscProjects'));
@@ -141,4 +129,4 @@ ImagePostForm = reduxForm({
   onSubmitSuccess: afterSubmit,
 })(ImagePostForm);
 
-export default connect(mapStateToProps, mapDispatchToProps)(ImagePostForm);
+export default connect(mapStateToProps, null)(ImagePostForm);

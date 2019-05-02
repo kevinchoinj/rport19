@@ -1,36 +1,28 @@
 import React from 'react';
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as imagesActions from 'actions/images';
-import {pageData} from 'data/pageData';
-
 import MiscProjectsEditForm from 'admin/forms/MiscProjectsEditForm';
 
-class AdminMiscProjectsEdit extends React.Component {
-
-  editImage = values => {
-    this.props.imagesActions.editMiscProjectsThenUpdate(values, pageData.adminMiscProjects);
-  }
-
-  render(){
-    return (
-      <div className="admin_container">
-        <div className="admin_container__body">
-          <MiscProjectsEditForm
-            id={this.props.match.params.id}
-            onSubmit={this.editImage}
-          />
-        </div>
+const AdminMiscProjects = ({match, editImage}) => {
+  return (
+    <div className="admin_container">
+      <div className="admin_container__body">
+        <MiscProjectsEditForm
+          id={match.params.id}
+          onSubmit={editImage}
+        />
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
-export default connect(
-  (state, ownProps) => ({
+const mapDispatchToProps = (dispatch) => {
+  return {
+    editImage: (values) => {
+      dispatch(imagesActions.editMiscProjectsThenUpdate(values, '/shodyra/admin/misc'));
+    },
+  };
+};
 
-  }),
-  dispatch => ({
-    imagesActions: bindActionCreators(imagesActions, dispatch),
-  }),
-)(AdminMiscProjectsEdit);
+export default connect (null, mapDispatchToProps)(AdminMiscProjects);
+

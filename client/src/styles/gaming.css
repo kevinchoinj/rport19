@@ -19,6 +19,10 @@
   box-sizing: border-box;
   pointer-events: none;
 }
+.gaming_carousel__wrapper .indicators div {
+  pointer-events: auto;
+  cursor: pointer;
+}
 .gaming_carousel__wrapper .scroll-content {
   display: flex !important;
   width: 100%;

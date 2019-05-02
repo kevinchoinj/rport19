@@ -95,7 +95,13 @@ export default class Viewer extends React.Component{
       const walk = (x - this.state.startX) * 3;
       scrollbar.scrollTo(this.state.scrollLeft - walk, 0, 600);
     });
+  }
 
+  goLeft = () => {
+    this.scrollbar.scrollTo(this.state.scrollLeft - window.innerWidth/3, 0, 600);
+  }
+  goRight = () => {
+    this.scrollbar.scrollTo(this.state.scrollLeft + window.innerWidth/3, 0, 600);
   }
 
   renderGallery () {
@@ -147,8 +153,8 @@ export default class Viewer extends React.Component{
           />
         </div>
         <div className="indicators">
-          <div>&lsaquo;</div>
-          <div>&rsaquo;</div>
+          <div onClick={()=>this.goLeft()}>&lsaquo;</div>
+          <div onClick={()=>this.goRight()}>&rsaquo;</div>
         </div>
       </div>
     );

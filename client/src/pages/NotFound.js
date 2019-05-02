@@ -1,35 +1,30 @@
-import React from 'react';
-
-import {bindActionCreators} from 'redux';
+import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
-import * as pagesActions from 'actions/pages';
 import * as menuActions from 'actions/menu';
 
-class NotFound extends React.Component{
-  componentDidMount() {
-    this.props.pagesActions.setPage('notfound');
-    this.props.menuActions.toggleMenu(false);
-  }
-  render(){
-    return(
-      <div className="notfound_wrapper">
-        <div className="notfound_title">
-          404
-        </div>
-        <div className="notfound_text">
-          Sorry, that page does not exist.
-        </div>
+
+export const NotFound = ({toggleMenu}) => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    toggleMenu();
+  }, []);
+
+  return(
+    <div className="notfound_wrapper">
+      <div className="notfound_title">
+        404
       </div>
-    );
-  }
-}
+      <div className="notfound_text">
+        Sorry, that page does not exist.
+      </div>
+    </div>
+  );
+};
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    toggleMenu: () => dispatch(menuActions.toggleMenu(false)),
+  };
+};
 
-export default connect(
-  () => ({
-  }),
-  dispatch => ({
-    menuActions: bindActionCreators(menuActions, dispatch),
-    pagesActions: bindActionCreators(pagesActions, dispatch),
-  }),
-)(NotFound);
+export default connect (null, mapDispatchToProps)(NotFound);

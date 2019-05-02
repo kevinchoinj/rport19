@@ -1,33 +1,65 @@
-import React from 'react';
+import {
+  useState,
+  useRef,
+  useLayoutEffect,
+} from 'react';
 import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
 import * as scrollActions from 'actions/scroll';
-let currentPixel = window.pageYOffset;
 
-class Skew extends React.Component{
-  looper = () => {
-    const newPixel = window.pageYOffset;
-    const diff = newPixel - currentPixel;
-    const top = 4;
-    const intensity = 0.35;
-    const speed = top * ((2/(1+Math.exp(-1 * intensity * diff)))-1);
-    this.props.scrollActions.setSkew(speed);
-    currentPixel = newPixel;
-    requestAnimationFrame(this.looper);
-  }
-  componentDidMount() {
-    this.looper();
-  }
-  render(){
-    return null;
-  }
-}
+//https://github.com/facebook/react/issues/14195
+//useMutationEffect removed: https://github.com/facebook/react/pull/14336
+const useAnimationFrame = callback => {
+  const callbackRef = useRef(callback);
+  useLayoutEffect(
+    () => {
+      callbackRef.current = callback;
+    },
+    [callback]
+  );
 
+  const loop = () => {
+    frameRef.current = requestAnimationFrame(
+      loop
+    );
+    const cb = callbackRef.current;
+    cb();
+  };
 
-export default connect(
-  (state) => ({
-  }),
-  dispatch => ({
-    scrollActions: bindActionCreators(scrollActions, dispatch),
-  }),
-)(Skew);
+  const frameRef = useRef();
+  useLayoutEffect(() => {
+    frameRef.current = requestAnimationFrame(
+      loop
+    );
+    return () =>
+      cancelAnimationFrame(frameRef.current);
+  }, []);
+};
+
+const calcSpeed = (currentPixel, setCurrentPixel) => {
+  const newPixel = window.pageYOffset;
+  const diff = newPixel - currentPixel;
+  const top = 6;
+  const intensity = 0.5;
+  const speed = top * ((2/(1+Math.exp(-1 * intensity * diff)))-1);
+  setCurrentPixel(newPixel);
+  return speed;
+};
+
+const SkewCalc = props => {
+  const [currentPixel, setCurrentPixel] = useState(window.pageYOffset);
+  useAnimationFrame(() => {
+    props.looper(calcSpeed(currentPixel, setCurrentPixel));
+  });
+
+  return null;
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    looper: (speed) => {
+      dispatch(scrollActions.setSkew(speed));
+    },
+  };
+};
+
+export default connect (null, mapDispatchToProps)(SkewCalc);

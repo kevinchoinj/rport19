@@ -19,8 +19,7 @@ const RenderField = ({
   </React.Fragment>
 );
 
-const LoginForm = props => {
-  const { handleSubmit, error } = props;
+const LoginForm= ({handleSubmit, error}) => {
   return (
     <form onSubmit={handleSubmit}>
       <div className="spacing_bottom">

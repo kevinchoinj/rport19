@@ -19,7 +19,6 @@ import {Switch, Route} from 'react-router-dom';
 const App = () => {
   return (
     <div className="App" id="main_app">
-      <SkewCalc/>
       <Switch>
         <Route path="/shodyra/admin" render={(props) => <PassportCheck {...props}/>}/>
         <Route path="/" render={(props) => <SiteRoutesWrapper {...props}/>}/>

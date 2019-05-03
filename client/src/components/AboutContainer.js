@@ -1,6 +1,6 @@
 import React from 'react';
 
-const About = ({title, children}) => {
+const About = ({ title, children }) => {
   return (
     <div className="project_about">
       <div className="project_smallfont about_title">

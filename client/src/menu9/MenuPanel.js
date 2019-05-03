@@ -2,7 +2,6 @@ import React from 'react';
 import {connect} from 'react-redux';
 import classNames from 'classnames';
 import * as menuActions from 'actions/menu';
-import {bindActionCreators} from 'redux';
 import {history} from 'store';
 import {projectData} from 'data/projectData';
 

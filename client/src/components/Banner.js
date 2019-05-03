@@ -1,7 +1,7 @@
 import React from 'react';
 import LoadIn from 'components/animations/LoadIn';
 
-const TextDisplay = ({textLine, loadDelay, label}) => {
+const TextDisplay = ({ textLine, loadDelay, label }) => {
   if (label === 'LINK' && textLine) {
     return (
       <div className="project_banner_text__under">

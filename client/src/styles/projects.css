@@ -71,9 +71,6 @@
   letter-spacing: 0px;
   transition: var(--transition-medium);
   letter-spacing: 4px;
-  animation: NineFadeIn .3s linear;
-  animation-fill-mode: both;
-  animation-delay: .2s;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
@@ -299,6 +296,8 @@
 .load_in_object--display {
   opacity: 1;
   transform: translateY(0px);
+  animation: NineFadeIn .3s linear;
+  animation-fill-mode: both;
 }
 .project_banner_text__under {
   width: 16.66666667%;

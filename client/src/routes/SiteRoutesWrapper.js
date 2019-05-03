@@ -1,32 +1,22 @@
-import React from 'react';
-import {bindActionCreators} from 'redux';
+import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
 import * as transitionActions from 'actions/transition';
 import SiteRoutes from 'routes/SiteRoutes';
 
-class SiteRoutesWrapper extends React.Component {
+const SiteRoutesWrapper = ({loadContent, location}) => {
+  useEffect(() => {
+    let currentName = location.pathname;
+    loadContent(currentName);
+  });
+  return (
+    <SiteRoutes/>
+  );
+};
 
-  componentDidMount(){
-    let currentName = this.props.location.pathname;
-    this.props.transitionActions.loadContent(currentName);
-  }
-  componentWillReceiveProps(nextProps) {
-    let currentName = this.props.location.pathname;
-    let nextName = nextProps.location.pathname;
-    this.props.transitionActions.loadContent(currentName);
-    this.props.transitionActions.loadContent(nextName);
-  }
-  render() {
-    return (
-      <SiteRoutes/>
-    );
-  }
-}
-export default connect(
-  () => ({
-  }),
-  dispatch => ({
-    transitionActions: bindActionCreators(transitionActions, dispatch),
+const mapDispatchToProps = (dispatch) => {
+  return {
+    loadContent: (name) => dispatch(transitionActions.loadContent(name)),
+  };
+};
 
-  }),
-)(SiteRoutesWrapper);
+export default connect (null, mapDispatchToProps)(SiteRoutesWrapper);

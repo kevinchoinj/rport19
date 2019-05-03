@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
 const PageLoading = ({pageLoaded}) => {
   const loadingName = classNames(

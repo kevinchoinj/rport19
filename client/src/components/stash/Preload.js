@@ -1,7 +1,6 @@
-import React from 'react';
-import {connect} from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
 import * as menuActions from 'actions/menu';
-import {bindActionCreators} from 'redux';
 
 const preloadImages = [
   {imageFile: '/static/images/chess.jpg', altText:''},
@@ -18,43 +17,34 @@ const preloadImages = [
   {imageFile: '/static/images/novaruu/1.png', altText:''},
 ];
 
-class Preload extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      imagesLoaded: 1,
-    };
-  }
-  imageLoaded() {
-    this.setState((prevState) => ({
-      imagesLoaded: prevState.imagesLoaded+1,
-    }));
+const Preload = ({setLoaded}) => {
+  const [imagesLoaded, setImagesLoaded] = useState(0);
+  useEffect(() => {
     if (this.state.imagesLoaded >= preloadImages.length) {
-      this.props.menuActions.setLoaded(true);
+      setLoaded(true);
     }
-  }
-  render() {
+  });
 
-    return (
-      <div className="preload_images">
-        {preloadImages.map((value, index)=>(
-          <div key={index}>
-            <img
-              src={value.imageFile}
-              alt={value.altText}
-              onLoad={this.imageLoaded.bind(this)}
-            />
-          </div>
-        ))}
-      </div>
-    );
-  }
-}
+  return (
+    <div className="preload_images">
+      {preloadImages.map((value, index)=>(
+        <div key={index}>
+          <img
+            src={value.imageFile}
+            alt={value.altText}
+            onLoad={()=>setImagesLoaded(imagesLoaded + 1)}
+          />
+        </div>
+      ))}
+    </div>
+  );
+};
 
-export default connect(
-  () => ({
-  }),
-  dispatch => ({
-    menuActions: bindActionCreators(menuActions, dispatch),
-  }),
-)(Preload);
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setLoaded: () => dispatch(menuActions.setLoaded(true)),
+  };
+};
+
+export default connect (null, mapDispatchToProps)(Preload);

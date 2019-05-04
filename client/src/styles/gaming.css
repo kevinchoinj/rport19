@@ -18,6 +18,7 @@
   padding: 0 2rem;
   box-sizing: border-box;
   pointer-events: none;
+  user-select: none;
 }
 .gaming_carousel__wrapper .indicators div {
   pointer-events: auto;

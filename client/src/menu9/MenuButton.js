@@ -2,6 +2,9 @@ import React from 'react';
 import classNames from 'classnames';
 import {connect} from 'react-redux';
 import * as menuActions from 'actions/menu';
+import {
+  selectMenuDisplay,
+} from 'reducers';
 
 const MenuButton = ({menuDisplay, toggleMenu}) => {
   const containerName= classNames(
@@ -31,7 +34,7 @@ const MenuButton = ({menuDisplay, toggleMenu}) => {
 
 const mapStateToProps = (state) => {
   return {
-    menuDisplay: state.menu.menuDisplay,
+    menuDisplay: selectMenuDisplay(state),
   };
 };
 

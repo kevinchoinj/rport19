@@ -3,6 +3,11 @@ import {connect} from 'react-redux';
 import classNames from 'classnames';
 import * as menuActions from 'actions/menu';
 import {history} from 'store';
+import {
+  selectMenuDisplay,
+  selectMenuHover,
+  selectLoadedContent,
+} from 'reducers';
 
 const BackgroundImageDisplay = ({hoverOption, image, link, loadedContent, menuDisplay, toggleMenu}) => {
   const backgroundClassName = classNames(
@@ -23,9 +28,9 @@ const BackgroundImageDisplay = ({hoverOption, image, link, loadedContent, menuDi
 
 const mapStateToProps = (state) => {
   return {
-    menuDisplay: state.menu.menuDisplay,
-    hoverOption: state.menu.hoverOption,
-    loadedContent: state.transition.loadedContent,
+    menuDisplay: selectMenuDisplay(state),
+    hoverOption: selectMenuHover(state),
+    loadedContent: selectLoadedContent(state),
   };
 };
 

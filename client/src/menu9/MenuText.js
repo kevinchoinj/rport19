@@ -5,6 +5,10 @@ import classNames from 'classnames';
 import Scrollbar from 'smooth-scrollbar';
 import {Link} from 'react-router-dom';
 import {menuData} from 'data/menuData';
+import {
+  selectMenuDisplay,
+  selectLoadedContent,
+} from 'reducers';
 
 const LinkDivWrapper = ({hoverOption, image, children}) => {
   if (window.innerWidth >= 768) {
@@ -88,8 +92,8 @@ const MenuText = ({menuDisplay, loadedContent, hoverOption}) => {
 
 const mapStateToProps = (state) => {
   return {
-    menuDisplay:state.menu.menuDisplay,
-    loadedContent: state.transition.loadedContent,
+    menuDisplay: selectMenuDisplay(state),
+    loadedContent: selectLoadedContent(state),
   };
 };
 

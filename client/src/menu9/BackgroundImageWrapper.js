@@ -3,6 +3,9 @@ import {connect} from 'react-redux';
 import classNames from 'classnames';
 import {menuData} from 'data/menuData';
 import BackgroundImageDisplay from 'menu9/BackgroundImageDisplay';
+import {
+  selectMenuDisplay,
+} from 'reducers';
 
 const BackgroundImageWrapper = ({menuDisplay}) => {
   const wrapperName = classNames(
@@ -27,7 +30,7 @@ const BackgroundImageWrapper = ({menuDisplay}) => {
 
 const mapStateToProps = (state) => {
   return {
-    menuDisplay: state.menu.menuDisplay,
+    menuDisplay: selectMenuDisplay(state),
   };
 };
 

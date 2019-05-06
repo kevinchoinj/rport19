@@ -5,8 +5,10 @@ import {Link} from 'react-router-dom';
 import AdminRoutes from 'routes/AdminRoutes';
 import TextBasicForm from 'admin/forms/TextBasicForm';
 import PassportTicket from 'admin/services/PassportTicket';
-
 import {pageData} from 'data/pageData';
+import {
+  selectAuthLoggedIn,
+} from 'reducers';
 
 const LoginDisplay = ({loggedIn, register, login}) => {
   if (loggedIn){
@@ -72,8 +74,7 @@ const PassportCheck = ({loggedIn, login, register}) => {
 
 const mapStateToProps = (state) => {
   return {
-    loggedIn: state.authentication.loggedIn,
-    email: state.authentication.email,
+    loggedIn: selectAuthLoggedIn(state),
   };
 };
 

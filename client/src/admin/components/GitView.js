@@ -1,6 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import moment from 'moment';
+import {
+  selectGitCommits,
+} from 'reducers';
 
 const GitView = ({commits}) => {
   return commits && commits.length > 0 ? (
@@ -33,7 +36,7 @@ const GitView = ({commits}) => {
 
 const mapStateToProps = (state) => {
   return {
-    commits: state.git.commits,
+    commits: selectGitCommits(state),
   };
 };
 

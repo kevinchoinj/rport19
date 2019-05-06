@@ -1,6 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import * as menuActions from 'actions/menu';
+import {
+  selectMenuDisplay,
+} from 'reducers';
 
 const Logo = props => {
   return(
@@ -19,7 +22,7 @@ const Logo = props => {
 
 const mapStateToProps = (state) => {
   return {
-    menuDisplay: state.menu.menuDisplay,
+    menuDisplay: selectMenuDisplay(state),
   };
 };
 

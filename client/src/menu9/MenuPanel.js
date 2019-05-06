@@ -4,9 +4,12 @@ import classNames from 'classnames';
 import * as menuActions from 'actions/menu';
 import {history} from 'store';
 import {projectData} from 'data/projectData';
-
 import MenuText from 'menu9/MenuText';
 import TopRightDisplay from 'menu9/TopRightDisplay';
+import {
+  selectMenuDisplay,
+  selectMenuHover,
+} from 'reducers';
 
 const RightTextDisplay = ({hoverOption}) => {
   let projectText = projectData[hoverOption];
@@ -119,8 +122,8 @@ const MenuPanel = ({toggleMenu, menuDisplay, hoverOption}) => {
 
 const mapStateToProps = (state) => {
   return {
-    hoverOption: state.menu.hoverOption,
-    menuDisplay:state.menu.menuDisplay,
+    hoverOption: selectMenuHover(state),
+    menuDisplay: selectMenuDisplay(state),
   };
 };
 

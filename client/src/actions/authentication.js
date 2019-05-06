@@ -90,8 +90,8 @@ export function loginPassport(values) {
       .then(res => res.json())
       .then(json => {
         //secure: true only for https so doesn't work on localhost
-        //Cookies.set('JWT', json.token, {secure: true, expires: 7});
-        Cookies.set('JWT', json.token, {expires: 7});
+        Cookies.set('JWT', json.token, {secure: true, expires: 7});
+        //Cookies.set('JWT', json.token, {expires: 7});
         dispatch(loginPassportSucceeded(json));
       })
       .catch(error => dispatch(loginPassportFailure(error)));

@@ -1,5 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {
+  selectMenuDisplay,
+  selectScrollSkew,
+} from 'reducers';
 
 const Skew = ({children, skew, menuDisplay}) => {
   const skewStyle = {
@@ -15,8 +19,8 @@ const Skew = ({children, skew, menuDisplay}) => {
 
 const mapStateToProps = (state) => {
   return {
-    skew: state.scroll.skew,
-    menuDisplay: state.menu.menuDisplay,
+    skew: selectScrollSkew(state),
+    menuDisplay: selectMenuDisplay(state),
   };
 };
 

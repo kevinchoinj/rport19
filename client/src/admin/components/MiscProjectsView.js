@@ -3,6 +3,9 @@ import {connect} from 'react-redux';
 import * as imagesActions from 'actions/images';
 import {Link} from 'react-router-dom';
 import {pageData} from 'data/pageData';
+import {
+  selectImagesProjects,
+} from 'reducers';
 
 const MiscProjectsView = ({miscProjects, removeProject}) => {
   return (
@@ -34,7 +37,7 @@ const MiscProjectsView = ({miscProjects, removeProject}) => {
 
 const mapStateToProps = (state) => {
   return {
-    miscProjects: state.images.miscProjects,
+    miscProjects: selectImagesProjects(state),
   };
 };
 

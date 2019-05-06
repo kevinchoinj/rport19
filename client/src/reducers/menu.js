@@ -3,7 +3,6 @@ import {
   SET_LOADED,
   HOVER_MENU_OPTION,
   SET_PAGE_NAME,
-  SET_MENU_SECTION,
 } from 'actions/menu';
 
 const DEFAULT_STATE={
@@ -11,7 +10,6 @@ const DEFAULT_STATE={
   isLoaded: false,
   hoverOption: null,
   currentPage: '',
-  menuSection: 'projects',
 };
 
 export default(state=DEFAULT_STATE, payload)=>
@@ -36,11 +34,6 @@ export default(state=DEFAULT_STATE, payload)=>
     return state = {
       ...state,
       hoverOption:payload.hoverOption
-    };
-  case SET_MENU_SECTION:
-    return state = {
-      ...state,
-      menuSection:payload.menuSection
     };
   default:
     return state;

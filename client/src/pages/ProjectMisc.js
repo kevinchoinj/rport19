@@ -2,9 +2,11 @@ import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
 import * as menuActions from 'actions/menu';
 import Skew from 'components/Skew';
-
 import GetMiscProjects from 'components/services/GetMiscProjects';
 import Banner from 'components/Banner';
+import {
+  selectImagesProjects,
+} from 'reducers';
 
 const ProjectMisc = ({miscProjects, toggleMenu}) => {
   useEffect(() => {
@@ -44,7 +46,7 @@ const ProjectMisc = ({miscProjects, toggleMenu}) => {
 
 const mapStateToProps = (state) => {
   return {
-    miscProjects: state.images.miscProjects,
+    miscProjects: selectImagesProjects(state),
   };
 };
 

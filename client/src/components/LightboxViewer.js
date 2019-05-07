@@ -9,8 +9,8 @@ const RenderGallery = ({images, openLightbox, scrollbar}) => {
       <div
         key={i}
         className="gaming_carousel_object"
-        onLoad={()=>scrollbar.update()}
-        onClick={(e)=> openLightbox(i,e)}
+        onLoad={() => scrollbar.update()}
+        onClick={(e) => openLightbox(i,e)}
       >
         <img
           src={obj.src}
@@ -25,6 +25,7 @@ const RenderGallery = ({images, openLightbox, scrollbar}) => {
 
 const Viewer = ({images, carouselId}) => {
 
+  const [scrollbar, setScrollbar] = useState(false);
   useEffect(() => {
     const scrollbar = Scrollbar.init(document.querySelector(carouselId),
       {
@@ -33,7 +34,6 @@ const Viewer = ({images, carouselId}) => {
     setScrollbar(scrollbar);
   }, []);
 
-  const [scrollbar, setScrollbar] = useState(false);
   const goLeft = () => {
     scrollbar.scrollTo(scrollbar.scrollLeft - window.innerWidth/3, 0, 600);
   };
@@ -107,16 +107,16 @@ const Viewer = ({images, carouselId}) => {
           images={images}
           isOpen={lightboxOpen}
           onClickImage={handleClickImage}
-          onClickNext={()=>setCurrentImage(currentImage + 1)}
-          onClickPrev={()=>setCurrentImage(currentImage - 1)}
+          onClickNext={() => setCurrentImage(currentImage + 1)}
+          onClickPrev={() => setCurrentImage(currentImage - 1)}
           onClose={closeLightbox}
           backdropClosesModal={true}
           openLightbox = {openLightbox}
         />
       </div>
       <div className="indicators">
-        <div onClick={()=>goLeft()}>&lsaquo;</div>
-        <div onClick={()=>goRight()}>&rsaquo;</div>
+        <div onClick={() => goLeft()}>&lsaquo;</div>
+        <div onClick={() => goRight()}>&rsaquo;</div>
       </div>
     </div>
   );

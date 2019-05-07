@@ -27,12 +27,12 @@ const Preload = ({setLoaded}) => {
 
   return (
     <div className="preload_images">
-      {preloadImages.map((value, index)=>(
+      {preloadImages.map((value, index) => (
         <div key={index}>
           <img
             src={value.imageFile}
             alt={value.altText}
-            onLoad={()=>setImagesLoaded(imagesLoaded + 1)}
+            onLoad={() => setImagesLoaded(imagesLoaded + 1)}
           />
         </div>
       ))}

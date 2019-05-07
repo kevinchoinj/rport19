@@ -29,7 +29,7 @@ const SiteRoutes = () => {
               <Route
                 key={index}
                 exact path={`${pageData.projects}/${key}`}
-                render={(props)=>
+                render={(props) =>
                   <ProjectLayout pageValues={projectData[key]}
                     {...props}
                   />

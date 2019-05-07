@@ -10,18 +10,15 @@ const makeUnsplashThumbnail = (id) => {
 };
 
 const LightboxGallery = ({imageArray, carouselId}) => {
-  if (imageArray.length >=2){
-    return (
-      <Viewer
-        carouselId = {carouselId}
-        images={imageArray.map(({ caption, id }) => ({
-          src: makeUnsplashSrc(id),
-          thumbnail: makeUnsplashThumbnail(id),
-          caption,
-        }))
-        }/>
-    );
-  }
-  else return null;
+  return (
+    <Viewer
+      carouselId = {carouselId}
+      images={ imageArray && imageArray.map(({ caption, id }) => ({
+        src: makeUnsplashSrc(id),
+        thumbnail: makeUnsplashThumbnail(id),
+        caption,
+      }))
+      }/>
+  );
 };
 export default LightboxGallery;

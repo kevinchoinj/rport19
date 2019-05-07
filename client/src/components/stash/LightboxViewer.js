@@ -116,8 +116,8 @@ export default class Viewer extends React.Component{
         <div
           key={i}
           className="gaming_carousel_object"
-          onLoad={()=>this.scrollbar.update()}
-          onClick={(e)=> this.openLightbox(i,e)}
+          onLoad={() => this.scrollbar.update()}
+          onClick={(e) => this.openLightbox(i,e)}
         >
           <img
             src={obj.src}
@@ -151,8 +151,8 @@ export default class Viewer extends React.Component{
           />
         </div>
         <div className="indicators">
-          <div onClick={()=>this.goLeft()}>&lsaquo;</div>
-          <div onClick={()=>this.goRight()}>&rsaquo;</div>
+          <div onClick={() => this.goLeft()}>&lsaquo;</div>
+          <div onClick={() => this.goRight()}>&rsaquo;</div>
         </div>
       </div>
     );

@@ -16,9 +16,9 @@ const RoutesAdmin = () => {
       </div>
       <div className = "admin_right">
         <Switch>
-          <Route exact path={pageData.adminHome} render={(props)=> <Admin {...props} />}/>
-          <Route exact path={pageData.adminMiscProjects} render={(props)=><AdminMiscProjects {...props} />}/>
-          <Route exact path={`${pageData.adminMiscProjects}/:id`} render={(props)=><AdminMiscProjectsEdit {...props} />}/>
+          <Route exact path={pageData.adminHome} render={(props) => <Admin {...props} />}/>
+          <Route exact path={pageData.adminMiscProjects} render={(props) => <AdminMiscProjects {...props} />}/>
+          <Route exact path={`${pageData.adminMiscProjects}/:id`} render={(props) => <AdminMiscProjectsEdit {...props} />}/>
         </Switch>
       </div>
       <div className="admin_nav__right"/>

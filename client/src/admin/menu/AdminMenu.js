@@ -11,7 +11,7 @@ const AdminMenu = ({logOut}) => {
   ];
   return (
     <div className="admin_menu_wrapper">
-      {menuValues.map((value, index)=>(
+      {menuValues.map((value, index) => (
         <div key={index}>
           <Link
             to={value.link}
@@ -23,7 +23,7 @@ const AdminMenu = ({logOut}) => {
       ))}
       <div
         className="admin_nav_link"
-        onClick={()=>logOut()}
+        onClick={() => logOut()}
       >
         Log Out
       </div>

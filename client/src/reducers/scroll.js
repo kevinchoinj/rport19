@@ -8,8 +8,7 @@ const DEFAULT_STATE={
   skew: ''
 };
 
-export default(state=DEFAULT_STATE, payload)=>
-{
+export default(state=DEFAULT_STATE, payload) => {
   switch(payload.type){
   case SET_MOBILE:
     return state = {

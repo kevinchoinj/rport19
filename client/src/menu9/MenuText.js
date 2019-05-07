@@ -15,7 +15,7 @@ const LinkDivWrapper = ({hoverOption, image, children}) => {
     return (
       <div
         className = "menu_panel__link_div"
-        onMouseOver={()=>hoverOption(image)}
+        onMouseOver={() => hoverOption(image)}
       >
         {children}
       </div>

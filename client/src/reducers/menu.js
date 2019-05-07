@@ -12,8 +12,7 @@ const DEFAULT_STATE={
   currentPage: '',
 };
 
-export default(state=DEFAULT_STATE, payload)=>
-{
+export default(state=DEFAULT_STATE, payload) => {
   switch(payload.type){
   case TOGGLE_MENU:
     return state = {

@@ -6,10 +6,10 @@ import {
 } from 'reducers';
 
 const GitView = ({commits}) => {
-  return commits && commits.length > 0 ? (
+  return (
     <div className="admin_container__flex">
       <div className="git__wrapper">
-        {commits.length > 1 ? commits.map((value, key) => {
+        {commits ? commits.map((value, key) => {
           return (
             <div className="git__row" key={key}>
               {value.author.login}
@@ -31,7 +31,7 @@ const GitView = ({commits}) => {
         }
       </div>
     </div>
-  ): null;
+  );
 };
 
 const mapStateToProps = (state) => {

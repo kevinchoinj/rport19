@@ -23,7 +23,7 @@ const RenderField = ({
 let TextBasicForm = ({handleSubmit, error, textInputs}) => {
   return (
     <form onSubmit={handleSubmit} autoComplete="off" className="admin_form">
-      {textInputs && textInputs.length > 1 ? textInputs.map((value, key) => {
+      {textInputs && textInputs.map((value, key) => {
         return (
           <div className="spacing_bottom" key={key}>
             <Field
@@ -35,15 +35,6 @@ let TextBasicForm = ({handleSubmit, error, textInputs}) => {
           </div>
         );
       })
-        :
-        <div className="spacing_bottom">
-          <Field
-            name={textInputs[0].name}
-            component={RenderField}
-            type={textInputs[0].type}
-            placeholder={textInputs[0].name}
-          />
-        </div>
       }
       {error && <div className="form_error">{error}</div>}
       <div>

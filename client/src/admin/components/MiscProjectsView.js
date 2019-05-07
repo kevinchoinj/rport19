@@ -10,7 +10,7 @@ import {
 const MiscProjectsView = ({miscProjects, removeProject}) => {
   return (
     <div className="admin_login_container">
-      {miscProjects.length > 2 && miscProjects.map((value, key) => {
+      {miscProjects && miscProjects.map((value, key) => {
         return (
           <div className="misc_image__container" key={key}>
             <div className="misc_title">
@@ -24,7 +24,7 @@ const MiscProjectsView = ({miscProjects, removeProject}) => {
             </Link>
             <div
               className="admin_delete"
-              onClick={()=>removeProject(value.id, value.doc._rev, value.value.awsKey)}
+              onClick={() => removeProject(value.id, value.doc._rev, value.value.awsKey)}
             >
               delete
             </div>

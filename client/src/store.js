@@ -8,7 +8,7 @@ import reducers from './reducers';
 
 export const history = createBrowserHistory();
 
-export default(initialState)=>{
+export default(initialState) => {
   return createStore(
     combineReducers({
       ...reducers,

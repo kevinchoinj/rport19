@@ -22,7 +22,7 @@ const ProjectMisc = ({miscProjects, toggleMenu}) => {
         />
         <div className="project_body">
           <div className="misc_wrap">
-            {miscProjects.length > 2 && miscProjects.map((value, key)=> (
+            {miscProjects && miscProjects.map((value, key) => (
               <div className="misc_image__container" key={key}>
                 <div className="misc_title">
                   {value.value.name}

@@ -108,7 +108,7 @@ export function addMiscProjects(values) {
 export function addMiscProjectsThenUpdate(values) {
   return (dispatch) => {
     dispatch(addMiscProjects(values))
-      .then(()=>dispatch(fetchMiscProjects()));
+      .then(() => dispatch(fetchMiscProjects()));
   };
 }
 /*======================================
@@ -143,7 +143,7 @@ export function editMiscProjects(values) {
 export function editMiscProjectsThenUpdate(values, path) {
   return (dispatch) => {
     dispatch(editMiscProjects(values))
-      .then(()=>{
+      .then(() => {
         dispatch(fetchMiscProjects());
         history.push(path);
       });
@@ -209,11 +209,11 @@ export function removeMiscProjects(id, rev, awsKey) {
       .catch(error => dispatch(removeMiscProjectsFailure(error)));
   };
 }
-//requires ()=>dispatch for fetchViewData or data is fetched before content is added
+//requires () => dispatch for fetchViewData or data is fetched before content is added
 export function removeMiscProjectsThenUpdate(id, rev, awsKey) {
   return (dispatch) => {
     dispatch(removeMiscProjects(id, rev, awsKey))
-      .then(()=>dispatch(fetchMiscProjects()));
+      .then(() => dispatch(fetchMiscProjects()));
   };
 }
 /*======================================

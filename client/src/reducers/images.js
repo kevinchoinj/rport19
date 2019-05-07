@@ -6,8 +6,7 @@ const DEFAULT_STATE={
   miscProjects: {},
 };
 
-export default(state=DEFAULT_STATE, payload)=>
-{
+export default(state=DEFAULT_STATE, payload) => {
   switch(payload.type){
   case FETCH_MISC_PROJECTS_SUCCEEDED:
     return state = {

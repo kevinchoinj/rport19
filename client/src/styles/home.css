@@ -69,3 +69,12 @@
   margin: 0px 6px;
   box-sizing: border-box;
 }
+.contact_icon svg {
+  height: 24px;
+  width: 24px;
+  fill: #ddd;
+  transition: .2s ease-in;
+}
+.contact_icon svg:hover {
+  opacity: .5;
+}

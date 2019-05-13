@@ -2,10 +2,10 @@ import {useEffect} from 'react';
 import {connect} from 'react-redux';
 import * as authActions from 'actions/authentication';
 
-const PassportTicket = props => {
+const PassportTicket = ({findPassport}) => {
   useEffect(() => {
-    props.findPassport();
-  }, []);
+    findPassport();
+  }, [findPassport]);
   return null;
 };
 

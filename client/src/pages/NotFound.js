@@ -7,7 +7,7 @@ export const NotFound = ({toggleMenu}) => {
   useEffect(() => {
     window.scrollTo(0, 0);
     toggleMenu();
-  }, []);
+  }, [toggleMenu]);
 
   return(
     <div className="notfound_wrapper">

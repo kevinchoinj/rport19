@@ -32,7 +32,7 @@ const Viewer = ({images, carouselId}) => {
         alwaysShowTracks: true,
       });
     setScrollbar(scrollbar);
-  }, []);
+  }, [carouselId]);
 
   const goLeft = () => {
     scrollbar.scrollTo(scrollbar.scrollLeft - window.innerWidth/3, 0, 600);
@@ -76,7 +76,7 @@ const Viewer = ({images, carouselId}) => {
     setStartX(e.pageX);
   };
 
-  const onMouseUp = (e) => {
+  const onMouseUp = () => {
     setIsDown(false);
   };
 

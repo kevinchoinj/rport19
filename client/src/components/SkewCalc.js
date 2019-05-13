@@ -32,7 +32,7 @@ const useAnimationFrame = callback => {
     );
     return () =>
       cancelAnimationFrame(frameRef.current);
-  }, []);
+  });
 };
 
 //relearn: 'if you have pure functions created inside the component everytime the component is instantiated you will construct that function again'

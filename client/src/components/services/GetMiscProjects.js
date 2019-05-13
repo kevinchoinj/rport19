@@ -2,10 +2,10 @@ import {useEffect} from 'react';
 import { connect } from 'react-redux';
 import * as imagesActions from 'actions/images';
 
-const GetMiscProjects = props => {
+const GetMiscProjects = ({fetchMiscProjects}) => {
   useEffect(() => {
-    props.fetchMiscProjects();
-  }, []);
+    fetchMiscProjects();
+  }, [fetchMiscProjects]);
   return null;
 };
 

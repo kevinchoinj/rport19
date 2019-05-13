@@ -2,10 +2,10 @@ import {useEffect} from 'react';
 import {connect} from 'react-redux';
 import * as scrollActions from 'actions/scroll';
 
-const DetectMobile = props => {
+const DetectMobile = ({setMobile}) => {
   useEffect(() => {
-    props.setMobile();
-  }, []);
+    setMobile();
+  }, [setMobile]);
   return null;
 };
 

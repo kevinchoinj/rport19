@@ -2,10 +2,10 @@ import {useEffect} from 'react';
 import { connect } from 'react-redux';
 import * as gitActions from 'actions/git';
 
-const FetchGit = props => {
+const FetchGit = ({fetchGit}) => {
   useEffect(() => {
-    props.fetchGit();
-  }, []);
+    fetchGit();
+  }, [fetchGit]);
   return null;
 };
 

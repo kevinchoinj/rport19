@@ -9,7 +9,7 @@ export const Home = ({toggleMenu}) => {
   useEffect(() => {
     window.scrollTo(0, 0);
     toggleMenu();
-  }, []);
+  }, [toggleMenu]);
 
   return(
     <React.Fragment>

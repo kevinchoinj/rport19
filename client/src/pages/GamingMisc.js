@@ -11,7 +11,7 @@ const GamingMisc = ({ toggleMenu }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
     toggleMenu();
-  }, []);
+  }, [toggleMenu]);
 
   return (
     <div className='project_wrapper' id="gaming_body" tabIndex="0">

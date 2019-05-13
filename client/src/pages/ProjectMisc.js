@@ -12,7 +12,7 @@ const ProjectMisc = ({miscProjects, toggleMenu}) => {
   useEffect(() => {
     window.scrollTo(0, 0);
     toggleMenu();
-  }, []);
+  }, [toggleMenu]);
   return (
     <div className="project_wrapper" tabIndex="0">
       <Skew>

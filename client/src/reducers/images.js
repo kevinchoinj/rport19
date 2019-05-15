@@ -3,7 +3,7 @@ import {
 } from 'actions/images';
 
 const DEFAULT_STATE={
-  miscProjects: {},
+  miscProjects: [],
 };
 
 export default(state=DEFAULT_STATE, payload) => {

@@ -26,7 +26,7 @@ const LoginDisplay = ({loggedIn, register, login}) => {
               <TextBasicForm
                 textInputs = {[
                   {name:'username', type: 'text'},
-                  {name:'password', type: 'text'},
+                  {name:'password', type: 'password'},
                 ]}
                 formName = 'registerPassport'
                 onSubmit={register}
@@ -37,7 +37,7 @@ const LoginDisplay = ({loggedIn, register, login}) => {
               <TextBasicForm
                 textInputs = {[
                   {name:'username', type: 'text'},
-                  {name:'password', type: 'text'},
+                  {name:'password', type: 'password'},
                 ]}
                 formName = 'loginPassport'
                 onSubmit={login}

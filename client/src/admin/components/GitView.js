@@ -9,7 +9,7 @@ const GitView = ({commits}) => {
   return (
     <div className="admin_container__flex">
       <div className="git__wrapper">
-        {commits ? commits.map((value, key) => {
+        {commits && commits.map((value, key) => {
           return (
             <div className="git__row" key={key}>
               {value.author.login}
@@ -20,14 +20,6 @@ const GitView = ({commits}) => {
             </div>
           );
         })
-          :
-          <div>
-            {commits[0].author.login}
-            <br/>
-            {commits[0].commit.author.date}
-            <br/>
-            {commits[0].commit.message}
-          </div>
         }
       </div>
     </div>

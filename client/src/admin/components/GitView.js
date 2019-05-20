@@ -9,9 +9,9 @@ const GitView = ({commits}) => {
   return (
     <div className="admin_container__flex">
       <div className="git__wrapper">
-        {commits && commits.map((value, key) => {
+        {commits && commits.map((value) => {
           return (
-            <div className="git__row" key={key}>
+            <div className="git__row" key={value.commit.author.date}>
               {value.author.login}
               <br/>
               {moment(value.commit.author.date).fromNow()}

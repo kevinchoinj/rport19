@@ -16,8 +16,8 @@ const BackgroundImageWrapper = ({menuDisplay}) => {
   );
   return(
     <div className={wrapperName}>
-      {menuData.map((value, index) => (
-        <div key={index}>
+      {menuData.map((value) => (
+        <div key={value.image}>
           <BackgroundImageDisplay
             image={value.image}
             link={value.link}

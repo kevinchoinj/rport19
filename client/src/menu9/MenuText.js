@@ -66,8 +66,8 @@ const MenuText = ({menuDisplay, loadedContent, hoverOption}) => {
   );
   return(
     <div className={menuClassName} id="menu_scrollbar">
-      {menuData.map((value, index) => (
-        <div className="menu_panel__container" key={index}>
+      {menuData.map((value) => (
+        <div className="menu_panel__container" key={value.link}>
           <CheckCurrentPage
             loadedContent={loadedContent}
             link={value.link}

@@ -22,8 +22,8 @@ const ProjectMisc = ({miscProjects, toggleMenu}) => {
         />
         <div className="project_body">
           <div className="misc_wrap">
-            {miscProjects && miscProjects.map((value, key) => (
-              <div className="misc_image__container" key={key}>
+            {miscProjects && miscProjects.map((value) => (
+              <div className="misc_image__container" key={value.value.name}>
                 <div className="misc_title">
                   {value.value.name}
                 </div>

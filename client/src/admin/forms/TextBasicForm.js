@@ -23,9 +23,9 @@ const RenderField = ({
 let TextBasicForm = ({handleSubmit, error, textInputs}) => {
   return (
     <form onSubmit={handleSubmit} autoComplete="off" className="admin_form">
-      {textInputs && textInputs.map((value, key) => {
+      {textInputs && textInputs.map((value) => {
         return (
-          <div className="spacing_bottom" key={key}>
+          <div className="spacing_bottom" key={value.name}>
             <Field
               name={value.name}
               component={RenderField}

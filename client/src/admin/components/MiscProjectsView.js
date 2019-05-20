@@ -10,9 +10,9 @@ import {
 const MiscProjectsView = ({miscProjects, removeProject}) => {
   return (
     <div className="admin_login_container">
-      {miscProjects && miscProjects.map((value, key) => {
+      {miscProjects && miscProjects.map((value) => {
         return (
-          <div className="misc_image__container" key={key}>
+          <div className="misc_image__container" key={value.value.link}>
             <div className="misc_title">
               {value.value.name}
               <br/>

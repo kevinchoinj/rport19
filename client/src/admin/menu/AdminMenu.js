@@ -11,8 +11,8 @@ const AdminMenu = ({logOut}) => {
   ];
   return (
     <div className="admin_menu_wrapper">
-      {menuValues.map((value, index) => (
-        <div key={index}>
+      {menuValues.map((value) => (
+        <div key={value.link}>
           <Link
             to={value.link}
             className = "admin_nav_link"

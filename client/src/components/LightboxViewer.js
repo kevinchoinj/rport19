@@ -7,7 +7,7 @@ const RenderGallery = ({images, openLightbox, scrollbar}) => {
   const gallery = images.map((obj, i) => {
     return (
       <div
-        key={i}
+        key={obj.src}
         className="gaming_carousel_object"
         onLoad={() => scrollbar.update()}
         onClick={(e) => openLightbox(i,e)}
@@ -26,6 +26,7 @@ const RenderGallery = ({images, openLightbox, scrollbar}) => {
 const Viewer = ({images, carouselId}) => {
 
   const [scrollbar, setScrollbar] = useState(false);
+
   useEffect(() => {
     const scrollbar = Scrollbar.init(document.querySelector(carouselId),
       {

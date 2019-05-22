@@ -1,26 +1,42 @@
-import React from 'react';
-import classNames from 'classnames';
+import React, {useState, useEffect} from 'react';
+import styled, {keyframes} from 'styled-components';
+
+const loadInFrames = keyframes`
+  0% {
+    transform: translate(0, 50px);
+    opacity: 0;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(0, 0px);
+    transform: scale(1);
+  }
+`;
+
+const StyledLoadIn = styled.div`
+  opacity: ${props => props.loaded ? 1 : 0};
+  transform: ${props => props.loaded ? 'translateY(0px)' : 'translateY(2rem)'};
+  transition: .3s ease ${props => props.loadDelay};
+  animation: ${loadInFrames} .3s linear ${props => props.loadDelay};
+  animation-fill-mode: both;
+`;
 
 const LoadIn = ({loadDelay, children}) => {
-  const objectName = classNames(
-    'load_in_object',
-    {
-      'load_in_object--display': true,
-    }
-  );
-
-  const addLoadDelay = {
-    animationDelay: loadDelay,
-  };
-
+  const [loaded, setLoaded] = useState(false);
+  useEffect(() => {
+    setLoaded(true);
+  }, []);
   return(
-    <div
-      className={objectName}
-      style={addLoadDelay}
+    <StyledLoadIn
+      loadDelay={loadDelay}
+      loaded={loaded}
     >
       {children}
-    </div>
+    </StyledLoadIn>
   );
 };
 
 export default LoadIn;
+

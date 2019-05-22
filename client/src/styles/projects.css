@@ -288,17 +288,6 @@
 /*======================================
 =               LOAD IN               =
 ======================================*/
-.load_in_object {
-  opacity: 0;
-  transform: translateY(2rem);
-  transition: var(--transition-medium);
-}
-.load_in_object--display {
-  opacity: 1;
-  transform: translateY(0px);
-  animation: NineFadeIn .3s linear;
-  animation-fill-mode: both;
-}
 .project_banner_text__under {
   width: 16.66666667%;
   display: inline-block;

@@ -5,7 +5,6 @@ import 'styles/home.css';
 import 'styles/projects.css';
 import 'styles/menu.css';
 import 'styles/gaming.css';
-import 'styles/animations.css';
 import 'styles/notfound.css';
 
 import 'styles/admin.css';

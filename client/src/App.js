@@ -1,7 +1,6 @@
 import React from 'react';
 
 import 'App.css';
-import 'styles/home.css';
 import 'styles/projects.css';
 import 'styles/menu.css';
 import 'styles/gaming.css';

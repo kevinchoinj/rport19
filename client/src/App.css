@@ -58,10 +58,6 @@ body * {
   width: 100%;
   -webkit-overflow-scrolling: touch;
 }
-.skew {
-  transition: .25s ease-in;
-  will-change: transform;
-}
 .no_select {
   user-select: none;
 }

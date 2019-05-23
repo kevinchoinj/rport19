@@ -31,22 +31,7 @@
 .menu_panel__left--display{
   transform: translateX(33vw);
 }
-.menu_background{
-  cursor: pointer;
-  height: 100vh;
-  width: 100vw;
-  position: fixed;
-  opacity: 0;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  pointer-events: none;
-}
-.menu_background--display{
-  pointer-events: auto;
-  opacity: 1;
-  transition: var(--transition-medium);
-}
+
 .menu_fill {
   cursor: pointer;
   top: 0;

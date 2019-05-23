@@ -1,34 +1,89 @@
 import React from 'react';
-import classNames from 'classnames';
 import {connect} from 'react-redux';
 import * as menuActions from 'actions/menu';
 import {
   selectMenuDisplay,
 } from 'reducers';
+import styled from 'styled-components';
 
+const StyledContainer = styled.div`
+  background: transparent;
+  color: var(--black-color);
+  display: flex;
+  flex-direction: column;
+`;
+const StyledLetter = styled.div`
+  font-weight: 600;
+  color: #fff;
+  font-size: var(--size-small);
+  line-height: 150%;
+  display: flex;
+  justify-content: center;
+`;
+const StyledLines = styled.div`
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  height: var(--size-spacing-small);
+  margin-top: var(--size-spacing-small);
+`;
+const StyledLineOne = styled.span`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: ${props => props.menuDisplay ? 'translate(-50%, -50%) rotate(-45deg)' : 'translate(-50%, -50%)'};
+  height: 100%;
+  width: .1vw;
+  background-color: #fff;
+  transition: all 0.5s cubic-bezier(0.000, 0.785, 0.000, 1.000);
+`;
+const StyledLineTwo = styled.span`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: ${props => props.menuDisplay ? 'translate(-50%, -50%) rotate(45deg)' : 'translate(-50%, -50%)'};
+  height: 100%;
+  width: .1vw;
+  background-color: #fff;
+  transition: all 0.5s cubic-bezier(0.000, 0.785, 0.000, 1.000);
+`;
+const StyledWrapper = styled.div`
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: var(--size-spacing);
+  cursor: pointer;
+  mix-blend-mode:  difference;
+  will-change: opacity;
+  transition: var(--transition-medium);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  &:hover ${StyledLineOne} {
+    transform: translate(-50%, -30%) rotate(90deg) scaleY(0.7);
+  }
+  &:hover ${StyledLineTwo} {
+    transform: translate(-50%, -70%) rotate(90deg) scaleY(0.7);
+  }
+`;
 const MenuButton = ({menuDisplay, toggleMenu}) => {
-  const containerName= classNames(
-    'seventeen_menu_btn__container',
-    {
-      'seventeen_menu_btn__container--display': menuDisplay,
-    }
-  );
   return(
-    <div
-      onClick = {() => toggleMenu(menuDisplay)}
-      className = "seventeen_menu_btn"
+    <StyledWrapper
+      onClick={()=>toggleMenu(menuDisplay)}
     >
-      <div className={containerName}>
-        <div className="seventeen_menu_btn__letter">M</div>
-        <div className="seventeen_menu_btn__letter">E</div>
-        <div className="seventeen_menu_btn__letter">N</div>
-        <div className="seventeen_menu_btn__letter">U</div>
-        <div className="seventeen_menu_btn__lines">
-          <span className="seventeen_menu_line1"/>
-          <span className="seventeen_menu_line2"/>
-        </div>
-      </div>
-    </div>
+      <StyledContainer>
+        <StyledLetter>M</StyledLetter>
+        <StyledLetter>E</StyledLetter>
+        <StyledLetter>N</StyledLetter>
+        <StyledLetter>U</StyledLetter>
+        <StyledLines>
+          <StyledLineOne menuDisplay={menuDisplay}/>
+          <StyledLineTwo menuDisplay={menuDisplay}/>
+        </StyledLines>
+      </StyledContainer>
+    </StyledWrapper>
   );
 };
 

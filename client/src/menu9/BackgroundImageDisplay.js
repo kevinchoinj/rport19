@@ -1,27 +1,38 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import classNames from 'classnames';
 import * as menuActions from 'actions/menu';
 import {history} from 'store';
+import styled from 'styled-components';
 import {
   selectMenuDisplay,
   selectMenuHover,
   selectLoadedContent,
 } from 'reducers';
 
+const StyledBackground = styled.div`
+  pointer-events: ${props => props.menuOpen ? 'auto' : 'none'};
+  opacity: ${props => props.menuOpen ? 1 : 0};
+  transition: ${props => props.menuOpen ? 'var(--transition-medium)' : 'none'};
+  cursor: pointer;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  background-image: url('${props => props.image}');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  pointer-events: none;
+`;
+
 const BackgroundImageDisplay = ({hoverOption, image, link, loadedContent, menuDisplay, toggleMenu}) => {
-  const backgroundClassName = classNames(
-    'menu_background',
-    {
-      'menu_background--display':
-      (link===loadedContent && !menuDisplay) ||
-      (image===hoverOption && menuDisplay)
-    }
-  );
   return(
-    <div className={backgroundClassName}
-      style={{backgroundImage: `url(${image})`}}
+    <StyledBackground
+      image={image}
       onClick={() => toggleMenu(link, menuDisplay)}
+      menuOpen = {
+        (link===loadedContent && !menuDisplay) ||
+        (image===hoverOption && menuDisplay)
+      }
     />
   );
 };

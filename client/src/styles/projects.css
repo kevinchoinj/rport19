@@ -25,70 +25,20 @@
   font-family: 'Josefin Sans', Helvetica, sans-serif;
   cursor: default;
 }
-.project_smallfont__letter {
-  transition: none;
-}
-.project_smallfont__letter:hover {
-  color: transparent;
-  -webkit-text-stroke: 1px #000;
-}
+
 .project_smallfont__break {
   flex-basis: 100%;
   width: 0px;
   height: 0px;
   overflow: hidden;
 }
-.project_fillimage{
-  width: 100%;
-  transition: box-shadow .4s ease, transform 1s ease-out;
-}
+
 .project_wrapper{
   width: 100%;
   overflow: hidden;
 }
-.project_banner__container{
-  height:100vh;
-  width: 100%;
-  position: relative;
-  overflow: hidden;
-}
-.project_banner{
-  height: 100vh;
-  width: 100%;
-  background-color: var(--black-color);
-  overflow: hidden;
-  top: 0px;
-}
-.project_banner_text{
-  width: 100%;
-  background-color: var(--black-color);
-  position: absolute;
-  bottom: 0px;
-  color: #fff;
-  padding: var(--size-spacing-large) 0px;
-  font-size: var(--size-small);
-  line-height: 150%;
-  letter-spacing: 0px;
-  transition: var(--transition-medium);
-  letter-spacing: 4px;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: center;
-}
-.project_banner_text__container {
-  width: 100%;
-  max-width: 66vw;
-  padding: 0px 3rem;
-  display: flex;
-  justify-content: space-between;
-}
-.project_banner_text__small{
-  color: var(--color-link-hover);
-  letter-spacing: 0px;
-  font-size: var(--size-small);
-  font-family: 'Josefin Sans', Helvetica, sans-serif;
-  margin-top: .5rem;
-}
+
+
 .project_body{
   background-color: var(--black-color);
   width: 100%;
@@ -109,16 +59,8 @@
 }
 
 @media screen and (max-width: 992px) {
-  .project_banner_text {
-    padding: 3rem 0px;
-    max-width: none;
-    justify-content: flex-start;
-  }
-  .project_banner_text__container {
-    flex-direction: column;
-    box-sizing: border-box;
-    padding: 0 1rem;
-  }
+
+
   .project_body {
     padding-top: 0;
   }
@@ -131,39 +73,6 @@
   .project_banner_image {
     filter: none !important;
   }
-  .project_fillimage {
-    padding: 1.5rem 1.5rem 0 1.5rem;
-    box-sizing:border-box;
-  }
-}
-
-.project_about{
-  width: 100%;
-  background-color:var(--color-white);
-  font-size: var(--size-small);
-  letter-spacing: 0px;
-  word-wrap: break-word;
-  display: flex;
-  flex-direction: row;
-  padding: var(--size-spacing-large) 0px;
-  color: var(--black-color);
-}
-.about_title {
-  position: relative;
-  min-height: 1px;
-  margin-left: 16.66666667%;
-  width: 33.33333333%;
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-}
-.about_body {
-  width: 33.33333333%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  font-family: 'Josefin Sans', Helvetica, sans-serif;
-  line-height: 200%;
 }
 
 /*======================================
@@ -206,8 +115,6 @@
 }
 
 @media screen and (max-width: 992px) {
-  .about_title,
-  .about_body,
   .update {
     width: 100%;
     padding: 0px 1rem;
@@ -217,86 +124,19 @@
   .update {
     margin: 2rem 0;
   }
-  .project_about,
   .update_content {
     flex-direction: column;
   }
 }
 
-.mobile_images__wrapper {
-  bottom: 0px;
-  background-color: var(--black-color);
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 100%;
-  box-sizing: border-box;
-  padding: 32px 8.333333333% 100px 8.333333333%;
-}
-.mobile_images__container {
-  width: 80%;
-  display: flex;
-  justify-content: space-between;
-}
 
-.mobile_images_column {
-  width: 30%;
-  box-sizing: border-box;
-}
 
-@media screen and (max-width: 992px) {
-  .mobile_images__wrapper {
-    padding: 0px;
-  }
-  .mobile_images__container {
-    width: 100%;
-  }
-  .mobile_images_column {
-    width: 33.3333%;
-    margin-right: 0;
-  }
-  .mobile_images_row {
-    padding: 0;
-  }
-}
-
-@media screen and (max-width: 767px) {
-  .mobile_images_row {
-    flex-direction: column;
-  }
-  .mobile_images__container {
-    flex-direction: column;
-  }
-  .mobile_images_column {
-    width: 100%;
-    transform: none !important;
-  }
-  .mobile_images__container {
-    width: 100%;
-  }
-}
-@media screen and (max-width: 767px) and (orientation: landscape) {
-  .mobile_images__container {
-    flex-direction: row;
-  }
-}
-@media screen and (max-width: 767px) and (orientation: landscape) {
-  .mobile_images_column {
-    width: 33.33333333%;
-  }
-}
 /*======================================
 =               LOAD IN               =
 ======================================*/
-.project_banner_text__under {
-  width: 16.66666667%;
-  display: inline-block;
-  word-wrap: break-word;
-}
+
 @media screen and (max-width: 992px) {
-  .project_banner_text__under {
-    width: 83.33333333%;
-  }
+
   .load_in_object {
     transform: scale(1, 1) translateY(0px) !important;
     animation: none !important;

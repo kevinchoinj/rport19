@@ -6,6 +6,19 @@ import {connect} from 'react-redux';
 import * as menuActions from 'actions/menu';
 import MobileImagesStatic from 'components/mobileimages/MobileImagesStatic';
 import ProjectVideo from 'components/ProjectVideo';
+import styled from 'styled-components';
+
+const Image = ({className, src}) => (
+  <img src={src} alt="" className={className}/>
+);
+
+const StyledImage = styled(Image)`
+  width: 100%;
+  @media screen and (max-width: 992px) {
+    padding: 1.5rem 1.5rem 0 1.5rem;
+    box-sizing:border-box;
+  }
+`;
 
 const MobileImageView = ({ projectMobileVisible, pageValues }) => {
   if (pageValues.mobileImageOne &&
@@ -66,25 +79,19 @@ const ProjectLayout = ({ pageValues, toggleMenu }) => {
               />
             }
             {!pageValues.video && pageValues.bodyImageOne &&
-              <img
+              <StyledImage
                 src={pageValues.bodyImageOne}
-                className="project_fillimage"
-                alt=""
               />
             }
           </div>
           <div className="full_width">
-            <img
+            <StyledImage
               src={pageValues.bodyImageTwo}
-              className="project_fillimage"
-              alt=""
             />
           </div>
           <div className="full_width">
-            <img
+            <StyledImage
               src={pageValues.bodyImageThree}
-              className="project_fillimage"
-              alt=""
             />
           </div>
         </div>

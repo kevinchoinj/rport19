@@ -1,17 +1,33 @@
 import React from 'react';
 import LoadIn from 'components/animations/LoadIn';
+import styled from 'styled-components';
 
+const StyledTextWrapper = styled.div`
+  width: 16.66666667%;
+  display: inline-block;
+  word-wrap: break-word;
+  @media screen and (max-width: 992px) {
+    width: 83.33333333%;
+  }
+`;
+const StyledTextSmall = styled.div`
+  color: var(--color-link-hover);
+  letter-spacing: 0px;
+  font-size: var(--size-small);
+  font-family: 'Josefin Sans', Helvetica, sans-serif;
+  margin-top: .5rem;
+`;
 const TextDisplay = ({ textLine, loadDelay, label }) => {
   if (label === 'LINK' && textLine) {
     return (
-      <div className="project_banner_text__under">
+      <StyledTextWrapper>
         <LoadIn
           loadDelay={loadDelay}
           onPageLoad={true}
         >
           {label}
           <br/>
-          <div className='project_banner_text__small'>
+          <StyledTextSmall>
             <a
               href={textLine}
               aria-label={`${label} link`}
@@ -20,25 +36,25 @@ const TextDisplay = ({ textLine, loadDelay, label }) => {
             >
               Link
             </a>
-          </div>
+          </StyledTextSmall>
         </LoadIn>
-      </div>
+      </StyledTextWrapper>
     );
   }
   else if (textLine) {
     return (
-      <div className="project_banner_text__under">
+      <StyledTextWrapper>
         <LoadIn
           loadDelay={loadDelay}
           onPageLoad={true}
         >
           {label}
           <br/>
-          <div className='project_banner_text__small'>
+          <StyledTextSmall>
             {textLine}
-          </div>
+          </StyledTextSmall>
         </LoadIn>
-      </div>
+      </StyledTextWrapper>
     );
   }
   else {
@@ -46,11 +62,50 @@ const TextDisplay = ({ textLine, loadDelay, label }) => {
   }
 };
 
+const StyledWrapper = styled.div`
+  height:100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+`;
+const StyledContainer = styled.div`
+  width: 100%;
+  background-color: var(--black-color);
+  position: absolute;
+  bottom: 0px;
+  color: #fff;
+  padding: var(--size-spacing-large) 0px;
+  font-size: var(--size-small);
+  line-height: 150%;
+  letter-spacing: 0px;
+  transition: var(--transition-medium);
+  letter-spacing: 4px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  @media screen and (max-width: 992px) {
+    padding: 3rem 0px;
+    max-width: none;
+    justify-content: flex-start;
+  }
+`;
+const StyledText = styled.div`
+  width: 100%;
+  max-width: 66vw;
+  padding: 0px 3rem;
+  display: flex;
+  justify-content: space-between;
+  @media screen and (max-width: 992px) {
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 0 1rem;
+  }
+`;
 const Banner = ({line1, line2, line3, line4}) => {
   return (
-    <div className="project_banner__container">
-      <div className="project_banner_text">
-        <div className="project_banner_text__container">
+    <StyledWrapper>
+      <StyledContainer>
+        <StyledText>
           <TextDisplay
             textLine = {line1}
             loadDelay = "0s"
@@ -71,9 +126,9 @@ const Banner = ({line1, line2, line3, line4}) => {
             loadDelay = "0.6s"
             label = 'LINK'
           />
-        </div>
-      </div>
-    </div>
+        </StyledText>
+      </StyledContainer>
+    </StyledWrapper>
   );
 };
 

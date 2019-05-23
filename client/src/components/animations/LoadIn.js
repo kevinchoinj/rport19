@@ -21,6 +21,12 @@ const StyledLoadIn = styled.div`
   transition: .3s ease ${props => props.loadDelay};
   animation: ${loadInFrames} .3s linear ${props => props.loadDelay};
   animation-fill-mode: both;
+
+  @media screen and (max-width: 992px) {
+    transform: none;
+    animation: none;
+    opacity: 1;
+  }
 `;
 
 const LoadIn = ({loadDelay, children}) => {

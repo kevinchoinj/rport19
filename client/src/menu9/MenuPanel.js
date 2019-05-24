@@ -1,140 +1,75 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import classNames from 'classnames';
-import * as menuActions from 'actions/menu';
-import {history} from 'store';
-import {projectData} from 'data/projectData';
 import MenuText from 'menu9/MenuText';
 import TopRightDisplay from 'menu9/TopRightDisplay';
+import styled from 'styled-components';
 import {
   selectMenuDisplay,
-  selectMenuHover,
 } from 'reducers';
 
-const RightTextDisplay = ({hoverOption}) => {
-  let projectText = projectData[hoverOption];
-  if (hoverOption==='home'){
-    return (
-      <RightTextAreaDisplay
-        noDetails= {true}
-        title="Kevin Choi"
-      />
-    );
+const StyledWrapper = styled.div`
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  pointer-events: ${props => props.menuDisplay ? 'auto' : 'none'};
+  z-index: 9;
+`;
+const StyledLeft = styled.div`
+  height: 100vh;
+  width: 33vw;
+  position: fixed;
+  pointer-events: none;
+  background-color: var(--black-color);
+  transition: var(--transition-long);
+  overflow: hidden;
+  left: -33vw;
+  z-index: 3;
+  -webkit-overflow-scrolling: touch;
+  transform: ${props => props.menuDisplay ? 'translateX(33vw)' : 'translateX(0px)'};
+  @media screen and (max-width: 1590px) {
+    left: -50vw;
+    width: 50vw;
+    transform: ${props => props.menuDisplay ? 'translateX(50vw)' : 'translateX(0px)'};
   }
-  else if (hoverOption==='gaming'){
-    return (
-      <RightTextAreaDisplay
-        noDetails= {true}
-        title="Gaming"
-      />
-    );
+  @media screen and (max-width: 768px) {
+    left: -100vw;
+    width: 100%;
+    min-width: 0px;
+    transform: ${props => props.menuDisplay ? 'translateX(100vw)' : 'translateX(0px)'};
   }
-  else if (hoverOption==='misc'){
-    return (
-      <RightTextAreaDisplay
-        noDetails= {true}
-        title="Misc Projects"
-      />
-    );
+`;
+const StyledRight = styled.div`
+  height: 100vh;
+  width: 33vw;
+  position: fixed;
+  right: -33vw;
+  background-color: var(--black-color);
+  transition: var(--transition-long);
+  transform: ${props => props.menuDisplay ? 'translateX(-33vw)' : 'translateX(0px)'};
+  @media screen and (max-width: 768px) {
+    display: none;
   }
-  else if (projectText) {
-    return (
-      <RightTextAreaDisplay
-        title={projectText.bannerTextOne}
-        year={projectText.bannerTextTwo}
-        body={projectText.aboutText}
-      />
-    );
-  }
-  else return null;
-};
-
-const RightTextAreaDisplay = ({title, year, body, noDetails}) => {
-  if (noDetails){
-    return (
-      <div className="text_right">
-        <div className="text_right__title">
-          {title}
-        </div>
-      </div>
-    );
-  }
-  else {
-    return (
-      <div className="text_right">
-        <div className="text_right__title">
-          {title}
-        </div>
-        <div className="text_right__subcontainer">
-          <div className="text_right__subtitle">
-            <div className="text_right__label">
-            Year:
-            </div>
-            <div className="text_right__subvalue">
-              {year}
-            </div>
-          </div>
-        </div>
-
-        <div className="text_right__subtext">
-          {body}
-        </div>
-      </div>
-    );
-  }
-};
-
-const MenuPanel = ({toggleMenu, menuDisplay, hoverOption}) => {
-  const wrapperName = classNames(
-    'menu_wrapper',
-    {
-      'menu_wrapper--display':menuDisplay
-    }
-  );
-
-  const menuClassNameLeft = classNames(
-    'menu_panel__left',
-    {
-      'menu_panel__left--display':menuDisplay
-    }
-  );
-  const menuClassNameRight = classNames(
-    'menu_panel__right',
-    {
-      'menu_panel__right--display':menuDisplay
-    }
-  );
-
+`;
+const MenuPanel = ({menuDisplay}) => {
   return(
-    <div className={wrapperName}>
-      <div className={menuClassNameLeft}>
+    <StyledWrapper menuDisplay={menuDisplay}>
+      <StyledLeft menuDisplay={menuDisplay}>
         <MenuText />
-      </div>
-      <div className = {menuClassNameRight}>
+      </StyledLeft>
+      <StyledRight menuDisplay={menuDisplay}>
         <TopRightDisplay />
-        <RightTextDisplay
-          hoverOption={hoverOption}
-        />
-      </div>
-    </div>
+      </StyledRight>
+    </StyledWrapper>
   );
 };
 
 const mapStateToProps = (state) => {
   return {
-    hoverOption: selectMenuHover(state),
     menuDisplay: selectMenuDisplay(state),
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    toggleMenu: (path) => {
-      dispatch(menuActions.hoverMenuOption(''));
-      dispatch(menuActions.toggleMenu(false));
-      history.push(path);
-    }
-  };
-};
-
-export default connect (mapStateToProps, mapDispatchToProps)(MenuPanel);
+export default connect (mapStateToProps, null)(MenuPanel);

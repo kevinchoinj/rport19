@@ -5,51 +5,90 @@ import classNames from 'classnames';
 import Scrollbar from 'smooth-scrollbar';
 import {Link} from 'react-router-dom';
 import {menuData} from 'data/menuData';
+import styled from 'styled-components';
 import {
   selectMenuDisplay,
   selectLoadedContent,
 } from 'reducers';
 
+const StyledLinkWrapper = styled.div`
+  display: flex;
+  padding-left: 28px;
+  padding-right: 28px;
+  box-sizing: border-box;
+`;
 const LinkDivWrapper = ({hoverOption, image, children}) => {
   if (window.innerWidth >= 768) {
     return (
-      <div
-        className = "menu_panel__link_div"
+      <StyledLinkWrapper
         onMouseOver={() => hoverOption(image)}
       >
         {children}
-      </div>
+      </StyledLinkWrapper>
     );
   }
   else {
     return (
-      <div className = "menu_panel__link_div">
+      <StyledLinkWrapper>
         {children}
-      </div>
+      </StyledLinkWrapper>
     );
   }
 };
 
+const StyledLinkDiv = styled.div`
+  width: 100%;
+  font-size: 4.5vw;
+  line-height: 150%;
+  font-family: 'Josefin Sans', Helvetica, sans-serif;
+  color: var(--color-link);
+  cursor: default;
+  @media screen and (max-width: 1920px ) {
+    font-size: 4rem;
+  }
+`;
+const LinkObject = ({className, link, children}) => (
+  <Link
+    to={link}
+    className = {className}
+  >
+    {children}
+  </Link>
+);
+const StyledLink = styled(LinkObject)`
+  width: 100%;
+  font-size: 4.5vw;
+  line-height: 150%;
+  font-family: 'Josefin Sans', Helvetica, sans-serif;
+  color: var(--color-link);
+  cursor: default;
+  @media screen and (max-width: 1920px ) {
+    font-size: 4rem;
+  }
+`;
 const CheckCurrentPage = ({loadedContent, link, children}) => {
   if (loadedContent === link) {
     return (
-      <div className="menu_panel__link">
+      <StyledLinkDiv>
         {children}
-      </div>
+      </StyledLinkDiv>
     );
   }
   else {
     return (
-      <Link
-        to={link}
-        className = "menu_panel__link"
-      >
-        {children}
-      </Link>
+      <StyledLink
+        link={link}
+        children={children}
+      />
     );
   }
 };
 
+const StyledNumber = styled.div`
+  float: left;
+  font-size: var(--size-medium);
+  transform: rotate(270deg);
+`;
 const MenuText = ({menuDisplay, loadedContent, hoverOption}) => {
   useEffect(() => {
     Scrollbar.init(document.querySelector('#menu_scrollbar'), {
@@ -67,7 +106,7 @@ const MenuText = ({menuDisplay, loadedContent, hoverOption}) => {
   return(
     <div className={menuClassName} id="menu_scrollbar">
       {menuData.map((value) => (
-        <div className="menu_panel__container" key={value.link}>
+        <div key={value.link}>
           <CheckCurrentPage
             loadedContent={loadedContent}
             link={value.link}
@@ -76,10 +115,10 @@ const MenuText = ({menuDisplay, loadedContent, hoverOption}) => {
               image={value.image}
               hoverOption={hoverOption}
             >
-              <div className="number">
+              <StyledNumber>
                 {value.value}
-              </div>
-              <div className="menu_panel__link_title">
+              </StyledNumber>
+              <div style={{marginLeft: '1rem'}}>
                 {value.text}
               </div>
             </LinkDivWrapper>

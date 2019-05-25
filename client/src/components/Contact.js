@@ -27,7 +27,7 @@ const StyledIcon = styled.div`
     transition: .2s ease-in;
 
     &:hover {
-      fill: var(--color-link-hover);;
+      fill: var(--color-link-hover);
     }
   }
 `;

@@ -3,7 +3,7 @@ export const projectData = {
     bannerTextOne: 'Kaitlyn',
     bannerTextTwo: '2019',
     bannerTextThree: 'Javascript React Node.js',
-    bannerTextFour: '',
+    bannerTextFour: 'https://kaitlynlive.com/',
     aboutText: 'Kaitlyn is a Twitch.tv streamer',
     video: '/static/images/kaitlyn/video.mp4',
     bodyImageOne: '/static/images/kaitlyn/1.png',

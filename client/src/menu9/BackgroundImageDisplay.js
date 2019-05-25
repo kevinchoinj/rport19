@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {connect} from 'react-redux';
 import * as menuActions from 'actions/menu';
 import {history} from 'store';
@@ -10,14 +10,10 @@ import {
 } from 'reducers';
 
 const StyledBackground = styled.div`
-  pointer-events: ${props => props.menuOpen ? 'auto' : 'none'};
-  opacity: ${props => props.menuOpen ? 1 : 0};
-  transition: ${props => props.menuOpen ? 'var(--transition-medium)' : 'none'};
   cursor: pointer;
   height: 100vh;
   width: 100vw;
   position: fixed;
-  background-image: url('${props => props.image}');
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -25,14 +21,20 @@ const StyledBackground = styled.div`
 `;
 
 const BackgroundImageDisplay = ({hoverOption, image, link, loadedContent, menuDisplay, toggleMenu}) => {
+
+  const [menuOpen, setMenuOpen] = useState(false);
+  useEffect(() => {
+    setMenuOpen((link===loadedContent && !menuDisplay) || (image===hoverOption && menuDisplay));
+  }, [loadedContent, menuDisplay, hoverOption, image, link, menuOpen]);
   return(
     <StyledBackground
-      image={image}
+      style={{
+        pointerEvents: menuOpen ? 'auto' : 'none',
+        opacity: menuOpen ? 1 : 0,
+        transition: menuOpen ? 'var(--transition-medium)' : 'none',
+        backgroundImage: `url(${image})`,
+      }}
       onClick={() => toggleMenu(link, menuDisplay)}
-      menuOpen = {
-        (link===loadedContent && !menuDisplay) ||
-        (image===hoverOption && menuDisplay)
-      }
     />
   );
 };

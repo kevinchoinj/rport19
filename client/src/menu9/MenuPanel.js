@@ -14,14 +14,14 @@ const StyledWrapper = styled.div`
   height: 100vh;
   width: 100%;
   overflow: hidden;
-  pointer-events: ${props => props.menuDisplay ? 'auto' : 'none'};
+  pointer-events: none;
   z-index: 9;
 `;
 const StyledLeft = styled.div`
   height: 100vh;
   width: 33vw;
   position: fixed;
-  pointer-events: none;
+  pointer-events: auto;
   background-color: var(--black-color);
   transition: var(--transition-long);
   overflow: hidden;
@@ -46,6 +46,7 @@ const StyledRight = styled.div`
   width: 33vw;
   position: fixed;
   right: -33vw;
+  pointer-events: auto;
   background-color: var(--black-color);
   transition: var(--transition-long);
   transform: ${props => props.menuDisplay ? 'translateX(-33vw)' : 'translateX(0px)'};

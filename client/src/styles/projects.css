@@ -76,49 +76,6 @@
 }
 
 /*======================================
-=                UPDATE                =
-======================================*/
-.update{
-  width:100%;
-  background-color: var(--black-color);
-  color: #ccc;
-  transition:.4s ease-in-out;
-  font-size: var(--size-small);
-  line-height:130%;
-  letter-spacing:1px;
-  word-wrap: break-word;
-  display: flex;
-  flex-direction: column;
-  padding: 100px 0px;
-}
-.update_content {
-  display: flex;
-  flex-direction: row;
-}
-.update_smallfont {
-  font-size: var(--size-small);
-  letter-spacing: 4px;
-  font-weight: 600;
-}
-
-@media screen and (max-width: 992px) {
-  .update {
-    width: 100%;
-    padding: 0px 1rem;
-    margin: 0;
-    box-sizing: border-box;
-  }
-  .update {
-    margin: 2rem 0;
-  }
-  .update_content {
-    flex-direction: column;
-  }
-}
-
-
-
-/*======================================
 =               LOAD IN               =
 ======================================*/
 

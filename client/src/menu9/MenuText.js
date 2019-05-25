@@ -1,7 +1,6 @@
 import React, {useEffect} from 'react';
 import * as menuActions from 'actions/menu';
 import {connect} from 'react-redux';
-import classNames from 'classnames';
 import Scrollbar from 'smooth-scrollbar';
 import {Link} from 'react-router-dom';
 import {menuData} from 'data/menuData';
@@ -46,6 +45,12 @@ const StyledLinkDiv = styled.div`
   @media screen and (max-width: 1920px ) {
     font-size: 4rem;
   }
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    min-width: 0px;
+    font-size: var(--size-large);
+    line-height: 150%;
+  }
 `;
 const LinkObject = ({className, link, children}) => (
   <Link
@@ -61,9 +66,22 @@ const StyledLink = styled(LinkObject)`
   line-height: 150%;
   font-family: 'Josefin Sans', Helvetica, sans-serif;
   color: var(--color-link);
-  cursor: default;
+  color: var(--color-grey-light);
+  text-decoration: none;
+  transition: 0s;
+  cursor: pointer;
+  &:hover, &:focus {
+    color: transparent;
+    -webkit-text-stroke: 1px var(--color-grey-light);
+  }
   @media screen and (max-width: 1920px ) {
     font-size: 4rem;
+  }
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    min-width: 0px;
+    font-size: var(--size-large);
+    line-height: 150%;
   }
 `;
 const CheckCurrentPage = ({loadedContent, link, children}) => {
@@ -89,6 +107,13 @@ const StyledNumber = styled.div`
   font-size: var(--size-medium);
   transform: rotate(270deg);
 `;
+const StyledWrapper = styled.div`
+  z-index: 4;
+  pointer-events: '${props => props.menuDisplay ? 'auto' : 'none'}';
+  overflow: auto;
+  height: 100vh;
+  overflow-x: hidden;
+`;
 const MenuText = ({menuDisplay, loadedContent, hoverOption}) => {
   useEffect(() => {
     Scrollbar.init(document.querySelector('#menu_scrollbar'), {
@@ -97,14 +122,8 @@ const MenuText = ({menuDisplay, loadedContent, hoverOption}) => {
   }, []);
   //empty array '[]' means call it only after initial render
 
-  const menuClassName = classNames(
-    'menu_panel__links',
-    {
-      'menu_panel__links--display': menuDisplay,
-    }
-  );
   return(
-    <div className={menuClassName} id="menu_scrollbar">
+    <StyledWrapper menuDisplay={menuDisplay} id="menu_scrollbar">
       {menuData.map((value) => (
         <div key={value.link}>
           <CheckCurrentPage
@@ -125,7 +144,7 @@ const MenuText = ({menuDisplay, loadedContent, hoverOption}) => {
           </CheckCurrentPage>
         </div>
       ))}
-    </div>
+    </StyledWrapper>
   );
 };
 

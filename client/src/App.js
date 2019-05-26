@@ -1,10 +1,7 @@
 import React from 'react';
 
 import 'App.css';
-import 'styles/projects.css';
-import 'styles/menu.css';
 import 'styles/gaming.css';
-import 'styles/notfound.css';
 
 import 'styles/admin.css';
 

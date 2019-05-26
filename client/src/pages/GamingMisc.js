@@ -6,7 +6,17 @@ import {connect} from 'react-redux';
 import * as menuActions from 'actions/menu';
 import {gamingData} from 'data/gamingData';
 import GamingCarousel from 'components/LightboxGallery';
+import styled from 'styled-components';
 
+
+const StyledContainer = styled.div`
+background-color: var(--black-color);
+color: var(--color-grey-light);
+padding-top: 6rem;
+  @media screen and (max-width: 992px) {
+    padding-top: 0;
+  }
+`;
 const GamingMisc = ({ toggleMenu }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -14,12 +24,12 @@ const GamingMisc = ({ toggleMenu }) => {
   }, [toggleMenu]);
 
   return (
-    <div className='project_wrapper' id="gaming_body" tabIndex="0">
+    <div tabIndex="0">
       <Skew>
         <Banner
           line1="Misc Games"
         />
-        <div className='project_body'>
+        <StyledContainer>
 
           <Update
             title="WORLD OF WARCRAFT"
@@ -283,7 +293,7 @@ const GamingMisc = ({ toggleMenu }) => {
             imageArray = {gamingData.MISC_ARRAY}
           />
 
-        </div>
+        </StyledContainer>
       </Skew>
     </div>
   );

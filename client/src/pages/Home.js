@@ -12,11 +12,11 @@ export const Home = ({toggleMenu}) => {
   }, [toggleMenu]);
 
   return(
-    <React.Fragment>
+    <>
       <Background/>
       <Logo/>
       <Contact/>
-    </React.Fragment>
+    </>
   );
 };
 

@@ -20,7 +20,7 @@ body * {
 :root {
   --color-white: #fff;
   --color-grey-light: #ddd;
-  --color-link: #666;
+  --color-link: #eee;
   --color-link-hover: #aaa;
   --admin-container-color: rgba(255, 255, 255, .2);
   --black-color: #000;

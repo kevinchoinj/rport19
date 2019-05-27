@@ -7,6 +7,8 @@ const StyledWrapper = styled.div`
   overflow: hidden;
   position: fixed;
   left: 0px;
+
+  z-index: 0;
   :after {
     content: '';
     position: fixed;
@@ -43,6 +45,8 @@ const StyledVideo = styled(Video)`
   transform: translateX(-50%) translateY(-50%);
   background-size: cover;
   background-position: center center;
+
+  z-index: 0;
 `;
 
 const Background = () => {

@@ -3,8 +3,6 @@ import React from 'react';
 import 'App.css';
 import 'styles/gaming.css';
 
-import 'styles/admin.css';
-
 import SiteRoutesWrapper from 'routes/SiteRoutesWrapper';
 import PassportCheck from 'routes/PassportCheck';
 import SkewCalc from 'components/SkewCalc';

@@ -14,7 +14,7 @@ const StyledWrapper = styled.div`
   height: 100vh;
   width: 100%;
   overflow: hidden;
-  z-index: -1;
+  z-index: ${props => props.menuDisplay ? 9 : -1};
 `;
 
 const BackgroundImageWrapper = ({menuDisplay}) => {

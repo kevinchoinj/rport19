@@ -3,95 +3,136 @@ import { Field, reduxForm, reset } from 'redux-form';
 import Dropzone from 'react-dropzone';
 import {connect} from 'react-redux';
 /* https://github.com/BBB/dropzone-redux-form-example */
-import classNames from 'classnames';
+import styled from 'styled-components';
+
 const required = value => (value ? undefined : '*Required');
 
 const RenderField = ({
+  className,
   input,
   type,
   placeholder,
   meta: { touched, error, warning }
 }) => (
-  <React.Fragment>
+  <>
     <input {...input}
       placeholder={placeholder}
       type={type}
-      className="admin_form__field"
+      className={className}
     />
     {touched &&
-      ((error && <span className="form_error">{error}</span>) ||
-        (warning && <span className="form_error">{warning}</span>))}
-  </React.Fragment>
+      ((error && <span>{error}</span>) ||
+        (warning && <span>{warning}</span>))}
+  </>
 );
-
+const StyledField = styled(RenderField)`
+  padding: 14px 8px;
+  box-sizing: border-box;
+  outline: none;
+  background-color: transparent;
+  border: 1px solid rgba(255,255,255,.7);
+  min-width: 255px;
+  border-radius: 3px;
+  color: var(--color-white);
+  font-family: 'Open Sans', Helvetica, sans-serif;
+  &::placeholder {
+    color: var(--color-white);
+  }
+`;
+const Button = ({className, children}) => (
+  <button
+    type="submit"
+    className={className}
+  >
+    {children}
+  </button>
+);
+const StyledButton = styled(Button)`
+  width: 100%;
+  background-color: var(--color-primary);
+  color: var(--black-color);
+  padding: 14px 8px;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition-medium);
+  font-family: 'Open Sans', Helvetica, sans-serif;
+  font-weight: 700;
+  color: var(--color-grey-light);
+  &:hover {
+    background-color: var(--color-primary-dark);
+  }
+`;
+const dropzoneStyle = {
+  height: '150px',
+  width: '150px',
+  border: '2px dashed var(--color-grey-light)',
+  color: 'var(--color-grey-light)',
+  display: 'flex',
+  justifyContent: 'center',
+  margin: '14px 0px',
+  cursor: 'pointer',
+  fontSize: '13px',
+  padding: '24px',
+  boxSizing: 'border-box',
+};
 const renderDropzoneInput = (field) => {
   const files = field.input.value;
   return (
     <div>
-      <div className="form_dropzone__wrapper">
-        <Dropzone
-          onDrop={( filesToUpload, e ) => field.input.onChange(filesToUpload)}
-
-        >
-          {({getRootProps, getInputProps, isDragActive}) => {
-            return (
-              <div
-                {...getRootProps()}
-                className={classNames('admin_dropzone', {'admin_dropzone--isActive': isDragActive})}
-              >
-                <input {...getInputProps()} />
-                {
-                  isDragActive ?
-                    <p>Drop files here...</p> :
-                    <p>Try dropping some files here, or click to select files to upload.</p>
-                }
-              </div>
-            );
-          }}
-        </Dropzone>
-        {files && Array.isArray(files) && (
-          <div className="admin_form">
-            {files.map((file, i) =>
-              <div key={i} className="spacing_bottom">
-                {file.name}
-              </div>
-            )}
-          </div>
-        )}
-      </div>
+      <Dropzone onDrop={( filesToUpload, e ) => field.input.onChange(filesToUpload)}>
+        {({getRootProps, getInputProps, isDragActive}) => {
+          return (
+            <div
+              {...getRootProps()}
+              style={dropzoneStyle}
+            >
+              <input {...getInputProps()} />
+              {
+                isDragActive ?
+                  <p>Drop files here...</p> :
+                  <p>Try dropping some files here, or click to select files to upload.</p>
+              }
+            </div>
+          );
+        }}
+      </Dropzone>
+      {files && Array.isArray(files) && (
+        <div>
+          {files.map((file, i) =>
+            <div key={i}>
+              {file.name}
+            </div>
+          )}
+        </div>
+      )}
       {field.meta.touched &&
         field.meta.error &&
-        <span className="error">{field.meta.error}</span>}
+        <span>{field.meta.error}</span>}
       <div>
-        <button
-          type="submit"
-          className="admin_form__button"
-        >
+        <StyledButton>
           Submit
-        </button>
+        </StyledButton>
       </div>
-
     </div>
   );
 };
 
 let ImagePostForm = ({handleSubmit, error}) => {
   return (
-    <form onSubmit={handleSubmit} autoComplete="off" className="admin_form">
-
-      <div className="spacing_bottom">
+    <form onSubmit={handleSubmit} autoComplete="off">
+      <div>
         <Field
           name="name"
-          component={RenderField}
+          component={StyledField}
           type="text"
           validate={[required]}
           placeholder="Title"
         />
       </div>
-      <div className="spacing_bottom">
+      <div>
         <Field
           name="link"
-          component={RenderField}
+          component={StyledField}
           type="text"
           validate={[required]}
           placeholder="link"
@@ -104,7 +145,7 @@ let ImagePostForm = ({handleSubmit, error}) => {
           instructions="Add Image"
         />
       </div>
-      {error && <div className="form_error">{error}</div>}
+      {error && <div>{error}</div>}
     </form>
   );
 };

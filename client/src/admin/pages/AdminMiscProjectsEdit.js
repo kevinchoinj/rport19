@@ -1,18 +1,34 @@
 import React from 'react';
+import styled from 'styled-components';
 import { connect } from 'react-redux';
 import * as imagesActions from 'actions/images';
 import MiscProjectsEditForm from 'admin/forms/MiscProjectsEditForm';
 
+const StyledWrapper = styled.div`
+  background-color: var(--admin-container-color);
+  box-shadow: var(--shadow-box);
+  display: flex;
+  flex-direction: column;
+  font-family: 'Open Sans', Helvetica, sans-serif;
+  color: #babcc4;
+  margin-bottom: 14px;
+`;
+const StyledContainer = styled.div`
+  padding: var(--size-small);
+  display: flex;
+`;
+
+
 const AdminMiscProjects = ({match, editImage}) => {
   return (
-    <div className="admin_container">
-      <div className="admin_container__body">
+    <StyledWrapper>
+      <StyledContainer>
         <MiscProjectsEditForm
           id={match.params.id}
           onSubmit={editImage}
         />
-      </div>
-    </div>
+      </StyledContainer>
+    </StyledWrapper>
   );
 };
 

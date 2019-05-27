@@ -3,36 +3,79 @@ import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 import {pageData} from 'data/pageData';
 import * as authActions from 'actions/authentication';
+import styled from 'styled-components';
 
+const StyledWrapper = styled.div`
+  font-family: 'Open Sans', Helvetica, sans-serif;
+  padding-top: 100px;
+  line-height: 200%;
+  min-width: 300px;
+  min-height: 100vh;
+  box-sizing: border-box;
+`;
+const LinkObject = ({className, link, children}) => (
+  <Link
+    to={link}
+    className = {className}
+  >
+    {children}
+  </Link>
+);
+const StyledLink = styled(LinkObject)`
+  box-sizing: border-box;
+  display: flex;
+  padding: 3px 24px;
+  text-decoration: none;
+  color: var(--color-white);
+  cursor: pointer;
+  transition: var(--transition-medium);
+  justify-content: flex-end;
+  &:hover {
+    color: var(--color-grey-light);
+    background-color: rgba(158,158,158,0.2);
+  }
+`;
+const StyledLogOut = styled.div`
+  box-sizing: border-box;
+  display: flex;
+  padding: 3px 24px;
+  text-decoration: none;
+  color: var(--color-white);
+  cursor: pointer;
+  transition: var(--transition-medium);
+  justify-content: flex-end;
+  &:hover {
+    color: var(--color-grey-light);
+    background-color: rgba(158,158,158,0.2);
+  }
+`;
 const AdminMenu = ({logOut}) => {
   const menuValues = [
     {text: 'Home', link: pageData.adminHome},
     {text: 'Edit Gallery', link: pageData.adminMiscProjects},
   ];
   return (
-    <div className="admin_menu_wrapper">
+    <StyledWrapper>
       {menuValues.map((value) => (
         <div key={value.link}>
-          <Link
-            to={value.link}
-            className = "admin_nav_link"
+          <StyledLink
+            link={value.link}
           >
             {value.text}
-          </Link>
+          </StyledLink>
         </div>
       ))}
-      <div
-        className="admin_nav_link"
+      <StyledLogOut
         onClick={() => logOut()}
       >
         Log Out
-      </div>
+      </StyledLogOut>
       <div>
-        <Link to={pageData.home} className = "admin_nav_link">
+        <StyledLink link={pageData.home}>
           Back to site
-        </Link>
+        </StyledLink>
       </div>
-    </div>
+    </StyledWrapper>
   );
 };
 

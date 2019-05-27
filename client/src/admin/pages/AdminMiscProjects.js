@@ -1,22 +1,44 @@
 import React from 'react';
+import styled from 'styled-components';
 import { connect } from 'react-redux';
 import * as imagesActions from 'actions/images';
 import MiscProjectsForm from 'admin/forms/MiscProjectsForm';
 import MiscProjectsView from 'admin/components/MiscProjectsView';
 
+const StyledWrapper = styled.div`
+  background-color: var(--admin-container-color);
+  box-shadow: var(--shadow-box);
+  display: flex;
+  flex-direction: column;
+  font-family: 'Open Sans', Helvetica, sans-serif;
+  color: #babcc4;
+  margin-bottom: 14px;
+`;
+const StyledTitle = styled.div`
+  font-size: 36px;
+  padding: 16px;
+  font-size: 12px;
+  text-transform: uppercase;
+  border-bottom: 1px solid #babcc4;
+`;
+const StyledContainer = styled.div`
+  padding: var(--size-small);
+  display: flex;
+`;
+
 const AdminMiscProjects = ({addImage}) => {
   return (
-    <React.Fragment>
-      <div className="admin_container">
-        <div className="admin_title">
+    <>
+      <StyledWrapper>
+        <StyledTitle>
           Edit Gallery
-        </div>
-        <div className="admin_container__body">
+        </StyledTitle>
+        <StyledContainer>
           <MiscProjectsForm onSubmit={addImage}/>
-        </div>
-      </div>
+        </StyledContainer>
+      </StyledWrapper>
       <MiscProjectsView/>
-    </React.Fragment>
+    </>
   );
 };
 

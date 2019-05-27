@@ -2,55 +2,90 @@ import React from 'react';
 import {Field, reduxForm} from 'redux-form';
 import {connect} from 'react-redux';
 import _ from 'lodash';
+import styled from 'styled-components';
 
 const required = value => (value ? undefined : '*Required');
 
 const RenderField = ({
+  className,
   input,
   type,
   placeholder,
   meta: { touched, error, warning }
 }) => (
-  <React.Fragment>
+  <>
     <input {...input}
       placeholder={placeholder}
       type={type}
-      className="admin_form__field"
+      className={className}
     />
     {touched &&
-      ((error && <span className="form_error">{error}</span>) ||
-        (warning && <span className="form_error">{warning}</span>))}
-  </React.Fragment>
+      ((error && <span>{error}</span>) ||
+        (warning && <span>{warning}</span>))}
+  </>
 );
-
+const StyledField = styled(RenderField)`
+  padding: 14px 8px;
+  box-sizing: border-box;
+  outline: none;
+  background-color: transparent;
+  border: 1px solid rgba(255,255,255,.7);
+  min-width: 255px;
+  border-radius: 3px;
+  color: var(--color-white);
+  font-family: 'Open Sans', Helvetica, sans-serif;
+  &::placeholder {
+    color: var(--color-white);
+  }
+`;
+const Button = ({className, children}) => (
+  <button
+    type="submit"
+    className={className}
+  >
+    {children}
+  </button>
+);
+const StyledButton = styled(Button)`
+  width: 100%;
+  background-color: var(--color-primary);
+  color: var(--black-color);
+  padding: 14px 8px;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition-medium);
+  font-family: 'Open Sans', Helvetica, sans-serif;
+  font-weight: 700;
+  color: var(--color-grey-light);
+  &:hover {
+    background-color: var(--color-primary-dark);
+  }
+`;
 let MiscProjectsEditForm = ({handleSubmit, error}) => {
   return (
-    <form onSubmit={handleSubmit} autoComplete="off" className="admin_form">
-      <div className="spacing_bottom">
+    <form onSubmit={handleSubmit} autoComplete="off">
+      <div>
         <Field
           name="name"
-          component={RenderField}
+          component={StyledField}
           type="text"
           validate={[required]}
           placeholder="Title"
         />
       </div>
-      <div className="spacing_bottom">
+      <div>
         <Field
           name="link"
-          component={RenderField}
+          component={StyledField}
           type="text"
           validate={[required]}
           placeholder="link"
         />
       </div>
-      {error && <div className="form_error">{error}</div>}
-      <button
-        type="submit"
-        className="admin_form__button"
-      >
+      {error && <div>{error}</div>}
+      <StyledButton>
         Submit
-      </button>
+      </StyledButton>
     </form>
   );
 };

@@ -40,7 +40,7 @@ const StyledLinkDiv = styled.div`
   font-size: 4.5vw;
   line-height: 150%;
   font-family: 'Josefin Sans', Helvetica, sans-serif;
-  color: var(--color-link);
+  color: #666;
   cursor: default;
   @media screen and (max-width: 1920px ) {
     font-size: 4rem;
@@ -65,7 +65,6 @@ const StyledLink = styled(LinkObject)`
   font-size: 4.5vw;
   line-height: 150%;
   font-family: 'Josefin Sans', Helvetica, sans-serif;
-  color: var(--color-link);
   color: var(--color-grey-light);
   text-decoration: none;
   transition: 0s;

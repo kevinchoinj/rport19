@@ -10,12 +10,9 @@ import styled from 'styled-components';
 
 
 const StyledContainer = styled.div`
-background-color: var(--black-color);
-color: var(--color-grey-light);
-padding-top: 6rem;
-  @media screen and (max-width: 992px) {
-    padding-top: 0;
-  }
+  background-color: var(--black-color);
+  color: var(--color-grey-light);
+  padding-top: 6rem;
 `;
 const GamingMisc = ({ toggleMenu }) => {
   useEffect(() => {

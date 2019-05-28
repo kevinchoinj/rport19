@@ -1,16 +1,9 @@
 import React from 'react';
-import classNames from 'classnames';
 import { connect } from 'react-redux';
 
 const PageLoading = ({pageLoaded}) => {
-  const loadingName = classNames(
-    'loading_background',
-    {
-      'loading_background--hidden': pageLoaded,
-    }
-  );
   return (
-    <div className={loadingName}>
+    <div className="loading_background">
       <div className="load-9">
         <div className="spinner">
           <div className="bubble-1"></div>

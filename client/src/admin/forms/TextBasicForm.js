@@ -21,7 +21,6 @@ const RenderField = ({
         (warning && <span>{warning}</span>))}
   </>
 );
-
 const StyledField = styled(RenderField)`
   padding: 14px 8px;
   box-sizing: border-box;

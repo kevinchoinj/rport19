@@ -1,23 +1,74 @@
 import React, {useState, useEffect} from 'react';
 import Lightbox from 'react-images';
 import Scrollbar from 'smooth-scrollbar';
+import styled from 'styled-components';
+
+const StyledWrapper = styled.div`
+  overflow-x: auto;
+  overflow-y: hidden;
+  position: relative;
+  display: flex;
+  .scroll-content {
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    @media screen and (max-width: 768px) {
+      height: auto;
+      flex-direction: column;
+    }
+  }
+`;
+const StyledIndicators = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 25vh;
+  z-index: 10;
+  position: absolute;
+  padding: 0 2rem;
+  box-sizing: border-box;
+  pointer-events: none;
+  user-select: none;
+  div {
+    pointer-events: auto;
+    cursor: pointer;
+  }
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+`;
+const StyledObject = styled.div`
+  padding: 28px;
+  height: 50vh;
+  width: auto;
+  box-sizing: border-box;
+  @media screen and (max-width: 768px) {
+    padding: 3px;
+    height: auto;
+  }
+`;
+const Image = ({className, src}) => (
+  <img src={src} alt="" className={className}/>
+);
+const StyledImage = styled(Image)`
+  height: 100%;
+  @media screen and (max-width: 768px) {
+    height: auto;
+    width: 100%;
+  }
+`;
 
 const RenderGallery = ({images, openLightbox, scrollbar}) => {
   if (!images) return;
   const gallery = images.map((obj, i) => {
     return (
-      <div
+      <StyledObject
         key={obj.src}
-        className="gaming_carousel_object"
         onLoad={() => scrollbar.update()}
         onClick={(e) => openLightbox(i,e)}
       >
-        <img
-          src={obj.src}
-          className="gaming_carousel_image"
-          alt="gaming screenshot"
-        />
-      </div>
+        <StyledImage src={obj.src}/>
+      </StyledObject>
     );
   });
   return gallery;
@@ -93,9 +144,8 @@ const Viewer = ({images, carouselId}) => {
   };
 
   return (
-    <div className="gaming_carousel__wrapper">
+    <StyledWrapper style={{cursor: isDown ? 'grabbing' : 'grab'}}>
       <div
-        className="gaming_carousel__container"
         id={carouselId.slice(1)}
         onMouseDown={(e) => onMouseDown(e)}
         onMouseUp={() => onMouseUp()}
@@ -115,11 +165,11 @@ const Viewer = ({images, carouselId}) => {
           openLightbox = {openLightbox}
         />
       </div>
-      <div className="indicators">
+      <StyledIndicators>
         <div onClick={() => goLeft()}>&lsaquo;</div>
         <div onClick={() => goRight()}>&rsaquo;</div>
-      </div>
-    </div>
+      </StyledIndicators>
+    </StyledWrapper>
   );
 };
 

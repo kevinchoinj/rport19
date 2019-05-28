@@ -5,7 +5,7 @@ export const menuData = [
   {value: '03', text: 'Kaitlyn', link: '/projects/kaitlyn', image: '/static/images/kaitlyn/banner.jpg'},
   {value: '04', text: 'TooCool', link: '/projects/tcfs', image: '/static/images/tcfs/toocool.jpg'},
   {value: '05', text: 'Wildcat', link: '/projects/wildcat', image: '/static/images/wildcat/banner.jpg'},
-  {value: '06', text: 'DrJart+', link: '/projects/drjart', image: '/static/images/drjart/banner.png'},
+  {value: '06', text: 'DrJart+', link: '/projects/drjart', image: '/static/images/drjart/banner.jpg'},
   {value: '07', text: 'Waterloo', link: '/projects/uwloo', image: '/static/images/uwloo/banner.jpg'},
   {value: '08', text: 'Harvard', link: '/projects/harvard', image: '/static/images/harvard/image1.png'},
   {value: '09', text: 'Discord', link: '/projects/discord', image: '/static/images/discord/banner.jpg'},
@@ -14,5 +14,5 @@ export const menuData = [
   {value: '12', text: 'Smile', link: '/projects/wns', image: '/static/images/wns/banner.jpg'},
   {value: '13', text: 'Library', link: '/projects/library', image: '/static/images/library/banner.jpg'},
   {value: '14', text: 'Gaming', link: '/gaming', image: '/static/images/chess.jpg'},
-  {value: '15', text: 'Misc', link: '/projects/misc', image: '/static/images/heroku/herokubanner.png'},
+  {value: '15', text: 'Misc', link: '/projects/misc', image: '/static/images/heroku/herokubanner.jpg'},
 ];

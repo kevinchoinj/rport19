@@ -5,7 +5,7 @@ import * as menuActions from 'actions/menu';
 const preloadImages = [
   {imageFile: '/static/images/chess.jpg', altText:''},
   {imageFile: '/static/images/discord/banner.jpg', altText:''},
-  {imageFile: '/static/images/drjart/banner.png', altText:''},
+  {imageFile: '/static/images/drjart/banner.jpg', altText:''},
   {imageFile: '/static/images/lasfm/banner.jpg', altText:''},
   {imageFile: '/static/images/leida/banner.jpg', altText:''},
   {imageFile: '/static/images/library/banner.jpg', altText:''},

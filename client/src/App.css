@@ -58,9 +58,3 @@ body * {
   width: 100%;
   -webkit-overflow-scrolling: touch;
 }
-.no_select {
-  user-select: none;
-}
-.spacing_bottom {
-  margin-bottom: 16px;
-}

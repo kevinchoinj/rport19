@@ -8,6 +8,10 @@ const StyledWrapper = styled.div`
   overflow-y: hidden;
   position: relative;
   display: flex;
+  cursor: ${props => props.isDown ? 'grabbing' : 'grab'}
+  @media screen and (max-width: 768px) {
+    cursor: pointer;
+  }
   .scroll-content {
     width: 100%;
     height: 50vh;
@@ -144,7 +148,7 @@ const Viewer = ({images, carouselId}) => {
   };
 
   return (
-    <StyledWrapper style={{cursor: isDown ? 'grabbing' : 'grab'}}>
+    <StyledWrapper isDown={isDown} >
       <div
         id={carouselId.slice(1)}
         onMouseDown={(e) => onMouseDown(e)}

@@ -5,11 +5,12 @@ import React, {
 } from 'react';
 import {connect} from 'react-redux';
 import styled from 'styled-components';
-
 import {
   selectMouseContent,
-  selectMousePosition
+  selectMousePosition,
+  selectIsMobile,
 } from 'reducers';
+
 //https://github.com/facebook/react/issues/14195
 //useMutationEffect removed: https://github.com/facebook/react/pull/14336
 const useAnimationFrame = callback => {
@@ -55,7 +56,7 @@ const StyledWrapper = styled.div`
   }
 `;
 
-const TextOverlay = ({content, mousePosition}) => {
+const TextOverlay = ({ content, mousePosition, isMobile }) => {
 
   const [imageValues, setImageValues] = useState({x: 0, y: 0});
   const animate = () => {
@@ -77,30 +78,34 @@ const TextOverlay = ({content, mousePosition}) => {
 
   return(
     <>
-    {content === 'down' &&
-      <StyledWrapper style={imageStyle} content={content}>
-        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 92 100">
-          <line x1="0.4" y1="54.4" x2="46" y2="99"></line>
-          <line x1="91.6" y1="54.4" x2="46" y2="99"></line>
-          <line x1="40.3" y1="77.8" x2="8.2" y2="46.4"></line>
-          <line x1="51.7" y1="77.8" x2="83.8" y2="46.4"></line>
-          <line x1="51.7" y1="0" x2="51.7" y2="77.8"></line>
-          <line x1="40.3" y1="0" x2="40.3" y2="77.8"></line>
-        </svg>
-      </StyledWrapper>
-    }
-    {content === 'up' &&
-      <StyledWrapper style={imageStyle} content={content}>
-        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 92 100">
-          <line x1="0.4" y1="44.6" x2="46" y2="0"></line>
-          <line x1="91.6" y1="44.6" x2="46" y2="0"></line>
-          <line x1="40.3" y1="21.2" x2="8.2" y2="54.4"></line>
-          <line x1="51.7" y1="21.2" x2="83.8" y2="54.4"></line>
-          <line x1="51.7" y1="21.2" x2="51.7" y2="99"></line>
-          <line x1="40.3" y1="21.2" x2="40.3" y2="99"></line>
-        </svg>
-      </StyledWrapper>
-    }
+      {!isMobile &&
+      <>
+        {content === 'down' &&
+          <StyledWrapper style={imageStyle} content={content}>
+            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 92 100">
+              <line x1="0.4" y1="54.4" x2="46" y2="99"></line>
+              <line x1="91.6" y1="54.4" x2="46" y2="99"></line>
+              <line x1="40.3" y1="77.8" x2="8.2" y2="46.4"></line>
+              <line x1="51.7" y1="77.8" x2="83.8" y2="46.4"></line>
+              <line x1="51.7" y1="0" x2="51.7" y2="77.8"></line>
+              <line x1="40.3" y1="0" x2="40.3" y2="77.8"></line>
+            </svg>
+          </StyledWrapper>
+        }
+        {content === 'up' && !isMobile &&
+          <StyledWrapper style={imageStyle} content={content}>
+            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 92 100">
+              <line x1="0.4" y1="44.6" x2="46" y2="0"></line>
+              <line x1="91.6" y1="44.6" x2="46" y2="0"></line>
+              <line x1="40.3" y1="21.2" x2="8.2" y2="54.4"></line>
+              <line x1="51.7" y1="21.2" x2="83.8" y2="54.4"></line>
+              <line x1="51.7" y1="21.2" x2="51.7" y2="99"></line>
+              <line x1="40.3" y1="21.2" x2="40.3" y2="99"></line>
+            </svg>
+          </StyledWrapper>
+        }
+      </>
+      }
     </>
   );
 };
@@ -108,7 +113,8 @@ const TextOverlay = ({content, mousePosition}) => {
 const mapStateToProps = (state) => {
   return {
     content: selectMouseContent(state),
-    mousePosition:selectMousePosition(state),
+    mousePosition: selectMousePosition(state),
+    isMobile: selectIsMobile(state),
   };
 };
 

@@ -1,6 +1,6 @@
 import {useEffect} from 'react';
 import {connect} from 'react-redux';
-import * as scrollActions from 'actions/scroll';
+import * as mouseActions from 'actions/mouse';
 
 const DetectMobile = ({setMobile}) => {
   useEffect(() => {
@@ -14,10 +14,10 @@ const mapDispatchToProps = (dispatch) => {
     setMobile: () => {
       let c = 'ontouchstart' in window || navigator.msMaxTouchPoints;
       if (c) {
-        dispatch(scrollActions.setMobile(true));
+        dispatch(mouseActions.setMobile(true));
       }
       else {
-        dispatch(scrollActions.setMobile(false));
+        dispatch(mouseActions.setMobile(false));
       }
     },
   };

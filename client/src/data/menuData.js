@@ -1,7 +1,7 @@
 export const menuData = [
   {value: '00', text: 'Home', link: '/', image: '/static/images/daytimelight.jpg'},
   {value: '01', text: 'Delilah', link: '/projects/delilah', image: '/static/images/delilahs/banner.jpg'},
-  {value: '02', text: 'Novaruu', link: '/projects/novaruu', image: '/static/images/novaruu/1.png'},
+  {value: '02', text: 'Novaruu', link: '/projects/novaruu', image: '/static/images/novaruu/1.jpg'},
   {value: '03', text: 'Kaitlyn', link: '/projects/kaitlyn', image: '/static/images/kaitlyn/banner.jpg'},
   {value: '04', text: 'TooCool', link: '/projects/tcfs', image: '/static/images/tcfs/toocool.jpg'},
   {value: '05', text: 'Wildcat', link: '/projects/wildcat', image: '/static/images/wildcat/banner.jpg'},

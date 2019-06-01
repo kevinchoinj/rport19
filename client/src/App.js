@@ -3,7 +3,8 @@ import React from 'react';
 import 'App.css';
 
 import SiteRoutesWrapper from 'routes/SiteRoutesWrapper';
-import SkewCalc from 'components/SkewCalc';
+import SkewCalc from 'components/services/SkewCalc';
+import DetectMobile from 'components/services/DetectMobile';
 import AppliedRoute from 'components/split/AppliedRoute';
 import asyncComponent from 'components/split/AsyncComponent';
 import {Switch, Route} from 'react-router-dom';
@@ -14,6 +15,7 @@ const App = () => {
   return (
     <div className="App" id="main_app">
       <SkewCalc/>
+      <DetectMobile/>
       <Switch>
         <AppliedRoute
           path="/shodyra/admin"

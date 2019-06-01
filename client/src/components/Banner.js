@@ -4,6 +4,9 @@ import styled from 'styled-components';
 import scroll from 'react-scroll';
 import {connect} from 'react-redux';
 import * as mouseActions from 'actions/mouse';
+import {
+  selectIsMobile,
+} from 'reducers';
 
 let scroller = scroll.animateScroll;
 
@@ -110,10 +113,10 @@ const StyledText = styled.div`
     padding: 0 1rem;
   }
 `;
-const Banner = ({line1, line2, line3, line4, hoverImage}) => {
+const Banner = ({ line1, line2, line3, line4, hoverImage, isMobile }) => {
   return (
     <StyledWrapper
-      onClick={() => scrollDown()}
+      onClick={() => !isMobile && scrollDown()}
       onMouseEnter={() => hoverImage('down')}
       onMouseLeave ={() => hoverImage(false)}
     >
@@ -145,10 +148,16 @@ const Banner = ({line1, line2, line3, line4, hoverImage}) => {
   );
 };
 
+const mapStateToProps = (state) => {
+  return {
+    isMobile: selectIsMobile(state),
+  };
+};
+
 const mapDispatchToProps = (dispatch) => {
   return {
     hoverImage: (value) => dispatch(mouseActions.hoverImage(value)),
   };
 };
 
-export default connect (null, mapDispatchToProps)(Banner);
+export default connect (mapStateToProps, mapDispatchToProps)(Banner);

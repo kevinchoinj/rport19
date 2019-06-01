@@ -5,6 +5,7 @@ import authentication from 'reducers/authentication';
 import images from 'reducers/images';
 import transition from 'reducers/transition';
 import git from 'reducers/git';
+import mouse from 'reducers/mouse';
 
 const reducers={
   form: reducerForm,
@@ -15,6 +16,7 @@ const reducers={
   authentication,
   images,
   transition,
+  mouse,
   git,
 };
 
@@ -50,3 +52,9 @@ export const selectAuthLoggedIn = (state) => state.authentication.loggedIn;
 =                GIT                 =
 ======================================*/
 export const selectGitCommits = (state) => state.git.commits;
+
+/*======================================
+=               MOUSE                  =
+======================================*/
+export const selectMousePosition = (state) => state.mouse.mousePosition;
+export const selectMouseContent = (state) => state.mouse.content;

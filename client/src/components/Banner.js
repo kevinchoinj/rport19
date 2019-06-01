@@ -1,6 +1,15 @@
 import React from 'react';
 import LoadIn from 'components/animations/LoadIn';
 import styled from 'styled-components';
+import scroll from 'react-scroll';
+import {connect} from 'react-redux';
+import * as mouseActions from 'actions/mouse';
+
+let scroller = scroll.animateScroll;
+
+const scrollDown = () => {
+  scroller.scrollTo(window.innerHeight);
+};
 
 const StyledTextWrapper = styled.div`
   width: 16.66666667%;
@@ -101,9 +110,13 @@ const StyledText = styled.div`
     padding: 0 1rem;
   }
 `;
-const Banner = ({line1, line2, line3, line4}) => {
+const Banner = ({line1, line2, line3, line4, hoverImage}) => {
   return (
-    <StyledWrapper>
+    <StyledWrapper
+      onClick={() => scrollDown()}
+      onMouseEnter={() => hoverImage('down')}
+      onMouseLeave ={() => hoverImage(false)}
+    >
       <StyledContainer>
         <StyledText>
           <TextDisplay
@@ -132,4 +145,10 @@ const Banner = ({line1, line2, line3, line4}) => {
   );
 };
 
-export default Banner;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    hoverImage: (value) => dispatch(mouseActions.hoverImage(value)),
+  };
+};
+
+export default connect (null, mapDispatchToProps)(Banner);

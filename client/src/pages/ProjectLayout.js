@@ -4,9 +4,17 @@ import AboutContainer from 'components/AboutContainer';
 import Skew from 'components/Skew';
 import {connect} from 'react-redux';
 import * as menuActions from 'actions/menu';
+import * as mouseActions from 'actions/mouse';
 import MobileImagesStatic from 'components/mobileimages/MobileImagesStatic';
 import ProjectVideo from 'components/ProjectVideo';
 import styled from 'styled-components';
+import scroll from 'react-scroll';
+
+let scroller = scroll.animateScroll;
+
+const scrollUp = () => {
+  scroller.scrollTo(0);
+};
 
 const Image = ({className, src}) => (
   <img src={src} alt="" className={className}/>
@@ -81,8 +89,14 @@ const StyledDisplay = styled.div`
     padding: 0;
   }
 `;
-
-const ProjectLayout = ({ pageValues, toggleMenu }) => {
+const StyledFooter = styled.div`
+  height: 100vh;
+  width: 100%;
+  @media screen and (max-width: 992px) {
+    display: none;
+  }
+`;
+const ProjectLayout = ({ pageValues, toggleMenu, hoverImage }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
     toggleMenu();
@@ -137,6 +151,11 @@ const ProjectLayout = ({ pageValues, toggleMenu }) => {
           </StyledDisplay>
         </StyledContainer>
         <MobileImageView pageValues = {pageValues}/>
+        <StyledFooter
+          onClick={() => scrollUp()}
+          onMouseEnter={() => hoverImage('up')}
+          onMouseLeave ={() => hoverImage(false)}
+        />
       </Skew>
     </div>
   );
@@ -147,6 +166,7 @@ const mapDispatchToProps = (dispatch) => {
     toggleMenu: () => {
       dispatch(menuActions.toggleMenu(false));
     },
+    hoverImage: (value) => dispatch(mouseActions.hoverImage(value)),
   };
 };
 

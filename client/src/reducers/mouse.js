@@ -2,12 +2,14 @@ import {
   SET_MOBILE,
   HOVER_IMAGE,
   GET_MOUSE_POSITION,
+  SET_EDGE,
 } from 'actions/mouse';
 
 const DEFAULT_STATE={
   content: false,
   isMobile: true,
-  mousePosition: {xValue: 0, yValue: 0}
+  mousePosition: {xValue: 0, yValue: 0},
+  isEdge: false,
 };
 
 export default(state=DEFAULT_STATE, payload)=>
@@ -30,6 +32,11 @@ export default(state=DEFAULT_STATE, payload)=>
     return state = {
       ...state,
       content: payload.image,
+    };
+  case SET_EDGE:
+    return state = {
+      ...state,
+      isEdge: payload.payload
     };
   default:
     return state;

@@ -9,6 +9,7 @@ import {
   selectMouseContent,
   selectMousePosition,
   selectIsMobile,
+  selectIsEdge,
 } from 'reducers';
 
 //https://github.com/facebook/react/issues/14195
@@ -62,7 +63,7 @@ const StyledDown = styled(StyledWrapper)`
   opacity: ${props => props.content ? 1 : 0}
 `;
 
-const TextOverlay = ({ content, mousePosition, isMobile }) => {
+const TextOverlay = ({ content, mousePosition, isMobile, isEdge }) => {
 
   const [imageValues, setImageValues] = useState({x: 0, y: 0});
   const animate = () => {
@@ -84,9 +85,9 @@ const TextOverlay = ({ content, mousePosition, isMobile }) => {
 
   return(
     <>
-      {!isMobile &&
+      {!isMobile && !isEdge &&
       <>
-        <StyledDown style={imageStyle} content={content === 'down' && !isMobile}>
+        <StyledDown style={imageStyle} content={content === 'down'}>
           <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 92 100">
             <line x1="0.4" y1="54.4" x2="46" y2="99"></line>
             <line x1="91.6" y1="54.4" x2="46" y2="99"></line>
@@ -96,7 +97,7 @@ const TextOverlay = ({ content, mousePosition, isMobile }) => {
             <line x1="40.3" y1="0" x2="40.3" y2="77.8"></line>
           </svg>
         </StyledDown>
-        <StyledUp style={imageStyle} content={content === 'up' && !isMobile}>
+        <StyledUp style={imageStyle} content={content === 'up'}>
           <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 92 100">
             <line x1="0.4" y1="44.6" x2="46" y2="0"></line>
             <line x1="91.6" y1="44.6" x2="46" y2="0"></line>
@@ -114,6 +115,7 @@ const TextOverlay = ({ content, mousePosition, isMobile }) => {
 
 const mapStateToProps = (state) => {
   return {
+    isEdge: selectIsEdge(state),
     content: selectMouseContent(state),
     mousePosition: selectMousePosition(state),
     isMobile: selectIsMobile(state),

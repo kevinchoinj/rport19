@@ -5,6 +5,7 @@ import 'App.css';
 import SiteRoutesWrapper from 'routes/SiteRoutesWrapper';
 import SkewCalc from 'components/services/SkewCalc';
 import DetectMobile from 'components/services/DetectMobile';
+import DetectEdge from 'components/services/DetectEdge';
 import AppliedRoute from 'components/split/AppliedRoute';
 import asyncComponent from 'components/split/AsyncComponent';
 import {Switch, Route} from 'react-router-dom';
@@ -26,6 +27,7 @@ const App = () => {
       <StyledWrapper id="main_app">
         <SkewCalc/>
         <DetectMobile/>
+        <DetectEdge/>
         <Switch>
           <AppliedRoute
             path="/shodyra/admin"

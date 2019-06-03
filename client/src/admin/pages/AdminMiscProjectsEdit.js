@@ -5,8 +5,8 @@ import * as imagesActions from 'actions/images';
 import MiscProjectsEditForm from 'admin/forms/MiscProjectsEditForm';
 
 const StyledWrapper = styled.div`
-  background-color: var(--admin-container-color);
-  box-shadow: var(--shadow-box);
+  background-color: ${props => props.theme.colorAdminContainer};
+  box-shadow: ${props => props.theme.shadowAdmin};
   display: flex;
   flex-direction: column;
   font-family: 'Open Sans', Helvetica, sans-serif;

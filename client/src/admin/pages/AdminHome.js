@@ -4,8 +4,8 @@ import GitView from 'admin/components/GitView';
 import FetchGit from 'admin/services/FetchGit';
 
 const StyledWrapper = styled.div`
-  background-color: var(--admin-container-color);
-  box-shadow: var(--shadow-box);
+  background-color: ${props => props.theme.colorAdminContainer};
+  box-shadow: ${props => props.theme.shadowAdmin};
   display: flex;
   flex-direction: column;
   color: #babcc4;

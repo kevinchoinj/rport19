@@ -47,9 +47,9 @@ const MobileImageView = ({ projectMobileVisible, pageValues }) => {
 };
 
 const StyledContainer = styled.div`
-  background-color: var(--black-color);
+  background-color: ${props => props.theme.colorBackground};
   width: 100%;
-  color: var(--color-grey-light);
+  color: ${props => props.theme.colorText};
   padding-top: 6rem;
   @media screen and (max-width: 992px) {
     padding-top: 0;

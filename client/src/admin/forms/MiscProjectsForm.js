@@ -33,10 +33,10 @@ const StyledField = styled(RenderField)`
   border: 1px solid rgba(255,255,255,.7);
   min-width: 255px;
   border-radius: 3px;
-  color: var(--color-white);
+  color: #fff;
   font-family: 'Open Sans', Helvetica, sans-serif;
   &::placeholder {
-    color: var(--color-white);
+    color: #fff;
   }
 `;
 const Button = ({className, children}) => (
@@ -49,24 +49,24 @@ const Button = ({className, children}) => (
 );
 const StyledButton = styled(Button)`
   width: 100%;
-  background-color: var(--color-primary);
-  color: var(--black-color);
+  background-color: ${props => props.theme.colorAdminPrimary};
+  color: ${props => props.theme.colorBackground};
   padding: 14px 8px;
   border: none;
   cursor: pointer;
-  transition: var(--transition-medium);
+  transition: ${props => props.theme.transitionMedium};
   font-family: 'Open Sans', Helvetica, sans-serif;
   font-weight: 700;
-  color: var(--color-grey-light);
+  color: ${props => props.theme.colorText};
   &:hover {
-    background-color: var(--color-primary-dark);
+    background-color: ${props => props.theme.colorAdminPrimaryDark};
   }
 `;
 const dropzoneStyle = {
   height: '150px',
   width: '150px',
-  border: '2px dashed var(--color-grey-light)',
-  color: 'var(--color-grey-light)',
+  border: '2px dashed ${props => props.theme.colorText}',
+  color: '${props => props.theme.colorText}',
   display: 'flex',
   justifyContent: 'center',
   margin: '14px 0px',

@@ -8,7 +8,7 @@ import styled from 'styled-components';
 
 const StyledContainer = styled.div`
   background: transparent;
-  color: var(--black-color);
+  color: ${props => props.theme.colorBackground};
   display: flex;
   flex-direction: column;
 `;
@@ -56,7 +56,7 @@ const StyledWrapper = styled.div`
   cursor: pointer;
   mix-blend-mode:  difference;
   will-change: opacity;
-  transition: var(--transition-medium);
+  transition: ${props => props.theme.transitionMedium};
   z-index: 10;
   display: flex;
   flex-direction: column;

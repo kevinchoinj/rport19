@@ -10,9 +10,17 @@ import styled from 'styled-components';
 
 
 const StyledContainer = styled.div`
-  background-color: var(--black-color);
-  color: var(--color-grey-light);
+  background-color: ${props => props.theme.colorBackground};
+  color: ${props => props.theme.colorText};
   padding-top: 6rem;
+  a {
+    color: ${props=> props.theme.colorLink};
+    text-decoration: none;
+    transition: ${props => props.theme.transitionMedium}
+    :hover {
+      color: ${props => props.theme.colorLinkHover}
+    }
+  }
 `;
 const GamingMisc = ({ toggleMenu }) => {
   useEffect(() => {

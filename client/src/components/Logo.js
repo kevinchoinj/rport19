@@ -22,9 +22,10 @@ const StyledLink = styled.span`
   font-size: var(--size-small);
   letter-spacing: 3px;
   color: #fff;
-  transition: var(--transition-medium);
-  &:hover {
-    color: var(--color-link-hover);
+  text-decoration: none;
+  transition: ${props => props.theme.transitionMedium}
+  :hover {
+    color: ${props => props.theme.colorLinkHover}
   }
 `;
 const StyledSecondary = styled.span`

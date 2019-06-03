@@ -23,7 +23,7 @@ const StyledTextWrapper = styled.div`
   }
 `;
 const StyledTextSmall = styled.div`
-  color: var(--color-link-hover);
+  color: ${props => props.theme.colorLinkHover};
   letter-spacing: 0px;
   font-size: var(--size-small);
   font-family: 'Josefin Sans', Helvetica, sans-serif;
@@ -79,10 +79,18 @@ const StyledWrapper = styled.div`
   width: 100%;
   position: relative;
   overflow: hidden;
+  a {
+    color: ${props=> props.theme.colorLink};
+    text-decoration: none;
+    transition: ${props => props.theme.transitionMedium}
+    :hover {
+      color: ${props => props.theme.colorLinkHover}
+    }
+  }
 `;
 const StyledContainer = styled.div`
   width: 100%;
-  background-color: var(--black-color);
+  background-color: ${props => props.theme.colorBackground};
   position: absolute;
   bottom: 0px;
   color: #fff;
@@ -90,7 +98,7 @@ const StyledContainer = styled.div`
   font-size: var(--size-small);
   line-height: 150%;
   letter-spacing: 0px;
-  transition: var(--transition-medium);
+  transition: ${props => props.theme.transitionMedium};
   letter-spacing: 4px;
   box-sizing: border-box;
   display: flex;

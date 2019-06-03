@@ -11,9 +11,9 @@ import {
 const StyledWrapper = styled.div`
   color: #fff;
   display: flex;
-  background-color: var(--admin-container-color);
+  background-color: ${props => props.theme.colorAdminContainer};
   padding: var(--size-small);
-  box-shadow: var(--shadow-box);
+  box-shadow: ${props => props.theme.shadowAdmin};
   max-width: 100vw;
   flex-wrap: wrap;
 `;
@@ -31,15 +31,15 @@ const StyledButton = styled.div`
   font-size: 13px;
   margin: 7px 0px;
   text-align: center;
-  background-color: var(--color-primary);
-  color: var(--black-color);
+  background-color: ${props => props.theme.colorAdminPrimary};
+  color: ${props => props.theme.colorBackground};
   padding: 14px 8px;
   font-family: 'Open Sans', Helvetica, sans-serif;
-  transition: var(--transition-medium);
+  transition: ${props => props.theme.transitionMedium};
   font-weight: 700;
-  color: var(--color-grey-light);
+  color: ${props => props.theme.colorText};
   &:hover {
-    background-color: var(--color-primary-dark);
+    background-color: ${props => props.theme.colorAdminPrimaryDark};
   }
 `;
 const MiscProjectsView = ({miscProjects, removeProject}) => {

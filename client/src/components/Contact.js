@@ -7,6 +7,14 @@ const StyledWrapper = styled.div`
   bottom:0;
   left: 0;
   padding: var(--size-spacing);
+  a {
+    color: ${props=> props.theme.colorLink};
+    text-decoration: none;
+    transition: ${props => props.theme.transitionMedium}
+    :hover {
+      color: ${props => props.theme.colorLinkHover}
+    }
+  }
 `;
 const StyledContainer = styled.div`
   display: flex;
@@ -23,11 +31,11 @@ const StyledIcon = styled.div`
   svg {
     height: 24px;
     width: 24px;
-    fill: var(--color-link);
+    fill: ${props => props.theme.colorLink};
     transition: .2s ease-in;
 
     &:hover {
-      fill: var(--color-link-hover);
+      fill: ${props => props.theme.colorLinkHover};
     }
   }
 `;

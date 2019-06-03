@@ -16,8 +16,8 @@ const StyledWrapper = styled.div`
 `;
 const StyledLeft = styled.div`
   flex: 1;
-  background-color: var(--admin-container-color);
-  box-shadow: var(--shadow-box);
+  background-color: ${props => props.theme.colorAdminContainer};
+  box-shadow: ${props => props.theme.shadowAdmin};
   z-index: 5;
   display: flex;
   justify-content: flex-end;

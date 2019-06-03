@@ -65,13 +65,13 @@ const StyledLink = styled(LinkObject)`
   font-size: 4.5vw;
   line-height: 150%;
   font-family: 'Josefin Sans', Helvetica, sans-serif;
-  color: var(--color-grey-light);
+  color: ${props => props.theme.colorText};
   text-decoration: none;
   transition: 0s;
   cursor: pointer;
   &:hover, &:focus {
     color: transparent;
-    -webkit-text-stroke: 1px var(--color-grey-light);
+    -webkit-text-stroke: 1px ${props => props.theme.colorText};
   }
   @media screen and (max-width: 1920px ) {
     font-size: 4rem;

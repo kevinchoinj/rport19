@@ -8,8 +8,8 @@ import {
 
 const StyledWrapper = styled.div`
   display: flex;
-  background-color: var(--admin-container-color);
-  box-shadow: var(--shadow-box);
+  background-color: ${props => props.theme.colorAdminContainer};
+  box-shadow: ${props => props.theme.shadowAdmin};
   max-width: 100vw;
   flex-wrap: wrap;
 `;

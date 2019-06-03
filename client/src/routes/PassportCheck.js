@@ -25,9 +25,9 @@ const StyledWrapper = styled.div`
 const StyledContainer = styled.div`
   color: #fff;
   display: flex;
-  background-color: var(--admin-container-color);
+  background-color: ${props => props.theme.colorAdminContainer};
   padding: var(--size-small);
-  box-shadow: var(--shadow-box);
+  box-shadow: ${props => props.theme.shadowAdmin};
   max-width: 100vw;
   flex-wrap: wrap;
 `;
@@ -49,12 +49,12 @@ const LinkObject = ({className, link, children}) => (
 const StyledLink = styled(LinkObject)`
 margin-top: 8px;
 text-decoration: none;
-color: var(--color-white);
+color: #fff;
 font-family: 'Open Sans', Helvetica, sans-serif;
 font-size: 12px;
-transition: var(--transition-medium);
+transition: ${props => props.theme.transitionMedium};
   &:hover {
-    color: var(--color-grey-light);
+    color: ${props => props.theme.colorText};
   }
 `;
 

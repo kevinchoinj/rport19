@@ -11,9 +11,9 @@ import {
 } from 'reducers';
 
 const StyledContainer = styled.div`
-  background-color: var(--black-color);
+  background-color: ${props => props.theme.colorBackground};
   width: 100%;
-  color: var(--color-grey-light);
+  color: ${props => props.theme.colorText};
   padding-top: 6rem;
   display: flex;
   justify-content: center;

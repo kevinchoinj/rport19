@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const StyledWrapper = styled.div`
   width:100%;
-  background-color: var(--black-color);
+  background-color: ${props => props.theme.color};
   color: #ccc;
   transition:.4s ease-in-out;
   font-size: var(--size-small);

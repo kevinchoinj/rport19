@@ -9,7 +9,7 @@ const StyledWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  color: var(--color-white);
+  color: #fff;
   flex-direction: column;
 `;
 const StyledTitle = styled.div`

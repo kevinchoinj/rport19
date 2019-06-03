@@ -26,12 +26,12 @@ const StyledLink = styled(LinkObject)`
   display: flex;
   padding: 3px 24px;
   text-decoration: none;
-  color: var(--color-white);
+  color: #fff;
   cursor: pointer;
-  transition: var(--transition-medium);
+  transition: ${props => props.theme.transitionMedium};
   justify-content: flex-end;
   &:hover {
-    color: var(--color-grey-light);
+    color: ${props => props.theme.colorText};
     background-color: rgba(158,158,158,0.2);
   }
 `;
@@ -40,12 +40,12 @@ const StyledLogOut = styled.div`
   display: flex;
   padding: 3px 24px;
   text-decoration: none;
-  color: var(--color-white);
+  color: #fff;
   cursor: pointer;
-  transition: var(--transition-medium);
+  transition: ${props => props.theme.transitionMedium};
   justify-content: flex-end;
   &:hover {
-    color: var(--color-grey-light);
+    color: ${props => props.theme.colorText};
     background-color: rgba(158,158,158,0.2);
   }
 `;

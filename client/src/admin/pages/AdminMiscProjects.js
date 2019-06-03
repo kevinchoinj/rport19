@@ -6,8 +6,8 @@ import MiscProjectsForm from 'admin/forms/MiscProjectsForm';
 import MiscProjectsView from 'admin/components/MiscProjectsView';
 
 const StyledWrapper = styled.div`
-  background-color: var(--admin-container-color);
-  box-shadow: var(--shadow-box);
+  background-color: ${props => props.theme.colorAdminContainer};
+  box-shadow: ${props => props.theme.shadowAdmin};
   display: flex;
   flex-direction: column;
   font-family: 'Open Sans', Helvetica, sans-serif;

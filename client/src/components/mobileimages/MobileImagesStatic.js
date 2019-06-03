@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const StyledWrapper = styled.div`
   bottom: 0px;
-  background-color: var(--black-color);
+  background-color: ${props => props.theme.colorBackground};
   display: flex;
   flex-direction: row;
   justify-content: center;

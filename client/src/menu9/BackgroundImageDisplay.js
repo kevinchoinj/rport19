@@ -31,7 +31,7 @@ const BackgroundImageDisplay = ({hoverOption, image, link, loadedContent, menuDi
       style={{
         pointerEvents: menuOpen ? 'auto' : 'none',
         opacity: menuOpen ? 1 : 0,
-        transition: menuOpen ? 'var(--transition-medium)' : 'none',
+        transition: menuOpen ? '.2s ease' : 'none',
         backgroundImage: `url(${image})`,
       }}
       onClick={() => toggleMenu(link, menuDisplay)}

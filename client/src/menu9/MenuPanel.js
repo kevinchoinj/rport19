@@ -22,8 +22,8 @@ const StyledLeft = styled.div`
   width: 33vw;
   position: fixed;
   pointer-events: auto;
-  background-color: var(--black-color);
-  transition: var(--transition-long);
+  background-color: ${props => props.theme.colorBackground};
+  transition: ${props => props.theme.transitionLong};
   overflow: hidden;
   left: -33vw;
   z-index: 3;
@@ -47,8 +47,8 @@ const StyledRight = styled.div`
   position: fixed;
   right: -33vw;
   pointer-events: auto;
-  background-color: var(--black-color);
-  transition: var(--transition-long);
+  background-color: ${props => props.theme.colorBackground};
+  transition: ${props => props.theme.transitionLong};
   transform: ${props => props.menuDisplay ? 'translateX(-33vw)' : 'translateX(0px)'};
   @media screen and (max-width: 768px) {
     display: none;

@@ -3,14 +3,14 @@ import styled from 'styled-components';
 
 const StyledWrapper = styled.div`
   width: 100%;
-  background-color:var(--color-white);
+  background-color: #fff;
   font-size: var(--size-small);
   letter-spacing: 0px;
   word-wrap: break-word;
   display: flex;
   flex-direction: row;
   padding: var(--size-spacing-large) 0px;
-  color: var(--black-color);
+  color: ${props => props.theme.colorBackground};
   @media screen and (max-width: 992px) {
     flex-direction: column;
   }

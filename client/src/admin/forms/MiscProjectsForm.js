@@ -65,8 +65,8 @@ const StyledButton = styled(Button)`
 const dropzoneStyle = {
   height: '150px',
   width: '150px',
-  border: '2px dashed ${props => props.theme.colorText}',
-  color: '${props => props.theme.colorText}',
+  border: `2px dashed ${props => props.theme.colorText}`,
+  color: `${props => props.theme.colorText}`,
   display: 'flex',
   justifyContent: 'center',
   margin: '14px 0px',

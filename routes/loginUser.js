@@ -13,7 +13,10 @@ module.exports = app => {
         console.log(err);
       }
       if (info != undefined) {
-        res.send(info.message);
+        res.status(400).send({
+          success: 'false',
+          message: info.message,
+        });
       } else {
         req.logIn(user, err => {
           couchGet('passport', `_design/data/_view/data?key=\"${user.username}"&include_docs=true`)

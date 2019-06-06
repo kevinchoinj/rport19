@@ -25,7 +25,6 @@ const App = () => {
   return (
     <ThemeProvider theme={themeData}>
       <StyledWrapper id="main_app">
-        <SkewCalc/>
         <DetectMobile/>
         <DetectEdge/>
         <Switch>

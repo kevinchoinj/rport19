@@ -19,11 +19,40 @@ function loggedIn(req, res, next) {
     }
     if (info != undefined) {
       res.send(info.message);
-    } else {
+    }
+    else {
       next();
     }
   })(req, res, next);
 }
+
+/*
+todo
+
+const loggedIn = (req, res, next) => co(function* () {
+  passport.authenticate('jwt', { session: false }, (err, user, info) => {
+
+    if (err) {
+      console.log(err);
+    }
+    if (info != undefined) {
+      res.send(info.message);
+    }
+    else {
+      next();
+    }
+  });
+}).asCallback(next);
+*/
+
+/*
+const Promise = require('bluebird')
+const co = gen => Promise.coroutine(gen)()
+
+const handler = (req, res, next) => co(function* () {
+  // do your shit in here
+}).asCallback(next)
+*/
 
 
 router.get('/api/v1/project', ProjectController.getAllProjects);

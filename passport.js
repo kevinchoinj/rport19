@@ -61,8 +61,9 @@ passport.use(
       try {
         couchGet('passport', `_design/data/_view/data?key=\"${username}"&include_docs=true`)
         .then(data => {
-          if (data.data.rows[0] === null) {
-            return done(null, false, { message: 'bad username' });
+          if (!data.data.rows[0] || !data.data.rows[0].value) {
+            //goes to loginUser.js
+            return done(null, false, { message: 'bad username or password' });
           } else {
             bcrypt.compare(password, data.data.rows[0].value.password).then(response => {
               if (response !== true) {

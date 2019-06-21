@@ -25,6 +25,7 @@ const App = () => {
   return (
     <ThemeProvider theme={themeData}>
       <StyledWrapper id="main_app">
+        <SkewCalc/>
         <DetectMobile/>
         <DetectEdge/>
         <Switch>
@@ -32,7 +33,6 @@ const App = () => {
             path="/shodyra/admin"
             component={AsyncAdmin}
           />
-          <Route path="/shodyra/admin" render={(props) => <AsyncAdmin {...props}/>}/>
           <Route path="/" render={(props) => <SiteRoutesWrapper {...props}/>}/>
         </Switch>
       </StyledWrapper>

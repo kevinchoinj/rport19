@@ -1,6 +1,8 @@
 # Shodyra Portfolio 2019
 Portfolio accessible at https://shodyra.com/
 
+![Imgur Image](https://i.imgur.com/awSC0NJ.png)
+
 ## Necessary Files
 
 config.json, client/src/config.json should be filled in with corresponding data of config_example.json, client/src/config_example.json

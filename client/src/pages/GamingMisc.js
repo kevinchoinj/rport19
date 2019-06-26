@@ -22,7 +22,7 @@ const StyledContainer = styled.div`
     }
   }
 `;
-const GamingMisc = ({ toggleMenu }) => {
+const GamingMisc = ({ toggleMenu, skewValue }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
     toggleMenu();
@@ -30,7 +30,7 @@ const GamingMisc = ({ toggleMenu }) => {
 
   return (
     <div tabIndex="0">
-      <Skew>
+      <Skew skewValue={skewValue}>
         <Banner
           line1="Misc Games"
         />

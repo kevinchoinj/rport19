@@ -1,6 +1,5 @@
 import { reducer as reducerForm } from 'redux-form';
 import menu from 'reducers/menu';
-import scroll from 'reducers/scroll';
 import authentication from 'reducers/authentication';
 import images from 'reducers/images';
 import transition from 'reducers/transition';
@@ -11,7 +10,6 @@ const reducers={
   form: reducerForm,
 
   menu,
-  scroll,
 
   authentication,
   images,
@@ -56,7 +54,6 @@ export const selectGitCommits = (state) => state.git.commits;
 /*======================================
 =               MOUSE                  =
 ======================================*/
-export const selectMousePosition = (state) => state.mouse.mousePosition;
-export const selectMouseContent = (state) => state.mouse.content;
+export const selectMouseContent = (state) => state.mouse.content ? state.mouse.content : '';
 export const selectIsMobile = (state) => state.mouse.isMobile;
 export const selectIsEdge = (state) => state.mouse.isEdge;

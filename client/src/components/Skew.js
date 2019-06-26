@@ -4,7 +4,6 @@ import styled from 'styled-components';
 
 import {
   selectMenuDisplay,
-  selectScrollSkew,
   selectMenuHover,
 } from 'reducers';
 
@@ -15,13 +14,13 @@ const StyledSkew = styled.div`
 `;
 
 //inline skew transform value to prevent rerendering entire component every update
-const Skew = ({children, skew, menuDisplay, hoverOption}) => {
+const Skew = ({children, skewValue, menuDisplay, hoverOption}) => {
   return(
     <StyledSkew
-      skew={skew}
+      skew={skewValue}
       menuDisplay={menuDisplay}
       hoverOption={hoverOption}
-      style = {{transform: `skewY(${skew}deg)`}}
+      style = {{transform: `skewY(${skewValue}deg)`}}
     >
       {children}
     </StyledSkew>
@@ -31,7 +30,6 @@ const Skew = ({children, skew, menuDisplay, hoverOption}) => {
 const mapStateToProps = (state) => {
   return {
     hoverOption: selectMenuHover(state),
-    skew: selectScrollSkew(state),
     menuDisplay: selectMenuDisplay(state),
   };
 };

@@ -1,9 +1,8 @@
 import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
 import * as transitionActions from 'actions/transition';
-import SiteRoutes from 'routes/SiteRoutes';
+import SkewWrapper from 'routes/SkewWrapper';
 import TrackMouse from 'components/services/TrackMouse';
-import Arrow from 'components/services/Arrow';
 
 const SiteRoutesWrapper = ({loadContent, location}) => {
   useEffect(() => {
@@ -12,8 +11,7 @@ const SiteRoutesWrapper = ({loadContent, location}) => {
   });
   return (
     <TrackMouse>
-      <SiteRoutes/>
-      <Arrow/>
+      <SkewWrapper/>
     </TrackMouse>
   );
 };

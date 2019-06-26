@@ -3,7 +3,6 @@ import React from 'react';
 import 'App.css';
 
 import SiteRoutesWrapper from 'routes/SiteRoutesWrapper';
-import SkewCalc from 'components/services/SkewCalc';
 import DetectMobile from 'components/services/DetectMobile';
 import DetectEdge from 'components/services/DetectEdge';
 import AppliedRoute from 'components/split/AppliedRoute';
@@ -25,7 +24,6 @@ const App = () => {
   return (
     <ThemeProvider theme={themeData}>
       <StyledWrapper id="main_app">
-        <SkewCalc/>
         <DetectMobile/>
         <DetectEdge/>
         <Switch>

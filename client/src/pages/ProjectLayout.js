@@ -96,14 +96,14 @@ const StyledFooter = styled.div`
     display: none;
   }
 `;
-const ProjectLayout = ({ pageValues, toggleMenu, hoverImage }) => {
+const ProjectLayout = ({ pageValues, toggleMenu, hoverImage, skewValue }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
     toggleMenu();
   }, [toggleMenu]);
   return (
     <div tabIndex="0">
-      <Skew>
+      <Skew skewValue={skewValue}>
         <Banner
           line1 = {pageValues.bannerTextOne}
           line2 = {pageValues.bannerTextTwo}
@@ -154,7 +154,7 @@ const ProjectLayout = ({ pageValues, toggleMenu, hoverImage }) => {
         <StyledFooter
           onClick={() => scrollUp()}
           onMouseEnter={() => hoverImage('up')}
-          onMouseLeave ={() => hoverImage(false)}
+          onMouseLeave ={() => hoverImage('')}
         />
       </Skew>
     </div>

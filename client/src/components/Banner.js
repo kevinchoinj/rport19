@@ -126,7 +126,7 @@ const Banner = ({ line1, line2, line3, line4, hoverImage, isMobile }) => {
     <StyledWrapper
       onClick={() => !isMobile && scrollDown()}
       onMouseEnter={() => hoverImage('down')}
-      onMouseLeave ={() => hoverImage(false)}
+      onMouseLeave ={() => hoverImage('')}
     >
       <StyledContainer>
         <StyledText>

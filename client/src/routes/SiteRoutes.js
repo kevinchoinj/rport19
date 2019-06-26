@@ -16,28 +16,29 @@ import {projectData} from 'data/projectData';
 import {pageData} from 'data/pageData';
 import BackgroundImageWrapper from 'menu9/BackgroundImageWrapper';
 
-const SiteRoutes = () => {
+const SiteRoutes = ({skewValue}) => {
   /* key prop rerenders component when it is the same component being used between routes */
   return (
     <React.Fragment>
       <Switch>
-        <Route exact path={pageData.home} render={(props) => <Home {...props}/>}/>
-        <Route exact path={pageData.miscProjects} render={(props) => <ProjectMisc {...props}/>}/>
+        <Route exact path={pageData.home} render={props => <Home {...props}/>}/>
+        <Route exact path={pageData.miscProjects} render={props => <ProjectMisc {...props} skewValue={skewValue}/>}/>
         {
           Object.keys(projectData).map((key) => {
             return (
               <Route
                 key={key}
                 exact path={`${pageData.projects}/${key}`}
-                render={(props) =>
+                render={props =>
                   <ProjectLayout pageValues={projectData[key]}
+                    skewValue={skewValue}
                     {...props}
                   />
                 }/>
             );
           })
         }
-        <Route exact path={pageData.gaming} render={(props) => <GamingMisc {...props}/>}/>
+        <Route exact path={pageData.gaming} render={props => <GamingMisc {...props} skewValue={skewValue}/>}/>
         <Route component={NotFound} />
       </Switch>
       <BackgroundImageWrapper/>

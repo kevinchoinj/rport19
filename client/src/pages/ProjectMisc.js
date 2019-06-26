@@ -55,14 +55,14 @@ const StyledImage = styled(Image)`
   }
 `;
 
-const ProjectMisc = ({miscProjects, toggleMenu}) => {
+const ProjectMisc = ({ miscProjects, toggleMenu, skewValue }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
     toggleMenu();
   }, [toggleMenu]);
   return (
     <div tabIndex="0">
-      <Skew>
+      <Skew skewValue={skewValue}>
         <GetMiscProjects/>
         <Banner
           line1="Misc Projects"

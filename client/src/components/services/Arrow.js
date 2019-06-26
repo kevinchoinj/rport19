@@ -7,7 +7,6 @@ import {connect} from 'react-redux';
 import styled from 'styled-components';
 import {
   selectMouseContent,
-  selectMousePosition,
   selectIsMobile,
   selectIsEdge,
 } from 'reducers';
@@ -57,21 +56,21 @@ const StyledWrapper = styled.div`
   }
 `;
 const StyledUp = styled(StyledWrapper)`
-  opacity: ${props => props.content ? 1 : 0}
+  opacity: ${props => props.contentExists ? 1 : 0}
 `;
 const StyledDown = styled(StyledWrapper)`
-  opacity: ${props => props.content ? 1 : 0}
+  opacity: ${props => props.contentExists ? 1 : 0}
 `;
 
-const TextOverlay = ({ content, mousePosition, isMobile, isEdge }) => {
+const TextOverlay = ({content, mousePosition, isMobile, isEdge }) => {
 
   const [imageValues, setImageValues] = useState({x: 0, y: 0});
   const animate = () => {
     const distX = mousePosition.xValue - imageValues.x;
     const distY = mousePosition.yValue - imageValues.y;
     setImageValues({
-      x: imageValues.x + (distX * 0.02),
-      y: imageValues.y + (distY * 0.02)
+      x: imageValues.x + (distX * 0.05),
+      y: imageValues.y + (distY * 0.05)
     });
   };
 
@@ -80,14 +79,14 @@ const TextOverlay = ({ content, mousePosition, isMobile, isEdge }) => {
   });
 
   const imageStyle = {
-    transform: `translate(${imageValues.x}px, ${imageValues.y}px)`,
+    transform: `translate3d(${imageValues.x}px, ${imageValues.y}px, 0)`,
   };
 
   return(
     <>
       {!isMobile && !isEdge &&
       <>
-        <StyledDown style={imageStyle} content={content === 'down'}>
+        <StyledDown style={imageStyle} contentExists={content && content === 'down'}>
           <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 92 100">
             <line x1="0.4" y1="54.4" x2="46" y2="99"></line>
             <line x1="91.6" y1="54.4" x2="46" y2="99"></line>
@@ -97,7 +96,7 @@ const TextOverlay = ({ content, mousePosition, isMobile, isEdge }) => {
             <line x1="40.3" y1="0" x2="40.3" y2="77.8"></line>
           </svg>
         </StyledDown>
-        <StyledUp style={imageStyle} content={content === 'up'}>
+        <StyledUp style={imageStyle} contentExists={content && content === 'up'}>
           <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 92 100">
             <line x1="0.4" y1="44.6" x2="46" y2="0"></line>
             <line x1="91.6" y1="44.6" x2="46" y2="0"></line>
@@ -117,7 +116,6 @@ const mapStateToProps = (state) => {
   return {
     isEdge: selectIsEdge(state),
     content: selectMouseContent(state),
-    mousePosition: selectMousePosition(state),
     isMobile: selectIsMobile(state),
   };
 };

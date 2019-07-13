@@ -38,18 +38,17 @@ const useAnimationFrame = callback => {
 const calcSpeed = (currentPixel, setCurrentPixel) => {
   const newPixel = window.pageYOffset;
   const diff = newPixel - currentPixel;
-  const top = 6;
-  const intensity = 0.5;
+  const top = 3;
+  const intensity = 1;
   const speed = top * ((2/(1+Math.exp(-1 * intensity * diff)))-1);
   setCurrentPixel(newPixel);
   return speed;
 };
 
-const SkewWrapper = props => {
+const SkewWrapper = () => {
   const [skewValue, setSkewValue] = useState(0);
   const [currentPixel, setCurrentPixel] = useState(window.pageYOffset);
   useAnimationFrame(() => {
-    //props.looper(calcSpeed(currentPixel, setCurrentPixel));
     setSkewValue(calcSpeed(currentPixel, setCurrentPixel));
   });
 

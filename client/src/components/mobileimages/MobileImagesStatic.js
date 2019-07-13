@@ -13,6 +13,9 @@ const StyledWrapper = styled.div`
   @media screen and (max-width: 992px) {
     padding: 0px;
   }
+  @media screen and (max-width: 768px) {
+    padding-bottom: 2rem;
+  }
 `;
 const StyledContainer = styled.div`
   width: 80%;
@@ -21,10 +24,10 @@ const StyledContainer = styled.div`
   @media screen and (max-width: 992px) {
     width: 100%;
   }
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 768px) {
     flex-direction: column;
   }
-  @media screen and (max-width: 767px) and (orientation: landscape) {
+  @media screen and (max-width: 768px) and (orientation: landscape) {
     flex-direction: row;
   }
 `;
@@ -35,10 +38,10 @@ const StyledColumn = styled.div`
     width: 33.3333%;
     margin-right: 0;
   }
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 768px) {
     width: 100%;
   }
-  @media screen and (max-width: 767px) and (orientation: landscape) {
+  @media screen and (max-width: 768px) and (orientation: landscape) {
     width: 33.33333333%;
   }
 `;
@@ -60,7 +63,6 @@ const CardObject = ({image}) => {
       <StyledImage
         src={image}
       />
-
     </StyledColumn>
   );
 };

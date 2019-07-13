@@ -112,6 +112,12 @@ const StyledWrapper = styled.div`
   overflow: auto;
   height: 100vh;
   overflow-x: hidden;
+  .scroll-content {
+    @media screen and (max-width: 768px) {
+      padding-bottom: 90px;
+      box-sizing: border-box;
+    }
+  }
 `;
 const MenuText = ({menuDisplay, loadedContent, hoverOption}) => {
   useEffect(() => {
@@ -119,8 +125,6 @@ const MenuText = ({menuDisplay, loadedContent, hoverOption}) => {
       alwaysShowTracks: true,
     });
   }, []);
-  //empty array '[]' means call it only after initial render
-
   return(
     <StyledWrapper menuDisplay={menuDisplay} id="menu_scrollbar">
       {menuData.map((value) => (

@@ -56,13 +56,15 @@ const Image = ({className, src}) => (
 );
 const StyledImage = styled(Image)`
   height: 100%;
+  transition: 1s ease;
+  transform: ${props => props.isDown && 'scale(0.9)'};
   @media screen and (max-width: 768px) {
     height: auto;
     width: 100%;
   }
 `;
 
-const RenderGallery = ({images, openLightbox, scrollbar}) => {
+const RenderGallery = ({images, openLightbox, scrollbar, isDown}) => {
   if (!images) return;
   const gallery = images.map((obj, i) => {
     return (
@@ -71,7 +73,7 @@ const RenderGallery = ({images, openLightbox, scrollbar}) => {
         onLoad={() => scrollbar.update()}
         onClick={(e) => openLightbox(i,e)}
       >
-        <StyledImage src={obj.src}/>
+        <StyledImage src={obj.src} isDown={isDown}/>
       </StyledObject>
     );
   });
@@ -156,7 +158,12 @@ const Viewer = ({images, carouselId}) => {
         onMouseLeave={() => onMouseUp()}
         onMouseMove={(e) => onMouseMove(e)}
       >
-        <RenderGallery images={images} openLightbox = {openLightbox} scrollbar={scrollbar}/>
+        <RenderGallery
+          isDown={isDown}
+          images={images}
+          openLightbox={openLightbox}
+          scrollbar={scrollbar}
+        />
         <Lightbox
           currentImage={currentImage}
           images={images}

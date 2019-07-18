@@ -81,8 +81,9 @@ const StyledDisplay = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  overflow: hidden;
+  overflow: visible;
   padding: 1.5rem 0;
+  position: relative;
   @media screen and (max-width: 992px) {
     margin-left: 0px;
     width: 100%;
@@ -129,8 +130,9 @@ const ProjectLayout = ({ pageValues, toggleMenu, hoverImage, skewValue }) => {
           <StyledDisplay>
             {pageValues.bodyImageOne && pageValues.video &&
               <ProjectVideo
-                backgroundImage = {pageValues.bodyImageOne}
-                backgroundVideo = {pageValues.video}
+                title={pageValues.bannerTextOne}
+                backgroundImage={pageValues.bodyImageOne}
+                backgroundVideo={pageValues.video}
               />
             }
             {!pageValues.video && pageValues.bodyImageOne &&

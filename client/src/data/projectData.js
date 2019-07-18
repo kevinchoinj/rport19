@@ -32,6 +32,7 @@ export const projectData = {
     bannerTextTwo: '2018',
     bannerTextThree: 'Javascript React',
     bannerTextFour: 'https://delilahs2ndchance.org',
+    video: '/static/images/delilahs/video.mp4',
     aboutText: 'This project was created for a non-profit animal rescue.',
     bodyImageOne: '/static/images/delilahs/1.jpg',
     bodyImageTwo: '/static/images/delilahs/2.jpg',
@@ -174,6 +175,7 @@ export const projectData = {
   },
   harvard: {
     bannerTextOne: 'Harvard Wheelwright Prize',
+    video: '/static/images/harvard/video.mp4',
     bannerTextTwo: '2016',
     bannerTextThree: 'HTML CSS JQuery',
     bannerTextFour: 'http://wheelwrightprize.org/',

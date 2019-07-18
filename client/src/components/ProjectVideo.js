@@ -36,8 +36,9 @@ const StyledVideo = styled(Video)`
 const StyledTitle = styled.div`
   display: flex;
   justify-content: space-between;
-  flex-wrap: nowrap;
+  white-space: nowrap;
   overflow: hidden;
+  text-overflow: '';
   width: 100%;
   top: 10%;
   left: 20%;
@@ -58,9 +59,7 @@ const Background = ({backgroundVideo, backgroundImage, title}) => {
   return(
     <>
     <StyledTitle>
-      <div>{title}</div>
-      <div>{title}</div>
-      <div>{title}</div>
+      {`${title} ${title} ${title}`}
     </StyledTitle>
     <StyledVideo
       poster={backgroundImage}

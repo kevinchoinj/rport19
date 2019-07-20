@@ -61,7 +61,7 @@ const StyledWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  &:hover ${StyledLineOne} {
+  &:hover ${StyledContainer} ${StyledLines} ${StyledLineOne} {
     transform: translate(-50%, -30%) rotate(90deg) scaleY(0.7);
   }
   &:hover ${StyledLineTwo} {
@@ -78,7 +78,7 @@ const MenuButton = ({menuDisplay, toggleMenu}) => {
         <StyledLetter>E</StyledLetter>
         <StyledLetter>N</StyledLetter>
         <StyledLetter>U</StyledLetter>
-        <StyledLines>
+        <StyledLines >
           <StyledLineOne menuDisplay={menuDisplay}/>
           <StyledLineTwo menuDisplay={menuDisplay}/>
         </StyledLines>

@@ -56,22 +56,21 @@ const StyledWrapper = styled.div`
   }
 `;
 const StyledUp = styled(StyledWrapper)`
-  opacity: ${props => props.contentExists ? 1 : 0}
+  display: ${props => props.contentExists ? 'block' : 'none'};
 `;
 const StyledDown = styled(StyledWrapper)`
-  opacity: ${props => props.contentExists ? 1 : 0}
+  display: ${props => props.contentExists ? 'block' : 'none'};
 `;
 
 const TextOverlay = ({content, mousePosition, isMobile, isEdge }) => {
 
-  const [imageValues, setImageValues] = useState({x: 0, y: 0});
+  const [x, setX] = useState(0);
+  const [y, setY] = useState(0);
   const animate = () => {
-    const distX = mousePosition.xValue - imageValues.x;
-    const distY = mousePosition.yValue - imageValues.y;
-    setImageValues({
-      x: imageValues.x + (distX * 0.05),
-      y: imageValues.y + (distY * 0.05)
-    });
+    const distX = mousePosition.xValue - x;
+    const distY = mousePosition.yValue - y;
+    setX(x => x + (distX * 0.05));
+    setY(y => y + (distY * 0.05));
   };
 
   useAnimationFrame(() => {
@@ -79,7 +78,7 @@ const TextOverlay = ({content, mousePosition, isMobile, isEdge }) => {
   });
 
   const imageStyle = {
-    transform: `translate3d(${imageValues.x}px, ${imageValues.y}px, 0)`,
+    transform: `translate3d(${x}px, ${y}px, 0)`,
   };
 
   return(

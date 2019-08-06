@@ -1,10 +1,6 @@
 const fetch = require('node-fetch');
-const {
-  sendError,
-} = require('../couch.js');
 
 class GitController {
-
   getAllCommits(req, res) {
     fetch(`https://api.github.com/repos/kevinchoinj/rport19/commits`)
     .then(res => res.json())
@@ -21,7 +17,6 @@ class GitController {
           message: 'git commits retrieved failure',
           error,
         });
-        sendError('Express', error, 'Git Get Error');
       });
   }
 }

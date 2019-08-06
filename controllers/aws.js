@@ -1,8 +1,5 @@
 const AWS = require('aws-sdk');
 const bluebird = require('bluebird');
-const {
-  sendError,
-} = require('../couch.js');
 
 let jsonData = require('../config.json');
 const awsAccessKey = jsonData.awsAccessKey;
@@ -40,7 +37,6 @@ class AwsController {
           message: 'aws added failure',
           err,
         });
-        sendError('Express', err, 'AWS S3 Upload error');
       }
     });
   }
@@ -59,7 +55,6 @@ class AwsController {
           message: 'aws added failure',
           err,
         });
-        sendError('Express', err, 'AWS S3 Delete error');
       }
     })
   }

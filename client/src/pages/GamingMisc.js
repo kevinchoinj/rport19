@@ -1,11 +1,11 @@
 import React, {useEffect} from 'react';
-import Skew from 'components/Skew';
-import Banner from 'components/Banner';
-import Update from 'components/Update';
+import Skew from 'components/projects/Skew';
+import Banner from 'components/projects/Banner';
+import Update from 'components/projects/Update';
 import {connect} from 'react-redux';
 import * as menuActions from 'actions/menu';
 import {gamingData} from 'data/gamingData';
-import GamingCarousel from 'components/LightboxGallery';
+import GamingCarousel from 'components/projects/LightboxGallery';
 import styled from 'styled-components';
 
 

@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
-import Background from 'components/Background';
-import Logo from 'components/Logo';
-import Contact from 'components/Contact';
+import Background from 'components/home//Background';
+import Logo from 'components/home/Logo';
+import Contact from 'components/home/Contact';
 import {connect} from 'react-redux';
 import * as menuActions from 'actions/menu';
 

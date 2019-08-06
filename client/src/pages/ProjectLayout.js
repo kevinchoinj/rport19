@@ -1,12 +1,12 @@
 import React, {useEffect} from 'react';
-import Banner from 'components/Banner';
-import AboutContainer from 'components/AboutContainer';
-import Skew from 'components/Skew';
+import Banner from 'components/projects/Banner';
+import AboutContainer from 'components/projects/AboutContainer';
+import Skew from 'components/projects/Skew';
 import {connect} from 'react-redux';
 import * as menuActions from 'actions/menu';
 import * as mouseActions from 'actions/mouse';
-import MobileImagesStatic from 'components/mobileimages/MobileImagesStatic';
-import ProjectVideo from 'components/ProjectVideo';
+import MobileImagesStatic from 'components/projects/MobileImagesStatic';
+import ProjectVideo from 'components/projects/ProjectVideo';
 import styled from 'styled-components';
 import scroll from 'react-scroll';
 

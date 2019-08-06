@@ -1,9 +1,9 @@
 import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
 import * as menuActions from 'actions/menu';
-import Skew from 'components/Skew';
+import Skew from 'components/projects/Skew';
 import GetMiscProjects from 'components/services/GetMiscProjects';
-import Banner from 'components/Banner';
+import Banner from 'components/projects/Banner';
 import styled from 'styled-components';
 
 import {

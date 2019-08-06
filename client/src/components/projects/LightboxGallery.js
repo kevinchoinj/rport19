@@ -1,5 +1,5 @@
 import React from 'react';
-import Viewer from 'components/LightboxViewer';
+import Viewer from 'components/projects/LightboxViewer';
 
 const makeUnsplashSrc = (id) => {
   return id;

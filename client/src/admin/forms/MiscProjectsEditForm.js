@@ -1,8 +1,8 @@
 import React from 'react';
 import {Field, reduxForm} from 'redux-form';
 import {connect} from 'react-redux';
-import _ from 'lodash';
 import styled from 'styled-components';
+import {find, propEq} from 'ramda';
 
 const required = value => (value ? undefined : '*Required');
 
@@ -91,20 +91,20 @@ let MiscProjectsEditForm = ({handleSubmit, error}) => {
 };
 
 const mapStateToProps = (state, props) => {
-  const projectData = _.find(state.images.miscProjects, {'id': props.id});
-  const projectDoc = projectData ? projectData.doc : null;
+  const projectData = find(propEq('id', props.id), state.images.miscProjects);
+  const projectDoc = projectData && projectData.doc;
   return{
     testValue: projectData,
     initialValues: {
-      id: projectDoc ? projectDoc._id : null,
-      rev: projectDoc ? projectDoc._rev : null,
+      id: projectDoc && projectDoc._id,
+      rev: projectDoc && projectDoc._rev,
 
-      name: projectDoc ? projectDoc.name : null,
-      link: projectDoc ? projectDoc.link : null,
+      name: projectDoc && projectDoc.name,
+      link: projectDoc && projectDoc.link,
 
-      createdAt: projectDoc ? projectDoc.created_at : null,
-      url: projectDoc ? projectDoc.url : null,
-      awsKey: projectDoc ? projectDoc.awsKey : null,
+      createdAt: projectDoc && projectDoc.created_at,
+      url: projectDoc && projectDoc.url,
+      awsKey: projectDoc && projectDoc.awsKey,
     },
   };
 };

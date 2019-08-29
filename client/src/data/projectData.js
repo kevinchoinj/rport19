@@ -182,5 +182,20 @@ export const projectData = {
     aboutText: 'The Wheelwright Prize is a $100,000 travel-based research grant that is awarded annually to early-career architects who have demonstrated exceptional design talent, produced work of scholarly and professional merit, and who show promise for continued creative work.',
     bodyTextOne: 'The site was edited to fix deprecated Jquery functions. This was one of my first ever experiences with basic javascript.',
     bodyImageOne: '/static/images/harvard/image2.png',
+  },
+  everydaycarry: {
+    bannerTextOne: 'EVERYDAY CARRY',
+    video: '/static/images/everydaycarry/video.mp4',
+    bannerTextTwo: '2019',
+    bannerTextThree: 'Javascript React',
+    bannerTextFour: 'https://harkdan.shodyra.com/',
+    aboutText: 'Everyday Carry is an online store for everyday essentials.',
+    bodyTextOne: 'A form was created as an external application to help web administration create and handle web posts that were otherwise not creatable by their existing online platform.',
+    bodyImageOne: '/static/images/everydaycarry/1.jpg',
+    bodyImageTwo: '/static/images/everydaycarry/2.jpg',
+    bodyImageThree: '/static/images/everydaycarry/3.jpg',
+    mobileImageOne: '/static/images/everydaycarry/4.jpg',
+    mobileImageTwo: '/static/images/everydaycarry/5.jpg',
+    mobileImageThree: '/static/images/everydaycarry/6.jpg',
   }
 };

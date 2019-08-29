@@ -19,7 +19,7 @@ import BackgroundImageWrapper from 'menu9/BackgroundImageWrapper';
 const SiteRoutes = ({skewValue}) => {
   /* key prop rerenders component when it is the same component being used between routes */
   return (
-    <React.Fragment>
+    <>
       <Switch>
         <Route exact path={pageData.home} render={props => <Home {...props}/>}/>
         <Route exact path={pageData.miscProjects} render={props => <ProjectMisc {...props} skewValue={skewValue}/>}/>
@@ -45,7 +45,7 @@ const SiteRoutes = ({skewValue}) => {
       <MenuPanel/>
       <MenuButton/>
       <DetectMobile/>
-    </React.Fragment>
+    </>
   );
 };
 

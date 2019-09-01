@@ -6,8 +6,8 @@ import {connect} from 'react-redux';
 import * as mouseActions from 'actions/mouse';
 import {
   selectIsMobile,
+  selectMenuDisplay,
 } from 'reducers';
-
 let scroller = scroll.animateScroll;
 
 const scrollDown = () => {
@@ -103,6 +103,7 @@ const StyledContainer = styled.div`
   box-sizing: border-box;
   display: flex;
   justify-content: center;
+  opacity: ${props => props.menuDisplay && 0}
   @media screen and (max-width: 992px) {
     padding: 3rem 0px;
     max-width: none;
@@ -121,33 +122,33 @@ const StyledText = styled.div`
     padding: 0 1rem;
   }
 `;
-const Banner = ({ line1, line2, line3, line4, hoverImage, isMobile }) => {
+const Banner = ({ line1, line2, line3, line4, hoverImage, isMobile, menuDisplay }) => {
   return (
     <StyledWrapper
       onClick={() => !isMobile && scrollDown()}
       onMouseEnter={() => hoverImage('down')}
       onMouseLeave ={() => hoverImage('')}
     >
-      <StyledContainer>
+      <StyledContainer menuDisplay={menuDisplay}>
         <StyledText>
           <TextDisplay
             textLine = {line1}
-            loadDelay = "0s"
+            loadDelay = "0.4s"
             label = 'TITLE'
           />
           <TextDisplay
             textLine = {line2}
-            loadDelay = "0.2s"
+            loadDelay = "0.6s"
             label = 'YEAR'
           />
           <TextDisplay
             textLine = {line3}
-            loadDelay = "0.4s"
+            loadDelay = "0.8s"
             label = 'LANG'
           />
           <TextDisplay
             textLine = {line4}
-            loadDelay = "0.6s"
+            loadDelay = "1s"
             label = 'LINK'
           />
         </StyledText>
@@ -158,6 +159,7 @@ const Banner = ({ line1, line2, line3, line4, hoverImage, isMobile }) => {
 
 const mapStateToProps = (state) => {
   return {
+    menuDisplay: selectMenuDisplay(state),
     isMobile: selectIsMobile(state),
   };
 };

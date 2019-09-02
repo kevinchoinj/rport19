@@ -20,7 +20,7 @@ const StyledLoadIn = styled.div`
   transform: ${props => props.loaded ? 'translateY(0px)' : 'translateY(2rem)'};
   transition: .3s ease ${props => props.loadDelay};
   animation: ${loadInFrames} .3s linear ${props => props.loadDelay};
-  animation-fill-mode: forward;
+  animation-fill-mode: both;
 
   @media screen and (max-width: 992px) {
     transform: none;

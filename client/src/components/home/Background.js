@@ -1,5 +1,9 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import styled from 'styled-components';
+import {
+  selectMenuDisplay,
+} from 'reducers';
 
 const StyledWrapper = styled.div`
   width: 100%;
@@ -7,8 +11,8 @@ const StyledWrapper = styled.div`
   overflow: hidden;
   position: fixed;
   left: 0px;
-
-  z-index: 0;
+  transition: .2s ease;
+  opacity: ${props => props.menuDisplay && 0};
   :after {
     content: '';
     position: fixed;
@@ -45,13 +49,11 @@ const StyledVideo = styled(Video)`
   transform: translateX(-50%) translateY(-50%);
   background-size: cover;
   background-position: center center;
-
-  z-index: 0;
 `;
 
-const Background = () => {
+const Background = ({menuDisplay}) => {
   return(
-    <StyledWrapper>
+    <StyledWrapper menuDisplay={menuDisplay}>
       <StyledVideo
         poster='/static/images/daytimelight.jpg'
         src='/static/images/daytime.mp4'
@@ -60,4 +62,10 @@ const Background = () => {
   );
 };
 
-export default Background;
+const mapStateToProps = (state) => {
+  return {
+    menuDisplay: selectMenuDisplay(state),
+  };
+};
+
+export default connect (mapStateToProps, null)(Background);

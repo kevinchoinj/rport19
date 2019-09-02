@@ -1,11 +1,7 @@
 import React from 'react';
-import {connect} from 'react-redux';
 import {menuData} from 'data/menuData';
 import styled from 'styled-components';
 import BackgroundImageDisplay from 'menu9/BackgroundImageDisplay';
-import {
-  selectMenuDisplay,
-} from 'reducers';
 
 const StyledWrapper = styled.div`
   position: fixed;
@@ -19,9 +15,7 @@ const StyledWrapper = styled.div`
 
 const BackgroundImageWrapper = ({menuDisplay}) => {
   return(
-    <StyledWrapper
-      menuDisplay={menuDisplay}
-    >
+    <StyledWrapper menuDisplay={menuDisplay}>
       {menuData.map((value) => (
         <div key={value.link}>
           <BackgroundImageDisplay

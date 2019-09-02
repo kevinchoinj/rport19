@@ -133,22 +133,22 @@ const Banner = ({ line1, line2, line3, line4, hoverImage, isMobile, menuDisplay 
         <StyledText>
           <TextDisplay
             textLine = {line1}
-            loadDelay = "0.4s"
+            loadDelay = "0.3s"
             label = 'TITLE'
           />
           <TextDisplay
             textLine = {line2}
-            loadDelay = "0.6s"
+            loadDelay = "0.4s"
             label = 'YEAR'
           />
           <TextDisplay
             textLine = {line3}
-            loadDelay = "0.8s"
+            loadDelay = "0.5s"
             label = 'LANG'
           />
           <TextDisplay
             textLine = {line4}
-            loadDelay = "1s"
+            loadDelay = "0.6s"
             label = 'LINK'
           />
         </StyledText>

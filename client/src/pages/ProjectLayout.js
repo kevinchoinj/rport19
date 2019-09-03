@@ -9,6 +9,7 @@ import MobileImagesStatic from 'components/projects/MobileImagesStatic';
 import ProjectVideo from 'components/projects/ProjectVideo';
 import styled from 'styled-components';
 import scroll from 'react-scroll';
+import LoadIntersect from 'components/animations/LoadIntersect';
 
 let scroller = scroll.animateScroll;
 
@@ -93,6 +94,7 @@ const StyledDisplay = styled.div`
 const StyledFooter = styled.div`
   height: 100vh;
   width: 100%;
+  cursor: pointer;
   @media screen and (max-width: 992px) {
     display: none;
   }
@@ -136,20 +138,22 @@ const ProjectLayout = ({ pageValues, toggleMenu, hoverImage, skewValue }) => {
               />
             }
             {!pageValues.video && pageValues.bodyImageOne &&
-              <StyledImage
-                src={pageValues.bodyImageOne}
-              />
+              <LoadIntersect>
+                <StyledImage
+                  src={pageValues.bodyImageOne}
+                />
+              </LoadIntersect>
             }
           </StyledDisplay>
           <StyledDisplay>
-            <StyledImage
-              src={pageValues.bodyImageTwo}
-            />
+            <LoadIntersect>
+              <StyledImage src={pageValues.bodyImageTwo}/>
+            </LoadIntersect>
           </StyledDisplay>
           <StyledDisplay>
-            <StyledImage
-              src={pageValues.bodyImageThree}
-            />
+            <LoadIntersect>
+              <StyledImage src={pageValues.bodyImageThree}/>
+            </LoadIntersect>
           </StyledDisplay>
         </StyledContainer>
         <MobileImageView pageValues = {pageValues}/>

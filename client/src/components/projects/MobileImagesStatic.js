@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import useIntersect from 'hooks/useIntersect';
 
 const StyledWrapper = styled.div`
   bottom: 0px;
@@ -34,6 +35,11 @@ const StyledContainer = styled.div`
 const StyledColumn = styled.div`
   width: 30%;
   box-sizing: border-box;
+  transition-duration: .4s;
+  transition-timing-function: ease;
+  transition-delay: ${props => props.delay ? props.delay : '.1s'};
+  opacity: ${({ ratio }) => ratio ? 1 : 0};
+  transform: ${({ ratio }) => ratio ? 'translateY(0px) scale(1)' : 'translateY(2rem) scale(.95, .95)'};
   @media screen and (max-width: 992px) {
     width: 33.3333%;
     margin-right: 0;
@@ -57,9 +63,20 @@ const StyledImage = styled(Image)`
     box-sizing:border-box;
   }
 `;
-const CardObject = ({image}) => {
+
+const buildThresholdArray = () => Array.from(Array(100).keys(), i => i / 100);
+
+
+const CardObject = ({image, delay}) => {
+  const [ref, entry] = useIntersect({
+    threshold: buildThresholdArray()
+  });
   return (
-    <StyledColumn>
+    <StyledColumn
+      ref={ref}
+      ratio={entry.intersectionRatio}
+      delay={delay}
+    >
       <StyledImage
         src={image}
       />
@@ -67,24 +84,21 @@ const CardObject = ({image}) => {
   );
 };
 
-const MobileImages = ({isVisible, image1, image2, image3}) => {
+const MobileImages = ({image1, image2, image3}) => {
   return (
     <StyledWrapper>
       <StyledContainer>
         <CardObject
-          isVisible={isVisible}
-          loadDelay="0s"
           image={image1}
+          delay='.1s'
         />
         <CardObject
-          isVisible={isVisible}
-          loadDelay=".4s"
           image={image2}
+          delay='.2s'
         />
         <CardObject
-          isVisible={isVisible}
-          loadDelay=".8s"
           image={image3}
+          delay='.3s'
         />
       </StyledContainer>
     </StyledWrapper>

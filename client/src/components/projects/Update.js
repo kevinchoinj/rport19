@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const StyledWrapper = styled.div`
   width:100%;
   background-color: ${props => props.theme.color};
-  color: #ccc;
+  color: #aaa;
   transition:.4s ease-in-out;
   font-size: var(--size-small);
   line-height:130%;
@@ -61,7 +61,6 @@ const StyledBody = styled.div`
     margin: 0;
     box-sizing: border-box;
   }
-  user-select: none;
 `;
 const Update = ({children, title}) => {
   return (

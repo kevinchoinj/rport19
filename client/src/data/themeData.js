@@ -1,8 +1,9 @@
 export const themeData = {
   colorLink: '#eee',
   colorLinkHover: '#aaa',
-  colorBackground: '#000',
-  colorText: '#ddd',
+  colorBackground: '#191919',
+  colorText: '#dadada',
+  topRightText: '#dadada',
 
   colorAdminContainer: 'rgba(0, 0, 0, .95)',
   colorAdminPrimary: 'rgba(45,0,78, 1)',

@@ -4,14 +4,14 @@ import styled from 'styled-components';
 
 const StyledWrapper = styled.div`
   padding: 50px 114px 50px 50px;
-  color: #ccc;
+  color: ${props => props.theme.topRightText};
   opacity: 1;
   font-size: var(--size-small);
 `;
 const TitleWrapper = styled.div`
   font-size: var(--size-small);
   letter-spacing: 3px;
-  color: #ccc;
+  color: ${props => props.theme.topRightText};
   margin-bottom: 2rem;
   cursor: default;
   display: flex;

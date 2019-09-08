@@ -1,6 +1,6 @@
 import React from 'react';
 import LoadIn from 'components/animations/LoadIn';
-import styled from 'styled-components';
+import styled, {keyframes} from 'styled-components';
 import scroll from 'react-scroll';
 import {connect} from 'react-redux';
 import * as mouseActions from 'actions/mouse';
@@ -88,6 +88,14 @@ const StyledWrapper = styled.div`
     }
   }
 `;
+const fadeIn = keyframes`
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+`;
 const StyledContainer = styled.div`
   width: 100%;
   background-color: ${props => props.theme.colorBackground};
@@ -99,11 +107,12 @@ const StyledContainer = styled.div`
   line-height: 150%;
   letter-spacing: 0px;
   transition: ${props => props.theme.transitionMedium};
+  animation: ${fadeIn} calc(.3s / 2)cubic-bezier(0.25, 0.46, 0.45, 0.84) both;
   letter-spacing: 4px;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
-  opacity: ${props => props.menuDisplay && 0}
+  opacity: ${props => props.menuDisplay ? 0 : 1};
   @media screen and (max-width: 992px) {
     padding: 3rem 0px;
     max-width: none;

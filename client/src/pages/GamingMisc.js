@@ -1,5 +1,4 @@
 import React, {useEffect} from 'react';
-import Skew from 'components/projects/Skew';
 import Banner from 'components/projects/Banner';
 import Update from 'components/projects/Update';
 import {connect} from 'react-redux';
@@ -7,7 +6,7 @@ import * as menuActions from 'actions/menu';
 import {gamingData} from 'data/gamingData';
 import GamingCarousel from 'components/projects/LightboxGallery';
 import styled from 'styled-components';
-
+import Lightbox from 'components/projects/Lightbox';
 
 const StyledContainer = styled.div`
   background-color: ${props => props.theme.colorBackground};
@@ -30,7 +29,6 @@ const GamingMisc = ({ toggleMenu, skewValue }) => {
 
   return (
     <div tabIndex="0">
-      <Skew skewValue={skewValue}>
         <Banner
           line1="Misc Games"
         />
@@ -299,7 +297,7 @@ const GamingMisc = ({ toggleMenu, skewValue }) => {
           />
 
         </StyledContainer>
-      </Skew>
+        <Lightbox/>
     </div>
   );
 };

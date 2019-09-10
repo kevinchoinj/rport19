@@ -24,14 +24,19 @@ const BackgroundImageDisplay = ({hoverOption, image, link, loadedContent, menuDi
 
   const [menuOpen, setMenuOpen] = useState(false);
   useEffect(() => {
-    setMenuOpen((link===loadedContent && !menuDisplay) || (image===hoverOption && menuDisplay));
+    setMenuOpen(
+      (link===loadedContent && !menuDisplay)
+    || (link===loadedContent && !hoverOption)
+    || (image===hoverOption && menuDisplay)
+    );
   }, [loadedContent, menuDisplay, hoverOption, image, link, menuOpen]);
   return(
     <StyledBackground
+      menuOpen={menuOpen}
       style={{
         pointerEvents: menuOpen ? 'auto' : 'none',
         opacity: menuOpen ? 1 : 0,
-        transition: menuOpen ? '.2s ease' : 'none',
+        transition: menuOpen ? 'opacity .2s ease' : 'none',
         backgroundImage: `url(${image})`,
       }}
       onClick={() => toggleMenu(link, menuDisplay)}

@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react';
-import Lightbox from 'react-images';
 import Scrollbar from 'smooth-scrollbar';
 import styled from 'styled-components';
+import * as gamingActions from 'actions/gaming';
+import { connect } from 'react-redux';
 
 const StyledWrapper = styled.div`
   overflow-x: auto;
@@ -27,7 +28,6 @@ const StyledIndicators = styled.div`
   display: flex;
   justify-content: space-between;
   font-size: 25vh;
-  z-index: 10;
   position: absolute;
   padding: 0 2rem;
   box-sizing: border-box;
@@ -70,8 +70,8 @@ const RenderGallery = ({images, openLightbox, scrollbar, isDown}) => {
     return (
       <StyledObject
         key={obj.src}
-        onLoad={() => scrollbar.update()}
-        onClick={(e) => openLightbox(i,e)}
+        onLoad={() => scrollbar && scrollbar.update()}
+        onClick={() => openLightbox(images[i].src)}
       >
         <StyledImage src={obj.src} isDown={isDown}/>
       </StyledObject>
@@ -80,7 +80,7 @@ const RenderGallery = ({images, openLightbox, scrollbar, isDown}) => {
   return gallery;
 };
 
-const Viewer = ({images, carouselId}) => {
+const Viewer = ({images, carouselId, setImage}) => {
 
   const [scrollbar, setScrollbar] = useState(false);
 
@@ -99,32 +99,16 @@ const Viewer = ({images, carouselId}) => {
     scrollbar.scrollTo(scrollbar.scrollLeft + window.innerWidth/3, 0, 600);
   };
 
-  const [lightboxOpen, setLightboxOpen] = useState(false);
-  const openLightbox = (index, event) => {
+  const openLightbox = (image) => {
     if (isMoving) {
-      event.preventDefault();
       setIsMoving(false);
     }
     else {
-      event.preventDefault();
-      setCurrentImage(index);
-      setLightboxOpen(true);
+      setImage(image);
     }
-  };
-  const closeLightbox = () => {
-    setCurrentImage(0);
-    setLightboxOpen(false);
   };
 
   const [isMoving, setIsMoving] = useState(false);
-  const [currentImage, setCurrentImage] = useState(0);
-
-  const handleClickImage = () => {
-    if (currentImage === images.length - 1) {
-      return;
-    }
-    setCurrentImage(currentImage + 1);
-  };
 
   const [isDown, setIsDown] = useState(false);
   const [startX, setStartX] = useState(false);
@@ -161,19 +145,8 @@ const Viewer = ({images, carouselId}) => {
         <RenderGallery
           isDown={isDown}
           images={images}
-          openLightbox={openLightbox}
           scrollbar={scrollbar}
-        />
-        <Lightbox
-          currentImage={currentImage}
-          images={images}
-          isOpen={lightboxOpen}
-          onClickImage={handleClickImage}
-          onClickNext={() => setCurrentImage(currentImage + 1)}
-          onClickPrev={() => setCurrentImage(currentImage - 1)}
-          onClose={closeLightbox}
-          backdropClosesModal={true}
-          openLightbox = {openLightbox}
+          openLightbox={openLightbox}
         />
       </div>
       <StyledIndicators>
@@ -184,4 +157,12 @@ const Viewer = ({images, carouselId}) => {
   );
 };
 
-export default Viewer;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setImage: (image) => {
+      dispatch(gamingActions.setLightboxImage(image));
+    },
+  };
+};
+
+export default connect (null, mapDispatchToProps)(Viewer);

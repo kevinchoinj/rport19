@@ -1,18 +1,12 @@
 import React from 'react';
 import LoadIn from 'components/animations/LoadIn';
 import styled, {keyframes} from 'styled-components';
-import scroll from 'react-scroll';
 import {connect} from 'react-redux';
 import * as mouseActions from 'actions/mouse';
 import {
   selectIsMobile,
   selectMenuDisplay,
 } from 'reducers';
-let scroller = scroll.animateScroll;
-
-const scrollDown = () => {
-  scroller.scrollTo(window.innerHeight);
-};
 
 const StyledTextWrapper = styled.div`
   width: 16.66666667%;
@@ -90,9 +84,11 @@ const StyledWrapper = styled.div`
 `;
 const fadeIn = keyframes`
   0% {
+    transform: translateY(10vh);
     opacity: 0;
   }
   100% {
+    transform: translateY(0px);
     opacity: 1;
   }
 `;
@@ -107,7 +103,7 @@ const StyledContainer = styled.div`
   line-height: 150%;
   letter-spacing: 0px;
   transition: ${props => props.theme.transitionMedium};
-  animation: ${fadeIn} calc(.3s / 2)cubic-bezier(0.25, 0.46, 0.45, 0.84) both;
+  animation: ${fadeIn} .4s ease both;
   letter-spacing: 4px;
   box-sizing: border-box;
   display: flex;
@@ -134,7 +130,6 @@ const StyledText = styled.div`
 const Banner = ({ line1, line2, line3, line4, hoverImage, isMobile, menuDisplay }) => {
   return (
     <StyledWrapper
-      onClick={() => !isMobile && scrollDown()}
       onMouseEnter={() => hoverImage('down')}
       onMouseLeave ={() => hoverImage('')}
     >

@@ -13,9 +13,9 @@ const StyledWrapper = styled.div`
   z-index: -1;
 `;
 
-const BackgroundImageWrapper = ({menuDisplay}) => {
+const BackgroundImageWrapper = () => {
   return(
-    <StyledWrapper menuDisplay={menuDisplay}>
+    <StyledWrapper>
       {menuData.map((value) => (
         <div key={value.link}>
           <BackgroundImageDisplay

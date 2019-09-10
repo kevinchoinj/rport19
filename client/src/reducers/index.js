@@ -5,12 +5,14 @@ import images from 'reducers/images';
 import transition from 'reducers/transition';
 import git from 'reducers/git';
 import mouse from 'reducers/mouse';
+import gaming from 'reducers/gaming';
 
 const reducers={
   form: reducerForm,
 
   menu,
 
+  gaming,
   authentication,
   images,
   transition,
@@ -57,3 +59,8 @@ export const selectGitCommits = (state) => state.git.commits;
 export const selectMouseContent = (state) => state.mouse.content ? state.mouse.content : '';
 export const selectIsMobile = (state) => state.mouse.isMobile;
 export const selectIsEdge = (state) => state.mouse.isEdge;
+
+/*======================================
+=                GAMING                 =
+======================================*/
+export const selectGamingImage = (state) => state.gaming.image;

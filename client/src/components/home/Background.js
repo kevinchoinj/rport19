@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import styled from 'styled-components';
 import {
   selectMenuDisplay,
+  selectMenuHover,
 } from 'reducers';
 
 const StyledWrapper = styled.div`
@@ -12,7 +13,7 @@ const StyledWrapper = styled.div`
   position: fixed;
   left: 0px;
   transition: .2s ease;
-  opacity: ${props => props.menuDisplay && 0};
+  opacity: ${props => props.hoverOption && props.menuDisplay && 0};
   :after {
     content: '';
     position: fixed;
@@ -51,9 +52,12 @@ const StyledVideo = styled(Video)`
   background-position: center center;
 `;
 
-const Background = ({menuDisplay}) => {
+const Background = ({menuDisplay, hoverOption}) => {
   return(
-    <StyledWrapper menuDisplay={menuDisplay}>
+    <StyledWrapper
+      hoverOption={hoverOption}
+      menuDisplay={menuDisplay}
+    >
       <StyledVideo
         poster='/static/images/daytimelight.jpg'
         src='/static/images/daytime.mp4'
@@ -65,6 +69,7 @@ const Background = ({menuDisplay}) => {
 const mapStateToProps = (state) => {
   return {
     menuDisplay: selectMenuDisplay(state),
+    hoverOption: selectMenuHover(state),
   };
 };
 

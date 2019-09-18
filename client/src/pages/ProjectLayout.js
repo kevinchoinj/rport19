@@ -63,7 +63,7 @@ const StyledText = styled.div`
   margin-left: 8.33333333%;
   padding: 0 0 var(--size-spacing-large) 0px;
   font-family: 'Josefin Sans', Helvetica, sans-serif;
-  line-height: 200%;
+  line-height: 140%;
   @media screen and (max-width: 992px) {
     width: 100%;
     padding: 6rem 1rem;
@@ -74,7 +74,7 @@ const StyledText = styled.div`
 const StyledTitle = styled.div`
   font-size: var(--size-xlarge);
   cursor: default;
-  line-height: 200%;
+  line-height: 140%;
 `;
 const StyledDisplay = styled.div`
   margin-left: 8.33333333%;

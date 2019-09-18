@@ -7,6 +7,7 @@ import {gamingData} from 'data/gamingData';
 import GamingCarousel from 'components/projects/LightboxGallery';
 import styled from 'styled-components';
 import Lightbox from 'components/projects/Lightbox';
+import Skew from 'components/projects/Skew';
 
 const StyledContainer = styled.div`
   background-color: ${props => props.theme.colorBackground};
@@ -29,6 +30,7 @@ const GamingMisc = ({ toggleMenu, skewValue }) => {
 
   return (
     <div tabIndex="0">
+      <Skew>
         <Banner
           line1="Misc Games"
         />
@@ -298,6 +300,7 @@ const GamingMisc = ({ toggleMenu, skewValue }) => {
 
         </StyledContainer>
         <Lightbox/>
+      </Skew>
     </div>
   );
 };

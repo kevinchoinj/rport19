@@ -100,7 +100,7 @@ const StyledContainer = styled.div`
   color: #fff;
   padding: var(--size-spacing-large) 0px;
   font-size: var(--size-small);
-  line-height: 150%;
+  line-height: 140%;
   letter-spacing: 0px;
   transition: ${props => props.theme.transitionMedium};
   animation: ${fadeIn} .4s ease both;

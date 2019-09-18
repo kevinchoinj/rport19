@@ -52,7 +52,7 @@ const StyledBody = styled.div`
   flex-direction: column;
   justify-content: center;
   font-family: 'Josefin Sans', Helvetica, sans-serif;
-  line-height: 200%;
+  line-height: 140%;
   @media screen and (max-width: 992px) {
     width: 100%;
     padding: 0px 1rem;

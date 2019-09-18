@@ -16,7 +16,7 @@ const StyledLetter = styled.div`
   font-weight: 600;
   color: #fff;
   font-size: var(--size-small);
-  line-height: 150%;
+  line-height: 140%;
   display: flex;
   justify-content: center;
 `;

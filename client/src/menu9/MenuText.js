@@ -13,7 +13,7 @@ import {
 const StyledLinkWrapper = styled.div`
   display: flex;
   padding-left: 28px;
-  padding-right: 28px;
+  padding-right: 6rem;
   box-sizing: border-box;
 `;
 const LinkDivWrapper = ({hoverOption, image, children}) => {

@@ -1,4 +1,4 @@
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const {secret} = require('./jwtConfig');
 const nano = require('nano')('http://localhost:5984');
 const authDatabase = nano.db.use('passport');

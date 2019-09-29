@@ -1,10 +1,5 @@
 {
-  "couchUsername": "CouchDB Username",
-  "couchPassword": "CouchDB Password",
-
   "awsBucketName" : "AWS Bucket Name",
   "awsAccessKey": "AWS Access Key",
-  "awsSecretKey" : "AWS Secret Key",
-
-  "dbErrors": "errors"
+  "awsSecretKey" : "AWS Secret Key"
 }

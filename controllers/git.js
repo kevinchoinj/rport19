@@ -22,4 +22,6 @@ class GitController {
 }
 
 const gitController = new GitController();
-export default gitController;
+module.exports = {
+  gitController,
+};

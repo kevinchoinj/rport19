@@ -1,10 +1,8 @@
-import jwtSecret from '../jwtConfig';
-import jwt from 'jsonwebtoken';
-import passport from 'passport';
-
-const {
-  couchGet,
-} = require('../couch');
+const {secret} = require('../jwtConfig');
+const jwt = require('jsonwebtoken');
+const passport = require('passport');
+const nano = require('nano')('http://localhost:5984');
+const authDatabase = nano.db.use('passport');
 
 module.exports = app => {
   app.post('/loginUser', (req, res, next) => {
@@ -19,11 +17,10 @@ module.exports = app => {
         });
       } else {
         req.logIn(user, err => {
-          couchGet('passport', `_design/data/_view/data?key=\"${user.username}"&include_docs=true`)
-          .then(data => {
+          authDatabase.view('data', 'username', { key: user.username, include_docs: true }, (err, body) => {
             const token = jwt.sign(
-              { id: data.data.rows[0].value.username},
-              jwtSecret.secret,
+              { id: body.rows[0].value.username},
+              secret,
               {expiresIn: '168h'}
             );
             res.status(200).send({

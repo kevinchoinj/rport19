@@ -95,4 +95,6 @@ class ProjectsController {
 }
 
 const projectController = new ProjectsController();
-export default projectController;
+module.exports = {
+  projectController,
+};

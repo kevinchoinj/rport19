@@ -62,4 +62,6 @@ class AwsController {
 }
 
 const awsController = new AwsController();
-export default awsController;
+module.exports = {
+  awsController,
+};

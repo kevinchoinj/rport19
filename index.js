@@ -1,11 +1,10 @@
-import express from 'express';
-import path from 'path';
-import cors from 'cors';
-import compression from 'compression';
-import bodyParser from 'body-parser';
-import router from './routes/index.js';
-import passport from 'passport';
-
+const express = require('express');
+const path = require('path');
+const cors = require('cors');
+const compression = require('compression');
+const bodyParser = require('body-parser');
+const {router} = require ('./routes/index.js');
+const passport = require('passport');
 const app = express();
 
 app.use(cors());

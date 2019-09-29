@@ -1,9 +1,9 @@
-import express from 'express';
-import multer from 'multer';
-import ProjectController from '../controllers/project';
-import GitController from '../controllers/git';
-import AwsController from '../controllers/aws';
-import passport from 'passport';
+const express = require('express');
+const multer = require('multer');
+const passport = require('passport');
+const {projectController} = require('../controllers/project');
+const {gitController} = require('../controllers/git');
+const {awsController} = require('../controllers/aws');
 
 const router = express.Router();
 
@@ -26,43 +26,16 @@ function loggedIn(req, res, next) {
   })(req, res, next);
 }
 
-/*
-todo
+router.get('/api/v1/project', projectController.getAllProjects);
+router.post('/api/v1/project', loggedIn, projectController.createProject);
+router.put('/api/v1/project', loggedIn, projectController.updateProject);
+router.delete('/api/v1/project', loggedIn, projectController.deleteProject);
 
-const loggedIn = (req, res, next) => co(function* () {
-  passport.authenticate('jwt', { session: false }, (err, user, info) => {
+router.get('/api/v1/git/commits', gitController.getAllCommits);
 
-    if (err) {
-      console.log(err);
-    }
-    if (info != undefined) {
-      res.send(info.message);
-    }
-    else {
-      next();
-    }
-  });
-}).asCallback(next);
-*/
+router.post('/api/v1/aws', loggedIn, upload.single('awsAction'), awsController.createImage);
+router.delete('/api/v1/aws', loggedIn, upload.single('awsAction'), awsController.deleteImage);
 
-/*
-const Promise = require('bluebird')
-const co = gen => Promise.coroutine(gen)()
-
-const handler = (req, res, next) => co(function* () {
-  // do your shit in here
-}).asCallback(next)
-*/
-
-
-router.get('/api/v1/project', ProjectController.getAllProjects);
-router.post('/api/v1/project', loggedIn, ProjectController.createProject);
-router.put('/api/v1/project', loggedIn, ProjectController.updateProject);
-router.delete('/api/v1/project', loggedIn, ProjectController.deleteProject);
-
-router.get('/api/v1/git/commits', GitController.getAllCommits);
-
-router.post('/api/v1/aws', loggedIn, upload.single('awsAction'), AwsController.createImage);
-router.delete('/api/v1/aws', loggedIn, upload.single('awsAction'), AwsController.deleteImage);
-
-export default router;
+module.exports = {
+  router,
+};

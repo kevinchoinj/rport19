@@ -9,7 +9,6 @@ module.exports = app => {
         console.log(err);
       }
       if (info != undefined) {
-        console.log(info);
         res.send(info.message);
       } else {
         req.logIn(user, err => {

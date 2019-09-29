@@ -14,14 +14,22 @@ const upload = multer({
 
 function loggedIn(req, res, next) {
   passport.authenticate('jwt', { session: false }, (err, user, info) => {
-    if (err) {
-      console.log(err);
-    }
-    if (info != undefined) {
-      res.send(info.message);
+    if (user.username === 'shodyra') {
+      if (err) {
+        console.log(err);
+      }
+      if (info != undefined) {
+        res.send(info.message);
+      }
+      else {
+        next();
+      }
     }
     else {
-      next();
+      res.status(400).send({
+        success: 'false',
+        message: 'wrong user'
+      });
     }
   })(req, res, next);
 }

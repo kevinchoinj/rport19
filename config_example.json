@@ -1,5 +1,6 @@
 {
   "awsBucketName" : "AWS Bucket Name",
   "awsAccessKey": "AWS Access Key",
-  "awsSecretKey" : "AWS Secret Key"
+  "awsSecretKey" : "AWS Secret Key",
+  "adminUsername": "admin username"
 }

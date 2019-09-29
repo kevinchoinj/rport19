@@ -13,12 +13,12 @@ export default(state=DEFAULT_STATE, payload) => {
   case FIND_PASSPORT_SUCCEEDED:
     return {
       ...state,
-      loggedIn: true,
+      loggedIn: payload.data.username === 'shodyra' ? true : false,
     };
   case LOGIN_PASSPORT_SUCCEEDED:
     return {
       ...state,
-      loggedIn: true,
+      loggedIn: payload.data.username === 'shodyra' ? true : false,
     };
   case LOG_OUT:
     return {

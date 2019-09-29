@@ -25,6 +25,7 @@ module.exports = app => {
             );
             res.status(200).send({
               auth: true,
+              username: body.rows[0].value.username,
               token: token,
               message: 'user found & logged in',
             });

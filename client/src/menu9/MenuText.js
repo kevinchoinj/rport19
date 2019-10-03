@@ -118,7 +118,6 @@ const StyledWrapper = styled.div`
     cursor: ${props => props.isDown ? 'grabbing' : 'grab'}
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
     @media screen and (max-width: 768px) {
       padding-bottom: 90px;
       box-sizing: border-box;

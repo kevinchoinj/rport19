@@ -46,32 +46,37 @@ class ProjectsController {
   }
 
   updateProject(req, res) {
-    return portfolioDatabase.insert({
-      _id: req.body.id,
-      _rev: req.body.rev,
-      name: req.body.name,
-      link: req.body.link,
-      position: req.body.position,
-      createdAt: req.body.createdAt,
-      url: req.body.url,
-      awsKey: req.body.awsKey,
-      updatedAt: Date.now(),
-    }, 'miscprojects')
-    .then((data) => {
-      res.status(201).send({
-        success: 'true',
-        message: 'project edited successfully',
-        data,
-      });
-    })
-    .catch((error) => {
-      res.status(400).send({
-        success: 'false',
-        message: 'project edited failure',
-        error,
-      });
-    });
-  }
+    portfolioDatabase.view('miscprojects', 'miscprojects', { key: req.body.id, include_docs: true })
+    .then(data => {
+      if (data.rows[0]) {
+        return portfolioDatabase.insert({
+          _id: data.rows[0].doc._id,
+          _rev: data.rows[0].doc._rev,
+          name: req.body.name,
+          link: req.body.link,
+          position: req.body.position,
+          createdAt: req.body.createdAt,
+          url: req.body.url,
+          awsKey: req.body.awsKey,
+          updatedAt: Date.now(),
+        })
+        .then((data) => {
+          res.status(201).send({
+            success: 'true',
+            message: 'project edited successfully',
+            data,
+          })
+        })
+        .catch((error) => {
+          res.status(400).send({
+            success: 'false',
+            message: 'project edited failure',
+            error,
+          });
+        });
+    }
+  })
+}
 
   deleteProject(req, res) {
     const rev = req.body.rev;

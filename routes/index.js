@@ -4,6 +4,7 @@ const passport = require('passport');
 const {projectController} = require('../controllers/project');
 const {gitController} = require('../controllers/git');
 const {awsController} = require('../controllers/aws');
+const {emailController} = require('../controllers/email');
 
 const router = express.Router();
 
@@ -43,6 +44,8 @@ router.get('/api/v1/git/commits', gitController.getAllCommits);
 
 router.post('/api/v1/aws', loggedIn, upload.single('awsAction'), awsController.createImage);
 router.delete('/api/v1/aws', loggedIn, upload.single('awsAction'), awsController.deleteImage);
+
+router.post('/api/v1/email/contact', emailController.sendContact);
 
 module.exports = {
   router,

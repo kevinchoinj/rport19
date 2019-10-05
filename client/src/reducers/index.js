@@ -6,6 +6,7 @@ import transition from 'reducers/transition';
 import git from 'reducers/git';
 import mouse from 'reducers/mouse';
 import gaming from 'reducers/gaming';
+import contact from 'reducers/contact';
 
 const reducers={
   form: reducerForm,
@@ -18,6 +19,7 @@ const reducers={
   transition,
   mouse,
   git,
+  contact,
 };
 
 export default reducers;
@@ -64,3 +66,8 @@ export const selectIsEdge = (state) => state.mouse.isEdge;
 =                GAMING                 =
 ======================================*/
 export const selectGamingImage = (state) => state.gaming.image;
+
+/*======================================
+=                CONTACT                 =
+======================================*/
+export const selectFormStatus = (state) => state.contact.formStatus;

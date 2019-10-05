@@ -2,5 +2,8 @@
   "awsBucketName" : "AWS Bucket Name",
   "awsAccessKey": "AWS Access Key",
   "awsSecretKey" : "AWS Secret Key",
-  "adminUsername": "admin username"
+  "adminUsername": "admin username",
+  "emailSender": "email sender",
+  "password": "email sender pw",
+  "emailRecipient": "email recipient"
 }

@@ -58,10 +58,10 @@ const MenuPanel = ({menuDisplay}) => {
   return(
     <StyledWrapper menuDisplay={menuDisplay}>
       <StyledLeft menuDisplay={menuDisplay}>
-        <MenuText />
+        <MenuText/>
       </StyledLeft>
       <StyledRight menuDisplay={menuDisplay}>
-        <TopRightDisplay />
+        <TopRightDisplay/>
       </StyledRight>
     </StyledWrapper>
   );

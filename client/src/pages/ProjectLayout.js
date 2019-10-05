@@ -117,7 +117,7 @@ const ProjectLayout = ({ pageValues, toggleMenu, hoverImage, skewValue }) => {
           {pageValues.aboutText}
         </AboutContainer>
         <StyledContainer>
-          {pageValues.bodyTextOne &&
+          {/* pageValues.bodyTextOne &&
             <StyledText>
               <StyledTitle>
                 OVERVIEW
@@ -128,7 +128,7 @@ const ProjectLayout = ({ pageValues, toggleMenu, hoverImage, skewValue }) => {
                 {pageValues.bodyTextThree}
               </div>
             </StyledText>
-          }
+          */}
           <StyledDisplay>
             {pageValues.bodyImageOne && pageValues.video &&
               <ProjectVideo

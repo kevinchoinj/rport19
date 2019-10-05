@@ -12,6 +12,7 @@ const StyledWrapper = styled.div`
   padding: var(--size-spacing-large) 0px;
   color: ${props => props.theme.colorBackground};
   @media screen and (max-width: 992px) {
+    padding: 3rem 0px;
     flex-direction: column;
   }
 `;

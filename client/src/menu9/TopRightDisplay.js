@@ -60,6 +60,7 @@ const TopRightDisplay = () => {
           <div>K E V I N</div>&nbsp;
           <div>C H O I</div>
         </TitleWrapper>
+        {/*
         <DetailsWrapper>
           B.Sc Computer Science
           <br/>
@@ -84,7 +85,8 @@ const TopRightDisplay = () => {
         <div>
           {pageData.emailAddress}
         </div>
-      </div>
+        */}
+        </div>
       <ContactWrapper/>
       {/*
       <div>

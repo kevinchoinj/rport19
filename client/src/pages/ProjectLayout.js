@@ -83,7 +83,7 @@ const StyledDisplay = styled.div`
   justify-content: center;
   flex-direction: column;
   overflow: visible;
-  padding: 1.5rem 0;
+  padding: 3rem 0;
   position: relative;
   @media screen and (max-width: 992px) {
     margin-left: 0px;

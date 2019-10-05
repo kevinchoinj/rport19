@@ -1,7 +1,8 @@
 export const themeData = {
   colorLink: '#eee',
   colorLinkHover: '#aaa',
-  colorBackground: '#191919',
+  //colorBackground: '#191919',
+  colorBackground: '#111',
   colorText: '#dadada',
   topRightText: '#dadada',
 

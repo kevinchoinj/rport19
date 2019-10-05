@@ -2,12 +2,19 @@ import React from 'react';
 import ContactForm from 'menu9/ContactForm';
 import {connect} from 'react-redux';
 import * as contactActions from 'actions/contact';
+import styled from 'styled-components';
+
+const StyledWrapper = styled.div`
+  @media screen and (max-height: 768px) {
+    display: none;
+  }
+`;
 
 const Contact = ({submitForm}) => {
   return(
-    <div>
+    <StyledWrapper>
       <ContactForm onSubmit = {submitForm}/>
-    </div>
+    </StyledWrapper>
   );
 }
 

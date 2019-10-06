@@ -178,6 +178,8 @@ export const projectData = {
     bannerTextTwo: '2016',
     bannerTextThree: 'HTML CSS JQuery',
     bannerTextFour: 'http://wheelwrightprize.org/',
+    bodyImageOne: '/static/images/harvard/1.jpg',
+    bodyImageTwo: '/static/images/harvard/2.jpg',
     aboutText: 'The Wheelwright Prize is a $100,000 travel-based research grant that is awarded annually to early-career architects who have demonstrated exceptional design talent, produced work of scholarly and professional merit, and who show promise for continued creative work.',
     bodyTextOne: 'The site was edited to fix deprecated Jquery functions. This was one of my first ever experiences with basic javascript.',
     bodyImageOne: '/static/images/harvard/image2.png',

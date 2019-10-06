@@ -51,7 +51,7 @@ const StyledContainer = styled.div`
   background-color: ${props => props.theme.colorBackground};
   width: 100%;
   color: ${props => props.theme.colorText};
-  padding-top: 6rem;
+  padding-top: 3rem;
   @media screen and (max-width: 992px) {
     padding-top: 0;
   }
@@ -99,6 +99,9 @@ const StyledFooter = styled.div`
     display: none;
   }
 `;
+const StyledBodyText = styled.div`
+  width: 50%;
+`;
 const ProjectLayout = ({ pageValues, toggleMenu, hoverImage, skewValue }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -117,18 +120,7 @@ const ProjectLayout = ({ pageValues, toggleMenu, hoverImage, skewValue }) => {
           {pageValues.aboutText}
         </AboutContainer>
         <StyledContainer>
-          {/* pageValues.bodyTextOne &&
-            <StyledText>
-              <StyledTitle>
-                OVERVIEW
-              </StyledTitle>
-              <div>
-                {pageValues.bodyTextOne}
-                {pageValues.bodyTextTwo}
-                {pageValues.bodyTextThree}
-              </div>
-            </StyledText>
-          */}
+
           <StyledDisplay>
             {pageValues.bodyImageOne && pageValues.video &&
               <ProjectVideo
@@ -136,6 +128,18 @@ const ProjectLayout = ({ pageValues, toggleMenu, hoverImage, skewValue }) => {
                 backgroundImage={pageValues.bodyImageOne}
                 backgroundVideo={pageValues.video}
               />
+            }
+            { pageValues.bodyTextOne &&
+              <StyledText>
+                <StyledTitle>
+                  OVERVIEW
+                </StyledTitle>
+                <StyledBodyText>
+                  {pageValues.bodyTextOne}
+                  {pageValues.bodyTextTwo}
+                  {pageValues.bodyTextThree}
+                </StyledBodyText>
+              </StyledText>
             }
             {!pageValues.video && pageValues.bodyImageOne &&
               <LoadIntersect>

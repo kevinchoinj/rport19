@@ -19,7 +19,8 @@ const StyledWrapper = styled.div`
   }
 `;
 const StyledContainer = styled.div`
-  width: 80%;
+  width: 83.33333333%;
+  max-width: 1280px;
   display: flex;
   justify-content: space-between;
   @media screen and (max-width: 992px) {

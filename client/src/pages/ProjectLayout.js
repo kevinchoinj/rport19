@@ -47,11 +47,15 @@ const MobileImageView = ({ projectMobileVisible, pageValues }) => {
   }
 };
 
+
 const StyledContainer = styled.div`
   background-color: ${props => props.theme.colorBackground};
   width: 100%;
   color: ${props => props.theme.colorText};
   padding-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   @media screen and (max-width: 992px) {
     padding-top: 0;
   }
@@ -76,14 +80,23 @@ const StyledTitle = styled.div`
   cursor: default;
   line-height: 140%;
 `;
+const StyledDisplayContainer = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+`;
 const StyledDisplay = styled.div`
-  margin-left: 8.33333333%;
   width: 83.33333333%;
+  max-width: 1280px;
   display: flex;
   justify-content: center;
   flex-direction: column;
   overflow: visible;
-  padding: 3rem 0;
+  padding: 6rem 0;
+  &:nth-child(1) {
+    padding: 0 0 6rem 0;
+  }
   position: relative;
   @media screen and (max-width: 992px) {
     margin-left: 0px;
@@ -101,6 +114,27 @@ const StyledFooter = styled.div`
 `;
 const StyledBodyText = styled.div`
   width: 50%;
+`;
+const StyledSticky = styled.div`
+  display: flex;
+  justify-content: space-between;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: '';
+  width: 134%;
+  top: 10%;
+  margin-left: -16.6666666%;
+  justify-self: flex-start;
+  position: sticky;
+  color: #555;
+  font-size: 8vw;
+  font-family: "Josefin Sans", Helvetica, sans-serif;
+  div {
+    white-space: nowrap;
+  }
+  @media screen and (max-width: 992px) {
+    display: none;
+  }
 `;
 const ProjectLayout = ({ pageValues, toggleMenu, hoverImage, skewValue }) => {
   useEffect(() => {
@@ -120,11 +154,14 @@ const ProjectLayout = ({ pageValues, toggleMenu, hoverImage, skewValue }) => {
           {pageValues.aboutText}
         </AboutContainer>
         <StyledContainer>
+        <StyledSticky>
+          {`${pageValues.bannerTextOne} ${pageValues.bannerTextOne} ${pageValues.bannerTextOne} ${pageValues.bannerTextOne} ${pageValues.bannerTextOne}`}
+        </StyledSticky>
+        <StyledDisplayContainer>
 
           <StyledDisplay>
             {pageValues.bodyImageOne && pageValues.video &&
               <ProjectVideo
-                title={pageValues.bannerTextOne}
                 backgroundImage={pageValues.bodyImageOne}
                 backgroundVideo={pageValues.video}
               />
@@ -149,6 +186,7 @@ const ProjectLayout = ({ pageValues, toggleMenu, hoverImage, skewValue }) => {
               </LoadIntersect>
             }
           </StyledDisplay>
+          </StyledDisplayContainer>
           <StyledDisplay>
             <LoadIntersect>
               <StyledImage src={pageValues.bodyImageTwo}/>
@@ -159,8 +197,9 @@ const ProjectLayout = ({ pageValues, toggleMenu, hoverImage, skewValue }) => {
               <StyledImage src={pageValues.bodyImageThree}/>
             </LoadIntersect>
           </StyledDisplay>
+          <MobileImageView pageValues = {pageValues}/>
         </StyledContainer>
-        <MobileImageView pageValues = {pageValues}/>
+
         <StyledFooter
           onClick={() => scrollUp()}
           onMouseEnter={() => hoverImage('up')}

@@ -33,34 +33,10 @@ const StyledVideo = styled(Video)`
     -webkit-transform-style: preserve-3d;
   }
 `;
-const StyledTitle = styled.div`
-  display: flex;
-  justify-content: space-between;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: '';
-  width: 100%;
-  top: 10%;
-  left: 20%;
-  justify-self: flex-start;
-  position: sticky;
-  color: #555;
-  font-size: 6vw;
-  font-family: "Josefin Sans", Helvetica, sans-serif;
-  div {
-    white-space: nowrap;
-  }
-  @media screen and (max-width: 992px) {
-    display: none;
-  }
-`;
 
-const Background = ({backgroundVideo, backgroundImage, title}) => {
+const Background = ({backgroundVideo, backgroundImage}) => {
   return(
     <>
-    <StyledTitle>
-      {`${title} ${title} ${title}`}
-    </StyledTitle>
     <StyledVideo
       poster={backgroundImage}
       src={backgroundVideo}

@@ -10,6 +10,7 @@ import ProjectVideo from 'components/projects/ProjectVideo';
 import styled from 'styled-components';
 import scroll from 'react-scroll';
 import LoadIntersect from 'components/animations/LoadIntersect';
+import Sticky from 'components/projects/Sticky';
 
 let scroller = scroll.animateScroll;
 
@@ -121,26 +122,7 @@ const StyledBodyText = styled.div`
     width: 100%;
   }
 `;
-const StyledSticky = styled.div`
-  display: flex;
-  justify-content: space-between;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: '';
-  width: 100%;
-  top: 10%;
-  justify-self: flex-start;
-  position: sticky;
-  color: #555;
-  font-size: 6vw;
-  font-family: "Josefin Sans", Helvetica, sans-serif;
-  div {
-    white-space: nowrap;
-  }
-  @media screen and (max-width: 992px) {
-    display: none;
-  }
-`;
+
 const ProjectLayout = ({ pageValues, toggleMenu, hoverImage, skewValue }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -159,9 +141,7 @@ const ProjectLayout = ({ pageValues, toggleMenu, hoverImage, skewValue }) => {
           {pageValues.aboutText}
         </AboutContainer>
         <StyledContainer>
-        <StyledSticky>
-          {`${pageValues.bannerTextOne} ${pageValues.bannerTextOne} ${pageValues.bannerTextOne} ${pageValues.bannerTextOne} ${pageValues.bannerTextOne}`}
-        </StyledSticky>
+          <Sticky title ={pageValues.bannerTextOne}/>
         <StyledDisplayContainer>
 
           <StyledDisplay>

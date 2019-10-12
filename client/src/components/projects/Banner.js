@@ -98,7 +98,8 @@ const StyledContainer = styled.div`
   position: absolute;
   bottom: 0px;
   color: #fff;
-  padding: var(--size-spacing-large) 0px;
+  height: 18rem;
+  align-items: center;
   font-size: var(--size-small);
   line-height: 140%;
   letter-spacing: 0px;
@@ -110,7 +111,7 @@ const StyledContainer = styled.div`
   justify-content: center;
   opacity: ${props => props.menuDisplay ? 0 : 1};
   @media screen and (max-width: 992px) {
-    padding: 3rem 0px;
+    height: 22rem;
     max-width: none;
     justify-content: flex-start;
   }

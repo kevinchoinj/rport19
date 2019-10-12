@@ -102,6 +102,9 @@ const StyledDisplay = styled.div`
     margin-left: 0px;
     width: 100%;
     padding: 0;
+    &:nth-child(1) {
+      padding: 0;
+    }
   }
 `;
 const StyledFooter = styled.div`
@@ -114,6 +117,9 @@ const StyledFooter = styled.div`
 `;
 const StyledBodyText = styled.div`
   width: 50%;
+  @media screen and (max-width: 992px) {
+    width: 100%;
+  }
 `;
 const StyledSticky = styled.div`
   display: flex;
@@ -121,13 +127,12 @@ const StyledSticky = styled.div`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: '';
-  width: 134%;
+  width: 100%;
   top: 10%;
-  margin-left: -16.6666666%;
   justify-self: flex-start;
   position: sticky;
   color: #555;
-  font-size: 8vw;
+  font-size: 6vw;
   font-family: "Josefin Sans", Helvetica, sans-serif;
   div {
     white-space: nowrap;

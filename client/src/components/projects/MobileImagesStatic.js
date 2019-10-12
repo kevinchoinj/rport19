@@ -20,11 +20,12 @@ const StyledWrapper = styled.div`
 `;
 const StyledContainer = styled.div`
   width: 83.33333333%;
-  max-width: 1280px;
+  max-width: 992px;
   display: flex;
   justify-content: space-between;
   @media screen and (max-width: 992px) {
     width: 100%;
+    align-items: center;
   }
   @media screen and (max-width: 768px) {
     flex-direction: column;
@@ -46,7 +47,7 @@ const StyledColumn = styled.div`
     margin-right: 0;
   }
   @media screen and (max-width: 768px) {
-    width: 100%;
+    width: 83.333333%;
   }
   @media screen and (max-width: 768px) and (orientation: landscape) {
     width: 33.33333333%;

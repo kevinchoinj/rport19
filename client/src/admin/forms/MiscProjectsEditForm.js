@@ -3,6 +3,7 @@ import {Field, reduxForm} from 'redux-form';
 import {connect} from 'react-redux';
 import styled from 'styled-components';
 import {find, propEq} from 'ramda';
+import AdminButton from 'admin/components/AdminButton';
 
 const required = value => (value ? undefined : '*Required');
 
@@ -38,29 +39,7 @@ const StyledField = styled(RenderField)`
     color: #fff;
   }
 `;
-const Button = ({className, children}) => (
-  <button
-    type="submit"
-    className={className}
-  >
-    {children}
-  </button>
-);
-const StyledButton = styled(Button)`
-  width: 100%;
-  background-color: ${props => props.theme.colorAdminPrimary};
-  color: ${props => props.theme.colorBackground};
-  padding: 14px 8px;
-  border: none;
-  cursor: pointer;
-  transition: ${props => props.theme.transitionMedium};
-  font-family: 'Open Sans', Helvetica, sans-serif;
-  font-weight: 700;
-  color: ${props => props.theme.colorText};
-  &:hover {
-    background-color: ${props => props.theme.colorAdminPrimaryDark};
-  }
-`;
+
 let MiscProjectsEditForm = ({handleSubmit, error}) => {
   return (
     <form onSubmit={handleSubmit} autoComplete="off">
@@ -83,9 +62,9 @@ let MiscProjectsEditForm = ({handleSubmit, error}) => {
         />
       </div>
       {error && <div>{error}</div>}
-      <StyledButton>
+      <AdminButton>
         Submit
-      </StyledButton>
+      </AdminButton>
     </form>
   );
 };

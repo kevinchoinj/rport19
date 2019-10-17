@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import * as imagesActions from 'actions/images';
 import {Link} from 'react-router-dom';
 import {pageData} from 'data/pageData';
+import AdminButton from 'admin/components/AdminButton';
 import {
   selectImagesProjects,
 } from 'reducers';
@@ -26,22 +27,7 @@ const Image = ({className, src, alt}) => (
 const StyledImage = styled(Image)`
   width: 100%;
 `;
-const StyledButton = styled.div`
-  cursor: pointer;
-  font-size: 13px;
-  margin: 7px 0px;
-  text-align: center;
-  background-color: ${props => props.theme.colorAdminPrimary};
-  color: ${props => props.theme.colorBackground};
-  padding: 14px 8px;
-  font-family: 'Open Sans', Helvetica, sans-serif;
-  transition: ${props => props.theme.transitionMedium};
-  font-weight: 700;
-  color: ${props => props.theme.colorText};
-  &:hover {
-    background-color: ${props => props.theme.colorAdminPrimaryDark};
-  }
-`;
+
 const MiscProjectsView = ({miscProjects, removeProject}) => {
   return (
     <StyledWrapper>
@@ -57,11 +43,11 @@ const MiscProjectsView = ({miscProjects, removeProject}) => {
             <Link to={`${pageData.adminMiscProjects}/${value.id}`}>
               <StyledImage src={value.value.url} alt={value.value.name}/>
             </Link>
-            <StyledButton
+            <AdminButton
               onClick={() => removeProject(value.id, value.doc._rev, value.value.awsKey)}
             >
               delete
-            </StyledButton>
+            </AdminButton>
           </StyledContainer>
         );
       })}

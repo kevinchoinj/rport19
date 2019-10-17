@@ -53,12 +53,12 @@ const StyledContainer = styled.div`
   background-color: ${props => props.theme.colorBackground};
   width: 100%;
   color: ${props => props.theme.colorText};
-  padding-top: 3rem;
+  padding: 3rem 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   @media screen and (max-width: 992px) {
-    padding-top: 0;
+    padding: 0;
   }
 `;
 const StyledText = styled.div`

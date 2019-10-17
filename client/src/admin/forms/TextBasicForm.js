@@ -2,6 +2,7 @@ import React from 'react';
 import { Field, reduxForm} from 'redux-form';
 import {connect} from 'react-redux';
 import styled from 'styled-components';
+import AdminButton from 'admin/components/AdminButton';
 
 const RenderField = ({
   className,
@@ -35,29 +36,6 @@ const StyledField = styled(RenderField)`
     color: #fff;
   }
 `;
-const Button = ({className, children}) => (
-  <button
-    type="submit"
-    className={className}
-  >
-    {children}
-  </button>
-);
-const StyledButton = styled(Button)`
-  width: 100%;
-  background-color: ${props => props.theme.colorAdminPrimary};
-  color: ${props => props.theme.colorBackground};
-  padding: 14px 8px;
-  border: none;
-  cursor: pointer;
-  transition: ${props => props.theme.transitionMedium};
-  font-family: 'Open Sans', Helvetica, sans-serif;
-  font-weight: 700;
-  color: ${props => props.theme.colorText};
-  &:hover {
-    background-color: ${props => props.theme.colorAdminPrimaryDark};
-  }
-`;
 
 let TextBasicForm = ({handleSubmit, error, textInputs}) => {
   return (
@@ -77,9 +55,9 @@ let TextBasicForm = ({handleSubmit, error, textInputs}) => {
       }
       {error && <div>{error}</div>}
       <div>
-        <StyledButton>
+        <AdminButton>
           Submit
-        </StyledButton>
+        </AdminButton>
       </div>
     </form>
   );

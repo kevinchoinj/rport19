@@ -4,6 +4,7 @@ import Dropzone from 'react-dropzone';
 import {connect} from 'react-redux';
 /* https://github.com/BBB/dropzone-redux-form-example */
 import styled from 'styled-components';
+import AdminButton from 'admin/components/AdminButton';
 
 const required = value => (value ? undefined : '*Required');
 
@@ -37,29 +38,6 @@ const StyledField = styled(RenderField)`
   font-family: 'Open Sans', Helvetica, sans-serif;
   &::placeholder {
     color: #fff;
-  }
-`;
-const Button = ({className, children}) => (
-  <button
-    type="submit"
-    className={className}
-  >
-    {children}
-  </button>
-);
-const StyledButton = styled(Button)`
-  width: 100%;
-  background-color: ${props => props.theme.colorAdminPrimary};
-  color: ${props => props.theme.colorBackground};
-  padding: 14px 8px;
-  border: none;
-  cursor: pointer;
-  transition: ${props => props.theme.transitionMedium};
-  font-family: 'Open Sans', Helvetica, sans-serif;
-  font-weight: 700;
-  color: ${props => props.theme.colorText};
-  &:hover {
-    background-color: ${props => props.theme.colorAdminPrimaryDark};
   }
 `;
 const dropzoneStyle = {
@@ -109,9 +87,9 @@ const renderDropzoneInput = (field) => {
         field.meta.error &&
         <span>{field.meta.error}</span>}
       <div>
-        <StyledButton>
+        <AdminButton>
           Submit
-        </StyledButton>
+        </AdminButton>
       </div>
     </div>
   );

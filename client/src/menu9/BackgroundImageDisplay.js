@@ -20,6 +20,10 @@ const StyledBackground = styled.div`
   pointer-events: ${props => props.menuOpen ? 'auto' : 'none'};
   opacity: ${props => !props.menuOpen && 0};
   transition: .4s ease;
+
+  @media screen and (max-width: 768px) {
+    display: ${props => !props.menuOpen ? 'none' : 'block'};
+  }
 `;
 
 const BackgroundImageDisplay = ({hoverOption, image, link, loadedContent, menuDisplay, toggleMenu}) => {

@@ -60,16 +60,16 @@ const TopRightDisplay = () => {
           <div>K E V I N</div>&nbsp;
           <div>C H O I</div>
         </TitleWrapper>
-        {/*
         <DetailsWrapper>
           B.Sc Computer Science
           <br/>
           Rensselaer Polytechnic Institute
           <br/><br/>
-          Engineer
-          <br/>
           Cloud Elements
+          <br/>
+          Dallas, TX
         </DetailsWrapper>
+        {/*
         <StyledLink>
           <StyledIcon>
             <a

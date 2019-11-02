@@ -29,7 +29,7 @@ const Sticky = ({title}) => {
   return (
     <StyledWrapper>
       <StyledSticky>
-      {`${title} ${title} ${title} ${title} ${title}`}
+      {`${title} ${title} ${title} ${title} ${title} ${title}`}
       </StyledSticky>
     </StyledWrapper>
   );

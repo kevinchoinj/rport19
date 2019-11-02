@@ -94,9 +94,9 @@ const StyledDisplay = styled.div`
   justify-content: center;
   flex-direction: column;
   overflow: visible;
-  padding: 6rem 0;
+  padding: 7rem 0;
   &:nth-child(1) {
-    padding: 0 0 6rem 0;
+    padding: 0 0 7rem 0;
   }
   position: relative;
   @media screen and (max-width: 992px) {

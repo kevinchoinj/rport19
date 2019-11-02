@@ -17,7 +17,9 @@ const StyledBackground = styled.div`
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  pointer-events: none;
+  pointer-events: ${props => props.menuOpen ? 'auto' : 'none'};
+  opacity: ${props => !props.menuOpen && 0};
+  transition: .4s ease;
 `;
 
 const BackgroundImageDisplay = ({hoverOption, image, link, loadedContent, menuDisplay, toggleMenu}) => {
@@ -33,10 +35,8 @@ const BackgroundImageDisplay = ({hoverOption, image, link, loadedContent, menuDi
   return(
     <StyledBackground
       menuOpen={menuOpen}
+      menuDisplay ={menuDisplay}
       style={{
-        pointerEvents: menuOpen ? 'auto' : 'none',
-        opacity: menuOpen ? 1 : 0,
-        transition: menuOpen ? 'opacity .2s ease' : 'none',
         backgroundImage: `url(${image})`,
       }}
       onClick={() => toggleMenu(link, menuDisplay)}

@@ -8,10 +8,14 @@ import {
 } from 'reducers';
 
 const StyledSkew = styled.div`
-  opacity: ${props => props.menuDisplay ? 0 : 1};
-  transition: .25s ease-in;
-  will-change: transform;
+  @media screen and (min-width: 768px) {
+    opacity: ${props => props.menuDisplay ? 0 : 1};
+    transition: .25s ease-in;
+  }
 `;
+/*
+will-change: transform;
+*/
 
 //inline skew transform value to prevent rerendering entire component every update
 const Skew = ({children, skewValue, menuDisplay, hoverOption}) => {

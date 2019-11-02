@@ -104,12 +104,15 @@ const StyledContainer = styled.div`
   line-height: 140%;
   letter-spacing: 0px;
   transition: ${props => props.theme.transitionMedium};
-  animation: ${fadeIn} .4s ease both;
   letter-spacing: 4px;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
-  opacity: ${props => props.menuDisplay ? 0 : 1};
+
+  @media screen and (min-width: 768px) {
+    opacity: ${props => props.menuDisplay ? 0 : 1};
+    animation: ${fadeIn} .4s ease both;
+  }
   @media screen and (max-width: 992px) {
     height: 22rem;
     max-width: none;

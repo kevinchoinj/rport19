@@ -32,6 +32,12 @@ const StyledSecondary = styled.span`
   opacity: .5
 `;
 
+const handleKeyDown = (event, action) => {
+  console.log(event);
+  if (event.keyCode == 13) {
+    action();
+  }
+}
 const Logo = ({menuDisplay, toggleMenu}) => {
   return(
     <StyledWrapper>
@@ -39,7 +45,7 @@ const Logo = ({menuDisplay, toggleMenu}) => {
         tabIndex="1"
         aria-label="logo Kevin Choi"
         onClick={() => toggleMenu(menuDisplay)}
-        onKeyDown={() => toggleMenu(menuDisplay)}
+        onKeyDown={(event) => handleKeyDown(event, () => toggleMenu(menuDisplay))}
       >
         <StyledLink>
          K E V I N&nbsp;<StyledSecondary>C H O I</StyledSecondary>

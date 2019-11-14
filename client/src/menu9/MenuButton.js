@@ -68,12 +68,17 @@ const StyledWrapper = styled.div`
     transform: translate(-50%, -70%) rotate(90deg) scaleY(0.7);
   }
 `;
+const handleKeyDown = (event, action) => {
+  if (event.keyCode == 13) {
+    action();
+  }
+}
 const MenuButton = ({menuDisplay, toggleMenu}) => {
   return(
     <StyledWrapper
       tabIndex="2"
       onClick={() => toggleMenu(menuDisplay)}
-      onKeyDown={() => toggleMenu(menuDisplay)}
+      onKeyDown={(event) => handleKeyDown(event, () => toggleMenu(menuDisplay))}
       aria-label="menu button"
     >
       <StyledContainer>

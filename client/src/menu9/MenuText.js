@@ -16,11 +16,12 @@ const StyledLinkWrapper = styled.div`
   padding-right: 6rem;
   box-sizing: border-box;
 `;
-const LinkDivWrapper = ({hoverOption, image, children}) => {
+const LinkDivWrapper = ({hoverOption, image, children, tabIndex}) => {
   if (window.innerWidth >= 768) {
     return (
       <StyledLinkWrapper
         onMouseOver={() => hoverOption(image)}
+        tabIndex={tabIndex}
       >
         {children}
       </StyledLinkWrapper>
@@ -28,7 +29,9 @@ const LinkDivWrapper = ({hoverOption, image, children}) => {
   }
   else {
     return (
-      <StyledLinkWrapper>
+      <StyledLinkWrapper
+        tabIndex={tabIndex}
+      >
         {children}
       </StyledLinkWrapper>
     );
@@ -51,10 +54,11 @@ const StyledLinkDiv = styled.div`
     line-height: 150%;
   }
 `;
-const LinkObject = ({className, link, children}) => (
+const LinkObject = ({className, link, children, tabIndex}) => (
   <Link
     to={link}
     className = {className}
+    tabIndex={tabIndex}
   >
     {children}
   </Link>
@@ -81,10 +85,11 @@ const StyledLink = styled(LinkObject)`
     line-height: 150%;
   }
 `;
-const CheckCurrentPage = ({loadedContent, link, children}) => {
+const CheckCurrentPage = ({loadedContent, link, children, menuDisplay}) => {
   if (loadedContent === link) {
     return (
-      <StyledLinkDiv>
+      <StyledLinkDiv
+        tabIndex={menuDisplay ? '0' : '-1'}>
         {children}
       </StyledLinkDiv>
     );
@@ -92,8 +97,10 @@ const CheckCurrentPage = ({loadedContent, link, children}) => {
   else {
     return (
       <StyledLink
+        tabIndex={menuDisplay ? '0' : '-1'}
         link={link}
         children={children}
+        aria-label={link}
       />
     );
   }
@@ -170,6 +177,7 @@ const MenuText = ({menuDisplay, loadedContent, hoverOption}) => {
       {menuData.map((value) => (
         <StyledRow key={value.link}>
           <CheckCurrentPage
+            menuDisplay={menuDisplay}
             loadedContent={loadedContent}
             link={value.link}
           >

@@ -53,6 +53,9 @@ export const projectData = {
     bodyImageOne: '/static/images/discord/1.jpg',
     bodyImageTwo: '/static/images/discord/2.jpg',
     bodyImageThree: '/static/images/discord/3.jpg',
+    mobileImageOne: '/static/images/discord/4.jpg',
+    mobileImageTwo: '/static/images/discord/5.jpg',
+    mobileImageThree: '/static/images/discord/6.jpg',
   },
   uwloo: {
     bannerTextOne: 'University of Waterloo',

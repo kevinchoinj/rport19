@@ -35,6 +35,9 @@ const StyledObject = styled.div`
   box-sizing: border-box;
   font-size: var(--size-small);
   font-family: 'Open Sans', Helvetica, sans-serif;
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
 `;
 const StyledTitle = styled.div`
   margin-bottom: var(--size-small);

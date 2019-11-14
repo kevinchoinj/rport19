@@ -12,6 +12,7 @@ const StyledWrapper = styled.div`
   cursor: ${props => props.isDown ? 'grabbing' : 'grab'}
   @media screen and (max-width: 768px) {
     cursor: pointer;
+    display: none;
   }
   .scroll-content {
     width: 100%;

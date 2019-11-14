@@ -19,6 +19,10 @@ const StyledWrapper = styled.div`
     margin: 2rem 0;
     box-sizing: border-box;
   }
+  @media screen and (max-width: 768px) {
+    padding: 2rem 1rem;
+    margin:0;
+  }
 `;
 const StyledContainer = styled.div`
   display: flex;

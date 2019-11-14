@@ -32,11 +32,14 @@ const StyledSecondary = styled.span`
   opacity: .5
 `;
 
-const Logo = props => {
+const Logo = ({menuDisplay, toggleMenu}) => {
   return(
     <StyledWrapper>
       <StyledContainer
-        onClick={() => props.toggleMenu(props.menuDisplay)}
+        tabIndex="1"
+        aria-label="logo Kevin Choi"
+        onClick={() => toggleMenu(menuDisplay)}
+        onKeyDown={() => toggleMenu(menuDisplay)}
       >
         <StyledLink>
          K E V I N&nbsp;<StyledSecondary>C H O I</StyledSecondary>

@@ -165,6 +165,7 @@ const MenuText = ({menuDisplay, loadedContent, hoverOption}) => {
       onMouseLeave={() => onMouseUp()}
       onMouseMove={(e) => onMouseMove(e)}
       isDown={isDown}
+      tabIndex="2"
     >
       {menuData.map((value) => (
         <StyledRow key={value.link}>

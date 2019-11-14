@@ -71,7 +71,10 @@ const StyledWrapper = styled.div`
 const MenuButton = ({menuDisplay, toggleMenu}) => {
   return(
     <StyledWrapper
-      onClick={()=>toggleMenu(menuDisplay)}
+      tabIndex="2"
+      onClick={() => toggleMenu(menuDisplay)}
+      onKeyDown={() => toggleMenu(menuDisplay)}
+      aria-label="menu button"
     >
       <StyledContainer>
         <StyledLetter>M</StyledLetter>

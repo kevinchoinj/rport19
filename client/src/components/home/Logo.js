@@ -34,7 +34,7 @@ const StyledSecondary = styled.span`
 
 const handleKeyDown = (event, action) => {
   console.log(event);
-  if (event.keyCode == 13) {
+  if (event.keyCode === 13) {
     action();
   }
 }

@@ -69,7 +69,7 @@ const StyledWrapper = styled.div`
   }
 `;
 const handleKeyDown = (event, action) => {
-  if (event.keyCode == 13) {
+  if (event.keyCode === 13) {
     action();
   }
 }

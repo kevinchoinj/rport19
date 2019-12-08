@@ -28,7 +28,7 @@ class ProjectsController {
       position: req.body.position,
       awsKey: req.body.awsKey,
       url: req.body.url,
-    }, 'miscprojects')
+    })
     .then((data) => {
       res.status(201).send({
         success: 'true',
@@ -59,7 +59,7 @@ class ProjectsController {
           url: req.body.url,
           awsKey: req.body.awsKey,
           updatedAt: Date.now(),
-        })
+        }, req.body.id)
         .then((data) => {
           res.status(201).send({
             success: 'true',
@@ -80,7 +80,7 @@ class ProjectsController {
 
   deleteProject(req, res) {
     const rev = req.body.rev;
-    return portfolioDatabase.destroy('miscprojects', rev)
+    return portfolioDatabase.destroy(req.body.id, rev)
     .then((data) => {
       res.status(201).send({
         success: 'true',

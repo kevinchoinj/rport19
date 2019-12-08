@@ -2,10 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
 
-const Button = ({className, children}) => (
+const Button = ({className, children, onClick}) => (
   <button
     type="submit"
     className={className}
+    onClick={onClick}
   >
     {children}
   </button>

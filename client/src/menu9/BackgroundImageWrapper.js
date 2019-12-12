@@ -1,7 +1,6 @@
 import React from 'react';
-import {menuData} from 'data/menuData';
 import styled from 'styled-components';
-import BackgroundImageDisplay from 'menu9/BackgroundImageDisplay';
+import BackgroundTwo from 'menu9/BackgroundTwo';
 
 const StyledWrapper = styled.div`
   position: fixed;
@@ -16,14 +15,7 @@ const StyledWrapper = styled.div`
 const BackgroundImageWrapper = () => {
   return(
     <StyledWrapper>
-      {menuData.map((value) => (
-        <div key={value.link}>
-          <BackgroundImageDisplay
-            image={value.image}
-            link={value.link}
-          />
-        </div>
-      ))}
+      <BackgroundTwo/>
     </StyledWrapper>
   );
 };

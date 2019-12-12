@@ -24,7 +24,7 @@ const StyledTextSmall = styled.div`
   margin-top: .5rem;
 `;
 const TextDisplay = ({ textLine, loadDelay, label }) => {
-  if (label === 'LINK' && textLine) {
+  if ((label === 'LINK') && textLine) {
     return (
       <StyledTextWrapper>
         <LoadIn

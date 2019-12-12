@@ -18,8 +18,8 @@ const StyledSticky = styled.div`
   width: 130%;
   margin-left: -15%;
   justify-self: flex-start;
-  color: #555;
-  font-size: 6vw;
+  color: #333;
+  font-size: 8vw;
   font-family: "Josefin Sans", Helvetica, sans-serif;
   div {
     white-space: nowrap;

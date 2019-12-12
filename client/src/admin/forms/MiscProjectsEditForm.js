@@ -75,15 +75,15 @@ const mapStateToProps = (state, props) => {
   return{
     testValue: projectData,
     initialValues: {
-      id: projectDoc && projectDoc._id,
-      rev: projectDoc && projectDoc._rev,
+      id: projectDoc?._id,
+      rev: projectDoc?._rev,
 
-      name: projectDoc && projectDoc.name,
-      link: projectDoc && projectDoc.link,
+      name: projectDoc?.name,
+      link: projectDoc?.link,
 
-      createdAt: projectDoc && projectDoc.created_at,
-      url: projectDoc && projectDoc.url,
-      awsKey: projectDoc && projectDoc.awsKey,
+      createdAt: projectDoc?.created_at,
+      url: projectDoc?.url,
+      awsKey: projectDoc?.awsKey,
     },
   };
 };

@@ -8,7 +8,7 @@ export const menuData = [
   {value: '06', text: 'TooCool', link: '/projects/tcfs', image: '/static/images/tcfs/toocool.jpg'},
   {value: '07', text: 'DrJart+', link: '/projects/drjart', image: '/static/images/drjart/banner.jpg'},
   {value: '08', text: 'Waterloo', link: '/projects/uwloo', image: '/static/images/uwloo/banner.jpg'},
-  {value: '09', text: 'Harvard', link: '/projects/harvard', image: '/static/images/harvard/image1.png'},
+  {value: '09', text: 'Harvard', link: '/projects/harvard', image: '/static/images/harvard/banner.jpg'},
   {value: '10', text: 'Discord', link: '/projects/discord', image: '/static/images/discord/banner.jpg'},
   {value: '11', text: 'Leida', link: '/projects/leida', image: '/static/images/leida/banner.jpg'},
   {value: '12', text: 'Smile', link: '/projects/wns', image: '/static/images/wns/banner.jpg'},

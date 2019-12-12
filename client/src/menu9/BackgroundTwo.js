@@ -8,6 +8,8 @@ import {
   selectMenuHover,
   selectLoadedContent,
 } from 'reducers';
+import {compose, find, prop, propEq} from 'ramda';
+import {menuData} from 'data/menuData';
 
 const StyledBackground = styled.div`
   cursor: pointer;
@@ -18,7 +20,6 @@ const StyledBackground = styled.div`
   background-position: center center;
   background-size: cover;
   pointer-events: ${props => props.menuOpen ? 'auto' : 'none'};
-  transition: .4s ease;
 
   @media screen and (max-width: 768px) {
     display: ${props => !props.menuOpen ? 'none' : 'block'};
@@ -28,20 +29,34 @@ const StyledBackground = styled.div`
 const BackgroundImageDisplay = ({hoverOption, image, link, loadedContent, menuDisplay, toggleMenu}) => {
 
   const [menuOpen, setMenuOpen] = useState(false);
+  const [currentImage, setCurrentImage] = useState(false);
+  useEffect(() => {
+    if (!menuDisplay) {
+      setCurrentImage(compose(prop('image'),find(propEq('link', loadedContent)))(menuData));
+    }
+    else {
+      if (hoverOption) {
+        setCurrentImage(hoverOption);
+      }
+      else {
+        setCurrentImage(compose(prop('image'),find(propEq('link', loadedContent)))(menuData));
+      }
+    }
+    console.log(currentImage);
+  }, [menuDisplay, hoverOption])
   useEffect(() => {
     setMenuOpen(
       (link===loadedContent && !menuDisplay)
     || (link===loadedContent && !hoverOption)
     || (image===hoverOption && menuDisplay)
     );
-    console.log(hoverOption);
   }, [loadedContent, menuDisplay, hoverOption, image, link, menuOpen]);
   return(
     <StyledBackground
       menuOpen={menuOpen}
       menuDisplay ={menuDisplay}
       style={{
-        backgroundImage: `url(${hoverOption})`,
+        backgroundImage: `url(${currentImage})`,
       }}
       onClick={() => toggleMenu(link, menuDisplay)}
     />

@@ -16,7 +16,7 @@ const StyledWrapper = styled.div`
   z-index: -1;
 `;
 
-const BackgroundImageWrapper = () => {
+const BackgroundImageWrapper = ({loadedContent}) => {
   return(
     <StyledWrapper>
        {menuData.map((value) => (
@@ -31,4 +31,9 @@ const BackgroundImageWrapper = () => {
   );
 };
 
-export default BackgroundImageWrapper;
+const mapStateToProps = (state) => {
+  return {
+    loadedContent: selectLoadedContent(state),
+  };
+};
+export default connect (mapStateToProps, null)(BackgroundImageWrapper);

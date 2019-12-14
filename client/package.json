@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "connected-react-router": "^6.6.1",
+    "curtainsjs": "^4.2.0",
+    "gsap": "^3.0.4",
     "js-cookie": "^2.2.1",
     "moment": "^2.24.0",
     "ramda": "^0.26.1",

@@ -13,7 +13,7 @@ const StyledWrapper = styled.div`
   position: fixed;
   left: 0px;
   transition: .2s ease;
-  opacity: ${props => props.hoverOption && props.menuDisplay && 0};
+  opacity: ${props => (props.hoverOption && props.menuDisplay) ? 0 : 1};
   :after {
     content: '';
     position: fixed;

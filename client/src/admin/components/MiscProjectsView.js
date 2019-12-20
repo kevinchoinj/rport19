@@ -22,7 +22,7 @@ const StyledContainer = styled.div`
   width: 33%;
 `;
 const Image = ({className, src, alt}) => (
-  <img src={src} alt="" className={className}/>
+  <img src={src} alt="" className={className} loading="lazy"/>
 );
 const StyledImage = styled(Image)`
   width: 100%;

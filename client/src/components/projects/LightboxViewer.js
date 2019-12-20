@@ -53,7 +53,7 @@ const StyledObject = styled.div`
   }
 `;
 const Image = ({className, src}) => (
-  <img src={src} alt="" className={className}/>
+  <img src={src} alt="" className={className} loading="lazy"/>
 );
 const StyledImage = styled(Image)`
   height: 100%;

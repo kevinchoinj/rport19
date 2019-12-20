@@ -191,7 +191,12 @@ const WidgetCards = ({hoverOption, loadedContent, menuDisplay, location}) => {
 
         <StyledPlane className="plane">
           {menuData.map(val =>
-            <img key={val.text} src={val.image} alt={val.text} onLoad={() => setLoadedImages(prevLoadedImages => prevLoadedImages + 1)}/>
+            <img
+              key={val.text}
+              src={val.image}
+              alt={val.text}
+              onLoad={() => setLoadedImages(prevLoadedImages => prevLoadedImages + 1)}
+            />
           )}
 
         </StyledPlane>

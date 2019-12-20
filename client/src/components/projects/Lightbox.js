@@ -33,7 +33,7 @@ const Lightbox = ({ image, closeImage }) => {
       image={image}
       onClick={() => closeImage()}
     >
-      <img src={image} alt={image} />
+      <img src={image} alt={image} loading="lazy"/>
     </StyledWrapper>,
     portalRoot
   );

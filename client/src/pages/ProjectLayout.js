@@ -125,7 +125,6 @@ const StyledBodyText = styled.div`
 
 const ProjectLayout = ({ pageValues, toggleMenu, hoverImage, skewValue }) => {
   useEffect(() => {
-    window.scrollTo(0, 0);
     toggleMenu();
   }, [toggleMenu]);
   return (

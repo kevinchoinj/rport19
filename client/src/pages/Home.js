@@ -7,7 +7,6 @@ import * as menuActions from 'actions/menu';
 
 export const Home = ({toggleMenu}) => {
   useEffect(() => {
-    window.scrollTo(0, 0);
     toggleMenu();
   }, [toggleMenu]);
 

@@ -60,7 +60,6 @@ const StyledImage = styled(Image)`
 
 const ProjectMisc = ({ miscProjects, toggleMenu, skewValue }) => {
   useEffect(() => {
-    window.scrollTo(0, 0);
     toggleMenu();
   }, [toggleMenu]);
   return (

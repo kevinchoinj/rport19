@@ -24,7 +24,6 @@ const StyledContainer = styled.div`
 `;
 const GamingMisc = ({ toggleMenu, skewValue }) => {
   useEffect(() => {
-    window.scrollTo(0, 0);
     toggleMenu();
   }, [toggleMenu]);
 

@@ -21,7 +21,6 @@ const StyledText = styled.div`
 
 export const NotFound = ({toggleMenu}) => {
   useEffect(() => {
-    window.scrollTo(0, 0);
     toggleMenu();
   }, [toggleMenu]);
 

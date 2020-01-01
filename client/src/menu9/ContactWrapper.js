@@ -5,7 +5,7 @@ import * as contactActions from 'actions/contact';
 import styled from 'styled-components';
 
 const StyledWrapper = styled.div`
-  @media screen and (max-height: 768px) {
+  @media screen and (max-height: 520px) {
     display: none;
   }
 `;

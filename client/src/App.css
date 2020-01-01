@@ -6,6 +6,7 @@ body{
   font-family: 'Open Sans', Helvetica, sans-serif;
 }
 :root {
+	--size-smallest: .5vw;
 	--size-small: .7vw;
 	--size-medium: 1.2vw;
   --size-large: 2vw;
@@ -17,6 +18,7 @@ body{
 }
 @media screen and (max-width: 1920px ) {
   :root {
+    --size-smallest: .8rem;
     --size-small: 1rem;
     --size-medium: 1.5rem;
     --size-large: 3rem;

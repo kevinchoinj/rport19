@@ -49,10 +49,19 @@ const StyledLineTwo = styled.span`
   transition: all 0.5s cubic-bezier(0.000, 0.785, 0.000, 1.000);
 `;
 const StyledWrapper = styled.div`
+  height: 100%;
+  padding: 1rem;
+  border-left: 1px solid #fff;
+
+  @media screen and (max-width: 992px) {
+    border: none;
+    height: auto;
+    padding: var(--size-spacing);
+  }
+
   position: fixed;
   top: 0;
   right: 0;
-  padding: var(--size-spacing);
   cursor: pointer;
   mix-blend-mode:  difference;
   will-change: opacity;

@@ -6,7 +6,7 @@ const StyledWrapper = styled.div`
   padding: 50px;
   color: ${props => props.theme.topRightText};
   opacity: 1;
-  font-size: var(--size-small);
+  font-size: var(--size-smallest);
   display: flex;
   flex-direction: column;
   justify-content: space-between;

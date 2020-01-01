@@ -4,13 +4,21 @@ import {connect} from 'react-redux';
 import styled from 'styled-components';
 import ContactFormSending from 'menu9/ContactFormSending';
 
+const StyledFieldContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
 const RenderField = ({
   input,
   type,
   placeholder,
   meta: { touched, error, warning }
 }) => (
-  <div>
+  <StyledFieldContainer>
+    <label for="email">
+      Email
+    </label>
     <input {...input}
       type={type}
       className="form__input"
@@ -19,7 +27,7 @@ const RenderField = ({
     {touched &&
       ((error && <span className="form_error">{error}</span>) ||
         (warning && <span className="form_error">{warning}</span>))}
-  </div>
+  </StyledFieldContainer>
 );
 
 const RenderTextarea = ({
@@ -28,7 +36,10 @@ const RenderTextarea = ({
   placeholder,
   meta: { touched, error, warning }
 }) => (
-  <div>
+  <StyledFieldContainer>
+    <label for="message">
+      Message
+    </label>
     <textarea {...input}
       rows= {6}
       type={type}
@@ -38,10 +49,14 @@ const RenderTextarea = ({
     {touched &&
       ((error && <span className="form_error">{error}</span>) ||
         (warning && <span className="form_error">{warning}</span>))}
-  </div>
+  </StyledFieldContainer>
 );
 
 const StyledWrapper = styled.div`
+    label {
+      font-size: var(--size-smallest);
+      margin-bottom: .5rem;
+    }
     input, textarea {
       font-family: 'Open Sans', Helvetica, sans-serif;
       background-color: transparent;
@@ -50,11 +65,11 @@ const StyledWrapper = styled.div`
       border-right: none;
       border-left: 1px solid ${props => props.theme.topRightText};
       border-bottom: 1px solid ${props => props.theme.topRightText};
-      padding: 1rem;
-      font-size: 16px;
+      padding: .5rem;
+      font-size: var(--size-smallest);
       box-sizing: border-box;
       color: ${props => props.theme.colorText};
-      margin-bottom: 2rem;
+      margin-bottom: 1rem;
       resize: none;
       &:focus {
         outline: none;
@@ -64,7 +79,7 @@ const StyledWrapper = styled.div`
       background-color: transparent;
       color: ${props => props.theme.colorText};
       padding: 1rem;
-      font-size: 16px;
+      font-size: var(--size-smallest);
       border-top: none;
       border-right: none;
       border-left: 1px solid ${props => props.theme.topRightText};

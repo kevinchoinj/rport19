@@ -1,11 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import {connect} from 'react-redux';
 import {menuData} from 'data/menuData';
 import BackgroundImageDisplay from 'menu9/BackgroundImageDisplay';
-import {
-  selectLoadedContent,
-} from 'reducers';
+
 const StyledWrapper = styled.div`
   position: fixed;
   top: 0px;

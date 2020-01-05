@@ -16,8 +16,6 @@ const loadInFrames = keyframes`
 `;
 
 const StyledLoadIn = styled.div`
-  opacity: ${props => props.loaded ? 1 : 0};
-  transform: ${props => props.loaded ? 'translateY(0px)' : 'translateY(2rem)'};
   transition: .3s ease ${props => props.loadDelay};
   animation: ${loadInFrames} .3s linear ${props => props.loadDelay};
   animation-fill-mode: both;

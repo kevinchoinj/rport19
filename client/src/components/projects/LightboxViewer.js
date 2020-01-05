@@ -30,7 +30,7 @@ const StyledIndicators = styled.div`
   justify-content: space-between;
   font-size: 25vh;
   position: absolute;
-  padding: 0 2rem;
+  padding: 0 3rem;
   box-sizing: border-box;
   pointer-events: none;
   user-select: none;

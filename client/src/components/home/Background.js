@@ -51,6 +51,20 @@ const StyledVideo = styled(Video)`
   background-size: cover;
   background-position: center center;
 `;
+const StyledText = styled.div`
+  display: flex;
+  font-family: 'Open Sans', sans-serif;
+  justify-content: center;
+  align-items: center;
+  font: 900 50vw sans-serif;
+  text-align: center;
+  content: 'KC';
+  height: 100vh;
+  width: 100%;
+  background: rgba(0,0,0, .75);
+  color: #fff;
+  mix-blend-mode: darken;
+`;
 
 const Background = ({menuDisplay, hoverOption}) => {
   return(
@@ -62,6 +76,9 @@ const Background = ({menuDisplay, hoverOption}) => {
         poster='/static/images/daytimelight.jpg'
         src='/static/images/daytime.mp4'
       />
+      <StyledText>
+        KC
+      </StyledText>
     </StyledWrapper>
   );
 };

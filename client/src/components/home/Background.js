@@ -53,11 +53,13 @@ const StyledVideo = styled(Video)`
 `;
 const StyledText = styled.div`
   display: flex;
-  font-family: 'Open Sans', sans-serif;
   justify-content: center;
   align-items: center;
-  font: 900 50vw sans-serif;
+  font-family: 'Open Sans', sans-serif !important;
+  font-weight: 800;
+  font-style: normal;
   text-align: center;
+  font-size: 50vw;
   content: 'KC';
   height: 100vh;
   width: 100%;

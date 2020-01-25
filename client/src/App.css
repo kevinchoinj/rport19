@@ -18,7 +18,7 @@ body{
 }
 @media screen and (max-width: 1920px ) {
   :root {
-    --size-smallest: .8rem;
+    --size-smallest: 1rem;
     --size-small: 1rem;
     --size-medium: 1.5rem;
     --size-large: 3rem;

@@ -7,6 +7,9 @@ import git from 'reducers/git';
 import mouse from 'reducers/mouse';
 import gaming from 'reducers/gaming';
 import contact from 'reducers/contact';
+import {createSelector} from 'reselect';
+
+import {find, propEq} from 'ramda';
 
 const reducers={
   form: reducerForm,
@@ -42,9 +45,13 @@ export const selectLoadedContent = (state) => state.transition.loadedContent;
 
 /*======================================
 =                IMAGES                 =
-======================================*/
+========================-==============*/
 export const selectImagesProjects = (state) => state.images.miscProjects;
 
+export const selectImagesProjectsById = (state, id) => createSelector(
+  selectImagesProjects,
+  (miscProjects) =>  find(propEq('id', id), miscProjects)
+)(state);
 /*======================================
 =                AUTH                 =
 ======================================*/

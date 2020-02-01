@@ -9,7 +9,7 @@ const StyledWrapper = styled.div`
   overflow-y: hidden;
   position: relative;
   display: flex;
-  cursor: ${props => props.isDown ? 'grabbing' : 'grab'}
+  cursor: ${props => props.isDown ? 'grabbing' : 'grab'};
   @media screen and (max-width: 768px) {
     cursor: pointer;
     display: none;

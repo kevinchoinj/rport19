@@ -11,6 +11,11 @@ const router = express.Router();
 const upload = multer({
   storage: multer.memoryStorage(),
   limits: { fileSize: 52428800 },
+  filename: (req, file, cb) => {
+    const mimetype = getMimetype(file.mimetype);
+    const newFilename = `${req.body.id}${Date.now()}${mimetype}`;
+    cb(null, newFilename);
+  },
 });
 
 function loggedIn(req, res, next) {
@@ -42,8 +47,8 @@ router.delete('/api/v1/project', loggedIn, projectController.deleteProject);
 
 router.get('/api/v1/git/commits', gitController.getAllCommits);
 
-router.post('/api/v1/aws', loggedIn, upload.single('awsAction'), awsController.createImage);
-router.delete('/api/v1/aws', loggedIn, upload.single('awsAction'), awsController.deleteImage);
+router.post('/api/v1/aws', loggedIn, upload.single('image'), awsController.createImage);
+router.delete('/api/v1/aws', loggedIn, upload.single('image'), awsController.deleteImage);
 
 router.post('/api/v1/email/contact', emailController.sendContact);
 

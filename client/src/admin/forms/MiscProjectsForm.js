@@ -1,151 +1,81 @@
-import React from 'react';
-import { Field, reduxForm, reset } from 'redux-form';
-import Dropzone from 'react-dropzone';
-import {connect} from 'react-redux';
-/* https://github.com/BBB/dropzone-redux-form-example */
-import styled from 'styled-components';
+import React, {useState} from 'react';
+import {Formik, Form, Field} from 'formik';
 import AdminButton from 'admin/components/AdminButton';
+import {Label} from 'admin/components/general';
 
-const required = value => (value ? undefined : '*Required');
+const MiscProjectsForm = ({onSubmit}) => {
+  // Notice that we have to initialize ALL of fields with values. These
+  // could come from props, but since we don't want to prefill this form,
+  // we just use an empty string. If you don't do this, React will yell
+  // at you.
 
-const RenderField = ({
-  className,
-  input,
-  type,
-  placeholder,
-  meta: { touched, error, warning }
-}) => (
-  <>
-    <input {...input}
-      placeholder={placeholder}
-      type={type}
-      className={className}
-    />
-    {touched &&
-      ((error && <span>{error}</span>) ||
-        (warning && <span>{warning}</span>))}
-  </>
-);
-const StyledField = styled(RenderField)`
-  padding: 14px 8px;
-  box-sizing: border-box;
-  outline: none;
-  background-color: transparent;
-  border: 1px solid rgba(255,255,255,.7);
-  min-width: 255px;
-  border-radius: 3px;
-  color: #fff;
-  font-family: 'Open Sans', Helvetica, sans-serif;
-  &::placeholder {
-    color: #fff;
-  }
-`;
-const dropzoneStyle = {
-  height: '150px',
-  width: '150px',
-  border: `2px dashed ${props => props.theme.colorText}`,
-  color: `${props => props.theme.colorText}`,
-  display: 'flex',
-  justifyContent: 'center',
-  margin: '14px 0px',
-  cursor: 'pointer',
-  fontSize: '13px',
-  padding: '24px',
-  boxSizing: 'border-box',
-};
-const renderDropzoneInput = (field) => {
-  const files = field.input.value;
-  return (
-    <div>
-      <Dropzone onDrop={( filesToUpload, e ) => field.input.onChange(filesToUpload)}>
-        {({getRootProps, getInputProps, isDragActive}) => {
-          return (
-            <div
-              {...getRootProps()}
-              style={dropzoneStyle}
-            >
-              <input {...getInputProps()} />
-              {
-                isDragActive ?
-                  <p>Drop files here...</p> :
-                  <p>Try dropping some files here, or click to select files to upload.</p>
-              }
-            </div>
-          );
-        }}
-      </Dropzone>
-      {files && Array.isArray(files) && (
-        <div>
-          {files.map((file, i) =>
-            <div key={i}>
-              {file.name}
-            </div>
-          )}
-        </div>
-      )}
-      {field.meta.touched &&
-        field.meta.error &&
-        <span>{field.meta.error}</span>}
-      <div>
-        <AdminButton>
-          Submit
-        </AdminButton>
-      </div>
-    </div>
-  );
-};
+  const fileUpload = React.createRef();
+  const [photo, setPhoto] = useState(null);
+  const [fileName, setFileName] = useState("");
 
-let ImagePostForm = ({handleSubmit, error}) => {
-  return (
-    <form onSubmit={handleSubmit} autoComplete="off">
-      <div>
-        <Field
-          name="name"
-          component={StyledField}
-          type="text"
-          validate={[required]}
-          placeholder="Title"
-        />
-      </div>
-      <div>
-        <Field
-          name="link"
-          component={StyledField}
-          type="text"
-          validate={[required]}
-          placeholder="link"
-        />
-      </div>
-      <div>
-        <Field
-          name="image"
-          component={renderDropzoneInput}
-          instructions="Add Image"
-        />
-      </div>
-      {error && <div>{error}</div>}
-    </form>
-  );
-};
-
-const mapStateToProps = (state, prop) => {
-  return{
-    initialValues: {
-      name: '',
-      image: {
-        data: null
-      },
-    },
+  const setFile = evt => {
+    setPhoto(evt.target.files[0]);
+    setFileName(evt.target.files[0]?.name);
   };
+  const openUploadDialog = () => {
+    fileUpload.current.click();
+  };
+
+  const handleSubmit = async evt => {
+    try {
+    let bodyFormData = new FormData();
+      bodyFormData.set("name", evt.name);
+      bodyFormData.set("link", evt.link);
+      bodyFormData.append("image", photo);
+      await onSubmit(bodyFormData);
+    } catch (error) {
+      alert("Upload must be an image");
+    }
+  }
+  return (
+    <Formik
+      enableReinitialize
+      initialValues={{
+        name: '',
+        link: '',
+        image: {},
+      }}
+      onSubmit={handleSubmit}
+     >
+       {(values, isSubmitting) =>
+        <Form>
+          <Label label="Name"/>
+          <Field name="name"/>
+
+          <Label label="Link"/>
+          <Field name="link"/>
+
+          <Label label="Image"/>
+          <input
+            type="file"
+            ref={fileUpload}
+            name="image"
+            style={{ display: "none" }}
+            onChange={setFile}
+          />
+          <div className="file-box">
+            <button type="button" onClick={openUploadDialog}>
+              Upload Photo
+            </button>
+            <br/>
+            Image Name: {fileName}
+            <br/><br/><br/>
+          </div>
+
+          <AdminButton disabled={isSubmitting} type="submit">
+            Submit
+          </AdminButton>
+
+      </Form>
+      }
+    </Formik>
+  )
 };
 
-const afterSubmit = (result, dispatch) =>
-  dispatch(reset('miscProjects'));
 
-ImagePostForm = reduxForm({
-  form: 'miscProjects',
-  enableReinitialize: true,
-  onSubmitSuccess: afterSubmit,
-})(ImagePostForm);
-
-export default connect(mapStateToProps, null)(ImagePostForm);
+export default MiscProjectsForm;

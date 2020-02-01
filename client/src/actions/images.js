@@ -1,6 +1,5 @@
 import {history} from 'store';
 import Cookies from 'js-cookie';
-const upload = require('superagent');
 
 export const FETCH_MISC_PROJECTS_STARTED = Symbol('FETCH_MISC_PROJECTS_STARTED');
 export const FETCH_MISC_PROJECTS_SUCCEEDED = Symbol('FETCH_MISC_PROJECTS_SUCCEEDED');
@@ -61,12 +60,12 @@ function handleErrors(response) {
 =            STORE PHOTOS           =
 ======================================*/
 
-function getMiscProjects() {
+const getMiscProjects = () => {
   return () => {
     return fetch('/api/v1/project');
   };
 }
-export function fetchMiscProjects() {
+export const fetchMiscProjects = () => {
   return (dispatch) => {
     dispatch(fetchMiscProjectsStarted());
     return dispatch(getMiscProjects())
@@ -79,7 +78,7 @@ export function fetchMiscProjects() {
   };
 }
 
-function postMiscProjects(data) {
+const postMiscProjects = (data) => {
   return () => {
     return fetch('/api/v1/project',
       {
@@ -92,7 +91,7 @@ function postMiscProjects(data) {
       });
   };
 }
-export function addMiscProjects(values) {
+export const addMiscProjects = (values) => {
   return (dispatch) => {
     dispatch(addMiscProjectsStarted());
     return dispatch(postMiscProjects(values))
@@ -105,7 +104,7 @@ export function addMiscProjects(values) {
   };
 }
 
-export function addMiscProjectsThenUpdate(values) {
+export const addMiscProjectsThenUpdate = (values) => {
   return (dispatch) => {
     dispatch(addMiscProjects(values))
       .then(() => dispatch(fetchMiscProjects()));
@@ -114,7 +113,7 @@ export function addMiscProjectsThenUpdate(values) {
 /*======================================
 =             EDIT IMAGE               =
 ======================================*/
-function putMiscProjects(data) {
+const putMiscProjects = (data) => {
   return () => {
     return fetch('/api/v1/project',
       {
@@ -127,7 +126,7 @@ function putMiscProjects(data) {
       });
   };
 }
-export function editMiscProjects(values) {
+export const editMiscProjects = (values) => {
   return (dispatch) => {
     dispatch(editMiscProjectsStarted());
     return dispatch(putMiscProjects(values))
@@ -140,7 +139,7 @@ export function editMiscProjects(values) {
   };
 }
 
-export function editMiscProjectsThenUpdate(values, path) {
+export const editMiscProjectsThenUpdate = (values, path) => {
   return (dispatch) => {
     dispatch(editMiscProjects(values))
       .then(() => {
@@ -153,7 +152,7 @@ export function editMiscProjectsThenUpdate(values, path) {
 =            REMOVE IMAGE              =
 ======================================*/
 
-function deleteImage(awsKey) {
+const deleteImage = (awsKey) => {
   return () => {
     return fetch('/api/v1/aws',
       {
@@ -167,7 +166,7 @@ function deleteImage(awsKey) {
   };
 }
 
-export function removeImage (awsKey) {
+export const removeImage = (awsKey) => {
   return (dispatch) => {
     dispatch(removeImageStarted());
     return dispatch(deleteImage(awsKey))
@@ -180,7 +179,7 @@ export function removeImage (awsKey) {
   };
 }
 
-function deleteMiscProjects(id, rev) {
+const deleteMiscProjects = (id, rev) => {
   return () => {
     return fetch('/api/v1/project',
       {
@@ -196,7 +195,7 @@ function deleteMiscProjects(id, rev) {
       });
   };
 }
-export function removeMiscProjects(id, rev, awsKey) {
+export const removeMiscProjects = (id, rev, awsKey) => {
   return (dispatch) => {
     dispatch(removeMiscProjectsStarted());
     return dispatch(deleteMiscProjects(id, rev))
@@ -210,7 +209,7 @@ export function removeMiscProjects(id, rev, awsKey) {
   };
 }
 //requires () => dispatch for fetchViewData or data is fetched before content is added
-export function removeMiscProjectsThenUpdate(id, rev, awsKey) {
+export const removeMiscProjectsThenUpdate = (id, rev, awsKey) => {
   return (dispatch) => {
     dispatch(removeMiscProjects(id, rev, awsKey))
       .then(() => dispatch(fetchMiscProjects()));
@@ -220,31 +219,35 @@ export function removeMiscProjectsThenUpdate(id, rev, awsKey) {
 =             AWS BUCKET               =
 ======================================*/
 
-function postS3Image(data) {
+const postS3Image = (values) => {
   return () => {
-    return upload.post('/api/v1/aws')
-      .attach('awsAction', data.image[0])
-      .set('Authorization', `JWT ${Cookies.get('JWT')}`);
+    return fetch('/api/v1/aws',
+      {
+        method: 'POST',
+        headers: {
+          'Authorization': `JWT ${Cookies.get('JWT')}`
+        },
+        body: values,
+      });
   };
 }
 
-export function addStorePhotoImageAndUrl (data) {
+export const addStorePhotoImageAndUrl = (data) => {
+let jsonData = {};
+data.forEach((value, key) => {jsonData[key] = value});
   return (dispatch) => {
     dispatch(addImageStarted());
     return dispatch(postS3Image(data))
-      .end((err, res) => {
-        if (res) {
-          dispatch(addImageSucceeded(res.body.url));
-          const s3Data = Object.assign({
-            url: res.body.url,
-            awsKey: res.body.awsKey
-          }, data);
-          dispatch(addMiscProjectsThenUpdate(s3Data));
-        }
-        else if (err) {
-          dispatch(addImageFailure(err));
-        }
-      });
+      .then(res => res.json())
+      .then((json) => {
+        dispatch(addImageSucceeded(json.url));
+        const s3Data = Object.assign({
+          url: json.url,
+          awsKey: json.awsKey
+        }, jsonData);
+        dispatch(addMiscProjectsThenUpdate(s3Data));
+      })
+      .catch(error => dispatch(editMiscProjectsFailure(error)));
   };
 }
 

@@ -52,6 +52,7 @@ export const selectImagesProjectsById = (state, id) => createSelector(
   selectImagesProjects,
   (miscProjects) =>  find(propEq('id', id), miscProjects)
 )(state);
+
 /*======================================
 =                AUTH                 =
 ======================================*/

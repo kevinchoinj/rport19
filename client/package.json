@@ -21,8 +21,7 @@
     "redux-thunk": "^2.3.0",
     "reselect": "^4.0.0",
     "smooth-scrollbar": "^8.5.1",
-    "styled-components": "^5.0.0",
-    "superagent": "^5.2.1"
+    "styled-components": "^5.0.0"
   },
   "proxy": "http://localhost:5000",
   "scripts": {

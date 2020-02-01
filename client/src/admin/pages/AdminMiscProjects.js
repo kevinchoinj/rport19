@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import * as imagesActions from 'actions/images';
+import {addStorePhotoImageAndUrl} from 'actions/images';
 import MiscProjectsForm from 'admin/forms/MiscProjectsForm';
 import MiscProjectsView from 'admin/components/MiscProjectsView';
 
@@ -45,7 +45,7 @@ const AdminMiscProjects = ({addImage}) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     addImage: (values) => {
-      dispatch(imagesActions.addStorePhotoImageAndUrl(values));
+      dispatch(addStorePhotoImageAndUrl(values));
     },
   };
 };

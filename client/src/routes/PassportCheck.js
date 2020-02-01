@@ -1,10 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import * as authActions from 'actions/authentication';
 import {Link} from 'react-router-dom';
 import AdminRoutes from 'routes/AdminRoutes';
-import TextBasicForm from 'admin/forms/TextBasicForm';
+import LoginForm from 'admin/forms/LoginForm';
 import PassportTicket from 'admin/services/PassportTicket';
 import {pageData} from 'data/pageData';
 import {
@@ -70,26 +69,8 @@ const LoginDisplay = ({loggedIn, register, login}) => {
         <StyledContainer>
           <StyledBody>
             <StyledForm>
-              register
-              <TextBasicForm
-                textInputs = {[
-                  {name:'username', type: 'text'},
-                  {name:'password', type: 'password'},
-                ]}
-                formName = 'registerPassport'
-                onSubmit={register}
-              />
-            </StyledForm>
-            <StyledForm>
-            login
-              <TextBasicForm
-                textInputs = {[
-                  {name:'username', type: 'text'},
-                  {name:'password', type: 'password'},
-                ]}
-                formName = 'loginPassport'
-                onSubmit={login}
-              />
+              login
+              <LoginForm/>
             </StyledForm>
           </StyledBody>
         </StyledContainer>
@@ -141,15 +122,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    login: (values) => {
-      dispatch(authActions.loginPassport(values));
-    },
-    register: (values) => {
-      dispatch(authActions.registerPassport(values));
-    }
-  };
-};
-
-export default connect (mapStateToProps, mapDispatchToProps)(PassportCheck);
+export default connect (mapStateToProps, null)(PassportCheck);

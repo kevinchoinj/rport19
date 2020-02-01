@@ -13,7 +13,7 @@ const StyledWrapper = styled.div`
 const Contact = ({submitForm}) => {
   return(
     <StyledWrapper>
-      <ContactForm onSubmit = {submitForm}/>
+      <ContactForm onSubmit={submitForm}/>
     </StyledWrapper>
   );
 }

@@ -1,4 +1,3 @@
-import { reducer as reducerForm } from 'redux-form';
 import menu from 'reducers/menu';
 import authentication from 'reducers/authentication';
 import images from 'reducers/images';
@@ -12,10 +11,7 @@ import {createSelector} from 'reselect';
 import {find, propEq} from 'ramda';
 
 const reducers={
-  form: reducerForm,
-
   menu,
-
   gaming,
   authentication,
   images,

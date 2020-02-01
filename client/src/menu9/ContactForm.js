@@ -68,12 +68,12 @@ const ContactForm = ({onSubmit}) => {
       >
         {(values, isSubmitting) =>
           <Form>
-            <label for="email">
+            <label htmlFor="email">
               Email
             </label>
             <Field name="email"/>
 
-            <label for="email">
+            <label htmlFor="email">
               Message
             </label>
             <Field

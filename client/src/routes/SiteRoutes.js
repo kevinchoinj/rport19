@@ -20,6 +20,7 @@ const SiteRoutes = ({skewValue}) => {
   /* key prop rerenders component when it is the same component being used between routes */
   return (
     <>
+      <BackgroundImageWrapper/>
       <Switch>
         <Route exact path={pageData.home} render={props => <Home {...props}/>}/>
         <Route exact path={pageData.miscProjects} render={props => <ProjectMisc {...props} skewValue={skewValue}/>}/>
@@ -41,7 +42,6 @@ const SiteRoutes = ({skewValue}) => {
         <Route exact path={pageData.gaming} render={props => <GamingMisc {...props} skewValue={skewValue}/>}/>
         <Route component={NotFound} />
       </Switch>
-      <BackgroundImageWrapper/>
       <MenuPanel/>
       <MenuButton/>
       <DetectMobile/>

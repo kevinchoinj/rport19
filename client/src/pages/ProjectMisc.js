@@ -5,6 +5,7 @@ import Skew from 'components/projects/Skew';
 import GetMiscProjects from 'components/services/GetMiscProjects';
 import Banner from 'components/projects/Banner';
 import styled from 'styled-components';
+import {selectMenuDisplay} from 'reducers';
 
 import {
   selectImagesProjects,
@@ -58,13 +59,13 @@ const StyledImage = styled(Image)`
   }
 `;
 
-const ProjectMisc = ({ miscProjects, toggleMenu, skewValue }) => {
+const ProjectMisc = ({ miscProjects, toggleMenu, menuDisplay }) => {
   useEffect(() => {
     toggleMenu();
   }, [toggleMenu]);
   return (
-    <div tabIndex="0">
-      <Skew skewValue={skewValue}>
+    <div tabIndex="0" style={{pointerEvents: menuDisplay ? 'none' : 'auto', position: 'relative'}}>
+      <Skew>
         <GetMiscProjects/>
         <Banner
           line1="Misc Projects"
@@ -96,6 +97,7 @@ const ProjectMisc = ({ miscProjects, toggleMenu, skewValue }) => {
 const mapStateToProps = (state) => {
   return {
     miscProjects: selectImagesProjects(state),
+    menuDisplay: selectMenuDisplay(state),
   };
 };
 

@@ -8,6 +8,7 @@ import GamingCarousel from 'components/projects/LightboxGallery';
 import styled from 'styled-components';
 import Lightbox from 'components/projects/Lightbox';
 import Skew from 'components/projects/Skew';
+import {selectMenuDisplay} from 'reducers';
 
 const StyledContainer = styled.div`
   background-color: ${props => props.theme.colorBackground};
@@ -22,13 +23,13 @@ const StyledContainer = styled.div`
     }
   }
 `;
-const GamingMisc = ({ toggleMenu, skewValue }) => {
+const GamingMisc = ({ toggleMenu, menuDisplay }) => {
   useEffect(() => {
     toggleMenu();
   }, [toggleMenu]);
 
   return (
-    <div tabIndex="0">
+    <div tabIndex="0" style={{pointerEvents: menuDisplay ? 'none' : 'auto', position: 'relative'}}>
       <Skew>
         <Banner
           line1="Misc Games"
@@ -304,6 +305,11 @@ const GamingMisc = ({ toggleMenu, skewValue }) => {
   );
 };
 
+const mapStateToProps = (state) => {
+  return {
+    menuDisplay: selectMenuDisplay(state),
+  };
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -313,4 +319,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect (null, mapDispatchToProps)(GamingMisc);
+export default connect (mapStateToProps, mapDispatchToProps)(GamingMisc);

@@ -13,7 +13,7 @@ const StyledContainer = styled.div`
   flex-direction: column;
 `;
 const StyledLetter = styled.div`
-  font-weight: 600;
+  font-weight: 400;
   color: #fff;
   font-size: var(--size-small);
   line-height: 140%;

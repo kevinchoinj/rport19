@@ -7,14 +7,12 @@ const StyledContainer = styled.div`
   transition-timing-function: ease;
   transition-delay: ${props => props.delay ? props.delay : '.1s'};
   opacity: ${({ ratio }) => ratio ? 1 : 0};
-  transform: ${({ ratio }) => ratio ? 'translateY(0px) scale(1)' : 'translateY(2rem) scale(.95, .95)'};
+  transform: ${({ ratio }) => ratio ? 'translateY(0px)' : 'translateY(2rem)'};
 `;
-
-const buildThresholdArray = () => Array.from(Array(100).keys(), i => i / 100);
 
 const Box = ({children, delay}) => {
   const [ref, entry] = useIntersect({
-    threshold: buildThresholdArray()
+    threshold: .2
   });
   return (
     <StyledContainer

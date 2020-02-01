@@ -11,6 +11,7 @@ import styled from 'styled-components';
 import scroll from 'react-scroll';
 import LoadIntersect from 'components/animations/LoadIntersect';
 import Sticky from 'components/projects/Sticky';
+import {selectMenuDisplay} from 'reducers';
 
 let scroller = scroll.animateScroll;
 
@@ -123,13 +124,13 @@ const StyledBodyText = styled.div`
   }
 `;
 
-const ProjectLayout = ({ pageValues, toggleMenu, hoverImage, skewValue }) => {
+const ProjectLayout = ({ pageValues, toggleMenu, hoverImage, menuDisplay }) => {
   useEffect(() => {
     toggleMenu();
   }, [toggleMenu]);
   return (
-    <div tabIndex="0">
-      <Skew skewValue={skewValue}>
+    <div tabIndex="0" style={{pointerEvents: menuDisplay ? 'none' : 'auto', position: 'relative'}}>
+      <Skew>
         <Banner
           line1 = {pageValues.bannerTextOne}
           line2 = {pageValues.bannerTextTwo}
@@ -194,6 +195,12 @@ const ProjectLayout = ({ pageValues, toggleMenu, hoverImage, skewValue }) => {
   );
 };
 
+const mapStateToProps = (state) => {
+  return {
+    menuDisplay: selectMenuDisplay(state),
+  };
+};
+
 const mapDispatchToProps = (dispatch) => {
   return {
     toggleMenu: () => {
@@ -203,4 +210,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect (null, mapDispatchToProps)(ProjectLayout);
+export default connect (mapStateToProps, mapDispatchToProps)(ProjectLayout);

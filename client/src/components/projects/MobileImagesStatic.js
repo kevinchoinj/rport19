@@ -41,7 +41,7 @@ const StyledColumn = styled.div`
   transition-timing-function: ease;
   transition-delay: ${props => props.delay ? props.delay : '.1s'};
   opacity: ${({ ratio }) => ratio ? 1 : 0};
-  transform: ${({ ratio }) => ratio ? 'translateY(0px) scale(1)' : 'translateY(2rem) scale(.95, .95)'};
+  transform: ${({ ratio }) => ratio ? 'translateY(0px)' : 'translateY(2rem)'};
   @media screen and (max-width: 992px) {
     width: 33.3333%;
     margin-right: 0;
@@ -66,12 +66,9 @@ const StyledImage = styled(Image)`
   }
 `;
 
-const buildThresholdArray = () => Array.from(Array(100).keys(), i => i / 100);
-
-
 const CardObject = ({image, delay}) => {
   const [ref, entry] = useIntersect({
-    threshold: buildThresholdArray()
+    threshold: .2
   });
   return (
     <StyledColumn

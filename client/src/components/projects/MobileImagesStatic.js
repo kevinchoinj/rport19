@@ -37,11 +37,13 @@ const StyledContainer = styled.div`
 const StyledColumn = styled.div`
   width: 30%;
   box-sizing: border-box;
-  transition-duration: .4s;
-  transition-timing-function: ease;
-  transition-delay: ${props => props.delay ? props.delay : '.1s'};
-  opacity: ${({ ratio }) => ratio ? 1 : 0};
-  transform: ${({ ratio }) => ratio ? 'translateY(0px)' : 'translateY(2rem)'};
+  overflow: hidden;
+  img {
+    transition: .6s ease;
+    transform: ${({ ratio }) => ratio ? 'scale(1, 1)' : 'scale(1.3, 1.3)'};
+    transform-origin: top center;
+    width: 100%;
+  }
   @media screen and (max-width: 992px) {
     width: 33.3333%;
     margin-right: 0;
@@ -68,7 +70,7 @@ const StyledImage = styled(Image)`
 
 const CardObject = ({image, delay}) => {
   const [ref, entry] = useIntersect({
-    threshold: .2
+    threshold: .4
   });
   return (
     <StyledColumn

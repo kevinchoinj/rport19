@@ -9,7 +9,7 @@ import MobileImagesStatic from 'components/projects/MobileImagesStatic';
 import ProjectVideo from 'components/projects/ProjectVideo';
 import styled from 'styled-components';
 import scroll from 'react-scroll';
-import LoadIntersect from 'components/animations/LoadIntersect';
+import LoadIntersect from 'components/animations/LoadIntersectZoom';
 import Sticky from 'components/projects/Sticky';
 import {selectMenuDisplay} from 'reducers';
 

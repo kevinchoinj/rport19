@@ -13,6 +13,7 @@ const StyledWrapper = styled.div`
   position: fixed;
   left: 0px;
   transition: .2s ease;
+  pointer-events: ${props => props.menuDisplay ? 'none' : 'auto'};
   opacity: ${props => (props.hoverOption && props.menuDisplay) ? 0 : 1};
   :after {
     content: '';

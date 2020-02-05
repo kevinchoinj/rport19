@@ -13,7 +13,7 @@ import {menuData} from 'data/menuData';
 
 const StyledBackground = styled.div`
   cursor: pointer;
-  height: 100vh;
+  height: 100%;
   width: 100vw;
   position: fixed;
   background-repeat: no-repeat;

@@ -88,7 +88,7 @@ const StyledWrapper = styled.div`
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: 100%;
 `;
 const StyledContainer = styled.div`
   color: #fff;
@@ -113,7 +113,7 @@ const StyledWrap = styled.div`
 const StyledCanvas = styled.div`
   position: absolute;
   width: 100%;
-  height: 100vh;
+  height: 100%;
 `;
 const StyledPlane = styled.div`
   width: 100%;

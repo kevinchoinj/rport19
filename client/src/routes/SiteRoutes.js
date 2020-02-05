@@ -1,4 +1,6 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import {selectMenuDisplay} from 'reducers';
 
 import {Switch, Route} from 'react-router-dom';
 import ProjectMisc from 'pages/ProjectMisc';
@@ -16,11 +18,22 @@ import {projectData} from 'data/projectData';
 import {pageData} from 'data/pageData';
 import BackgroundImageWrapper from 'menu9/BackgroundImageWrapper';
 
-const SiteRoutes = ({skewValue}) => {
+import { createGlobalStyle } from 'styled-components'
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    @media screen and (max-width: 992px) {
+      overflow-y: ${props => (props.menuDisplay ? 'hidden' : 'auto')};
+    }
+  }
+`
+
+const SiteRoutes = ({skewValue, menuDisplay}) => {
   /* key prop rerenders component when it is the same component being used between routes */
   return (
     <>
       <BackgroundImageWrapper/>
+      <GlobalStyle menuDisplay={menuDisplay}/>
       <Switch>
         <Route exact path={pageData.home} render={props => <Home {...props}/>}/>
         <Route exact path={pageData.miscProjects} render={props => <ProjectMisc {...props} skewValue={skewValue}/>}/>
@@ -49,4 +62,11 @@ const SiteRoutes = ({skewValue}) => {
   );
 };
 
-export default SiteRoutes;
+
+const mapStateToProps = (state) => {
+  return {
+    menuDisplay: selectMenuDisplay(state),
+  };
+};
+
+export default connect (mapStateToProps, null)(SiteRoutes);

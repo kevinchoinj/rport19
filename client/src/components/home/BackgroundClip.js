@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import daytime from './daytime.mp4';
 
 const StyledWrapper = styled.div`
-  height: 100vh;
+  height: 100%;
   width: 100%;
   overflow: hidden;
 	background: url(${daytime}) 50%;
@@ -15,7 +15,7 @@ const StyledWrapper = styled.div`
 		font: 900 50vw sans-serif;
 		text-align: center;
     content: 'KC';
-    height: 100vh;
+    height: 100%;
     width: 100%;
     background: #111;
     color: #fff;

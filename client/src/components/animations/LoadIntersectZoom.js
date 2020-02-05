@@ -14,7 +14,7 @@ const StyledContainer = styled.div`
 
 const LoadIntersectZoom = ({children, delay}) => {
   const [ref, entry] = useIntersect({
-    threshold: .3
+    threshold: .4
   });
   return (
     <StyledContainer

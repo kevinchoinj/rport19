@@ -119,16 +119,12 @@ const StyledWrapper = styled.div`
   z-index: 4;
   pointer-events: '${props => props.menuDisplay ? 'auto' : 'none'}';
   overflow: auto;
-  height: 100vh;
+  height: 100%;
   overflow-x: hidden;
   .scroll-content {
     cursor: ${props => props.isDown ? 'grabbing' : 'grab'}
     display: flex;
     flex-direction: column;
-    @media screen and (max-width: 768px) {
-      padding-bottom: 90px;
-      box-sizing: border-box;
-    }
   }
 `;
 const MenuText = ({menuDisplay, loadedContent, hoverOption}) => {

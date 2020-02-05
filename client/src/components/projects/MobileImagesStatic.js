@@ -39,7 +39,7 @@ const StyledColumn = styled.div`
   box-sizing: border-box;
   overflow: hidden;
   img {
-    transition: .6s ease;
+    transition: .6s ease ${props => props.delay};
     transform: ${({ ratio }) => ratio ? 'scale(1, 1)' : 'scale(1.3, 1.3)'};
     transform-origin: top center;
     width: 100%;

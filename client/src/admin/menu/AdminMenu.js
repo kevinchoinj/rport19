@@ -10,7 +10,7 @@ const StyledWrapper = styled.div`
   padding-top: 100px;
   line-height: 200%;
   min-width: 300px;
-  min-height: 100vh;
+  min-height: 100%;
   box-sizing: border-box;
 `;
 const LinkObject = ({className, link, children}) => (

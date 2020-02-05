@@ -12,7 +12,7 @@ const StyledWrapper = styled.div`
   display: flex;
   flex-direction: row;
   flex-grow: 1;
-  min-height: 100vh;
+  min-height: 100%;
 `;
 const StyledLeft = styled.div`
   flex: 1;

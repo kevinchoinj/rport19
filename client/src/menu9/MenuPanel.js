@@ -11,14 +11,14 @@ const StyledWrapper = styled.div`
   position: fixed;
   top: 0px;
   left: 0px;
-  height: 100vh;
+  height: 100%;
   width: 100%;
   overflow: hidden;
   pointer-events: none;
   z-index: 9;
 `;
 const StyledLeft = styled.div`
-  height: 100vh;
+  height: 100%;
   width: 33vw;
   position: fixed;
   pointer-events: auto;
@@ -42,7 +42,7 @@ const StyledLeft = styled.div`
   }
 `;
 const StyledRight = styled.div`
-  height: 100vh;
+  height: 100%;
   width: 33vw;
   position: fixed;
   right: -33vw;
@@ -54,6 +54,7 @@ const StyledRight = styled.div`
     display: none;
   }
 `;
+
 const MenuPanel = ({menuDisplay}) => {
   return(
     <StyledWrapper menuDisplay={menuDisplay}>

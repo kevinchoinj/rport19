@@ -68,19 +68,19 @@ const ContactForm = ({onSubmit}) => {
       >
         {(values, isSubmitting) =>
           <Form>
-            <label htmlFor="email">
+            <label for="email">
               Email
+              <Field name="email"/>
             </label>
-            <Field name="email"/>
 
-            <label htmlFor="email">
+            <label for="email">
               Message
+              <Field
+                name="message"
+                as="textarea"
+                rows="8"
+              />
             </label>
-            <Field
-              name="message"
-              as="textarea"
-              rows="8"
-            />
             <StyledButtonWrapper>
               <button type="submit">
                 Contact

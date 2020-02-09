@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {connect} from 'react-redux';
 import * as menuActions from 'actions/menu';
 import Skew from 'components/projects/Skew';
@@ -16,10 +16,12 @@ const StyledContainer = styled.div`
   width: 100%;
   color: ${props => props.theme.colorText};
   padding-top: 6rem;
+  padding-right: 3rem;
+  box-sizing: border-box;
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  flex-direction: column;
   @media screen and (max-width: 992px) {
+    padding-right: 0px;
     padding-top: 0;
   }
 `;
@@ -31,7 +33,8 @@ const StyledObject = styled.div`
   object-fit: cover;
   color: #fff;
   font-size: 13px;
-  width: 33%;
+  flex: 1 1 25%;
+  max-width: 25%;
   padding: var(--size-small);
   box-sizing: border-box;
   font-size: var(--size-small);
@@ -49,8 +52,8 @@ const Image = ({className, src}) => (
   <img src={src} alt="" className={className} loading="lazy"/>
 );
 const StyledImage = styled(Image)`
-  width: 100%;
-  box-shadow: 5px 8px 13.92px 2.08px rgba(155,155,155,.03);
+  height: 450px;
+  object-fit: contain;
   cursor: pointer;
   transition: .4s ease-out;
   max-width: 100%;
@@ -58,36 +61,90 @@ const StyledImage = styled(Image)`
     transform: translateY(-8px);
   }
 `;
+const StyledObjects = styled.div`
+  display: flex;
+`;
+const StyledButtons = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  padding: 0 2rem;
+  box-sizing: border-box;
+  align-items: center;
+`;
+const StyledButton = styled.div`
+  border: 1px solid #ddd;
+  cursor: pointer;
+  padding: .5rem 1rem;
+  transition: .2s ease;
+  margin-right: 1rem;
+  &:hover {
+    background-color: #333;
+  }
+`;
+
+const paginate = (array, page_size, page_number) => {
+  --page_number;
+  console.log(array);
+  return array.slice(page_number * page_size, (page_number + 1) * page_size);
+};
+const PAGE_SIZE = 4;
 
 const ProjectMisc = ({ miscProjects, toggleMenu, menuDisplay }) => {
   useEffect(() => {
     toggleMenu();
   }, [toggleMenu]);
+  const [pageId, setPageId] = useState(1);
+  const [displayData, setDisplayData] = useState([]);
+  useEffect(() => {
+    setDisplayData(paginate(miscProjects, PAGE_SIZE, pageId));
+  }, [miscProjects, pageId]);
+
   return (
-    <div tabIndex="0" style={{pointerEvents: menuDisplay ? 'none' : 'auto', position: 'relative'}}>
+    <div
+      tabIndex="0"
+      style={{
+        pointerEvents: menuDisplay ? 'none' : 'auto',
+        position: 'relative'
+      }}
+    >
       <Skew>
         <GetMiscProjects/>
         <Banner
           line1="Misc Projects"
         />
         <StyledContainer>
-          {miscProjects && miscProjects.map((value) => (
-            <StyledObject key={value.value.name}>
-              <StyledTitle>
-                {value.value.name}
-              </StyledTitle>
-              <a
-                href={value.value.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={value.value.name}
-              >
-                <StyledImage
-                  src={value.value.url}
-                />
-              </a>
-            </StyledObject>
-          ))}
+          <StyledButtons>
+            <StyledButton
+              onClick={() => {pageId >= 2 && setPageId(prev => prev - 1)}}
+            >
+              Previous
+            </StyledButton>
+            <StyledButton
+              onClick={() => {miscProjects.length/(pageId*PAGE_SIZE) >= 1 && setPageId(prev => prev + 1)}}
+            >
+              Next
+            </StyledButton>
+            {pageId}/{Math.ceil(miscProjects.length/(PAGE_SIZE))}
+          </StyledButtons>
+          <StyledObjects>
+            {displayData?.map((value) => (
+              <StyledObject key={value.value.name}>
+                <StyledTitle>
+                  {value.value.name}
+                </StyledTitle>
+                <a
+                  href={value.value.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={value.value.name}
+                >
+                  <StyledImage
+                    src={value.value.url}
+                  />
+                </a>
+              </StyledObject>
+            ))}
+          </StyledObjects>
         </StyledContainer>
       </Skew>
     </div>

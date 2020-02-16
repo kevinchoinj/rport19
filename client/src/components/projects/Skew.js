@@ -9,6 +9,7 @@ import {
 
 const StyledSkew = styled.div`
   @media screen and (min-width: 768px) {
+    will-change: opacity;
     opacity: ${props => props.menuDisplay ? 0 : 1};
     transition: .25s ease-in;
   }

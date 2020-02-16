@@ -1,11 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import {connect} from 'react-redux';
 import {menuData} from 'data/menuData';
 import BackgroundImageDisplay from 'menu9/BackgroundImageDisplay';
-import {
-  selectLoadedContent,
-} from 'reducers';
+
 const StyledWrapper = styled.div`
   position: fixed;
   top: 0px;
@@ -16,7 +13,7 @@ const StyledWrapper = styled.div`
   z-index: -1;
 `;
 
-const BackgroundImageWrapper = ({loadedContent}) => {
+const BackgroundImageWrapper = () => {
   return(
     <StyledWrapper>
        {menuData.map((value) => (
@@ -31,9 +28,5 @@ const BackgroundImageWrapper = ({loadedContent}) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    loadedContent: selectLoadedContent(state),
-  };
-};
-export default connect (mapStateToProps, null)(BackgroundImageWrapper);
+
+export default BackgroundImageWrapper;

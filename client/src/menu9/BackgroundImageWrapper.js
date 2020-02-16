@@ -28,4 +28,4 @@ const BackgroundImageWrapper = () => {
   );
 };
 
-export default BackgroundImageWrapper;
+export default React.memo(BackgroundImageWrapper);

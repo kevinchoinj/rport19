@@ -84,7 +84,6 @@ const StyledButton = styled.div`
 
 const paginate = (array, page_size, page_number) => {
   --page_number;
-  console.log(array);
   return array.slice(page_number * page_size, (page_number + 1) * page_size);
 };
 const PAGE_SIZE = 4;

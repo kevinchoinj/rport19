@@ -120,4 +120,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect (mapStateToProps, mapDispatchToProps)(MenuButton);
+export default React.memo(connect(mapStateToProps, mapDispatchToProps)(MenuButton));

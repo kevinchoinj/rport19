@@ -65,4 +65,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect (mapStateToProps, mapDispatchToProps)(BackgroundImageDisplay);
+export default React.memo(connect(mapStateToProps, mapDispatchToProps)(BackgroundImageDisplay));

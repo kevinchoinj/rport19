@@ -27,7 +27,6 @@ const StyledBackground = styled.div`
 `;
 
 const BackgroundImageDisplay = ({hoverOption, image, link, loadedContent, menuDisplay, toggleMenu}) => {
-
   const [menuOpen, setMenuOpen] = useState(false);
   const [currentImage, setCurrentImage] = useState(false);
   useEffect(() => {
@@ -42,7 +41,6 @@ const BackgroundImageDisplay = ({hoverOption, image, link, loadedContent, menuDi
         setCurrentImage(compose(prop('image'),find(propEq('link', loadedContent)))(menuData));
       }
     }
-    console.log(currentImage);
   }, [menuDisplay, hoverOption])
   useEffect(() => {
     setMenuOpen(
@@ -80,4 +78,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect (mapStateToProps, mapDispatchToProps)(BackgroundImageDisplay);
+export default connect(mapStateToProps, mapDispatchToProps)(BackgroundImageDisplay);

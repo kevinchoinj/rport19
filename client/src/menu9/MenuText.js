@@ -156,7 +156,6 @@ const MenuText = ({menuDisplay, loadedContent, hoverOption}) => {
     e.preventDefault();
     const y = e.pageY;
     const walk = (y-startY) * 3;
-    console.log(scrollbar.scrollTop);
     scrollbar.scrollTo(0, scrollbar.scrollTop - walk, 600);
   };
   return(
@@ -210,4 +209,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect (mapStateToProps, mapDispatchToProps)(MenuText);
+export default React.memo(connect(mapStateToProps, mapDispatchToProps)(MenuText));

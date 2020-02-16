@@ -19,10 +19,6 @@ const Video = ({className, src, poster}) => (
 const StyledVideo = styled(Video)`
   width: 100%;
   height: auto;
-  @media screen and (max-width: 992px) {
-    padding: 1.5rem 1.5rem 0 1.5rem;
-    box-sizing:border-box;
-  }
   @media screen and (min-width: 992px) {
     margin: 10rem 0px;
     width: 66.6666%;

@@ -25,8 +25,7 @@ const Image = ({className, src}) => (
 const StyledImage = styled(Image)`
   width: 100%;
   @media screen and (max-width: 992px) {
-    padding: 1.5rem 1.5rem 0 1.5rem;
-    box-sizing:border-box;
+    width: calc(100% - 3rem);
   }
 `;
 
@@ -87,6 +86,7 @@ const StyledDisplayContainer = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+
 `;
 const StyledDisplay = styled.div`
   width: 83.33333333%;
@@ -96,16 +96,15 @@ const StyledDisplay = styled.div`
   flex-direction: column;
   overflow: visible;
   padding: 7rem 0;
-  &:nth-child(1) {
-    padding: 0 0 7rem 0;
-  }
   position: relative;
   @media screen and (max-width: 992px) {
     margin-left: 0px;
-    width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    width: calc(100% - 3rem);
     padding: 0;
     &:nth-child(1) {
-      padding: 0;
+      margin-top: 2rem;
     }
   }
 `;

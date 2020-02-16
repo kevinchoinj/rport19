@@ -7,12 +7,13 @@ const StyledWrapper = styled.div`
   background-color: ${props => props.theme.colorBackground};
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-end;
   width: 100%;
   box-sizing: border-box;
   padding: 32px 8.333333333% 100px 8.333333333%;
   @media screen and (max-width: 992px) {
     padding: 0px;
+    justify-content: space-between;
   }
   @media screen and (max-width: 768px) {
     padding-bottom: 2rem;
@@ -22,12 +23,13 @@ const StyledContainer = styled.div`
   width: 83.33333333%;
   max-width: 992px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   @media screen and (max-width: 992px) {
     width: 100%;
-    align-items: center;
+    justify-content: space-around;
   }
   @media screen and (max-width: 768px) {
+    align-items: center;
     flex-direction: column;
   }
   @media screen and (max-width: 768px) and (orientation: landscape) {
@@ -38,6 +40,8 @@ const StyledColumn = styled.div`
   width: 30%;
   box-sizing: border-box;
   overflow: hidden;
+  max-width: 430px;
+  margin-right: 1rem;
   img {
     transition: .6s ease ${props => props.delay};
     transform: ${({ ratio }) => ratio ? 'scale(1, 1)' : 'scale(1.3, 1.3)'};
@@ -45,11 +49,11 @@ const StyledColumn = styled.div`
     width: 100%;
   }
   @media screen and (max-width: 992px) {
-    width: 33.3333%;
     margin-right: 0;
   }
   @media screen and (max-width: 768px) {
     width: 83.333333%;
+    margin: 1rem 0;
   }
   @media screen and (max-width: 768px) and (orientation: landscape) {
     width: 33.33333333%;
@@ -62,8 +66,7 @@ const Image = ({className, src}) => (
 
 const StyledImage = styled(Image)`
   width: 100%;
-  @media screen and (max-width: 992px) {
-    padding: 1.5rem 1.5rem 0 1.5rem;
+  @media screen and (max-width: 768px) {
     box-sizing:border-box;
   }
 `;

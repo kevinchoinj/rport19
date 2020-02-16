@@ -32,13 +32,11 @@ const StyledVideo = styled(Video)`
 
 const Background = ({backgroundVideo, backgroundImage}) => {
   return(
-    <>
     <StyledVideo
       poster={backgroundImage}
       src={backgroundVideo}
     />
-    </>
   );
 };
 
-export default Background;
+export default React.memo(Background);

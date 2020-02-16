@@ -1,12 +1,6 @@
 import React from 'react';
 import LoadIn from 'components/animations/LoadIn';
 import styled, {keyframes} from 'styled-components';
-import {connect} from 'react-redux';
-import * as mouseActions from 'actions/mouse';
-import {
-  selectIsMobile,
-  selectMenuDisplay,
-} from 'reducers';
 
 const StyledTextWrapper = styled.div`
   width: 16.66666667%;
@@ -110,7 +104,6 @@ const StyledContainer = styled.div`
   justify-content: center;
 
   @media screen and (min-width: 768px) {
-    opacity: ${props => props.menuDisplay ? 0 : 1};
     animation: ${fadeIn} .4s ease both;
   }
   @media screen and (max-width: 992px) {
@@ -131,13 +124,10 @@ const StyledText = styled.div`
     padding: 0 1rem;
   }
 `;
-const Banner = ({ line1, line2, line3, line4, hoverImage, isMobile, menuDisplay }) => {
+const Banner = ({ line1, line2, line3, line4 }) => {
   return (
-    <StyledWrapper
-      onMouseEnter={() => hoverImage('down')}
-      onMouseLeave ={() => hoverImage('')}
-    >
-      <StyledContainer menuDisplay={menuDisplay}>
+    <StyledWrapper>
+      <StyledContainer>
         <StyledText>
           <TextDisplay
             textLine = {line1}
@@ -165,17 +155,4 @@ const Banner = ({ line1, line2, line3, line4, hoverImage, isMobile, menuDisplay 
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    menuDisplay: selectMenuDisplay(state),
-    isMobile: selectIsMobile(state),
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    hoverImage: (value) => dispatch(mouseActions.hoverImage(value)),
-  };
-};
-
-export default connect (mapStateToProps, mapDispatchToProps)(Banner);
+export default React.memo(Banner);

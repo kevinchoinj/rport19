@@ -4,7 +4,6 @@ import AboutContainer from 'components/projects/AboutContainer';
 import Skew from 'components/projects/Skew';
 import {connect} from 'react-redux';
 import * as menuActions from 'actions/menu';
-import * as mouseActions from 'actions/mouse';
 import MobileImagesStatic from 'components/projects/MobileImagesStatic';
 import ProjectVideo from 'components/projects/ProjectVideo';
 import styled from 'styled-components';
@@ -123,7 +122,7 @@ const StyledBodyText = styled.div`
   }
 `;
 
-const ProjectLayout = ({ pageValues, toggleMenu, hoverImage, menuDisplay }) => {
+const ProjectLayout = ({ pageValues, toggleMenu, menuDisplay }) => {
   useEffect(() => {
     toggleMenu();
   }, [toggleMenu]);
@@ -186,8 +185,6 @@ const ProjectLayout = ({ pageValues, toggleMenu, hoverImage, menuDisplay }) => {
 
         <StyledFooter
           onClick={() => scrollUp()}
-          onMouseEnter={() => hoverImage('up')}
-          onMouseLeave ={() => hoverImage('')}
         />
       </Skew>
     </div>
@@ -205,7 +202,6 @@ const mapDispatchToProps = (dispatch) => {
     toggleMenu: () => {
       dispatch(menuActions.toggleMenu(false));
     },
-    hoverImage: (value) => dispatch(mouseActions.hoverImage(value)),
   };
 };
 

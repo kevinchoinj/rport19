@@ -42,5 +42,5 @@ const LoadIn = ({loadDelay, children}) => {
   );
 };
 
-export default LoadIn;
+export default React.memo(LoadIn);
 

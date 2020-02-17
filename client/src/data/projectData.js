@@ -4,7 +4,7 @@ export const projectData = {
     bannerTextTwo: '2020',
     bannerTextThree: 'Javascript React Node.js',
     bannerTextFour: 'https://fasffy.com/',
-    aboutText: 'Fasffy is a Twitch.tv streamer, cosplayer, and eSports manager.',
+    aboutText: 'Fasffy is a Twitch.tv streamer, cosplayer, and eSports manager. As of 2020, she manages the Team Liquid League of Legends division, which has won four consecutive North American championships in 2018 and 2019.',
     video: '/static/images/fasffy/video.mp4',
     bodyImageOne: '/static/images/fasffy/1.jpg',
     bodyImageTwo: '/static/images/fasffy/2.jpg',

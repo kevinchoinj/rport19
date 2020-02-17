@@ -64,7 +64,6 @@ const StyledText = styled.div`
   font-size: var(--size-small);
   letter-spacing: 1px;
   width: 66.6%;
-  margin-left: 8.33333333%;
   padding: 0 0 var(--size-spacing-large) 0px;
   font-family: 'Josefin Sans', Helvetica, sans-serif;
   line-height: 140%;
@@ -76,7 +75,7 @@ const StyledText = styled.div`
   }
 `;
 const StyledTitle = styled.div`
-  font-size: var(--size-xlarge);
+  font-size: 3rem;
   cursor: default;
   line-height: 140%;
 `;

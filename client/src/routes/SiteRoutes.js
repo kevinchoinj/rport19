@@ -69,4 +69,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect (mapStateToProps, null)(SiteRoutes);
+export default connect(mapStateToProps, null)(SiteRoutes);

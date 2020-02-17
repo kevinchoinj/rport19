@@ -3,28 +3,25 @@ import styled from 'styled-components';
 
 const StyledWrapper = styled.div`
   width: 100%;
-  height: 18rem;
   background-color: #fff;
-  font-size: var(--size-small);
+  font-size: 3rem;
   letter-spacing: 0px;
   word-wrap: break-word;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
   color: ${props => props.theme.colorBackground};
   @media screen and (max-width: 992px) {
-    height: 22rem;
     flex-direction: column;
   }
 `;
 const StyledBody = styled.div`
-  width: 640px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  margin: 2rem 1rem;
+  width: 80%;
+  max-width: 1240px;
+  text-align: left;
   font-family: 'Josefin Sans', Helvetica, sans-serif;
-  line-height: 140%;
+  line-height: 130%;
   @media screen and (max-width: 992px) {
     width: 100%;
     padding: 0px 1rem;
@@ -44,4 +41,4 @@ const About = ({ title, children }) => {
   );
 };
 
-export default About;
+export default React.memo(About);

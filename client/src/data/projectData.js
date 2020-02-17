@@ -1,4 +1,18 @@
 export const projectData = {
+  fasffy: {
+    bannerTextOne: 'Fasffy',
+    bannerTextTwo: '2020',
+    bannerTextThree: 'Javascript React Node.js',
+    bannerTextFour: 'https://fasffy.com/',
+    aboutText: 'Fasffy is a Twitch.tv streamer, cosplayer, and eSports manager.',
+    video: '/static/images/fasffy/video.mp4',
+    bodyImageOne: '/static/images/fasffy/1.jpg',
+    bodyImageTwo: '/static/images/fasffy/2.jpg',
+    bodyImageThree: '/static/images/fasffy/3.jpg',
+    mobileImageOne: '/static/images/fasffy/4.jpg',
+    mobileImageTwo: '/static/images/fasffy/5.jpg',
+    mobileImageThree: '/static/images/fasffy/6.jpg',
+  },
   kaitlyn: {
     bannerTextOne: 'Kaitlyn',
     bannerTextTwo: '2019',

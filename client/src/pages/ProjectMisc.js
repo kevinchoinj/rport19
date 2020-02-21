@@ -26,7 +26,8 @@ const StyledContainer = styled.div`
   }
 `;
 const StyledObject = styled.div`
-  display: inline-block;
+  display: inline-flex;
+  flex-direction: column;
   margin: 14px;
   padding-top: 14px;
   max-width: 100%;
@@ -34,13 +35,18 @@ const StyledObject = styled.div`
   color: #fff;
   font-size: 13px;
   flex: 1 1 25%;
-  max-width: 25%;
   padding: var(--size-small);
   box-sizing: border-box;
   font-size: var(--size-small);
   font-family: 'Open Sans', Helvetica, sans-serif;
+  align-items: center;
+  a {
+    display: inline-block;
+  }
   @media screen and (max-width: 768px) {
     width: 100%;
+    flex: 1 1 100%;
+    max-width: 100%;
   }
 `;
 const StyledTitle = styled.div`
@@ -63,6 +69,9 @@ const StyledImage = styled(Image)`
 `;
 const StyledObjects = styled.div`
   display: flex;
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 const StyledButtons = styled.div`
   display: flex;

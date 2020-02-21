@@ -13,6 +13,7 @@ const StyledWrapper = styled.div`
   color: ${props => props.theme.colorBackground};
   @media screen and (max-width: 992px) {
     flex-direction: column;
+    font-size: 1.5rem;
   }
 `;
 const StyledBody = styled.div`
@@ -24,7 +25,7 @@ const StyledBody = styled.div`
   line-height: 130%;
   @media screen and (max-width: 992px) {
     width: 100%;
-    padding: 0px 1rem;
+    padding: 2rem 1rem;
     margin: 0;
     box-sizing: border-box;
   }

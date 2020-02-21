@@ -30,7 +30,7 @@ const StyledObject = styled.div`
   flex-direction: column;
   margin: 14px;
   padding-top: 14px;
-  max-width: 100%;
+  max-width: 25%;
   object-fit: cover;
   color: #fff;
   font-size: 13px;
@@ -58,7 +58,6 @@ const Image = ({className, src}) => (
   <img src={src} alt="" className={className} loading="lazy"/>
 );
 const StyledImage = styled(Image)`
-  height: 450px;
   object-fit: contain;
   cursor: pointer;
   transition: .4s ease-out;

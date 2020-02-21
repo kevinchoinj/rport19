@@ -4,19 +4,16 @@ import useIntersect from 'hooks/useIntersect';
 
 const StyledWrapper = styled.div`
   bottom: 0px;
-  background-color: ${props => props.theme.colorBackground};
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   width: 100%;
+  position: relative;
   box-sizing: border-box;
   padding: 32px 8.333333333% 100px 8.333333333%;
   @media screen and (max-width: 992px) {
-    padding: 0px;
+    padding: 0 0 2rem 0;
     justify-content: space-between;
-  }
-  @media screen and (max-width: 768px) {
-    padding-bottom: 2rem;
   }
 `;
 const StyledContainer = styled.div`
@@ -44,7 +41,8 @@ const StyledColumn = styled.div`
   margin-right: 1rem;
   img {
     transition: .6s ease ${props => props.delay};
-    transform: ${({ ratio }) => ratio ? 'scale(1, 1)' : 'scale(1.3, 1.3)'};
+    opacity: ${({ ratio }) => ratio ? 1 : 0};
+    transform: ${({ ratio }) => ratio ? 'transformY(0px)' : 'transformY(1rem)'};
     transform-origin: top center;
     width: 100%;
   }
@@ -59,7 +57,7 @@ const StyledColumn = styled.div`
     width: 33.33333333%;
   }
 `;
-
+//transform: ${({ ratio }) => ratio ? 'scale(1, 1)' : 'scale(1.3, 1.3)'};
 const Image = ({className, src}) => (
   <img src={src} alt="" className={className} loading="lazy"/>
 );

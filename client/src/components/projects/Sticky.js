@@ -15,7 +15,7 @@ const StyledSticky = styled.div`
   display: flex;
   justify-content: space-between;
   white-space: nowrap;
-  text-overflow: '';
+  text-overflow: "";
   width: 130%;
   margin-left: -15%;
   justify-self: flex-start;

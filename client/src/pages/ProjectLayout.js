@@ -8,7 +8,7 @@ import MobileImagesStatic from 'components/projects/MobileImagesStatic';
 import ProjectVideo from 'components/projects/ProjectVideo';
 import styled from 'styled-components';
 import scroll from 'react-scroll';
-import LoadIntersect from 'components/animations/LoadIntersectZoom';
+import LoadIntersect from 'components/animations/LoadIntersectOpacity';
 import Sticky from 'components/projects/Sticky';
 import {selectMenuDisplay} from 'reducers';
 
@@ -106,6 +106,20 @@ const StyledDisplay = styled.div`
     }
   }
 `;
+const StyledDisplaySmall = styled(StyledDisplay)`
+  width: ${props => props.size ? props.size : '375px'};
+  padding: 3.5rem 0;
+  right: 8.333333333%;
+  align-self: flex-end;
+
+  @media screen and (max-width: 992px) {
+    right: auto;
+    width: calc(100% - 3rem);
+    max-width: ${props => props.size ? props.size : '375px'};
+    align-self: center;
+    display: none;
+  }
+`;
 const StyledFooter = styled.div`
   height: 100vh;
   width: 100%;
@@ -174,6 +188,11 @@ const ProjectLayout = ({ pageValues, toggleMenu, menuDisplay }) => {
               <StyledImage src={pageValues.bodyImageTwo}/>
             </LoadIntersect>
           </StyledDisplay>
+          <StyledDisplaySmall size={pageValues.addImageOneSize}>
+            <LoadIntersect>
+              <StyledImage src={pageValues.addImageOne}/>
+            </LoadIntersect>
+          </StyledDisplaySmall>
           <StyledDisplay>
             <LoadIntersect>
               <StyledImage src={pageValues.bodyImageThree}/>

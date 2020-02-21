@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useCallback, useState, useEffect} from 'react';
 import {connect} from 'react-redux';
 import * as menuActions from 'actions/menu';
 import {history} from 'store';
@@ -26,8 +26,17 @@ const StyledBackground = styled.div`
   }
 `;
 
-const BackgroundImageDisplay = ({hoverOption, image, link, loadedContent, menuDisplay, toggleMenu}) => {
+const BackgroundImage = React.memo(({menuOpen, link, src, onClick}) => {
+    return <StyledBackground
+      menuOpen={menuOpen}
+      style={{
+        backgroundImage: `url(${src})`,
+      }}
+      onClick={() => onClick(link, true)}
+    />
+    });
 
+const BackgroundImageDisplay = ({hoverOption, image, link, loadedContent, menuDisplay, toggleMenu}) => {
   const [menuOpen, setMenuOpen] = useState(false);
   useEffect(() => {
     setMenuOpen(
@@ -36,14 +45,15 @@ const BackgroundImageDisplay = ({hoverOption, image, link, loadedContent, menuDi
     || (image===hoverOption && menuDisplay)
     );
   }, [loadedContent, menuDisplay, hoverOption, image, link, menuOpen]);
+
+  const memoizedCallback = useCallback(toggleMenu, []);
+
   return(
-    <StyledBackground
+    <BackgroundImage
       menuOpen={menuOpen}
-      menuDisplay ={menuDisplay}
-      style={{
-        backgroundImage: `url(${image})`,
-      }}
-      onClick={() => toggleMenu(link, menuDisplay)}
+      src={image}
+      link={link}
+      onClick={memoizedCallback}
     />
   );
 };

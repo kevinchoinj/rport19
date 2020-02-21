@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import * as menuActions from 'actions/menu';
+import {toggleMenu} from 'actions/menu';
 import {
   selectMenuDisplay,
 } from 'reducers';
@@ -113,8 +113,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     toggleMenu: (menuDisplay) => {
-      dispatch(menuActions.hoverMenuOption(false));
-      dispatch(menuActions.toggleMenu(!menuDisplay));
+      dispatch(toggleMenu(!menuDisplay));
       document.getElementById('menu_scrollbar').focus();
     }
   };

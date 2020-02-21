@@ -3,14 +3,13 @@ import Banner from 'components/projects/Banner';
 import AboutContainer from 'components/projects/AboutContainer';
 import Skew from 'components/projects/Skew';
 import {connect} from 'react-redux';
-import * as menuActions from 'actions/menu';
+import {toggleMenu} from 'actions/menu';
 import MobileImagesStatic from 'components/projects/MobileImagesStatic';
 import ProjectVideo from 'components/projects/ProjectVideo';
 import styled from 'styled-components';
 import scroll from 'react-scroll';
 import LoadIntersect from 'components/animations/LoadIntersectOpacity';
 import Sticky from 'components/projects/Sticky';
-import {selectMenuDisplay} from 'reducers';
 
 let scroller = scroll.animateScroll;
 
@@ -135,92 +134,98 @@ const StyledBodyText = styled.div`
   }
 `;
 
-const ProjectLayout = ({ pageValues, toggleMenu, menuDisplay }) => {
+const ProjectImage = React.memo(({src}) => {
+  return (
+    <StyledDisplay>
+      <LoadIntersect>
+        <StyledImage src={src}/>
+      </LoadIntersect>
+    </StyledDisplay>
+  )
+});
+const ProjectVideoObject = React.memo(({src, textOne, textTwo, textThree, video}) => {
+  return (
+    <StyledDisplayContainer>
+      <StyledDisplay>
+        {src && video &&
+          <ProjectVideo
+            backgroundImage={src}
+            backgroundVideo={video}
+          />
+        }
+        {textOne &&
+          <StyledText>
+            <StyledTitle>
+              OVERVIEW
+            </StyledTitle>
+            <StyledBodyText>
+              {textOne}
+              {textTwo}
+              {textThree}
+            </StyledBodyText>
+          </StyledText>
+        }
+        {!video && src &&
+          <LoadIntersect>
+            <StyledImage
+              src={src}
+            />
+          </LoadIntersect>
+        }
+      </StyledDisplay>
+    </StyledDisplayContainer>
+  )
+});
+
+const ProjectLayout = ({ pageValues, toggleMenu }) => {
   useEffect(() => {
     toggleMenu();
   }, [toggleMenu]);
   return (
-    <div tabIndex="0" style={{pointerEvents: menuDisplay ? 'none' : 'auto', position: 'relative'}}>
-      <Skew>
-        <Banner
-          line1 = {pageValues.bannerTextOne}
-          line2 = {pageValues.bannerTextTwo}
-          line3 = {pageValues.bannerTextThree}
-          line4 = {pageValues.bannerTextFour}
+    <Skew>
+      <Banner
+        line1 = {pageValues.bannerTextOne}
+        line2 = {pageValues.bannerTextTwo}
+        line3 = {pageValues.bannerTextThree}
+        line4 = {pageValues.bannerTextFour}
+      />
+      <AboutContainer title={pageValues.bannerTextOne}>
+        {pageValues.aboutText}
+      </AboutContainer>
+      <StyledContainer>
+        <Sticky title ={pageValues.bannerTextOne}/>
+        <ProjectVideoObject
+          src={pageValues.bodyImageOne}
+          video={pageValues.video}
+          textOne={pageValues.bodyTextOne}
+          textTwo={pageValues.bodyTextTwo}
+          textThree={pageValues.bodyTextThree}
         />
-        <AboutContainer title={pageValues.bannerTextOne}>
-          {pageValues.aboutText}
-        </AboutContainer>
-        <StyledContainer>
-          <Sticky title ={pageValues.bannerTextOne}/>
-        <StyledDisplayContainer>
-
-          <StyledDisplay>
-            {pageValues.bodyImageOne && pageValues.video &&
-              <ProjectVideo
-                backgroundImage={pageValues.bodyImageOne}
-                backgroundVideo={pageValues.video}
-              />
-            }
-            { pageValues.bodyTextOne &&
-              <StyledText>
-                <StyledTitle>
-                  OVERVIEW
-                </StyledTitle>
-                <StyledBodyText>
-                  {pageValues.bodyTextOne}
-                  {pageValues.bodyTextTwo}
-                  {pageValues.bodyTextThree}
-                </StyledBodyText>
-              </StyledText>
-            }
-            {!pageValues.video && pageValues.bodyImageOne &&
-              <LoadIntersect>
-                <StyledImage
-                  src={pageValues.bodyImageOne}
-                />
-              </LoadIntersect>
-            }
-          </StyledDisplay>
-          </StyledDisplayContainer>
-          <StyledDisplay>
-            <LoadIntersect>
-              <StyledImage src={pageValues.bodyImageTwo}/>
-            </LoadIntersect>
-          </StyledDisplay>
+        <ProjectImage src={pageValues.bodyImageTwo}/>
+        {pageValues.addImageOne &&
           <StyledDisplaySmall size={pageValues.addImageOneSize}>
             <LoadIntersect>
               <StyledImage src={pageValues.addImageOne}/>
             </LoadIntersect>
           </StyledDisplaySmall>
-          <StyledDisplay>
-            <LoadIntersect>
-              <StyledImage src={pageValues.bodyImageThree}/>
-            </LoadIntersect>
-          </StyledDisplay>
-          <MobileImageView pageValues = {pageValues}/>
-        </StyledContainer>
+        }
+          <ProjectImage src={pageValues.bodyImageThree}/>
+        <MobileImageView pageValues = {pageValues}/>
+      </StyledContainer>
 
-        <StyledFooter
-          onClick={() => scrollUp()}
-        />
-      </Skew>
-    </div>
+      <StyledFooter
+        onClick={() => scrollUp()}
+      />
+    </Skew>
   );
-};
-
-const mapStateToProps = (state) => {
-  return {
-    menuDisplay: selectMenuDisplay(state),
-  };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     toggleMenu: () => {
-      dispatch(menuActions.toggleMenu(false));
+      dispatch(toggleMenu(false));
     },
   };
 };
 
-export default React.memo(connect(mapStateToProps, mapDispatchToProps)(ProjectLayout));
+export default React.memo(connect(null, mapDispatchToProps)(ProjectLayout));

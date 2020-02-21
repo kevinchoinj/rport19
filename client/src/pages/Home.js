@@ -3,7 +3,7 @@ import Background from 'components/home//Background';
 import Logo from 'components/home/Logo';
 import Contact from 'components/home/Contact';
 import {connect} from 'react-redux';
-import * as menuActions from 'actions/menu';
+import {toggleMenu} from 'actions/menu';
 
 export const Home = ({toggleMenu}) => {
   useEffect(() => {
@@ -21,7 +21,7 @@ export const Home = ({toggleMenu}) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    toggleMenu: () => dispatch(menuActions.toggleMenu(false)),
+    toggleMenu: () => dispatch(toggleMenu(false)),
   };
 };
 

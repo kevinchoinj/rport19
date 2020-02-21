@@ -27,4 +27,4 @@ const LoadIntersectOpacity = ({children, delay}) => {
   );
 };
 
-export default LoadIntersectOpacity;
+export default React.memo(LoadIntersectOpacity);

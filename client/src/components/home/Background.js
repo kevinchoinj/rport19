@@ -93,4 +93,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect (mapStateToProps, null)(Background);
+export default React.memo(connect(mapStateToProps, null)(Background));

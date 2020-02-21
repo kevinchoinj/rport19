@@ -16,12 +16,11 @@ const StyledLinkWrapper = styled.div`
   padding-right: 6rem;
   box-sizing: border-box;
 `;
-const LinkDivWrapper = ({hoverOption, index, children, tabIndex}) => {
+const LinkDivWrapper = ({hoverOption, index, children}) => {
   if (window.innerWidth >= 768) {
     return (
       <StyledLinkWrapper
         onMouseOver={() => hoverOption(index)}
-        tabIndex={tabIndex}
       >
         {children}
       </StyledLinkWrapper>
@@ -29,9 +28,7 @@ const LinkDivWrapper = ({hoverOption, index, children, tabIndex}) => {
   }
   else {
     return (
-      <StyledLinkWrapper
-        tabIndex={tabIndex}
-      >
+      <StyledLinkWrapper>
         {children}
       </StyledLinkWrapper>
     );
@@ -54,11 +51,10 @@ const StyledLinkDiv = styled.div`
     line-height: 150%;
   }
 `;
-const LinkObject = ({className, link, children, tabIndex}) => (
+const LinkObject = ({className, link, children}) => (
   <Link
     to={link}
     className = {className}
-    tabIndex={tabIndex}
   >
     {children}
   </Link>
@@ -85,11 +81,10 @@ const StyledLink = styled(LinkObject)`
     line-height: 150%;
   }
 `;
-const CheckCurrentPage = ({loadedContent, link, children, menuDisplay}) => {
+const CheckCurrentPage = React.memo(({loadedContent, link, children}) => {
   if (loadedContent === link) {
     return (
-      <StyledLinkDiv
-        tabIndex={menuDisplay ? '0' : '-1'}>
+      <StyledLinkDiv>
         {children}
       </StyledLinkDiv>
     );
@@ -97,14 +92,13 @@ const CheckCurrentPage = ({loadedContent, link, children, menuDisplay}) => {
   else {
     return (
       <StyledLink
-        tabIndex={menuDisplay ? '0' : '-1'}
         link={link}
         children={children}
         aria-label={link}
       />
     );
   }
-};
+});
 
 const StyledNumber = styled.div`
   float: left;

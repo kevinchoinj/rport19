@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import * as menuActions from 'actions/menu';
+import {hoverMenuOption} from 'actions/menu';
 import {connect} from 'react-redux';
 import Scrollbar from 'smooth-scrollbar';
 import {Link} from 'react-router-dom';
@@ -16,12 +16,11 @@ const StyledLinkWrapper = styled.div`
   padding-right: 6rem;
   box-sizing: border-box;
 `;
-const LinkDivWrapper = ({hoverOption, image, children, tabIndex}) => {
+const LinkDivWrapper = React.memo(({hoverOption, image, children}) => {
   if (window.innerWidth >= 768) {
     return (
       <StyledLinkWrapper
         onMouseOver={() => hoverOption(image)}
-        tabIndex={tabIndex}
       >
         {children}
       </StyledLinkWrapper>
@@ -29,14 +28,12 @@ const LinkDivWrapper = ({hoverOption, image, children, tabIndex}) => {
   }
   else {
     return (
-      <StyledLinkWrapper
-        tabIndex={tabIndex}
-      >
+      <StyledLinkWrapper>
         {children}
       </StyledLinkWrapper>
     );
   }
-};
+});
 
 const StyledLinkDiv = styled.div`
   font-size: 4.5vw;
@@ -54,11 +51,10 @@ const StyledLinkDiv = styled.div`
     line-height: 150%;
   }
 `;
-const LinkObject = ({className, link, children, tabIndex}) => (
+const LinkObject = ({className, link, children}) => (
   <Link
     to={link}
     className = {className}
-    tabIndex={tabIndex}
   >
     {children}
   </Link>
@@ -85,11 +81,10 @@ const StyledLink = styled(LinkObject)`
     line-height: 150%;
   }
 `;
-const CheckCurrentPage = ({loadedContent, link, children, menuDisplay}) => {
+const CheckCurrentPage = React.memo(({loadedContent, link, children}) => {
   if (loadedContent === link) {
     return (
-      <StyledLinkDiv
-        tabIndex={menuDisplay ? '0' : '-1'}>
+      <StyledLinkDiv>
         {children}
       </StyledLinkDiv>
     );
@@ -97,14 +92,13 @@ const CheckCurrentPage = ({loadedContent, link, children, menuDisplay}) => {
   else {
     return (
       <StyledLink
-        tabIndex={menuDisplay ? '0' : '-1'}
         link={link}
         children={children}
         aria-label={link}
       />
     );
   }
-};
+});
 
 const StyledNumber = styled.div`
   float: left;
@@ -167,12 +161,10 @@ const MenuText = ({menuDisplay, loadedContent, hoverOption}) => {
       onMouseLeave={() => onMouseUp()}
       onMouseMove={(e) => onMouseMove(e)}
       isDown={isDown}
-      tabIndex="2"
     >
       {menuData.map((value) => (
         <StyledRow key={value.link}>
           <CheckCurrentPage
-            menuDisplay={menuDisplay}
             loadedContent={loadedContent}
             link={value.link}
           >
@@ -204,7 +196,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     hoverOption: (option) => {
-      dispatch(menuActions.hoverMenuOption(option));
+      dispatch(hoverMenuOption(option));
     }
   };
 };

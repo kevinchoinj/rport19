@@ -8,6 +8,8 @@ import {
 } from 'reducers';
 
 const StyledSkew = styled.div`
+  pointer-events: ${props => props.menuDisplay ? 'none' : 'auto'};
+  position: relative;
   @media screen and (min-width: 768px) {
     will-change: opacity;
     opacity: ${props => props.menuDisplay ? 0 : 1};
@@ -39,4 +41,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect (mapStateToProps, null)(Skew);
+export default connect(mapStateToProps, null)(Skew);

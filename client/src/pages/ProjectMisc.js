@@ -1,11 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import {connect} from 'react-redux';
-import * as menuActions from 'actions/menu';
+import {toggleMenu} from 'actions/menu';
 import Skew from 'components/projects/Skew';
 import GetMiscProjects from 'components/services/GetMiscProjects';
 import Banner from 'components/projects/Banner';
 import styled from 'styled-components';
-import {selectMenuDisplay} from 'reducers';
 
 import {
   selectImagesProjects,
@@ -96,7 +95,7 @@ const paginate = (array, page_size, page_number) => {
 };
 const PAGE_SIZE = 4;
 
-const ProjectMisc = ({ miscProjects, toggleMenu, menuDisplay }) => {
+const ProjectMisc = ({ miscProjects, toggleMenu }) => {
   useEffect(() => {
     toggleMenu();
   }, [toggleMenu]);
@@ -107,70 +106,61 @@ const ProjectMisc = ({ miscProjects, toggleMenu, menuDisplay }) => {
   }, [miscProjects, pageId]);
 
   return (
-    <div
-      tabIndex="0"
-      style={{
-        pointerEvents: menuDisplay ? 'none' : 'auto',
-        position: 'relative'
-      }}
-    >
-      <Skew>
-        <GetMiscProjects/>
-        <Banner
-          line1="Misc Projects"
-        />
-        <StyledContainer>
-          <StyledButtons>
-            <StyledButton
-              onClick={() => {pageId >= 2 && setPageId(prev => prev - 1)}}
-            >
-              Previous
-            </StyledButton>
-            <StyledButton
-              onClick={() => {miscProjects.length/(pageId*PAGE_SIZE) >= 1 && setPageId(prev => prev + 1)}}
-            >
-              Next
-            </StyledButton>
-            {pageId}/{Math.ceil(miscProjects.length/(PAGE_SIZE))}
-          </StyledButtons>
-          <StyledObjects>
-            {displayData?.map((value) => (
-              <StyledObject key={value.value.name}>
-                <StyledTitle>
-                  {value.value.name}
-                </StyledTitle>
-                <a
-                  href={value.value.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={value.value.name}
-                >
-                  <StyledImage
-                    src={value.value.url}
-                  />
-                </a>
-              </StyledObject>
-            ))}
-          </StyledObjects>
-        </StyledContainer>
-      </Skew>
-    </div>
+    <Skew>
+      <GetMiscProjects/>
+      <Banner
+        line1="Misc Projects"
+      />
+      <StyledContainer>
+        <StyledButtons>
+          <StyledButton
+            onClick={() => {pageId >= 2 && setPageId(prev => prev - 1)}}
+          >
+            Previous
+          </StyledButton>
+          <StyledButton
+            onClick={() => {miscProjects.length/(pageId*PAGE_SIZE) >= 1 && setPageId(prev => prev + 1)}}
+          >
+            Next
+          </StyledButton>
+          {pageId}/{Math.ceil(miscProjects.length/(PAGE_SIZE))}
+        </StyledButtons>
+        <StyledObjects>
+          {displayData?.map((value) => (
+            <StyledObject key={value.value.name}>
+              <StyledTitle>
+                {value.value.name}
+              </StyledTitle>
+              <a
+                href={value.value.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={value.value.name}
+              >
+                <StyledImage
+                  src={value.value.url}
+                />
+              </a>
+            </StyledObject>
+          ))}
+        </StyledObjects>
+      </StyledContainer>
+    </Skew>
   );
 };
 
 const mapStateToProps = (state) => {
   return {
     miscProjects: selectImagesProjects(state),
-    menuDisplay: selectMenuDisplay(state),
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     toggleMenu: () => {
-      dispatch(menuActions.toggleMenu(false));
+      dispatch(toggleMenu(false));
     },
   };
 };
 
-export default connect (mapStateToProps, mapDispatchToProps)(ProjectMisc);
+export default connect(mapStateToProps, mapDispatchToProps)(ProjectMisc);

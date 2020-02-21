@@ -36,4 +36,4 @@ const Sticky = ({title}) => {
   );
 };
 
-export default Sticky;
+export default React.memo(Sticky);

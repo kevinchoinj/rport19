@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import {connect} from 'react-redux';
 import styled from 'styled-components';
 import {
   selectMenuDisplay,
   selectMenuHover,
+  selectCurrentMousePosition,
 } from 'reducers';
 
 const StyledWrapper = styled.div`
@@ -52,6 +53,7 @@ const StyledVideo = styled(Video)`
   background-size: cover;
   background-position: center center;
 `;
+/*
 const StyledText = styled.div`
   display: flex;
   justify-content: center;
@@ -68,8 +70,25 @@ const StyledText = styled.div`
   color: #fff;
   mix-blend-mode: darken;
 `;
-
-const Background = ({menuDisplay, hoverOption}) => {
+*/
+const StyledTextWrapper = styled.div`
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  background-color: rgba(0,0,0,.75);
+  mix-blend-mode: darken;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
+const StyledText = styled.h1`
+  font-size: 15vw;
+  margin: 0 0 0 ${props => props.marginLeft};
+  color: #dadada;
+  font-family: 'Josefin Sans';
+`;
+const Background = ({menuDisplay, hoverOption, mousePosition}) => {
+  const memoizedMovement = useMemo(() => mousePosition.xValue/100, [mousePosition])
   return(
     <StyledWrapper
       hoverOption={hoverOption}
@@ -79,15 +98,31 @@ const Background = ({menuDisplay, hoverOption}) => {
         poster='/static/images/daytimelight.jpg'
         src='/static/images/daytime.mp4'
       />
-      <StyledText>
-        KC
-      </StyledText>
+      <StyledTextWrapper>
+        <StyledText
+          marginLeft="-3rem"
+          style={{
+            transform: `translateX(${memoizedMovement}px)`,
+          }}
+        >
+          CREATIVE
+        </StyledText>
+        <StyledText
+          marginLeft="3rem"
+          style={{
+            transform: `translateX(-${memoizedMovement}px)`,
+          }}
+        >
+          DEVELOPER
+        </StyledText>
+      </StyledTextWrapper>
     </StyledWrapper>
   );
 };
 
 const mapStateToProps = (state) => {
   return {
+    mousePosition: selectCurrentMousePosition(state),
     menuDisplay: selectMenuDisplay(state),
     hoverOption: selectMenuHover(state),
   };

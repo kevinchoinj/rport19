@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import {hoverMenuOption} from 'actions/menu';
 import {connect} from 'react-redux';
 import Scrollbar from 'smooth-scrollbar';
@@ -16,20 +16,35 @@ const StyledLinkWrapper = styled.div`
   padding-right: 6rem;
   box-sizing: border-box;
 `;
-const LinkDivWrapper = React.memo(({hoverOption, image, children}) => {
+const LinkDivWrapper = React.memo(({
+  hoverOption,
+  image,
+  number,
+  text,
+}) => {
   if (window.innerWidth >= 768) {
     return (
       <StyledLinkWrapper
         onMouseOver={() => hoverOption(image)}
       >
-        {children}
+        <StyledNumber>
+          {number}
+        </StyledNumber>
+        <div style={{marginLeft: '1rem'}}>
+          {text}
+        </div>
       </StyledLinkWrapper>
     );
   }
   else {
     return (
       <StyledLinkWrapper>
-        {children}
+        <StyledNumber>
+          {number}
+        </StyledNumber>
+        <div style={{marginLeft: '1rem'}}>
+          {text}
+        </div>
       </StyledLinkWrapper>
     );
   }
@@ -152,6 +167,8 @@ const MenuText = ({menuDisplay, loadedContent, hoverOption}) => {
     const walk = (y-startY) * 3;
     scrollbar.scrollTo(0, scrollbar.scrollTop - walk, 600);
   };
+  const memoizedHover = useCallback(hoverOption, []);
+
   return(
     <StyledWrapper
       menuDisplay={menuDisplay}
@@ -170,15 +187,10 @@ const MenuText = ({menuDisplay, loadedContent, hoverOption}) => {
           >
             <LinkDivWrapper
               image={value.image}
-              hoverOption={hoverOption}
-            >
-              <StyledNumber>
-                {value.value}
-              </StyledNumber>
-              <div style={{marginLeft: '1rem'}}>
-                {value.text}
-              </div>
-            </LinkDivWrapper>
+              hoverOption={memoizedHover}
+              number={value.value}
+              text={value.text}
+            />
           </CheckCurrentPage>
         </StyledRow>
       ))}

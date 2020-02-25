@@ -23,11 +23,11 @@ const StyledWrapper = styled.div`
 	}
 `;
 
-const Home = () => {
+const BackgroundClip = () => {
   return (
     <StyledWrapper>
     </StyledWrapper>
   );
 };
 
-export default Home;
+export default BackgroundClip;

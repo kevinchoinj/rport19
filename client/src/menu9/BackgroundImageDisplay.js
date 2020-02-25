@@ -27,14 +27,14 @@ const StyledBackground = styled.div`
 `;
 
 const BackgroundImage = React.memo(({menuOpen, link, src, onClick}) => {
-    return <StyledBackground
-      menuOpen={menuOpen}
-      style={{
-        backgroundImage: `url(${src})`,
-      }}
-      onClick={() => onClick(link, true)}
-    />
-    });
+  return <StyledBackground
+    menuOpen={menuOpen}
+    style={{
+      backgroundImage: `url(${src})`,
+    }}
+    onClick={() => onClick(link, true)}
+  />
+});
 
 const BackgroundImageDisplay = ({hoverOption, image, link, loadedContent, menuDisplay, toggleMenu}) => {
   const [menuOpen, setMenuOpen] = useState(false);

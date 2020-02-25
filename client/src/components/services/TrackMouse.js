@@ -1,14 +1,22 @@
-import React, {useState} from 'react';
-import Arrow from 'components/services/Arrow';
+import React from 'react';
+import {getMousePosition} from 'actions/mouse';
+import {connect} from 'react-redux';
 
-const TrackMouse = ({children}) => {
-  const [mousePosition, setMousePosition] = useState({xValue: 0, yValue: 0});
+const TrackMouse = ({children, getMousePosition}) => {
   return(
-    <div onMouseMove={(e) => setMousePosition({xValue: e.clientX, yValue: e.clientY})}>
+    <div onMouseMove={(e) => getMousePosition(e)}>
       {children}
-      <Arrow mousePosition={mousePosition}/>
     </div>
   );
 };
 
-export default TrackMouse;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getMousePosition: e => dispatch(getMousePosition(
+      e.clientX,
+      e.clientY,
+    )),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(TrackMouse);

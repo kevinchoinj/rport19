@@ -10,6 +10,7 @@ import asyncComponent from 'components/split/AsyncComponent';
 import {Switch, Route} from 'react-router-dom';
 import styled, {ThemeProvider} from 'styled-components';
 import {themeData} from 'data/themeData';
+import TrackMouse from 'components/services/TrackMouse';
 
 const AsyncAdmin = asyncComponent(() => import('routes/PassportCheck'));
 
@@ -21,19 +22,22 @@ const StyledWrapper = styled.div`
 `;
 
 const App = () => {
+  console.log('rerender');
   return (
     <ThemeProvider theme={themeData}>
-      <StyledWrapper id="main_app">
-        <DetectMobile/>
-        <DetectEdge/>
-        <Switch>
-          <AppliedRoute
-            path="/shodyra/admin"
-            component={AsyncAdmin}
-          />
-          <Route path="/" render={(props) => <SiteRoutesWrapper {...props}/>}/>
-        </Switch>
-      </StyledWrapper>
+      <TrackMouse>
+        <StyledWrapper id="main_app">
+          <DetectMobile/>
+          <DetectEdge/>
+          <Switch>
+            <AppliedRoute
+              path="/shodyra/admin"
+              component={AsyncAdmin}
+            />
+            <Route path="/" render={(props) => <SiteRoutesWrapper {...props}/>}/>
+          </Switch>
+        </StyledWrapper>
+      </TrackMouse>
     </ThemeProvider>
   );
 };

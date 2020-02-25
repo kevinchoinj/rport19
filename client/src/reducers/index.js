@@ -62,6 +62,7 @@ export const selectGitCommits = (state) => state.git.commits;
 /*======================================
 =               MOUSE                  =
 ======================================*/
+export const selectCurrentMousePosition = (state) => state.mouse.mousePosition;
 export const selectMouseContent = (state) => state.mouse.content ? state.mouse.content : '';
 export const selectIsMobile = (state) => state.mouse.isMobile;
 export const selectIsEdge = (state) => state.mouse.isEdge;

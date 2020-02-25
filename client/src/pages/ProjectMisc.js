@@ -39,6 +39,7 @@ const StyledObject = styled.div`
   font-size: var(--size-small);
   font-family: 'Open Sans', Helvetica, sans-serif;
   align-items: center;
+  min-height: 50vh;
   a {
     display: inline-block;
   }

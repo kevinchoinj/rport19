@@ -114,7 +114,6 @@ const mapDispatchToProps = (dispatch) => {
   return {
     toggleMenu: (menuDisplay) => {
       dispatch(toggleMenu(!menuDisplay));
-      document.getElementById('menu_scrollbar').focus();
     }
   };
 };

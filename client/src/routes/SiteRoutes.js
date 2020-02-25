@@ -35,7 +35,8 @@ const SiteRoutes = ({skewValue, menuDisplay}) => {
       <BackgroundImageWrapper/>
       <GlobalStyle menuDisplay={menuDisplay}/>
       <Switch>
-        <Route exact path={pageData.home} render={props => <Home {...props}/>}/>
+
+      <Route exact path={pageData.home} render={props => <Home {...props}/>}/>
         <Route exact path={pageData.miscProjects} render={props => <ProjectMisc {...props} skewValue={skewValue}/>}/>
         {
           Object.keys(projectData).map((key) => {

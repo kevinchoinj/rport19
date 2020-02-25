@@ -2,20 +2,17 @@ import React, {useMemo} from 'react';
 import {connect} from 'react-redux';
 import styled from 'styled-components';
 import {
-  selectMenuDisplay,
-  selectMenuHover,
   selectCurrentMousePosition,
 } from 'reducers';
 
 const StyledWrapper = styled.div`
+  z-index: -1;
   width: 100%;
   height: 100%;
   overflow: hidden;
   position: fixed;
   left: 0px;
   transition: .2s ease;
-  pointer-events: ${props => props.menuDisplay ? 'none' : 'auto'};
-  opacity: ${props => (props.hoverOption && props.menuDisplay) ? 0 : 1};
   :after {
     content: '';
     position: fixed;
@@ -53,24 +50,6 @@ const StyledVideo = styled(Video)`
   background-size: cover;
   background-position: center center;
 `;
-/*
-const StyledText = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: 'Open Sans', sans-serif !important;
-  font-weight: 800;
-  font-style: normal;
-  text-align: center;
-  font-size: 50vw;
-  content: 'KC';
-  height: 100%;
-  width: 100%;
-  background: rgba(0,0,0, .75);
-  color: #fff;
-  mix-blend-mode: darken;
-`;
-*/
 const StyledTextWrapper = styled.div`
   height: 100%;
   width: 100%;
@@ -84,18 +63,17 @@ const StyledTextWrapper = styled.div`
 const StyledText = styled.h1`
   font-size: 15vw;
   margin: 0 0 0 ${props => props.marginLeft};
+  @media screen and (max-width: 768px) {
+    margin: 0;
+  }
   color: #dadada;
   font-family: 'Josefin Sans';
 `;
-const Background = ({menuDisplay, hoverOption, mousePosition}) => {
-  const memoizedMovement = useMemo(() => mousePosition.xValue/100, [mousePosition])
+const Background = ({mousePosition}) => {
+  const memoizedMovement = useMemo(() => mousePosition.xValue/50, [mousePosition])
   return(
-    <StyledWrapper
-      hoverOption={hoverOption}
-      menuDisplay={menuDisplay}
-    >
+    <StyledWrapper>
       <StyledVideo
-        poster='/static/images/daytimelight.jpg'
         src='/static/images/daytime.mp4'
       />
       <StyledTextWrapper>
@@ -123,8 +101,6 @@ const Background = ({menuDisplay, hoverOption, mousePosition}) => {
 const mapStateToProps = (state) => {
   return {
     mousePosition: selectCurrentMousePosition(state),
-    menuDisplay: selectMenuDisplay(state),
-    hoverOption: selectMenuHover(state),
   };
 };
 

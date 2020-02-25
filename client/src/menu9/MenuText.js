@@ -1,7 +1,6 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import {hoverMenuOption} from 'actions/menu';
 import {connect} from 'react-redux';
-import Scrollbar from 'smooth-scrollbar';
 import {Link} from 'react-router-dom';
 import {menuData} from 'data/menuData';
 import styled from 'styled-components';
@@ -130,54 +129,13 @@ const StyledWrapper = styled.div`
   overflow: auto;
   height: 100%;
   overflow-x: hidden;
-  .scroll-content {
-    cursor: ${props => props.isDown ? 'grabbing' : 'grab'}
-    display: flex;
-    flex-direction: column;
-  }
 `;
 const MenuText = ({menuDisplay, loadedContent, hoverOption}) => {
-  const [scrollbar, setScrollbar] = useState(false);
-
-  useEffect(() => {
-    const scrollbar = Scrollbar.init(document.querySelector('#menu_scrollbar'), {
-      alwaysShowTracks: false,
-    });
-    setScrollbar(scrollbar);
-  }, []);
-
-  const [isDown, setIsDown] = useState(false);
-  const [startY, setStartY] = useState(false);
-  const onMouseDown = (e) => {
-    e.preventDefault();
-    setIsDown(true);
-    setStartY(e.pageY);
-  };
-
-  const onMouseUp = () => {
-    setIsDown(false);
-  };
-
-  const onMouseMove = (e) => {
-    if (!isDown) {
-      return;  // stop the fn from running
-    }
-    e.preventDefault();
-    const y = e.pageY;
-    const walk = (y-startY) * 3;
-    scrollbar.scrollTo(0, scrollbar.scrollTop - walk, 600);
-  };
   const memoizedHover = useCallback(hoverOption, []);
 
   return(
     <StyledWrapper
       menuDisplay={menuDisplay}
-      id="menu_scrollbar"
-      onMouseDown={(e) => onMouseDown(e)}
-      onMouseUp={() => onMouseUp()}
-      onMouseLeave={() => onMouseUp()}
-      onMouseMove={(e) => onMouseMove(e)}
-      isDown={isDown}
     >
       {menuData.map((value) => (
         <StyledRow key={value.link}>

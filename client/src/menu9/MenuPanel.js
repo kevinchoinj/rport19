@@ -28,7 +28,6 @@ const StyledLeft = styled.div`
   left: -33vw;
   z-index: 3;
   -webkit-overflow-scrolling: touch;
-  will-change: transform;
   transform: ${props => props.menuDisplay ? 'translateX(33vw)' : 'translateX(0px)'};
   @media screen and (max-width: 1590px) {
     left: -50vw;

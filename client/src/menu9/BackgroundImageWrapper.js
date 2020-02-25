@@ -1,7 +1,9 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import styled from 'styled-components';
 import {menuData} from 'data/menuData';
 import BackgroundImageDisplay from 'menu9/BackgroundImageDisplay';
+import {pageData} from 'data/pageData';
+import {withRouter} from 'react-router-dom';
 
 const StyledWrapper = styled.div`
   position: fixed;
@@ -13,10 +15,11 @@ const StyledWrapper = styled.div`
   z-index: 0;
 `;
 
-const BackgroundImageWrapper = () => {
+const BackgroundImageWrapper = ({location}) => {
+  const memoizedData = useMemo(() => location.pathname !== pageData.home ? menuData : menuData.slice(1), [location]);
   return(
     <StyledWrapper>
-       {menuData.map((value) => (
+       {memoizedData.map((value) => (
         <div key={value.link}>
           <BackgroundImageDisplay
             image={value.image}
@@ -28,4 +31,4 @@ const BackgroundImageWrapper = () => {
   );
 };
 
-export default React.memo(BackgroundImageWrapper);
+export default React.memo(withRouter(BackgroundImageWrapper));

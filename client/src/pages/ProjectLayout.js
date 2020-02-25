@@ -135,13 +135,13 @@ const StyledBodyText = styled.div`
 `;
 
 const ProjectImage = React.memo(({src}) => {
-  return (
+  return src ? (
     <StyledDisplay>
       <LoadIntersect>
         <StyledImage src={src}/>
       </LoadIntersect>
     </StyledDisplay>
-  )
+  ) : null;
 });
 const ProjectVideoObject = React.memo(({src, textOne, textTwo, textThree, video}) => {
   return (
@@ -210,6 +210,7 @@ const ProjectLayout = ({ pageValues, toggleMenu }) => {
           </StyledDisplaySmall>
         }
           <ProjectImage src={pageValues.bodyImageThree}/>
+          <ProjectImage src={pageValues.bodyImageFour}/>
         <MobileImageView pageValues = {pageValues}/>
       </StyledContainer>
 

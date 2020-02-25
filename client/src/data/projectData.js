@@ -9,6 +9,7 @@ export const projectData = {
     bodyImageOne: '/static/images/fasffy/1.jpg',
     bodyImageTwo: '/static/images/fasffy/2.jpg',
     bodyImageThree: '/static/images/fasffy/3.jpg',
+    bodyImageFour: '/static/images/fasffy/7.jpg',
     mobileImageOne: '/static/images/fasffy/4.jpg',
     mobileImageTwo: '/static/images/fasffy/5.jpg',
     mobileImageThree: '/static/images/fasffy/6.jpg',
@@ -101,7 +102,7 @@ export const projectData = {
     bodyTextTwo: 'Different CSS was used to align the various elements in the page across platforms such as Yahoo! Mail and Gmail, and multiple devices such as tablets and phones in portrait and landscape orientations.',
     bodyTextThree: 'Atom, an open-source and free text editor was used as an IDE (integrated development environment) to follow templates which were provided as .psd files. HTML and CSS were used to complete the objective.',
     bodyImageOne: '/static/images/drjart/2.jpg',
-    bodyImageTwo: '/static/images/drjart/1.png',
+    bodyImageTwo: '/static/images/drjart/1.jpg',
     bodyImageThree: '/static/images/drjart/3.jpg',
   },
   lastfm: {

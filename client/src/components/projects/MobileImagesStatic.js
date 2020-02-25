@@ -6,7 +6,7 @@ const StyledWrapper = styled.div`
   bottom: 0px;
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: flex-start;
   width: 100%;
   position: relative;
   box-sizing: border-box;
@@ -37,6 +37,7 @@ const StyledColumn = styled.div`
   width: 30%;
   box-sizing: border-box;
   overflow: hidden;
+  transform: translate3d(0px, 0px, 0.1px) rotateX(49deg) rotateY(0deg) rotateZ(39deg);
   max-width: 430px;
   margin-right: 1rem;
   img {
@@ -48,6 +49,7 @@ const StyledColumn = styled.div`
   }
   @media screen and (max-width: 992px) {
     margin-right: 0;
+    transform: none;
   }
   @media screen and (max-width: 768px) {
     width: 83.333333%;
@@ -91,7 +93,7 @@ const MobileImages = ({image1, image2, image3}) => {
     <StyledWrapper>
       <StyledContainer>
         <CardObject
-          image={image1}
+          image={image3}
           delay='.1s'
         />
         <CardObject
@@ -99,7 +101,7 @@ const MobileImages = ({image1, image2, image3}) => {
           delay='.2s'
         />
         <CardObject
-          image={image3}
+          image={image1}
           delay='.3s'
         />
       </StyledContainer>

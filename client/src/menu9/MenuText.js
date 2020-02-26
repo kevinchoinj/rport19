@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useState} from 'react';
+import React, {useCallback} from 'react';
 import {hoverMenuOption} from 'actions/menu';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
@@ -16,7 +16,7 @@ const StyledLinkWrapper = styled.div`
   box-sizing: border-box;
 `;
 const LinkDivWrapper = React.memo(({
-  hoverOption,
+  memoizedHover,
   image,
   number,
   text,
@@ -24,7 +24,7 @@ const LinkDivWrapper = React.memo(({
   if (window.innerWidth >= 768) {
     return (
       <StyledLinkWrapper
-        onMouseOver={() => hoverOption(image)}
+        onMouseOver={() => memoizedHover(image)}
       >
         <StyledNumber>
           {number}
@@ -95,11 +95,17 @@ const StyledLink = styled(LinkObject)`
     line-height: 150%;
   }
 `;
-const CheckCurrentPage = React.memo(({loadedContent, link, children}) => {
+const CheckCurrentPage = React.memo(({loadedContent, link, image, memoizedHover, number, text}) => {
+  console.log('rerender');
   if (loadedContent === link) {
     return (
       <StyledLinkDiv>
-        {children}
+        <LinkDivWrapper
+          image={image}
+          memoizedHover={memoizedHover}
+          number={number}
+          text={text}
+        />
       </StyledLinkDiv>
     );
   }
@@ -107,9 +113,15 @@ const CheckCurrentPage = React.memo(({loadedContent, link, children}) => {
     return (
       <StyledLink
         link={link}
-        children={children}
         aria-label={link}
-      />
+      >
+        <LinkDivWrapper
+          image={image}
+          memoizedHover={memoizedHover}
+          number={number}
+          text={text}
+        />
+      </StyledLink>
     );
   }
 });
@@ -142,14 +154,11 @@ const MenuText = ({menuDisplay, loadedContent, hoverOption}) => {
           <CheckCurrentPage
             loadedContent={loadedContent}
             link={value.link}
-          >
-            <LinkDivWrapper
-              image={value.image}
-              hoverOption={memoizedHover}
-              number={value.value}
-              text={value.text}
-            />
-          </CheckCurrentPage>
+            image={value.image}
+            memoizedHover={memoizedHover}
+            number={value.value}
+            text={value.text}
+          />
         </StyledRow>
       ))}
     </StyledWrapper>

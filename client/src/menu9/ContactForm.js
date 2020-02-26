@@ -66,7 +66,7 @@ const ContactForm = ({onSubmit}) => {
         }}
         onSubmit={(values, { setSubmitting }) => onSubmit(values)}
       >
-        {(values, isSubmitting) =>
+        {() =>
           <Form>
             <label htmlFor="email">
               Email

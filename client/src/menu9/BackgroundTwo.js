@@ -43,16 +43,14 @@ const BackgroundImageDisplay = ({hoverOption, image, link, loadedContent, menuDi
     }
   }, [menuDisplay, hoverOption])
   useEffect(() => {
-    setMenuOpen(
+    setMenuOpen((image===hoverOption && menuDisplay) ||
       (link===loadedContent && !menuDisplay)
     || (link===loadedContent && !hoverOption)
-    || (image===hoverOption && menuDisplay)
     );
   }, [loadedContent, menuDisplay, hoverOption, image, link, menuOpen]);
   return(
     <StyledBackground
       menuOpen={menuOpen}
-      menuDisplay ={menuDisplay}
       style={{
         backgroundImage: `url(${currentImage})`,
       }}

@@ -1,4 +1,4 @@
-import React, {useCallback, useState, useEffect} from 'react';
+import React, {useCallback, useMemo} from 'react';
 import {connect} from 'react-redux';
 import * as menuActions from 'actions/menu';
 import {history} from 'store';
@@ -37,20 +37,14 @@ const BackgroundImage = React.memo(({menuOpen, link, src, onClick}) => {
 });
 
 const BackgroundImageDisplay = ({hoverOption, image, link, loadedContent, menuDisplay, toggleMenu}) => {
-  const [menuOpen, setMenuOpen] = useState(false);
-  useEffect(() => {
-    setMenuOpen(
-      (link===loadedContent && !menuDisplay)
+  const memoizedMenuOpen = useMemo(() => (link===loadedContent && !menuDisplay)
     || (link===loadedContent && !hoverOption)
-    || (image===hoverOption && menuDisplay)
-    );
-  }, [loadedContent, menuDisplay, hoverOption, image, link, menuOpen]);
-
+    || (image===hoverOption && menuDisplay), [loadedContent, menuDisplay, hoverOption]);
   const memoizedCallback = useCallback(toggleMenu, []);
 
   return(
     <BackgroundImage
-      menuOpen={menuOpen}
+      menuOpen={memoizedMenuOpen}
       src={image}
       link={link}
       onClick={memoizedCallback}

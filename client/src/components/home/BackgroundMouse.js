@@ -68,6 +68,9 @@ const StyledText = styled.h1`
   }
   color: #dadada;
   font-family: 'Josefin Sans';
+  @media screen and (max-width: 768px) {
+    transform: none !important;
+  }
 `;
 const Background = ({mousePosition}) => {
   const memoizedMovement = useMemo(() => mousePosition.xValue/50, [mousePosition])

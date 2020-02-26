@@ -76,6 +76,9 @@ const StyledWrapper = styled.div`
   &:hover ${StyledLineTwo} {
     transform: translate(-50%, -70%) rotate(90deg) scaleY(0.7);
   }
+  &:active, &:focus {
+    outline: none;
+  }
 `;
 const handleKeyDown = (event, action) => {
   if (event.keyCode === 13) {

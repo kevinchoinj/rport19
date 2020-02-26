@@ -60,7 +60,7 @@ const StyledContainer = styled.div`
   }
 `;
 const StyledText = styled.div`
-  font-size: var(--size-small);
+  font-size: var(--size-medium);
   letter-spacing: 1px;
   width: 66.6%;
   padding: 0 0 var(--size-spacing-large) 0px;
@@ -128,7 +128,6 @@ const StyledFooter = styled.div`
   }
 `;
 const StyledBodyText = styled.div`
-  width: 50%;
   @media screen and (max-width: 992px) {
     width: 100%;
   }

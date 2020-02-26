@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import MenuText from 'menu9/MenuText';
 import TopRightDisplay from 'menu9/TopRightDisplay';
-import styled, {css, keyframes} from 'styled-components';
+import styled from 'styled-components';
 import {
   selectMenuDisplay,
 } from 'reducers';

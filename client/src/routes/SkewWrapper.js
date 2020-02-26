@@ -53,7 +53,7 @@ const SkewWrapper = () => {
   });
 
   return (
-    <SiteRoutes skewValue={skewValue}/>
+    <SiteRoutes/>
   );
 };
 

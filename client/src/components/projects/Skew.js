@@ -1,10 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import styled from 'styled-components';
-
 import {
   selectMenuDisplay,
-  selectMenuHover,
 } from 'reducers';
 
 const StyledSkew = styled.div`
@@ -16,18 +14,11 @@ const StyledSkew = styled.div`
     transition: .25s ease-in;
   }
 `;
-/*
-will-change: transform;
-*/
 
-//inline skew transform value to prevent rerendering entire component every update
-const Skew = ({children, skewValue, menuDisplay, hoverOption}) => {
+const Skew = ({children, menuDisplay}) => {
   return(
     <StyledSkew
-      skew={skewValue}
       menuDisplay={menuDisplay}
-      hoverOption={hoverOption}
-      style = {{transform: `skewY(${skewValue}deg)`}}
     >
       {children}
     </StyledSkew>
@@ -36,7 +27,6 @@ const Skew = ({children, skewValue, menuDisplay, hoverOption}) => {
 
 const mapStateToProps = (state) => {
   return {
-    hoverOption: selectMenuHover(state),
     menuDisplay: selectMenuDisplay(state),
   };
 };

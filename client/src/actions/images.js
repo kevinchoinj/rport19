@@ -47,7 +47,6 @@ const removeMiscProjectsFailure = (data, error) => ({type: REMOVE_MISC_PROJECTS_
 
 const addImageStarted = request => ({type: ADD_IMAGE_STARTED, request});
 const addImageSucceeded = data => ({type: ADD_IMAGE_SUCCEEDED, data});
-const addImageFailure = (data, error) => ({type: ADD_IMAGE_FAILURE, data, error});
 
 function handleErrors(response) {
   if (!response.ok) {

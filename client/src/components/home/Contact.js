@@ -7,6 +7,7 @@ const StyledWrapper = styled.div`
   bottom:0;
   left: 0;
   padding: var(--size-spacing);
+  font-family: 'Josefin Sans', sans-serif;
   a {
     color: ${props=> props.theme.colorLink};
     text-decoration: none;
@@ -24,9 +25,9 @@ const StyledContainer = styled.div`
 const StyledLink = styled.div`
   display: flex;
   font-size: var(--size-medium);
+  margin-bottom: .5rem;
 `;
 const StyledIcon = styled.div`
-  margin: 0px 6px;
   box-sizing: border-box;
   svg {
     height: 24px;

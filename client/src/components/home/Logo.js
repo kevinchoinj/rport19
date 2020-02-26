@@ -65,7 +65,6 @@ const mapDispatchToProps = (dispatch) => {
     toggleMenu: (menuDisplay) => {
       dispatch(menuActions.hoverMenuOption(''));
       dispatch(menuActions.toggleMenu(!menuDisplay));
-      document.getElementById('menu_scrollbar').focus();
     }
   };
 };

@@ -31,6 +31,7 @@ const TitleWrapper = styled.div`
 const DetailsWrapper = styled.div`
   margin: 0 0 2rem 0;
   line-height: 140%;
+  font-family: 'Josefin Sans', sans-serif;
 `;
 
 const TopRightDisplay = () => {

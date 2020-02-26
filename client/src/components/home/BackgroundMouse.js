@@ -67,7 +67,7 @@ const StyledText = styled.h1`
     margin: 0;
   }
   color: #dadada;
-  font-family: 'Josefin Sans';
+  font-family: 'Josefin Sans', sans-serif;
   @media screen and (max-width: 768px) {
     transform: none !important;
   }

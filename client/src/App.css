@@ -31,6 +31,8 @@ body{
 body * {
   scrollbar-width: thin;
   scrollbar-color:  #f1f1f1 #888;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 /* width */
 ::-webkit-scrollbar {

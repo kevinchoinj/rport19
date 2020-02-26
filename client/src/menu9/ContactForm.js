@@ -7,6 +7,7 @@ const StyledWrapper = styled.div`
     label {
       font-size: var(--size-smallest);
       margin-bottom: .5rem;
+      font-family: 'Josefin Sans', sans-serif;
     }
     input, textarea {
       font-family: 'Open Sans', Helvetica, sans-serif;
@@ -33,10 +34,11 @@ const StyledWrapper = styled.div`
     button {
       background-color: transparent;
       color: ${props => props.theme.colorText};
-      padding: 1rem;
+      padding: .5rem;
       font-size: var(--size-smallest);
       border-top: none;
       border-right: none;
+      font-family: 'Josefin Sans', sans-serif;
       border-left: 1px solid ${props => props.theme.topRightText};
       border-bottom: 1px solid ${props => props.theme.topRightText};
       cursor: pointer;

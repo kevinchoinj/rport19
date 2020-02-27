@@ -96,7 +96,6 @@ const StyledLink = styled(LinkObject)`
   }
 `;
 const CheckCurrentPage = React.memo(({loadedContent, link, image, memoizedHover, number, text}) => {
-  console.log('rerender');
   if (loadedContent === link) {
     return (
       <StyledLinkDiv>

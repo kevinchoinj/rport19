@@ -88,7 +88,6 @@ const handleKeyDown = (event, action) => {
 const MenuButton = ({menuDisplay, toggleMenu}) => {
   return(
     <StyledWrapper
-      tabIndex="2"
       onClick={() => toggleMenu(menuDisplay)}
       onKeyDown={(event) => handleKeyDown(event, () => toggleMenu(menuDisplay))}
       aria-label="menu button"

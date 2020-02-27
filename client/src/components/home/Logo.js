@@ -41,7 +41,6 @@ const Logo = ({menuDisplay, toggleMenu}) => {
   return(
     <StyledWrapper>
       <StyledContainer
-        tabIndex="1"
         aria-label="logo Kevin Choi"
         onClick={() => toggleMenu(menuDisplay)}
         onKeyDown={(event) => handleKeyDown(event, () => toggleMenu(menuDisplay))}

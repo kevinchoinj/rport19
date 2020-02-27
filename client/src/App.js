@@ -22,7 +22,6 @@ const StyledWrapper = styled.div`
 `;
 
 const App = () => {
-  console.log('rerender');
   return (
     <ThemeProvider theme={themeData}>
       <TrackMouse>

@@ -1,7 +1,7 @@
 # Shodyra Portfolio 2019
 Portfolio accessible at https://shodyra.com/
 
-![Imgur Image](https://i.imgur.com/awSC0NJ.png)
+![Imgur Image](https://i.imgur.com/nCpdL85.png)
 
 ## Necessary Files
 

@@ -4,7 +4,7 @@ import Update from 'components/projects/Update';
 import {connect} from 'react-redux';
 import {toggleMenu} from 'actions/menu';
 import {gamingData} from 'data/gamingData';
-import GamingCarousel from 'components/projects/LightboxGallery';
+import GamingCarousel from 'components/projects/LightboxViewer';
 import styled from 'styled-components';
 import Lightbox from 'components/projects/Lightbox';
 import Skew from 'components/projects/Skew';
@@ -132,8 +132,7 @@ const GamingMisc = ({ toggleMenu }) => {
         </Update>
 
         <GamingCarousel
-          carouselId = "#carousel_1"
-          imageArray = {gamingData.WOW_ARRAY}
+          images = {gamingData.WOW_ARRAY}
         />
 
         <Update
@@ -162,8 +161,7 @@ const GamingMisc = ({ toggleMenu }) => {
         </Update>
 
         <GamingCarousel
-          carouselId = "#carousel_2"
-          imageArray = {gamingData.HS_ARRAY}
+          images = {gamingData.HS_ARRAY}
         />
 
         <Update
@@ -183,8 +181,7 @@ const GamingMisc = ({ toggleMenu }) => {
         </Update>
 
         <GamingCarousel
-          carouselId = "#carousel_3"
-          imageArray = {gamingData.SC_ARRAY}
+          images = {gamingData.SC_ARRAY}
         />
 
         <Update
@@ -203,8 +200,7 @@ const GamingMisc = ({ toggleMenu }) => {
           </div>
         </Update>
         <GamingCarousel
-          carouselId = "#carousel_4"
-          imageArray = {gamingData.LOL_ARRAY}
+          images = {gamingData.LOL_ARRAY}
         />
 
         <Update
@@ -218,8 +214,7 @@ const GamingMisc = ({ toggleMenu }) => {
         </Update>
 
         <GamingCarousel
-          carouselId = "#carousel_5"
-          imageArray = {gamingData.OW_ARRAY}
+          images = {gamingData.OW_ARRAY}
         />
 
         <Update
@@ -240,8 +235,7 @@ const GamingMisc = ({ toggleMenu }) => {
         </Update>
 
         <GamingCarousel
-          carouselId = "#carousel_6"
-          imageArray = {gamingData.D3_ARRAY}
+          images = {gamingData.D3_ARRAY}
         />
 
         <Update
@@ -253,8 +247,7 @@ const GamingMisc = ({ toggleMenu }) => {
         </Update>
 
         <GamingCarousel
-          carouselId = "#carousel_7"
-          imageArray = {gamingData.POKEMON_ARRAY}
+          images = {gamingData.POKEMON_ARRAY}
         />
 
         <Update
@@ -267,8 +260,7 @@ const GamingMisc = ({ toggleMenu }) => {
 
         </Update>
         <GamingCarousel
-          carouselId = "#carousel_8"
-          imageArray = {gamingData.MTG_ARRAY}
+          images = {gamingData.MTG_ARRAY}
         />
 
         <Update
@@ -278,8 +270,7 @@ const GamingMisc = ({ toggleMenu }) => {
           Accumulated approximately between 150,000,000 and 200,000,000 'neopoints', in-game currency, in assets over the course of one year.
         </Update>
         <GamingCarousel
-          carouselId = "#carousel_9"
-          imageArray = {gamingData.NEO_ARRAY}
+          images = {gamingData.NEO_ARRAY}
         />
 
         <Update
@@ -292,8 +283,7 @@ const GamingMisc = ({ toggleMenu }) => {
           Path of Exile - Multiple level ~90 characters
         </Update>
         <GamingCarousel
-          carouselId = "#carousel_10"
-          imageArray = {gamingData.MISC_ARRAY}
+          images = {gamingData.MISC_ARRAY}
         />
 
       </StyledContainer>

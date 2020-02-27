@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {useState, useRef} from 'react';
 import styled from 'styled-components';
-import * as gamingActions from 'actions/gaming';
+import {setLightboxImage} from 'actions/gaming';
 import { connect } from 'react-redux';
 
 const StyledWrapper = styled.div`
@@ -53,10 +53,10 @@ const RenderGallery = ({images, openLightbox}) => {
   const gallery = images.map((obj, i) => {
     return (
       <StyledObject
-        key={obj.src}
-        onClick={() => openLightbox(images[i].src)}
+        key={obj.id}
+        onClick={() => openLightbox(images[i].id)}
       >
-        <StyledImage src={obj.src}/>
+        <StyledImage src={obj.id}/>
       </StyledObject>
     );
   });
@@ -64,13 +64,47 @@ const RenderGallery = ({images, openLightbox}) => {
 };
 
 const Viewer = ({images, setImage}) => {
-
+  const containerRef = useRef(null);
+  const [isMoving, setIsMoving] = useState(false);
+  const [isDown, setIsDown] = useState(false);
+  const [startX, setStartX] = useState(false);
+  const onMouseDown = (e) => {
+    e.preventDefault();
+    setIsDown(true);
+    setStartX(e.pageX);
+  };
+  const onMouseUp = () => {
+    setIsDown(false);
+  };
+  const onMouseMove = (e) => {
+    if (!isDown) {
+      return;  // stop the fn from running
+    }
+    setIsMoving(true);
+    e.preventDefault();
+    const x = e.pageX;
+    setStartX(e.pageX);
+    const walk = (startX - x);
+    containerRef.current.scrollLeft = containerRef.current.scrollLeft + walk;
+  };
   const openLightbox = (image) => {
-    setImage(image);
+    if (isMoving) {
+      setIsMoving(false);
+      return;
+    }
+    else {
+      setImage(image);
+    }
   };
 
   return (
-    <StyledWrapper>
+    <StyledWrapper
+      ref={containerRef}
+      onMouseDown={(e) => onMouseDown(e)}
+      onMouseUp={() => onMouseUp()}
+      onMouseLeave={() => onMouseUp()}
+      onMouseMove={(e) => onMouseMove(e)}
+    >
       <RenderGallery
         images={images}
         openLightbox={openLightbox}
@@ -82,7 +116,7 @@ const Viewer = ({images, setImage}) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     setImage: (image) => {
-      dispatch(gamingActions.setLightboxImage(image));
+      dispatch(setLightboxImage(image));
     },
   };
 };

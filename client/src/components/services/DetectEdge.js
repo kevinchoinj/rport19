@@ -2,7 +2,7 @@ import {useEffect} from 'react';
 import {connect} from 'react-redux';
 import * as mouseActions from 'actions/mouse';
 
-const DetectMobile = ({setEdge}) => {
+const DetectEdge = ({setEdge}) => {
   useEffect(() => {
     setEdge();
   }, [setEdge]);
@@ -19,4 +19,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect (null, mapDispatchToProps)(DetectMobile);
+export default connect (null, mapDispatchToProps)(DetectEdge);

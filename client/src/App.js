@@ -3,14 +3,13 @@ import React from 'react';
 import 'App.css';
 
 import SiteRoutesWrapper from 'routes/SiteRoutesWrapper';
-import DetectMobile from 'components/services/DetectMobile';
-import DetectEdge from 'components/services/DetectEdge';
 import AppliedRoute from 'components/split/AppliedRoute';
 import asyncComponent from 'components/split/AsyncComponent';
 import {Switch, Route} from 'react-router-dom';
 import styled, {ThemeProvider} from 'styled-components';
 import {themeData} from 'data/themeData';
 import TrackMouse from 'components/services/TrackMouse';
+//import CursorTrail from 'components/services/CursorTrail';
 
 const AsyncAdmin = asyncComponent(() => import('routes/PassportCheck'));
 
@@ -26,8 +25,6 @@ const App = () => {
     <ThemeProvider theme={themeData}>
       <TrackMouse>
         <StyledWrapper id="main_app">
-          <DetectMobile/>
-          <DetectEdge/>
           <Switch>
             <AppliedRoute
               path="/shodyra/admin"

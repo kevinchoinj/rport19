@@ -38,4 +38,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect (mapStateToProps, null)(FormSending);
+export default connect(mapStateToProps, null)(FormSending);

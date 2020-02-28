@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
-import * as transitionActions from 'actions/transition';
+import {loadContent} from 'actions/transition';
 import SiteRoutes from 'routes/SiteRoutes';
 
 const SiteRoutesWrapper = ({loadContent, location}) => {
@@ -16,7 +16,7 @@ const SiteRoutesWrapper = ({loadContent, location}) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    loadContent: (name) => dispatch(transitionActions.loadContent(name)),
+    loadContent: (name) => dispatch(loadContent(name)),
   };
 };
 

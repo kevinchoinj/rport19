@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import styled from 'styled-components';
 import {
   Polyline,
@@ -8,6 +8,7 @@ import {
   Color
 } from "ogl";
 import {createPortal} from 'react-dom';
+import {useAnimationFrame} from 'components/services/useAnimationFrame';
 
 const vertex = `
     attribute vec3 position;
@@ -71,13 +72,15 @@ const portalRoot = document.getElementById('portal-root');
 
 const CursorTrail = () => {
   const containerRef = useRef(null);
+  const lines = [];
+  const [mouse, setMouse] = useState(new Vec3());
+  const [renderer, setRenderer] = useState(new Renderer({ dpr: 2, alpha: true }))
+  const [scene, setScene] = useState(new Transform())
+
   useEffect(() => {
-    const lines = [];
-    const renderer = new Renderer({ dpr: 2, alpha: true });
     const gl = renderer.gl;
     containerRef.current.appendChild(gl.canvas);
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
-    const scene = new Transform();
     function resize() {
       renderer.setSize(window.innerWidth, window.innerHeight);
       lines.forEach(line => line.polyline.resize());
@@ -113,16 +116,11 @@ const CursorTrail = () => {
       }
     );
     resize();
-    const mouse = new Vec3();
     if (!("ontouchstart" in window)) {
       window.addEventListener("mousemove", updateMouse, false);
     }
 
     function updateMouse(e) {
-      if (e.changedTouches && e.changedTouches.length) {
-        e.x = e.changedTouches[0].pageX;
-        e.y = e.changedTouches[0].pageY;
-      }
       if (e.x === undefined) {
         e.x = e.pageX;
         e.y = e.pageY;
@@ -135,34 +133,32 @@ const CursorTrail = () => {
         0
       );
     }
-
-    const tmp = new Vec3();
-
-    requestAnimationFrame(update);
-    function update(t) {
-      requestAnimationFrame(update);
-
-      lines.forEach(line => {
-        for (let i = line.points.length - 1; i >= 0; i--) {
-          if (!i) {
-            tmp
-              .copy(mouse)
-              .add(line.mouseOffset)
-              .sub(line.points[i])
-              .multiply(line.spring);
-            line.mouseVelocity.add(tmp).multiply(line.friction);
-            line.points[i].add(line.mouseVelocity);
-          } else {
-            // The rest of the points ease to the point in front of them, making a line
-            line.points[i].lerp(line.points[i - 1], 0.9);
-          }
-        }
-        line.polyline.updateGeometry();
-      });
-
-      renderer.render({ scene });
-    }
   }, [])
+  const tmp = new Vec3();
+
+  function update() {
+    lines.forEach(line => {
+      for (let i = line.points.length - 1; i >= 0; i--) {
+        if (!i) {
+          tmp
+            .copy(mouse)
+            .add(line.mouseOffset)
+            .sub(line.points[i])
+            .multiply(line.spring);
+          line.mouseVelocity.add(tmp).multiply(line.friction);
+          line.points[i].add(line.mouseVelocity);
+        } else {
+          // The rest of the points ease to the point in front of them, making a line
+          line.points[i].lerp(line.points[i - 1], 0.9);
+        }
+      }
+      line.polyline.updateGeometry();
+    });
+    renderer.render({ scene });
+  }
+
+  useAnimationFrame(update);
+
   return createPortal(
     <StyledContainer ref={containerRef}/>, portalRoot
   )

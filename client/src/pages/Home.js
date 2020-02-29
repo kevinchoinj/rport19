@@ -1,9 +1,10 @@
 import React, {useEffect} from 'react';
-import Background from 'components/home//BackgroundMouse';
+import Background from 'components/home/BackgroundMouse';
 import Logo from 'components/home/Logo';
 import Contact from 'components/home/Contact';
 import {connect} from 'react-redux';
 import {toggleMenu} from 'actions/menu';
+import TrackMouse from 'components/services/TrackMouse';
 
 export const Home = ({toggleMenu}) => {
   useEffect(() => {
@@ -11,11 +12,11 @@ export const Home = ({toggleMenu}) => {
   }, [toggleMenu]);
 
   return(
-    <>
+    <TrackMouse>
       <Background/>
       <Logo/>
       <Contact/>
-    </>
+    </TrackMouse>
   );
 };
 

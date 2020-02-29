@@ -1,6 +1,4 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import {selectMenuDisplay} from 'reducers';
 
 import {Switch, Route} from 'react-router-dom';
 import Home from 'pages/Home';
@@ -13,28 +11,20 @@ import MenuButton from 'menu9/MenuButton';
 import {projectData} from 'data/projectData';
 import {pageData} from 'data/pageData';
 import BackgroundImageWrapper from 'menu9/BackgroundImageWrapper';
-
-import { createGlobalStyle } from 'styled-components'
+import StyledGlobal from 'components/services/StyledGlobal';
 
 import AppliedRoute from 'components/split/AppliedRoute';
 import asyncComponent from 'components/split/AsyncComponent';
 const AsyncMisc = asyncComponent(() => import('pages/ProjectMisc'));
 const AsyncGaming = asyncComponent(() => import('pages/GamingMisc'));
 
-const GlobalStyle = createGlobalStyle`
-  body {
-    @media screen and (max-width: 992px) {
-      overflow-y: ${props => (props.menuDisplay ? 'hidden' : 'auto')};
-    }
-  }
-`
 
-const SiteRoutes = ({menuDisplay}) => {
+const SiteRoutes = () => {
   /* key prop rerenders component when it is the same component being used between routes */
   return (
     <>
       <BackgroundImageWrapper/>
-      <GlobalStyle menuDisplay={menuDisplay}/>
+      <StyledGlobal/>
       <Switch>
 
         <Route exact path={pageData.home} render={props => <Home {...props}/>}/>
@@ -68,11 +58,4 @@ const SiteRoutes = ({menuDisplay}) => {
   );
 };
 
-
-const mapStateToProps = (state) => {
-  return {
-    menuDisplay: selectMenuDisplay(state),
-  };
-};
-
-export default connect(mapStateToProps, null)(SiteRoutes);
+export default SiteRoutes;

@@ -56,7 +56,7 @@ const StyledWrapper = styled.div`
   @media screen and (max-width: 992px) {
     border: none;
     height: auto;
-    padding: var(--size-spacing);
+    padding: 2rem;
   }
 
   position: fixed;
@@ -64,9 +64,7 @@ const StyledWrapper = styled.div`
   right: 0;
   cursor: pointer;
   mix-blend-mode:  difference;
-  will-change: opacity;
   transition: ${props => props.theme.transitionMedium};
-  z-index: 10;
   display: flex;
   flex-direction: column;
   justify-content: center;

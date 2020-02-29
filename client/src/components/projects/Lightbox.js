@@ -17,7 +17,6 @@ const StyledWrapper = styled.div`
   display: ${props => props.image ? 'flex' : 'none'};
   justify-content: center;
   align-items: center;
-  z-index: 2;
   img {
     max-width: 80vw;
     max-height: 80vh;

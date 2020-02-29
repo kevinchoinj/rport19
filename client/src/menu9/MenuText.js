@@ -135,7 +135,6 @@ const StyledRow = styled.div`
 `;
 //there is a bug past v0.50 in chrome where the grab/grabbing cursors are buggy while devtools is open
 const StyledWrapper = styled.div`
-  z-index: 4;
   pointer-events: '${props => props.menuDisplay ? 'auto' : 'none'}';
   overflow: auto;
   height: 100%;

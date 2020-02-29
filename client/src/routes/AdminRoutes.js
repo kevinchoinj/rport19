@@ -18,7 +18,6 @@ const StyledLeft = styled.div`
   flex: 1;
   background-color: ${props => props.theme.colorAdminContainer};
   box-shadow: ${props => props.theme.shadowAdmin};
-  z-index: 5;
   display: flex;
   justify-content: flex-end;
 `;
@@ -27,7 +26,6 @@ const StyledRight = styled.div`
   flex-grow: 0;
   flex-shrink: 1;
   max-width: calc(100vw - 100px);
-  z-index: 1;
   padding: 20px 50px;
   box-sizing: border-box;
 `;

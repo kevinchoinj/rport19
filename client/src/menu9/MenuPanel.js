@@ -15,7 +15,6 @@ const StyledWrapper = styled.div`
   width: 100%;
   overflow: hidden;
   pointer-events: none;
-  z-index: 9;
 `;
 const StyledLeft = styled.div`
   height: 100%;
@@ -26,7 +25,7 @@ const StyledLeft = styled.div`
   transition: ${props => props.theme.transitionLong};
   overflow: hidden;
   left: -33vw;
-  z-index: 3;
+  will-change: transform;
   -webkit-overflow-scrolling: touch;
   transform: ${props => props.menuDisplay ? 'translateX(33vw)' : 'translateX(0px)'};
   @media screen and (max-width: 1590px) {
@@ -47,6 +46,7 @@ const StyledRight = styled.div`
   position: fixed;
   right: -33vw;
   pointer-events: auto;
+  will-change: transform;
   background-color: ${props => props.theme.colorBackground};
   transition: ${props => props.theme.transitionLong};
   transform: ${props => props.menuDisplay ? 'translateX(-33vw)' : 'translateX(0px)'};

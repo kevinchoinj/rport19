@@ -12,6 +12,7 @@ const StyledWrapper = styled.div`
   width: 100%;
   top: 0;
   left: 0;
+  height: 100%;
 `;
 const StyledContainer = styled.div`
   background: transparent;

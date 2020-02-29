@@ -8,8 +8,7 @@ import asyncComponent from 'components/split/AsyncComponent';
 import {Switch, Route} from 'react-router-dom';
 import styled, {ThemeProvider} from 'styled-components';
 import {themeData} from 'data/themeData';
-//import TrackMouse from 'components/services/TrackMouse';
-//import CursorTrail from 'components/services/CursorTrail';
+import CursorTrail from 'components/services/CursorTrail';
 
 const AsyncAdmin = asyncComponent(() => import('routes/PassportCheck'));
 
@@ -32,7 +31,7 @@ const App = () => {
             <Route path="/" render={(props) => <SiteRoutesWrapper {...props}/>}/>
           </Switch>
         </StyledWrapper>
-      {/*<CursorTrail/>*/}
+      <CursorTrail/>
     </ThemeProvider>
   );
 };

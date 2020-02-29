@@ -12,56 +12,73 @@ const StyledContainer = styled.div`
   display: flex;
   flex-direction: column;
 `;
+const StyledLetter = styled.div`
+  font-weight: 400;
+  color: #fff;
+  font-size: var(--size-small);
+  line-height: 140%;
+  display: flex;
+  justify-content: center;
+`;
 const StyledLines = styled.div`
   width: 100%;
   position: relative;
   display: flex;
   justify-content: center;
   height: var(--size-spacing-small);
+  margin-top: var(--size-spacing-small);
 `;
 const StyledLineOne = styled.span`
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: ${props => props.menuDisplay ? 'translate(-50%, -50%) rotate(-45deg)' : 'translate(-50%, -30%) rotate(90deg) scaleY(0.7)'};
+  transform: ${props => props.menuDisplay ? 'translate(-50%, -50%) rotate(-45deg)' : 'translate(-50%, -50%)'};
   height: 100%;
-  width: 1px;
-  background-color: #000;
+  width: .1vw;
+  background-color: #fff;
   transition: all 0.5s cubic-bezier(0.000, 0.785, 0.000, 1.000);
 `;
 const StyledLineTwo = styled.span`
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: ${props => props.menuDisplay ? 'translate(-50%, -50%) rotate(45deg)' : 'translate(-50%, -70%) rotate(90deg) scaleY(0.7)'};
+  transform: ${props => props.menuDisplay ? 'translate(-50%, -50%) rotate(45deg)' : 'translate(-50%, -50%)'};
   height: 100%;
-  width: 1px;
-  background-color: #000;
+  width: .1vw;
+  background-color: #fff;
   transition: all 0.5s cubic-bezier(0.000, 0.785, 0.000, 1.000);
 `;
 const StyledWrapper = styled.div`
-  height: 2rem;
-  width: 2rem;
+  height: 100%;
   padding: 1rem;
-  background-color: #c4a381;
+  mix-blend-mode:  difference;
+  border-left: 1px solid #fff;
+
+  @media screen and (max-width: 992px) {
+    border: none;
+    height: auto;
+    padding: 2rem;
+  }
+
   position: fixed;
-  top: 1rem;
-  right: 1rem;
+  top: 0;
+  right: 0;
   cursor: pointer;
   transition: ${props => props.theme.transitionMedium};
   display: flex;
   flex-direction: column;
   justify-content: center;
   &:hover ${StyledContainer} ${StyledLines} ${StyledLineOne} {
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -30%) rotate(90deg) scaleY(0.7);
   }
   &:hover ${StyledLineTwo} {
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -70%) rotate(90deg) scaleY(0.7);
   }
   &:active, &:focus {
     outline: none;
   }
 `;
+
 
 const handleKeyDown = (event, action) => {
   if (event.keyCode === 13) {
@@ -76,6 +93,10 @@ const MenuButton = ({menuDisplay, toggleMenu}) => {
       aria-label="menu button"
     >
       <StyledContainer>
+        <StyledLetter>M</StyledLetter>
+        <StyledLetter>E</StyledLetter>
+        <StyledLetter>N</StyledLetter>
+        <StyledLetter>U</StyledLetter>
         <StyledLines >
           <StyledLineOne menuDisplay={menuDisplay}/>
           <StyledLineTwo menuDisplay={menuDisplay}/>

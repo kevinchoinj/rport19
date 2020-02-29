@@ -87,7 +87,7 @@ const CursorTrail = () => {
     }
     window.addEventListener("resize", resize, false);
 
-    ["#000", "#111", "#e5cce5", "#333", "#444"].forEach(
+    ["#000", "#111", "#c4a381", "#333", "#444"].forEach(
       (color) => {
         const line = {
           spring: random(0.02, 0.1),

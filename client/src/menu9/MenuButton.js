@@ -43,7 +43,7 @@ const StyledWrapper = styled.div`
   height: 2rem;
   width: 2rem;
   padding: 1rem;
-  background-color: #c4a381;
+  background-color: ${props => props.theme.colorTheme};
   position: fixed;
   top: 1rem;
   right: 1rem;

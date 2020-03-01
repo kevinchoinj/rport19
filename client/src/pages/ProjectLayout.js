@@ -77,6 +77,7 @@ const StyledTitle = styled.div`
   font-size: 3rem;
   cursor: default;
   line-height: 140%;
+  color: ${props => props.theme.colorTheme}
 `;
 const StyledDisplayContainer = styled.div`
   width: 100%;

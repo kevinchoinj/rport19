@@ -53,7 +53,7 @@ const StyledLinkDiv = styled.div`
   font-size: 4.5vw;
   line-height: 150%;
   font-family: 'Josefin Sans', Helvetica, sans-serif;
-  color: #666;
+  color: ${props => props.theme.colorTheme};
   cursor: default;
   @media screen and (max-width: 1920px ) {
     font-size: 4rem;
@@ -83,7 +83,7 @@ const StyledLink = styled(LinkObject)`
   cursor: pointer;
   &:hover, &:focus {
     color: transparent;
-    -webkit-text-stroke: 1px ${props => props.theme.colorText};
+    -webkit-text-stroke: 1px ${props => props.theme.colorTheme};
   }
   @media screen and (max-width: 1920px ) {
     font-size: 4rem;

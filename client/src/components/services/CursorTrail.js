@@ -71,11 +71,12 @@ function random(a, b) {
 const portalRoot = document.getElementById('portal-root');
 
 const CursorTrail = () => {
+  console.log('rerender');
   const containerRef = useRef(null);
   const lines = [];
-  const [mouse, setMouse] = useState(new Vec3());
-  const [renderer, setRenderer] = useState(new Renderer({ dpr: 2, alpha: true }))
-  const [scene, setScene] = useState(new Transform())
+  const mouse = new Vec3();
+  const renderer = new Renderer({ dpr: 2, alpha: true });
+  const scene = new Transform();
 
   useEffect(() => {
     const gl = renderer.gl;
@@ -87,7 +88,7 @@ const CursorTrail = () => {
     }
     window.addEventListener("resize", resize, false);
 
-    ["#000", "#111", "#c4a381", "#333", "#444"].forEach(
+    ["#000", "#111", "#d8b2d8", "#333", "#444"].forEach(
       (color) => {
         const line = {
           spring: random(0.02, 0.1),

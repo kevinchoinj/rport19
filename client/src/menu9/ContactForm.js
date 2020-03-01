@@ -33,14 +33,14 @@ const StyledWrapper = styled.div`
     }
     button {
       background-color: transparent;
-      color: ${props => props.theme.colorText};
+      color: ${props => props.theme.colorTheme};
       padding: .5rem;
       font-size: var(--size-smallest);
       border-top: none;
       border-right: none;
       font-family: 'Josefin Sans', sans-serif;
-      border-left: 1px solid ${props => props.theme.topRightText};
-      border-bottom: 1px solid ${props => props.theme.topRightText};
+      border-left: 1px solid ${props => props.theme.colorTheme};
+      border-bottom: 1px solid ${props => props.theme.colorTheme};
       cursor: pointer;
       &:focus {
         outline: none;

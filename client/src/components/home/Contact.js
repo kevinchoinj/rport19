@@ -8,19 +8,19 @@ const StyledWrapper = styled.div`
   left: 0;
   padding: var(--size-spacing);
   font-family: 'Josefin Sans', sans-serif;
-  a {
-    color: ${props=> props.theme.colorLink};
-    text-decoration: none;
-    transition: ${props => props.theme.transitionMedium}
-    :hover {
-      color: ${props => props.theme.colorLinkHover}
-    }
-  }
 `;
 const StyledContainer = styled.div`
   display: flex;
   flex-direction: column;
   font-size: var(--size-small);
+  a {
+    color: ${props=> props.theme.colorLink};
+    text-decoration: none;
+    transition: ${props => props.theme.transitionMedium};
+    &:hover {
+      color: ${props => props.theme.colorTheme};
+    }
+  }
 `;
 const StyledLink = styled.div`
   display: flex;
@@ -36,7 +36,7 @@ const StyledIcon = styled.div`
     transition: .2s ease-in;
 
     &:hover {
-      fill: ${props => props.theme.colorLinkHover};
+      fill: ${props => props.theme.colorTheme};
     }
   }
 `;
@@ -57,11 +57,9 @@ const Contact = () => {
             </a>
           </StyledIcon>
         </StyledLink>
-        <div>
           <a href={`mailto:${pageData.emailAddress}`}>
             {pageData.emailAddress}
           </a>
-        </div>
       </StyledContainer>
     </StyledWrapper>
   );

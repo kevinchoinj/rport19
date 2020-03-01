@@ -16,9 +16,9 @@ const StyledContainer = styled.div`
   a {
     color: ${props=> props.theme.colorLink};
     text-decoration: none;
-    transition: ${props => props.theme.transitionMedium}
+    transition: ${props => props.theme.transitionMedium};
     :hover {
-      color: ${props => props.theme.colorLinkHover}
+      color: ${props => props.theme.colorTheme};
     }
   }
 `;

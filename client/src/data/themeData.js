@@ -5,6 +5,8 @@ export const themeData = {
   colorText: '#dadada',
   topRightText: '#dadada',
 
+  //colorTheme: '#c4a381',
+  colorTheme: '#d8b2d8',
   colorAdminContainer: 'rgba(0, 0, 0, .95)',
   colorAdminPrimary: 'rgba(45,0,78, 1)',
   colorAdminPrimaryDark: 'rgba(75, 0, 128)',

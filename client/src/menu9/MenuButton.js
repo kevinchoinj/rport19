@@ -61,6 +61,11 @@ const StyledWrapper = styled.div`
   &:active, &:focus {
     outline: none;
   }
+  @media screen and (max-width: 768px) {
+    height: 1rem;
+    width: 1rem;
+    padding: 0;
+  }
 `;
 
 const handleKeyDown = (event, action) => {

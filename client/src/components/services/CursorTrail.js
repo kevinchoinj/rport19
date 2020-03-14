@@ -71,7 +71,6 @@ function random(a, b) {
 const portalRoot = document.getElementById('portal-root');
 
 const CursorTrail = () => {
-  console.log('rerender');
   const containerRef = useRef(null);
   const lines = [];
   const mouse = new Vec3();
@@ -88,7 +87,7 @@ const CursorTrail = () => {
     }
     window.addEventListener("resize", resize, false);
 
-    ["#000", "#111", "#d8b2d8", "#333", "#444"].forEach(
+    ["#d8b2d8", "#000", "#222", "#333", "#444"].forEach(
       (color) => {
         const line = {
           spring: random(0.02, 0.1),

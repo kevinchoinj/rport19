@@ -20,6 +20,7 @@ const StyledWrapper = styled.div`
   position: absolute;
   top: 0px;
   left: 0px;
+  position: relative;
 `;
 const StyledContainer = styled.div`
   color: #fff;
@@ -105,7 +106,6 @@ const PassportCheck = ({loggedIn, login, register}) => {
   return (
     <>
       <PassportTicket/>
-      <StyledBackground/>
       <LoginDisplay
         loggedIn = {loggedIn}
         login={login}

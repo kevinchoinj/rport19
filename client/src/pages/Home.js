@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import Background from 'components/home/BackgroundMouse';
+import Background from 'components/home/BackgroundSvg';
 import Logo from 'components/home/Logo';
 import Contact from 'components/home/Contact';
 import {connect} from 'react-redux';

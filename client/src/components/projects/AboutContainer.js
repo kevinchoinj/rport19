@@ -5,6 +5,7 @@ const StyledWrapper = styled.div`
   width: 100%;
   background-color: #fff;
   font-size: 3rem;
+  padding: 3rem 0;
   letter-spacing: 0px;
   word-wrap: break-word;
   display: flex;

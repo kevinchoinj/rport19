@@ -55,7 +55,6 @@ const StyledTextWrapper = styled.div`
   width: 100%;
   position: fixed;
   background-color: rgba(0,0,0,.75);
-  mix-blend-mode: darken;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -66,14 +65,17 @@ const StyledText = styled.h1`
   @media screen and (max-width: 768px) {
     margin: 0;
   }
-  color: #dadada;
+  color: transparent;
+  font-weight: 400;
+  color: rgba(216, 178, 216, .05);
+  -webkit-text-stroke: 1px rgba(216, 178, 216, .5);
   font-family: 'Josefin Sans', sans-serif;
   @media screen and (max-width: 768px) {
     transform: none !important;
   }
 `;
 const Background = ({mousePosition}) => {
-  const memoizedMovement = useMemo(() => mousePosition.xValue/50, [mousePosition])
+  const memoizedMovement = useMemo(() => mousePosition.xValue/35, [mousePosition])
   return(
     <StyledWrapper>
       <StyledVideo

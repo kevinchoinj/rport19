@@ -60,6 +60,8 @@ export const projectData = {
     mobileImageOne: '/static/images/delilahs/4.jpg',
     mobileImageTwo: '/static/images/delilahs/5.jpg',
     mobileImageThree: '/static/images/delilahs/6.jpg',
+    addImageOne: '/static/images/delilahs/f1.jpg',
+    addImageOneSize: '600px',
   },
   discord: {
     bannerTextOne: 'Discord Bot',

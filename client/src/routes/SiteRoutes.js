@@ -26,7 +26,6 @@ const SiteRoutes = () => {
       <BackgroundImageWrapper/>
       <StyledGlobal/>
       <Switch>
-
         <Route exact path={pageData.home} render={props => <Home {...props}/>}/>
         <AppliedRoute
           path={pageData.miscProjects}

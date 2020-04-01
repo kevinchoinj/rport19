@@ -2,12 +2,9 @@ import React, {
   useState,
   useRef,
   useLayoutEffect,
-  useEffect,
 } from 'react';
 import {connect} from 'react-redux';
 import styled from 'styled-components';
-import {withRouter} from 'react-router-dom';
-import {hoverImage} from 'actions/mouse';
 
 //https://github.com/facebook/react/issues/14195
 //useMutationEffect removed: https://github.com/facebook/react/pull/14336
@@ -46,11 +43,13 @@ const StyledWrapper = styled.div`
   top: -2rem;
   left: -2rem;
   opacity: .8;
-  background-color: rgba(216, 178, 216, .05);
-  border: 1px solid rgba(216, 178, 216, .5);
+  background-color: rgba(216, 178, 216, .1);
+  border: 1px solid rgba(216, 178, 216, .9);
   pointer-events: none;
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 `;
-
 
 const CursorCircle = ({mousePosition}) => {
   const [imageValues, setImageValues] = useState({x: 0, y: 0});
@@ -72,8 +71,7 @@ const CursorCircle = ({mousePosition}) => {
   };
 
   return(
-      <StyledWrapper style={imageStyle}/>
-
+    <StyledWrapper style={imageStyle}/>
   );
 };
 

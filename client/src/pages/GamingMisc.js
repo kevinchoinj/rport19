@@ -274,6 +274,24 @@ const GamingMisc = ({ toggleMenu }) => {
         />
 
         <Update
+          title="TEAMFIGHT TACTICS"
+        >
+          S3 - Diamond (top 0.6011% at time of achievement)
+          <div>
+            <a href="https://lolchess.gg/index.php/profile/na/shodyra?hl=en-US"
+              aria-label="gaming link"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="gaming_link">
+              Profile link
+            </a>
+          </div>
+        </Update>
+        <GamingCarousel
+          images = {gamingData.TFT_ARRAY}
+        />
+
+        <Update
           title="MISC"
         >
           Counterstrike: Global Offensive - Legendary Eagle rank with limited FPS experience

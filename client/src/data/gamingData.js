@@ -55,6 +55,9 @@ export const gamingData = {
     {id: '/static/images/gaming/neo2.png'},
     {id: '/static/images/gaming/neo3.png'},
   ],
+  TFT_ARRAY: [
+    {id: '/static/images/gaming/tft1.jpg'},
+  ],
   MISC_ARRAY: [
     {id: '/static/images/gaming/misc2.jpg'},
     {id: '/static/images/gaming/misc4.jpg'},

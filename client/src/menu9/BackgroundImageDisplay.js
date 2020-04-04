@@ -8,6 +8,7 @@ import {
   selectMenuHover,
   selectLoadedContent,
 } from 'reducers';
+import {withRouter} from 'react-router-dom';
 
 const StyledBackground = styled.div`
   cursor: pointer;
@@ -36,12 +37,19 @@ const BackgroundImage = React.memo(({menuOpen, link, src, onClick}) => {
   />
 });
 
-const BackgroundImageDisplay = ({hoverOption, image, link, loadedContent, menuDisplay, toggleMenu}) => {
-  const memoizedMenuOpen = useMemo(() => (link===loadedContent && !menuDisplay)
-    || (link===loadedContent && !hoverOption)
-    || (image===hoverOption && menuDisplay), [loadedContent, menuDisplay, hoverOption]);
+const BackgroundImageDisplay = ({hoverOption, image, link, location, menuDisplay, toggleMenu}) => {
+  const memoizedMenuOpen = useMemo(() => {
+    if (!menuDisplay) {
+      return (link===location.pathname);
+    }
+    else {
+      if (!hoverOption) {
+        return (link===location.pathname);
+      }
+      return image===hoverOption;
+    }
+  });
   const memoizedCallback = useCallback(toggleMenu, []);
-
   return(
     <BackgroundImage
       menuOpen={memoizedMenuOpen}
@@ -56,7 +64,6 @@ const mapStateToProps = (state) => {
   return {
     menuDisplay: selectMenuDisplay(state),
     hoverOption: selectMenuHover(state),
-    loadedContent: selectLoadedContent(state),
   };
 };
 
@@ -69,4 +76,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default React.memo(connect(mapStateToProps, mapDispatchToProps)(BackgroundImageDisplay));
+export default React.memo(withRouter(connect(mapStateToProps, mapDispatchToProps)(BackgroundImageDisplay)));

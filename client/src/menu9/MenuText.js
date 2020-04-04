@@ -1,12 +1,11 @@
 import React, {useCallback} from 'react';
 import {hoverMenuOption} from 'actions/menu';
 import {connect} from 'react-redux';
-import {Link} from 'react-router-dom';
+import {Link, withRouter} from 'react-router-dom';
 import {menuData} from 'data/menuData';
 import styled from 'styled-components';
 import {
   selectMenuDisplay,
-  selectLoadedContent,
 } from 'reducers';
 
 const StyledLinkWrapper = styled.div`
@@ -133,16 +132,15 @@ const StyledNumber = styled.div`
 const StyledRow = styled.div`
 
 `;
-//there is a bug past v0.50 in chrome where the grab/grabbing cursors are buggy while devtools is open
 const StyledWrapper = styled.div`
   pointer-events: '${props => props.menuDisplay ? 'auto' : 'none'}';
   overflow: auto;
   height: 100%;
   overflow-x: hidden;
 `;
-const MenuText = ({menuDisplay, loadedContent, hoverOption}) => {
-  const memoizedHover = useCallback(hoverOption, []);
 
+const MenuText = ({menuDisplay, location, hoverOption}) => {
+  const memoizedHover = useCallback(hoverOption, []);
   return(
     <StyledWrapper
       menuDisplay={menuDisplay}
@@ -150,7 +148,7 @@ const MenuText = ({menuDisplay, loadedContent, hoverOption}) => {
       {menuData.map((value) => (
         <StyledRow key={value.link}>
           <CheckCurrentPage
-            loadedContent={loadedContent}
+            loadedContent={location.pathname}
             link={value.link}
             image={value.image}
             memoizedHover={memoizedHover}
@@ -166,7 +164,6 @@ const MenuText = ({menuDisplay, loadedContent, hoverOption}) => {
 const mapStateToProps = (state) => {
   return {
     menuDisplay: selectMenuDisplay(state),
-    loadedContent: selectLoadedContent(state),
   };
 };
 
@@ -178,4 +175,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default React.memo(connect(mapStateToProps, mapDispatchToProps)(MenuText));
+export default React.memo(withRouter(connect(mapStateToProps, mapDispatchToProps)(MenuText)));

@@ -1,7 +1,6 @@
 import menu from 'reducers/menu';
 import authentication from 'reducers/authentication';
 import images from 'reducers/images';
-import transition from 'reducers/transition';
 import git from 'reducers/git';
 import mouse from 'reducers/mouse';
 import gaming from 'reducers/gaming';
@@ -15,7 +14,6 @@ const reducers={
   gaming,
   authentication,
   images,
-  transition,
   mouse,
   git,
   contact,
@@ -33,11 +31,6 @@ export const selectMenuHover = (state) => state.menu.hoverOption;
 =               SCROLL                 =
 ======================================*/
 export const selectScrollSkew = (state) => state.scroll.skew;
-
-/*======================================
-=                TRANSITION                 =
-======================================*/
-export const selectLoadedContent = (state) => state.transition.loadedContent;
 
 /*======================================
 =                IMAGES                 =

@@ -23,7 +23,6 @@ const StyledWrapper = styled.div`
 const App = () => {
   return (
     <ThemeProvider theme={themeData}>
-      <TrackMouse>
         <StyledWrapper id="main_app">
           <Switch>
             <AppliedRoute
@@ -33,7 +32,6 @@ const App = () => {
             <Route path="/" render={(props) => <SiteRoutesWrapper {...props}/>}/>
           </Switch>
         </StyledWrapper>
-      </TrackMouse>
       <CursorCircle/>
     </ThemeProvider>
   );

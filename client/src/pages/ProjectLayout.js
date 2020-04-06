@@ -55,6 +55,7 @@ const StyledContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
   @media screen and (max-width: 992px) {
     padding: 0;
   }

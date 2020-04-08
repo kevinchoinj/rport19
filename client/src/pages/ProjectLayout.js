@@ -161,7 +161,9 @@ const ProjectVideoObject = React.memo(({src, textOne, textTwo, textThree, video}
             </StyledTitle>
             <StyledBodyText>
               {textOne}
+              <br/><br/>
               {textTwo}
+              <br/><br/>
               {textThree}
             </StyledBodyText>
           </StyledText>

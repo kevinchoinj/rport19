@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import * as menuActions from 'actions/menu';
+import {hoverMenuOption, toggleMenu} from 'actions/menu';
 import styled from 'styled-components';
 import {
   selectMenuDisplay,
@@ -9,10 +9,12 @@ import {
 const StyledWrapper = styled.div`
   position: fixed;
   padding: var(--size-spacing);
+  box-sizing: border-box;
   width: 100%;
   top: 0;
   left: 0;
   height: 100%;
+  pointer-events: none;
 `;
 const StyledContainer = styled.div`
   background: transparent;
@@ -20,6 +22,7 @@ const StyledContainer = styled.div`
   cursor: pointer;
 `;
 const StyledLink = styled.span`
+  pointer-events: auto;
   font-size: var(--size-small);
   letter-spacing: 3px;
   color: #fff;
@@ -30,7 +33,7 @@ const StyledLink = styled.span`
   }
 `;
 const StyledSecondary = styled.span`
-  opacity: .5
+  color: ${props => props.theme.colorTheme};
 `;
 
 const handleKeyDown = (event, action) => {
@@ -63,8 +66,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     toggleMenu: (menuDisplay) => {
-      dispatch(menuActions.hoverMenuOption(''));
-      dispatch(menuActions.toggleMenu(!menuDisplay));
+      dispatch(hoverMenuOption(''));
+      dispatch(toggleMenu(!menuDisplay));
     }
   };
 };

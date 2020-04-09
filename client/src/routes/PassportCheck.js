@@ -84,24 +84,7 @@ const LoginDisplay = ({loggedIn, register, login}) => {
     );
   }
 };
-const StyledBackground = styled(LinkObject)`
-  background-size: cover;
-  width: 100vw;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-image: url(/static/images/background.jpg);
-  &:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, .5);
-  }
-`;
+
 const PassportCheck = ({loggedIn, login, register}) => {
   return (
     <>

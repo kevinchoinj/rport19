@@ -6,7 +6,6 @@ import styled from 'styled-components';
 import {
   selectMenuDisplay,
   selectMenuHover,
-  selectLoadedContent,
 } from 'reducers';
 import {withRouter} from 'react-router-dom';
 
@@ -48,7 +47,7 @@ const BackgroundImageDisplay = ({hoverOption, image, link, location, menuDisplay
       }
       return image===hoverOption;
     }
-  });
+  }, [menuDisplay, hoverOption, location, image, link]);
   const memoizedCallback = useCallback(toggleMenu, []);
   return(
     <BackgroundImage

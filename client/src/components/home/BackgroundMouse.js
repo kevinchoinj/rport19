@@ -13,15 +13,6 @@ const StyledWrapper = styled.div`
   position: fixed;
   left: 0px;
   transition: .2s ease;
-  :after {
-    content: '';
-    position: fixed;
-    height: 100%;
-    width: 100%;
-    top: 0px;
-    left: 0px;
-    background-color: rgba(0,0,0,.1);
-  }
 `;
 const Video = ({className, src, poster}) => (
   <video

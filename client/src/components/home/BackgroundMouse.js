@@ -1,4 +1,4 @@
-import React, {useMemo} from 'react';
+import React, {memo, useMemo} from 'react';
 import {connect} from 'react-redux';
 import styled from 'styled-components';
 import {
@@ -68,13 +68,17 @@ const StyledText = styled.h1`
 //  color: rgba(216, 178, 216, .05);
 //-webkit-text-stroke: 1px rgba(216, 178, 216, .5);
 
+const VideoComponent = memo(() => (
+  <StyledVideo
+    src='/static/images/daytime.mp4'
+  />
+));
+
 const Background = ({mousePosition}) => {
   const memoizedMovement = useMemo(() => mousePosition.xValue/35, [mousePosition])
   return(
     <StyledWrapper>
-      <StyledVideo
-        src='/static/images/daytime.mp4'
-      />
+      <VideoComponent/>
       <StyledTextWrapper>
         <StyledText
           marginLeft="-3rem"
@@ -103,4 +107,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default React.memo(connect(mapStateToProps, null)(Background));
+export default memo(connect(mapStateToProps, null)(Background));

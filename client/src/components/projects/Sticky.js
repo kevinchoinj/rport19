@@ -5,6 +5,7 @@ const StyledWrapper = styled.div`
   width: 100%;
   position: sticky;
   top: 10%;
+  opacity: .5;
   -webkit-text-stroke: 1px ${props => props.theme.colorTheme};
   @media screen and (max-width: 992px) {
     display: none;
@@ -19,7 +20,7 @@ const StyledSticky = styled.div`
   margin-left: -15%;
   justify-self: flex-start;
   color: transparent;
-  font-size: 12vw;
+  font-size: 15vw;
   font-family: "Josefin Sans", Helvetica, sans-serif;
   div {
     white-space: nowrap;

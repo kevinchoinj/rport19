@@ -5,6 +5,7 @@ import React, {
 } from 'react';
 import {connect} from 'react-redux';
 import styled from 'styled-components';
+import {selectCurrentMousePosition} from 'reducers';
 
 //https://github.com/facebook/react/issues/14195
 //useMutationEffect removed: https://github.com/facebook/react/pull/14336
@@ -36,12 +37,12 @@ const useAnimationFrame = callback => {
 };
 
 const StyledWrapper = styled.div`
-  height: 4rem;
-  width: 4rem;
-  border-radius: 2rem;
+  height: 5rem;
+  width: 5rem;
+  border-radius: 2.5rem;
   position: fixed;
-  top: -2rem;
-  left: -2rem;
+  top: -2.5rem;
+  left: -2.5rem;
   opacity: .8;
   background-color: rgba(216, 178, 216, .1);
   border: 1px solid rgba(216, 178, 216, .9);
@@ -66,19 +67,16 @@ const CursorCircle = ({mousePosition}) => {
     animate();
   });
 
-  const imageStyle = {
-    transform: `translate(${imageValues.x}px, ${imageValues.y}px)`,
-  };
-
   return(
-    <StyledWrapper style={imageStyle}/>
+    <StyledWrapper style={{
+      transform: `translate(${imageValues.x}px, ${imageValues.y}px)`
+    }}/>
   );
 };
 
 const mapStateToProps = (state) => {
   return {
-    content: state.mouse.content,
-    mousePosition: state.mouse.mousePosition,
+    mousePosition: selectCurrentMousePosition(state),
   };
 };
 

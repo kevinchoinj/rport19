@@ -12,6 +12,16 @@ const StyledContainer = styled.div`
   color: ${props => props.theme.colorBackground};
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 1rem;
+  background-color: ${props => props.theme.colorTheme};
+  poisition: relative;
+  @media screen and (max-width: 768px) {
+    height: 1rem;
+    width: 1rem;
+  }
 `;
 const StyledLines = styled.div`
   width: 100%;
@@ -40,19 +50,31 @@ const StyledLineTwo = styled.span`
   background-color: #000;
   transition: all 0.5s cubic-bezier(0.000, 0.785, 0.000, 1.000);
 `;
-const StyledWrapper = styled.div`
+const StyledText = styled.div`
+  position: relative;
   height: 2rem;
-  width: 2rem;
   padding: 1rem;
   background-color: ${props => props.theme.colorTheme};
+  display: flex;
+  align-items: center;
+  background-color: ${props => props.theme.colorTheme};
+  transform: ${props => props.menuDisplay && 'translateX(calc(100%))'};
+  transition: .2s ease;
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+`;
+const StyledTextWrapper = styled.div`
+  overflow: hidden;
+`;
+const StyledWrapper = styled.div`
   position: fixed;
   top: 1rem;
   right: 1rem;
   cursor: pointer;
   transition: ${props => props.theme.transitionMedium};
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  box-sizing: border-box;
   &:hover ${StyledContainer} ${StyledLines} ${StyledLineOne} {
     transform: translate(-50%, -50%);
   }
@@ -62,9 +84,8 @@ const StyledWrapper = styled.div`
   &:active, &:focus {
     outline: none;
   }
-  @media screen and (max-width: 768px) {
-    height: 1rem;
-    width: 1rem;
+  &:hover ${StyledText} {
+    transform: ${props => !props.menuDisplay && 'translateX(1rem)'};
   }
 `;
 
@@ -76,10 +97,18 @@ const handleKeyDown = (event, action) => {
 const MenuButton = ({menuDisplay, toggleMenu}) => {
   return(
     <StyledWrapper
+      menuDisplay={menuDisplay}
       onClick={() => toggleMenu(menuDisplay)}
       onKeyDown={(event) => handleKeyDown(event, () => toggleMenu(menuDisplay))}
       aria-label="menu button"
     >
+      <StyledTextWrapper>
+      <StyledText
+        menuDisplay={menuDisplay}
+      >
+        EXPLORE
+      </StyledText>
+      </StyledTextWrapper>
       <StyledContainer>
         <StyledLines >
           <StyledLineOne menuDisplay={menuDisplay}/>

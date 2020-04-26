@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const StyledWrapper = styled.div`
   width: 100%;
   background-color: rgba(255, 255, 255, .8);
-  font-size: 3rem;
+  font-size: 2.5rem;
   padding: 3rem 0;
   letter-spacing: 0px;
   word-wrap: break-word;

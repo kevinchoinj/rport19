@@ -16,7 +16,7 @@ const loadInFrames = keyframes`
 `;
 
 const StyledLoadIn = styled.div`
-  transition: .3s ease ${props => props.loadDelay};
+  transition: 1s ease ${props => props.loadDelay};
   animation: ${loadInFrames} .3s linear ${props => props.loadDelay};
   animation-fill-mode: both;
 

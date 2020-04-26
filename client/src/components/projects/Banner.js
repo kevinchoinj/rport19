@@ -97,7 +97,7 @@ const StyledContainer = styled.div`
   font-size: var(--size-small);
   line-height: 140%;
   letter-spacing: 0px;
-  transition: ${props => props.theme.transitionMedium};
+  transition: 1s ease;
   letter-spacing: 4px;
   box-sizing: border-box;
   display: flex;

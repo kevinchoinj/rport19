@@ -41,7 +41,7 @@ const StyledColumn = styled.div`
   max-width: 430px;
   margin-right: 1rem;
   img {
-    transition: .6s ease ${props => props.delay};
+    transition: 1s ease ${props => props.delay};
     opacity: ${({ ratio }) => ratio ? 1 : 0};
     transform: ${({ ratio }) => ratio ? 'transformY(0px)' : 'transformY(1rem)'};
     transform-origin: top center;

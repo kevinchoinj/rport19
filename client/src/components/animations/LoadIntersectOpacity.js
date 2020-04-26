@@ -5,7 +5,7 @@ import styled from 'styled-components';
 const StyledContainer = styled.div`
   overflow: hidden;
   img {
-    transition: .6s ease;
+    transition: 1s ease;
     opacity: ${({ ratio }) => ratio ? 1 : 0};
     transform: ${({ ratio }) => ratio ? 'translateY(0px)' : 'translateY(1rem)'};
     width: 100%;

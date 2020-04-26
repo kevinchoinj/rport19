@@ -60,6 +60,7 @@ const StyledText = styled.div`
   background-color: ${props => props.theme.colorTheme};
   transform: ${props => props.menuDisplay && 'translateX(calc(100%))'};
   transition: .2s ease;
+  font-size: var(--size-small);
   @media screen and (max-width: 768px) {
     display: none;
   }

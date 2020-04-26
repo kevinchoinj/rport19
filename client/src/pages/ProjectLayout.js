@@ -61,7 +61,7 @@ const StyledContainer = styled.div`
   }
 `;
 const StyledText = styled.div`
-  font-size: var(--size-medium);
+  font-size: 2rem;
   letter-spacing: 1px;
   width: 66.6%;
   padding: 0 0 var(--size-spacing-large) 0px;

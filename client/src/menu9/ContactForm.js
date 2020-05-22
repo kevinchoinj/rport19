@@ -63,10 +63,9 @@ const ContactForm = ({onSubmit}) => {
       <Formik
         enableReinitialize
         initialValues={{
-
           message: "",
         }}
-        onSubmit={(values, { setSubmitting }) => onSubmit(values)}
+        onSubmit={(values) => onSubmit(values)}
       >
         {() =>
           <Form>
@@ -89,7 +88,7 @@ const ContactForm = ({onSubmit}) => {
               </button>
               <ContactFormSending/>
             </StyledButtonWrapper>
-        </Form>
+          </Form>
         }
       </Formik>
     </StyledWrapper>

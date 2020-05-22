@@ -49,21 +49,23 @@ const StyledTextWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  mix-blend-mode: darken;
 `;
+// mix-blend-mode: darken;
 const StyledText = styled.h1`
   font-size: 15vw;
   margin: 0 0 0 ${props => props.marginLeft};
+  color: transparent;
+  -webkit-text-stroke: 1px ${props => props.theme.colorTheme};
   @media screen and (max-width: 768px) {
     margin: 0;
   }
-  color: #dadada;
   font-weight: 400;
   font-family: 'Josefin Sans', sans-serif;
   @media screen and (max-width: 768px) {
     transform: none !important;
   }
 `;
+// color: #dadada;
 
 //  color: rgba(216, 178, 216, .05);
 //-webkit-text-stroke: 1px rgba(216, 178, 216, .5);

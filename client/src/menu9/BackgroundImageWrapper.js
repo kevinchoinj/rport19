@@ -4,6 +4,7 @@ import {menuData} from 'data/menuData';
 import BackgroundImageDisplay from 'menu9/BackgroundImageDisplay';
 import {pageData} from 'data/pageData';
 import {withRouter} from 'react-router-dom';
+
 const noise = keyframes`
   0%{
     transform:translate3d(0,9rem,0)

@@ -8,7 +8,6 @@ import MobileImagesStatic from 'components/projects/MobileImagesStatic';
 import ProjectVideo from 'components/projects/ProjectVideo';
 import styled from 'styled-components';
 import scroll from 'react-scroll';
-import LoadIntersect from 'components/animations/LoadIntersectOpacity';
 import Sticky from 'components/projects/Sticky';
 
 let scroller = scroll.animateScroll;
@@ -138,9 +137,7 @@ const StyledBodyText = styled.div`
 const ProjectImage = React.memo(({src}) => {
   return src ? (
     <StyledDisplay>
-      <LoadIntersect>
-        <StyledImage src={src}/>
-      </LoadIntersect>
+      <StyledImage src={src}/>
     </StyledDisplay>
   ) : null;
 });
@@ -169,11 +166,9 @@ const ProjectVideoObject = React.memo(({src, textOne, textTwo, textThree, video}
           </StyledText>
         }
         {!video && src &&
-          <LoadIntersect>
-            <StyledImage
-              src={src}
-            />
-          </LoadIntersect>
+          <StyledImage
+            src={src}
+          />
         }
       </StyledDisplay>
     </StyledDisplayContainer>
@@ -207,9 +202,7 @@ const ProjectLayout = ({ pageValues, toggleMenu }) => {
         <ProjectImage src={pageValues.bodyImageTwo}/>
         {pageValues.addImageOne &&
           <StyledDisplaySmall size={pageValues.addImageOneSize}>
-            <LoadIntersect>
-              <StyledImage src={pageValues.addImageOne}/>
-            </LoadIntersect>
+            <StyledImage src={pageValues.addImageOne}/>
           </StyledDisplaySmall>
         }
           <ProjectImage src={pageValues.bodyImageThree}/>

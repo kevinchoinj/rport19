@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import ContactWrapper from 'menu9/ContactWrapper';
-import resumepdf from 'data/resume2020.pdf';
 
 const StyledWrapper = styled.div`
   padding: 50px;
@@ -33,14 +32,6 @@ const DetailsWrapper = styled.div`
   margin: 0 0 2rem 0;
   line-height: 140%;
   font-family: 'Josefin Sans', sans-serif;
-  a {
-    color: ${props=> props.theme.colorLink};
-    text-decoration: none;
-    transition: ${props => props.theme.transitionMedium};
-    :hover {
-      color: ${props => props.theme.colorTheme};
-    }
-  }
 `;
 
 const TopRightDisplay = () => {
@@ -59,10 +50,6 @@ const TopRightDisplay = () => {
           Cloud Elements
           <br/>
           Dallas, TX
-          <br/><br/>
-          <a href={resumepdf} target="_blank" rel="noopener noreferrer">
-            Resume
-          </a>
         </DetailsWrapper>
         </div>
       <ContactWrapper/>

@@ -216,6 +216,7 @@ export const projectData = {
   },
   loserfruit: {
     bannerTextOne: 'Loserfruit',
+    video: '/static/images/loserfruit/video.mp4',
     bannerTextTwo: '2020',
     bannerTextThree: 'Javascript React Node.js',
     bannerTextFour: 'https://loserfruit.shodyra.com.com/',

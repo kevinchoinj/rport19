@@ -16,7 +16,14 @@ const StyledWrapper = styled.div`
   -webkit-overflow-scrolling: touch;
   * {
     -webkit-tap-highlight-color: rgba(0,0,0,0);
+    ::selection {
+      background: ${props => props.theme.colorTheme};
+    }
+    ::-moz-selection {
+      background: ${props => props.theme.colorTheme};
+    }
   }
+
 `;
 
 const App = () => {

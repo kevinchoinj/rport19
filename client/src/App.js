@@ -23,7 +23,6 @@ const StyledWrapper = styled.div`
       background: ${props => props.theme.colorTheme};
     }
   }
-
 `;
 
 const App = () => {

@@ -1,7 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {toggleMenu} from 'actions/menu';
-import {hoverMenuOption} from 'actions/menu';
+import {hoverMenuOption, toggleMenu} from 'actions/menu';
 import {
   selectMenuDisplay,
 } from 'reducers';

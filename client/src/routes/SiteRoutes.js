@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Suspense} from 'react';
 
 import {Switch, Route} from 'react-router-dom';
 import Home from 'pages/Home';
@@ -10,20 +10,22 @@ import MenuButton from 'menu9/MenuButton';
 
 import {projectData} from 'data/projectData';
 import {pageData} from 'data/pageData';
-import BackgroundImageWrapper from 'menu9/BackgroundImageWrapper';
+// import BackgroundImageWrapper from 'menu9/BackgroundImageWrapper';
 import StyledGlobal from 'components/services/StyledGlobal';
 
 import AppliedRoute from 'components/split/AppliedRoute';
 import asyncComponent from 'components/split/AsyncComponent';
 const AsyncMisc = asyncComponent(() => import('pages/ProjectMisc'));
 const AsyncGaming = asyncComponent(() => import('pages/GamingMisc'));
-
+const BackgroundImageWrapper = React.lazy(() => import('menu9/BackgroundImageWrapper'));
 
 const SiteRoutes = () => {
   /* key prop rerenders component when it is the same component being used between routes */
   return (
     <>
-      <BackgroundImageWrapper/>
+      <Suspense fallback={null}>
+        <BackgroundImageWrapper/>
+      </Suspense>
       <StyledGlobal/>
       <Switch>
         <Route exact path={pageData.home} render={props => <Home {...props}/>}/>

@@ -5,6 +5,7 @@ const StyledWrapper = styled.div`
   width: 100%;
   position: sticky;
   top: 10%;
+  overflow: hidden;
   opacity: .05;
   @media screen and (max-width: 992px) {
     display: none;

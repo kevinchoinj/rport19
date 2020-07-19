@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import moment from 'moment';
+import {formatDistanceToNow} from 'date-fns';
 import styled from 'styled-components';
 import {
   selectGitCommits,
@@ -30,7 +30,7 @@ const GitView = ({commits}) => {
             <StyledObject key={value.commit.author.date}>
               {value.author.login}
               <br/>
-              {moment(value.commit.author.date).fromNow()}
+              {formatDistanceToNow(new Date(value.commit.author.date), { addSuffix: true })}
               <br/>
               {value.commit.message}
             </StyledObject>

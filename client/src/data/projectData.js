@@ -1,13 +1,38 @@
 export const projectData = {
   fasffy: {
+    extended: true,
     bannerTextOne: 'Fasffy',
     bannerTextTwo: '2020',
     bannerTextThree: 'Javascript React Node.js',
     bannerTextFour: 'https://fasffy.com/',
     aboutText: 'Fasffy is a Twitch.tv streamer, cosplayer, and eSports manager. As of 2020, she manages the Team Liquid League of Legends division, which has won four consecutive North American championships in 2018 and 2019.',
     video: '/static/images/fasffy/video.mp4',
-    bodyTextOne: 'The site was based on the foundation of the previously created Novaruu site, which I had previously built.',
-    bodyTextTwo: ' Additional functionality was added such as a deeper integration with the Instagram GraphQL API and a personalized administrative interface for editing site content',
+    bodyTextOne: `The site was based on the foundation of the previously created Novaruu site, which I had previously built. The frontend was written with ReactJS, and libraries which were used were styled-components for styling, redux for state management, ramda for utility, formik for forms in the administrative ui, and js-cookie for session persistence after after authentication. In order to create a smooth and fluid user experience, a timer was set between each page transition such that before the subsequent panel would open, the previous panel would close. Users could also personalize their experience by selecting which side they wanted their view panels to appear from, and the width of each.
+    <br/><br/>
+    Social media display content is fetched from the backend, and other data such as the 'About' section and the 'Equipment' section are customized from the administrative panel, which is custom built for the user to easily submit data to a database. Data is submitted via forms constructed with Formik, where the user can upload both images and text. The administrative panel is only accessible with valid authentication. User mouse movements are tracked and used to animate background assets and to display relevant tooltips.`,
+    bodyTextTwo: `Social media data is gathered via cron jobs to various APIs including Youtube, Twitter, Twitch, and Instagram. To retrieve Youtube video data without hitting the quota limit, the playlist ID for the specified channel must first be found and saved.
+    For Instagram, a GraphQL endpoint is used, and for Twitch, separate requests are made to determine whether the channel is currently live,
+    and another to get the collection of recent broadcasts.<br/><br/>
+    While previously CouchDB/AWS S3 was used to store persistent data such as images and text data, for the scale of the project and only one user needing to be able to create, edit, and save data at a time, content was saved locally via fs into image folders and JSON files.
+    An additional option was set such that the client could connect to the server with Socket.IO to update the data live as data from the server was updated. However, after some usage, the tradeoff of performance, albeit small, for this minor feature was not deemed worth it, so it was put on hold with the option of turning it back on at any time.
+    <br/><br/>
+    The React client and Express server are both hosted with NGINX on a Vultr VPS.
+    `,
+    bodyTextThree: `Fonts used for this app are Komika and Open Sans. Colors primarily used <span style="color: #643c7e">⬤</span> #643c7e,
+    <span style="color: #f9f5fb">⬤</span> #f9f5fb, <span style="color: #ff7177">⬤</span> #ff7177, and <span style="color: #e8d6ef">⬤</span> #e8d6ef.
+    <br/><br/>
+    Lessons learned while building this application were the importance of not setting styled-components values within components, not setting
+    constantly changing props in a styled-components component, using 100% height over 100vh due to mobile toolbars, and rendering behavior across
+    route changes while using Google Analytics.
+    <br/><br/>
+    Aspects I am not quite satisfied with generally involve the experimental design,
+    such as the limitation of navbar options on the left side especially on smaller viewports,
+    the smallness of the default panel width, and general ambiguity of whether
+    navigation leads to an external or internal page.
+    <br/><br/>
+    Aspects I am satisfied with are the seamless transitions between the desktop and mobile view, the various view options that the user can toggle on and off,
+    and the general design of the content within each panel. The customer was also very satisfied with the completed result.
+    `,
     bodyImageOne: '/static/images/fasffy/1.jpg',
     bodyImageTwo: '/static/images/fasffy/2.jpg',
     bodyImageThree: '/static/images/fasffy/3.jpg',
@@ -33,12 +58,40 @@ export const projectData = {
     mobileImageThree: '/static/images/kaitlyn/6.jpg',
   },
   novaruu: {
+    extended: true,
     bannerTextOne: 'Novaruu',
     bannerTextTwo: '2019',
     bannerTextThree: 'Javascript React Node.js',
     bannerTextFour: 'https://novaruu.com',
     aboutText: 'Novaruu is a partnered Twitch.tv streamer and Discord partner',
-    bodyTextOne: 'The frontend was built with React/Redux, and the backend was built on NodeJS using Express to build a REST API. Multiple cron jobs were created in the server to poll multiple APIs including Twitter, Youtube, Twitch, and Instagram to send data back to the client for displaying. Optionally, socket.io was used to update client data when the server data was updated.',
+    bodyTextOne: `The frontend was written with ReactJS, and libraries which were used were styled-components for styling and
+    redux for state management. While the Fasffy project contained an administrative ui for editing content, all content in the Novaruu
+    app is automatically generated from the various social media APIs.
+    <br/><br/>
+    In order to create a smooth and fluid user experience, a timer was set between each page transition such that before the subsequent panel would open, the previous panel would close. Users could also personalize their experience by selecting which side they wanted their view panels to appear from, and the width of each.
+    <br/><br/>
+    User mouse movements are tracked and used to animate background assets and to display relevant tooltips, and Google Analytics was added to track user traffic.`,
+    bodyTextTwo: `Social media data is gathered via cron jobs to various APIs including Youtube, Twitter, Twitch, and Instagram. To retrieve Youtube video data without hitting the quota limit, the playlist ID for the specified channel must first be found and saved.
+    For Instagram, a GraphQL endpoint is used, and for Twitch, separate requests are made to determine whether the channel is currently live,
+    and another to get the collection of recent broadcasts.<br/><br/>
+    While previously CouchDB/AWS S3 was used to store persistent data such as images and text data, for the scale of the project and only one user needing to be able to create, edit, and save data at a time, content was saved locally via fs into image folders and JSON files.
+    An additional option was set such that the client could connect to the server with Socket.IO to update the data live as data from the server was updated. However, after some usage, the tradeoff of performance, albeit small, for this minor feature was not deemed worth it, so it was put on hold with the option of turning it back on at any time.
+    <br/><br/>
+    The React client and Express server are both hosted with NGINX on a Vultr VPS.
+    `,
+    bodyTextThree: `Fonts used for this app are Komika and Open Sans. Colors primarily used <span style="color: #f8d6f8">⬤</span> #f8d6f8,
+    <span style="color: #c6fcf9">⬤</span> #c6fcf9, and <span style="color: #000000">⬤</span> #000000.
+    <br/><br/>
+    Aspects I am not quite satisfied with generally involve the experimental design,
+    such as the limitation of navbar options on the left side especially on smaller viewports,
+    the smallness of the default panel width, and general ambiguity of whether
+    navigation leads to an external or internal page.
+    <br/><br/>
+    Aspects I am satisfied with are the seamless transitions between the desktop and mobile view, the various view options that the user can toggle on and off,
+    and the general design of the content within each panel. The customer was also very satisfied with the completed result.
+    <br/><br/>
+    web.dev measurements were aggressively used to optimize performance of the application.
+    `,
     video: '/static/images/novaruu/video.mp4',
     bodyImageOne: '/static/images/novaruu/1.jpg',
     bodyImageTwo: '/static/images/novaruu/2.jpg',

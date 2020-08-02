@@ -6,6 +6,7 @@ import {connect} from 'react-redux';
 import {toggleMenu} from 'actions/menu';
 import MobileImagesStatic from 'components/projects/MobileImagesStatic';
 import ProjectVideo from 'components/projects/ProjectVideo';
+import Section from 'components/projects/Section';
 import styled from 'styled-components';
 import scroll from 'react-scroll';
 import Sticky from 'components/projects/Sticky';
@@ -22,7 +23,7 @@ const Image = ({className, src}) => (
 const StyledImage = styled(Image)`
   width: 100%;
   @media screen and (max-width: 992px) {
-    width: calc(100% - 3rem);
+    width: 100%;
   }
 `;
 
@@ -68,6 +69,7 @@ const StyledText = styled.div`
   line-height: 140%;
   @media screen and (max-width: 992px) {
     width: 100%;
+    font-size: 1.5rem;
     padding: 6rem 1rem;
     margin-left: 0;
     box-sizing:border-box;
@@ -84,7 +86,6 @@ const StyledDisplayContainer = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-
 `;
 const StyledDisplay = styled.div`
   width: 83.33333333%;
@@ -93,7 +94,7 @@ const StyledDisplay = styled.div`
   justify-content: center;
   flex-direction: column;
   overflow: visible;
-  padding: 7rem 0;
+  padding: 0 0 7rem 0;
   position: relative;
   @media screen and (max-width: 992px) {
     margin-left: 0px;
@@ -133,6 +134,9 @@ const StyledBodyText = styled.div`
     width: 100%;
   }
 `;
+const StyledSections = styled.div`
+  margin-top: 4rem;
+`;
 
 const ProjectImage = React.memo(({src}) => {
   return src ? (
@@ -141,7 +145,15 @@ const ProjectImage = React.memo(({src}) => {
     </StyledDisplay>
   ) : null;
 });
-const ProjectVideoObject = React.memo(({src, textOne, textTwo, textThree, video}) => {
+
+const ProjectVideoObject = React.memo(({
+  extended,
+  src,
+  textOne,
+  textTwo,
+  textThree,
+  video,
+}) => {
   return (
     <StyledDisplayContainer>
       <StyledDisplay>
@@ -152,19 +164,31 @@ const ProjectVideoObject = React.memo(({src, textOne, textTwo, textThree, video}
           />
         }
         {textOne &&
-          <StyledText>
-            <StyledTitle>
-              OVERVIEW
-            </StyledTitle>
-            <StyledBodyText>
-              {textOne}
-              <br/><br/>
-              {textTwo}
-              <br/><br/>
-              {textThree}
-            </StyledBodyText>
-          </StyledText>
+          [extended ?
+            <StyledSections>
+              <Section
+                title="Frontend"
+                number="01"
+              >
+                {textOne}
+              </Section>
+            </StyledSections>
+            :
+            <StyledText>
+              <StyledTitle>
+                OVERVIEW
+              </StyledTitle>
+              <StyledBodyText>
+                {textOne}
+                <br/><br/>
+                {textTwo}
+                <br/><br/>
+                {textThree}
+              </StyledBodyText>
+            </StyledText>
+          ]
         }
+
         {!video && src &&
           <StyledImage
             src={src}
@@ -193,19 +217,44 @@ const ProjectLayout = ({ pageValues, toggleMenu }) => {
       <StyledContainer>
         <Sticky title ={pageValues.bannerTextOne}/>
         <ProjectVideoObject
+          extended={pageValues.extended}
           src={pageValues.bodyImageOne}
-          video={pageValues.video}
           textOne={pageValues.bodyTextOne}
           textTwo={pageValues.bodyTextTwo}
           textThree={pageValues.bodyTextThree}
+          video={pageValues.video}
         />
         <ProjectImage src={pageValues.bodyImageTwo}/>
-        {pageValues.addImageOne &&
-          <StyledDisplaySmall size={pageValues.addImageOneSize}>
-            <StyledImage src={pageValues.addImageOne}/>
-          </StyledDisplaySmall>
-        }
+          {pageValues.addImageOne &&
+            <StyledDisplaySmall size={pageValues.addImageOneSize}>
+              <StyledImage src={pageValues.addImageOne}/>
+            </StyledDisplaySmall>
+          }
+          {pageValues.extended && pageValues.bodyTextTwo &&
+            <StyledDisplay>
+              <StyledSections>
+                <Section
+                  title="Backend"
+                  number="02"
+                >
+                  {pageValues.bodyTextTwo}
+                </Section>
+              </StyledSections>
+            </StyledDisplay>
+          }
           <ProjectImage src={pageValues.bodyImageThree}/>
+          {pageValues.extended && pageValues.bodyTextThree &&
+            <StyledDisplay>
+              <StyledSections>
+                <Section
+                  title="Misc"
+                  number="03"
+                >
+                  {pageValues.bodyTextThree}
+                </Section>
+              </StyledSections>
+            </StyledDisplay>
+          }
           <ProjectImage src={pageValues.bodyImageFour}/>
         <MobileImageView pageValues = {pageValues}/>
       </StyledContainer>

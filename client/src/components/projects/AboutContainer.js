@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const StyledWrapper = styled.div`
   width: 100%;
   background-color: rgba(255, 255, 255, .8);
-  font-size: 2.5rem;
+  font-size: var(--size-medium);
   padding: 3rem 0;
   letter-spacing: 0px;
   word-wrap: break-word;
@@ -12,17 +12,15 @@ const StyledWrapper = styled.div`
   flex-direction: row;
   justify-content: flex-start;
   color: ${props => props.theme.colorBackground};
-  @media screen and (max-width: 992px) {
-    flex-direction: column;
-    font-size: 1.5rem;
+  @media screen and (max-width: 768px) {
+    font-size: var(--size-small);
   }
 `;
 const StyledBody = styled.div`
-  margin: 2rem 1rem;
-  width: 80%;
+  margin: 2rem 1rem 2rem 6rem;
+  width: 50%;
   max-width: 1240px;
   text-align: left;
-  font-family: 'Josefin Sans', Helvetica, sans-serif;
   line-height: 130%;
   @media screen and (max-width: 992px) {
     width: 100%;

@@ -44,11 +44,26 @@ export const projectData = {
     addImageOneSize: '600px',
   },
   kaitlyn: {
+    extended: true,
     bannerTextOne: 'Kaitlyn',
     bannerTextTwo: '2019',
     bannerTextThree: 'Javascript React Node.js',
     bannerTextFour: 'https://kaitlynlive.com/',
     aboutText: 'Kaitlyn is a Twitch.tv streamer and eSports competitor',
+    bodyTextOne: `The client was built with React using various libraries including classnames for styling, redux for state management, and ramda for utility. Various pages were created such as the landing page, a biographical page, an equipment page, an FAQ page, a contact page,
+    and a stream page.
+    <br/><br/>
+    Social media display content is fetched from the backend, and other data such as the 'About' section and the 'Equipment' section are customized from the administrative panel, which is custom built for the user to easily submit data to a database. Data is submitted via forms constructed with Formik, where the user can upload both images and text. The administrative panel is only accessible with valid authentication.`,
+    bodyTextTwo: `Social media data is gathered via cron jobs to various APIs including Youtube, Twitter, Twitch, and Instagram. To retrieve Youtube video data without hitting the quota limit, the playlist ID for the specified channel must first be found and saved.
+    For Instagram, a GraphQL endpoint is used, and for Twitch, separate requests are made to determine whether the channel is currently live,
+    and another to get the collection of recent broadcasts.<br/><br/>
+    AWS S3 is used to store save and display image files, and CouchDB is used to save and display text content. Additionally, the client retrieves updated data periodically from the server via Socket.IO.
+    <br/><br/>
+    The React client and Express server are both hosted with NGINX on a Vultr VPS. The administrative panel, which is used to save data for the client to display, is set up as a separate application as well.
+    `,
+    bodyTextThree: `Fonts used for this app are Komika and Open Sans. Colors primarily used <span style="color: #28e5ca">⬤</span> #28e5ca and
+    <span style="color: #b967ff">⬤</span> #b967ff.
+    `,
     video: '/static/images/kaitlyn/video.mp4',
     bodyImageOne: '/static/images/kaitlyn/1.jpg',
     bodyImageTwo: '/static/images/kaitlyn/2.jpg',
@@ -74,9 +89,6 @@ export const projectData = {
     bodyTextTwo: `Social media data is gathered via cron jobs to various APIs including Youtube, Twitter, Twitch, and Instagram. To retrieve Youtube video data without hitting the quota limit, the playlist ID for the specified channel must first be found and saved.
     For Instagram, a GraphQL endpoint is used, and for Twitch, separate requests are made to determine whether the channel is currently live,
     and another to get the collection of recent broadcasts.<br/><br/>
-    While previously CouchDB/AWS S3 was used to store persistent data such as images and text data, for the scale of the project and only one user needing to be able to create, edit, and save data at a time, content was saved locally via fs into image folders and JSON files.
-    An additional option was set such that the client could connect to the server with Socket.IO to update the data live as data from the server was updated. However, after some usage, the tradeoff of performance, albeit small, for this minor feature was not deemed worth it, so it was put on hold with the option of turning it back on at any time.
-    <br/><br/>
     The React client and Express server are both hosted with NGINX on a Vultr VPS.
     `,
     bodyTextThree: `Fonts used for this app are Komika and Open Sans. Colors primarily used <span style="color: #f8d6f8">⬤</span> #f8d6f8,
@@ -102,14 +114,21 @@ export const projectData = {
     addImageOne: '/static/images/novaruu/f1.jpg',
   },
   delilah: {
+    extended: true,
     bannerTextOne: 'Delilah\'s 2nd Chance',
     bannerTextTwo: '2018',
     bannerTextThree: 'Javascript React Node.js',
     bannerTextFour: 'https://delilahs2ndchance.org',
     video: '/static/images/delilahs/video.mp4',
     aboutText: `Delilah's 2nd Chance is a non-profit (501(c)(3)) animal rescue organization.They specialize in saving, rehabilitating, and placing in forever homes.`,
-    bodyTextOne: 'This project was created for a non-profit animal rescue. The frontend was built with React/Redux, which receives data from an external backend application which polls the petfinder.com API, which then stores the data in CouchDB. The CouchDB data is then accessed by the client. All forms in the application are POSTed to the Node.js/Express server, which then uses nodemailer and gmail as an SMTP to forward all messages, applications, and contracts to multiple administrators and managers.',
-    bodyTextTwo: 'In 2019, approximately 2,000 adoption/fostering applications were submitted through the site.',
+    bodyTextOne: `The frontend was written with ReactJS, and libraries which were used were styled-components for styling, redux-form for form creation, ramda for utility, and redux for state management. A collection of various necessary forms were created for Delilah's 2nd Chance including application forms, contracts, volunteer forms, agreements, and a contact form.
+    <br/><br/>
+    Additional requested pages were also made for donations, testimonials, and partners as well as a page to display all currently adoptable pets. When the user selects a currently adoptable pet, all of the pet's available data is displayed in the UI including images, details, and contact information.`,
+    bodyTextTwo: 'The external backend application polls the petfinder.com API, then stores the data in CouchDB. The CouchDB data is then accessed by the client. All forms in the application are POSTed to the Node.js/Express server, which then uses nodemailer and gmail as an SMTP to forward all messages, applications, and contracts to multiple administrators and managers.',
+    bodyTextThree: `Colors primarily used <span style="color: #fdd1de">⬤</span> #fdd1de,
+    <span style="color: #f7c9d5">⬤</span> #f7c9d5, <span style="color: #f09db2">⬤</span> #f09db2, and <span style="color: #89cff0">⬤</span> #89cff0.
+    <br/><br/>
+    In 2019, approximately 2,000 adoption/fostering applications were submitted through the site.`,
     bodyImageOne: '/static/images/delilahs/1.jpg',
     bodyImageTwo: '/static/images/delilahs/2.jpg',
     bodyImageThree: '/static/images/delilahs/3.jpg',
@@ -196,11 +215,25 @@ export const projectData = {
     mobileImageThree: '/static/images/tcfs/7.jpg',
   },
   wildcat: {
+    extended: true,
     bannerTextOne: 'Ashley Wildcat',
     bannerTextTwo: '2016-2018',
     bannerTextThree: 'Javascript React',
     bannerTextFour: 'https://www.ashleywildcat.com/',
     aboutText: 'Ashley Wildcat is a session wrestler and model. She is a member of Ring Card Girls, Fitness Models international, and USWO Wrestling. She has worked with Ladies of Wrestling. Pro Wrestling Chicago, and ESport Fitness Batavia. She worked with Eternal Elegance and appeared in BeautyLook Magazine.',
+    bodyTextOne: `The frontend was written with ReactJS, and libraries which were used were styled-components for styling and
+    redux for state management. Initially, BEM CSS was used for styling, then classnames, then eventually styled-components was added to ease maintenance and editing of the application.
+    An administrative panel was made to modify data involving partnered models and session wrestler.
+    <br/><br/>
+    Transitions between pages using panels were set up using route state management and transition timings.`,
+    bodyTextTwo : `All forms in the application are POSTed to the Node.js/Express server, which then uses nodemailer and gmail as an SMTP to forward all messages, applications, and contracts to multiple administrators and managers.
+    <br/><br/>
+    A backend using Firebase was temporarily used for adding and editing data.
+    <br/><br/>
+    The React client and Express server are both hosted with NGINX on a Vultr VPS.`,
+    bodyTextThree: `The primary theme color is <span style="color: #e8ba72">⬤</span>.
+    <br/><br/>As Ashley's life focus has evolved, content on the site has been gradually modified over time to
+    more accurately showcase her work.`,
     video: '/static/images/wildcat/video.mp4',
     bodyImageOne: '/static/images/wildcat/1.jpg',
     bodyImageTwo: '/static/images/wildcat/2.jpg',
@@ -238,14 +271,19 @@ export const projectData = {
     bodyImageOne: '/static/images/harvard/image2.png',
   },
   everydaycarry: {
+    extended: true,
     bannerTextOne: 'EVERYDAY CARRY',
     video: '/static/images/everydaycarry/video.mp4',
     bannerTextTwo: '2019',
     bannerTextThree: 'Javascript React',
     bannerTextFour: 'https://harkdan.shodyra.com/',
-    aboutText: 'Everyday Carry is an online store for everyday essentials. Everyday Carry is owned by entrepeneur and CEO, Daniel Saltman, who is the founder of various companies including Tinychat, Petitionspot, and Scour.',
-    bodyTextOne: 'A form was created as an external application to help web administration create and handle web posts that were otherwise not creatable by their existing online platform.',
-    bodyTextTwo: 'Everyday Carry handles approximately 40,000 purchase clicks per day',
+    aboutText: 'Everyday Carry is an online store for everyday essentials. Everyday Carry is owned by entrepeneur and CEO, Daniel Saltman, who is the founder of various companies including Tinychat, Petitionspot, and Scour. Everyday Carry handles approximately 40,000 purchase clicks per day.',
+    bodyTextOne: `A code generator was created as an external application to help web administration create and handle web posts that were otherwise not creatable by their existing online platform. All data set by the user is saved in LocalStorage to be easily accessed later, and the user can also export the entirety of the form content as a .txt file, then later import it back into the form.
+    <br/><br/>
+    Features included include a css-only navigation menu, a live-updating preview, and the option to add an abstract alongside the dynamically updating content.
+    <br/><br/>
+    Libraries used for this are formik for the form, styled-components for styling, and draft-js for a rich text editor mainly used for implementing links..
+    `,
     bodyImageOne: '/static/images/everydaycarry/1.jpg',
     bodyImageTwo: '/static/images/everydaycarry/2.jpg',
     bodyImageThree: '/static/images/everydaycarry/3.jpg',

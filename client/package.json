@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "connected-react-router": "^6.8.0",
-    "date-fns": "^2.15.0",
+    "date-fns": "^2.16.1",
     "formik": "^2.1.5",
     "js-cookie": "^2.2.1",
     "ramda": "^0.27.1",
@@ -12,13 +12,13 @@
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.1",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "^3.4.1",
-    "react-scroll": "^1.8.0",
+    "react-scripts": "^3.4.3",
+    "react-scroll": "^1.8.1",
     "redux": "^4.0.5",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
     "reselect": "^4.0.0",
-    "styled-components": "^5.1.1"
+    "styled-components": "^5.2.0"
   },
   "proxy": "http://localhost:5000",
   "scripts": {

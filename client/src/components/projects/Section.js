@@ -26,6 +26,10 @@ const StyledLeft = styled.div`
   font-family: 'Josefin Sans', sans-serif;
   @media screen and (max-width: 768px) {
     position: static;
+    justify-self: flex-start;
+    flex: auto;
+    font-size: var(--size-large);
+    margin-bottom: 1rem;
   }
 `;
 const StyledRight = styled.div`
@@ -36,6 +40,10 @@ const StyledRight = styled.div`
   position: relative;
   @media screen and (max-width: 992px) {
     flex-direction: column;
+  }
+  @media screen and (max-width: 768px) {
+    justify-self: flex-start;
+    flex: auto;
   }
 `;
 const StyledRightLeft = styled.div`
@@ -57,6 +65,9 @@ const StyledRightRight = styled.div`
   font-size: var(--size-medium);
   @media screen and (max-width: 992px) {
     padding-left: 0;
+  }
+  @media screen and (max-width: 768px) {
+    font-size: var(--size-small);
   }
 `;
 

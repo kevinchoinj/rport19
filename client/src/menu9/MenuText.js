@@ -54,6 +54,7 @@ const StyledLinkDiv = styled.div`
   font-family: 'Josefin Sans', Helvetica, sans-serif;
   color: ${props => props.theme.colorTheme};
   cursor: default;
+  text-decoration: line-through;
   @media screen and (max-width: 1920px ) {
     font-size: 4rem;
   }

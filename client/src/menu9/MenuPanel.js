@@ -15,6 +15,7 @@ const StyledWrapper = styled.div`
   width: 100%;
   overflow: hidden;
   pointer-events: none;
+  z-index: 3;
 `;
 const StyledLeft = styled.div`
   height: 100%;

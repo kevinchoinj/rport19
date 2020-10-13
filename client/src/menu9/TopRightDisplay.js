@@ -20,6 +20,9 @@ const TitleWrapper = styled.div`
   font-size: var(--size-small);
   letter-spacing: 3px;
   color: ${props => props.theme.topRightText};
+  >div:nth-child(2) {
+    color: ${props => props.theme.colorTheme};
+  }
   margin-bottom: 2rem;
   cursor: default;
   display: flex;

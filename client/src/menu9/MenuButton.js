@@ -71,6 +71,7 @@ const StyledWrapper = styled.div`
   position: fixed;
   top: 1rem;
   right: 1rem;
+  z-index: 4;
   cursor: pointer;
   transition: ${props => props.theme.transitionMedium};
   display: flex;

@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import styled from 'styled-components';
 import {
   selectCurrentMousePosition,
+  selectMenuDisplay,
 } from 'reducers';
 
 const StyledWrapper = styled.div`
@@ -45,19 +46,23 @@ const StyledTextWrapper = styled.div`
   height: 100%;
   width: 100%;
   position: fixed;
-  background-color: rgba(0,0,0,.6);
   display: flex;
   flex-direction: column;
   justify-content: center;
+  z-index: 2;
+  pointer-events: none;
+  opacity: ${props => props.menuDisplay && 0};
+  transition: .4s ease;
 `;
 // mix-blend-mode: darken;
 const StyledText = styled.h1`
-  font-size: 15vw;
+  font-size: 12vw;
   margin: 0 0 0 ${props => props.marginLeft};
-  color: transparent;
-  -webkit-text-stroke: 1px ${props => props.theme.colorTheme};
+  color: ${props => props.theme.colorTheme};
+
   @media screen and (max-width: 768px) {
     margin: 0;
+    -webkit-text-stroke: 1px ${props => props.theme.colorTheme};
   }
   font-weight: 400;
   font-family: 'Josefin Sans', sans-serif;
@@ -76,12 +81,14 @@ const VideoComponent = memo(() => (
   />
 ));
 
-const Background = ({mousePosition}) => {
+const Background = ({menuDisplay, mousePosition}) => {
   const memoizedMovement = useMemo(() => mousePosition.xValue/35, [mousePosition])
   return(
+    <>
     <StyledWrapper>
       <VideoComponent/>
-      <StyledTextWrapper>
+    </StyledWrapper>
+    <StyledTextWrapper menuDisplay={menuDisplay}>
         <StyledText
           marginLeft="-3rem"
           style={{
@@ -99,13 +106,14 @@ const Background = ({mousePosition}) => {
           DEVELOPER
         </StyledText>
       </StyledTextWrapper>
-    </StyledWrapper>
+    </>
   );
 };
 
 const mapStateToProps = (state) => {
   return {
     mousePosition: selectCurrentMousePosition(state),
+    menuDisplay: selectMenuDisplay(state),
   };
 };
 

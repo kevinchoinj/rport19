@@ -92,7 +92,7 @@ const Section = ({children, number, title}) => {
         </StyledRight>
       </StyledContainer>
     </StyledWrapper>
-  )
-}
+  );
+};
 
 export default Section;

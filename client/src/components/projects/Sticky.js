@@ -5,8 +5,8 @@ const StyledWrapper = styled.div`
   width: 100%;
   position: sticky;
   top: 10%;
-  overflow: hidden;
   opacity: .05;
+  overflow: hidden;
   @media screen and (max-width: 992px) {
     display: none;
   }
@@ -22,6 +22,7 @@ const StyledSticky = styled.div`
   font-weight: 600;
   color: ${props => props.theme.colorTheme};
   font-size: 30vw;
+  line-height: 40vw;
   font-family: "Josefin Sans", Helvetica, sans-serif;
   div {
     white-space: nowrap;
@@ -31,7 +32,7 @@ const Sticky = ({title}) => {
   return (
     <StyledWrapper>
       <StyledSticky>
-      {`${title} ${title} ${title} ${title}`}
+        {`${title} ${title} ${title} ${title}`}
       </StyledSticky>
     </StyledWrapper>
   );

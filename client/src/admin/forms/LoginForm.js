@@ -14,10 +14,10 @@ const LoginForm = ({login}) => {
         password: '',
       }}
       onSubmit={values => {
-        login(values)
+        login(values);
       }}
-     >
-       {(values) =>
+    >
+      {() =>
         <Form>
           <Label label="Username"/>
           <Field name="username"/>
@@ -27,7 +27,7 @@ const LoginForm = ({login}) => {
         </Form>
       }
     </Formik>
-  )
+  );
 };
 
 

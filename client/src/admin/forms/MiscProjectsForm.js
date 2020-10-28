@@ -11,7 +11,7 @@ const MiscProjectsForm = ({onSubmit}) => {
 
   const fileUpload = React.createRef();
   const [photo, setPhoto] = useState(null);
-  const [fileName, setFileName] = useState("");
+  const [fileName, setFileName] = useState('');
 
   const setFile = evt => {
     setPhoto(evt.target.files[0]);
@@ -23,15 +23,15 @@ const MiscProjectsForm = ({onSubmit}) => {
 
   const handleSubmit = async evt => {
     try {
-    let bodyFormData = new FormData();
-      bodyFormData.set("name", evt.name);
-      bodyFormData.set("link", evt.link);
-      bodyFormData.append("image", photo);
+      let bodyFormData = new FormData();
+      bodyFormData.set('name', evt.name);
+      bodyFormData.set('link', evt.link);
+      bodyFormData.append('image', photo);
       await onSubmit(bodyFormData);
     } catch (error) {
-      alert("Upload must be an image");
+      alert('Upload must be an image');
     }
-  }
+  };
   return (
     <Formik
       enableReinitialize
@@ -41,8 +41,8 @@ const MiscProjectsForm = ({onSubmit}) => {
         image: {},
       }}
       onSubmit={handleSubmit}
-     >
-       {(values, isSubmitting) =>
+    >
+      {(values, isSubmitting) =>
         <Form>
           <Label label="Name"/>
           <Field name="name"/>
@@ -55,7 +55,7 @@ const MiscProjectsForm = ({onSubmit}) => {
             type="file"
             ref={fileUpload}
             name="image"
-            style={{ display: "none" }}
+            style={{ display: 'none' }}
             onChange={setFile}
           />
           <div className="file-box">
@@ -66,15 +66,13 @@ const MiscProjectsForm = ({onSubmit}) => {
             Image Name: {fileName}
             <br/><br/><br/>
           </div>
-
           <AdminButton disabled={isSubmitting} type="submit">
             Submit
           </AdminButton>
-
-      </Form>
+        </Form>
       }
     </Formik>
-  )
+  );
 };
 
 

@@ -294,7 +294,7 @@ tT3rxHC8HWZXXnll364pnT5DO2m4tKa6yLC4QrEn0VjX6/r47oCAF37CQefZUijgq5duLsT2N4nGQKoB
 const Noise = () => {
   return (
     <StyledNoise bg={bg}/>
-  )
-}
+  );
+};
 
 export default Noise;

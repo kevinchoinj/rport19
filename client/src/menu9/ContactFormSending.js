@@ -12,25 +12,25 @@ const StyledWrapper = styled.span`
 const FormSending = ({formStatus}) => {
   const [message, setMessage] = useState('');
   useEffect(() => {
-    if (formStatus === "success") {
-      setMessage('Form successfully sent')
+    if (formStatus === 'success') {
+      setMessage('Form successfully sent');
     }
-    else if (formStatus === "sending") {
-      setMessage('Sending...')
+    else if (formStatus === 'sending') {
+      setMessage('Sending...');
     }
-    else if (formStatus === "failure") {
-      setMessage('Failed; Please try again later')
+    else if (formStatus === 'failure') {
+      setMessage('Failed; Please try again later');
     }
     else {
-      setMessage('')
+      setMessage('');
     }
-  }, [formStatus])
+  }, [formStatus]);
   return (
     <StyledWrapper>
       {message}
     </StyledWrapper>
-  )
-}
+  );
+};
 
 const mapStateToProps = (state) => {
   return {

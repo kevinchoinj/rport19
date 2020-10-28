@@ -188,7 +188,6 @@ const ProjectVideoObject = React.memo(({
             </StyledText>
           ]
         }
-
         {!video && src &&
           <StyledImage
             src={src}
@@ -196,7 +195,7 @@ const ProjectVideoObject = React.memo(({
         }
       </StyledDisplay>
     </StyledDisplayContainer>
-  )
+  );
 });
 
 const ProjectLayout = ({ pageValues, toggleMenu }) => {
@@ -225,37 +224,37 @@ const ProjectLayout = ({ pageValues, toggleMenu }) => {
           video={pageValues.video}
         />
         <ProjectImage src={pageValues.bodyImageTwo}/>
-          {pageValues.addImageOne &&
-            <StyledDisplaySmall size={pageValues.addImageOneSize}>
-              <StyledImage src={pageValues.addImageOne}/>
-            </StyledDisplaySmall>
-          }
-          {pageValues.extended && pageValues.bodyTextTwo &&
-            <StyledDisplay>
-              <StyledSections>
-                <Section
-                  title="Backend"
-                  number="02"
-                >
-                  {pageValues.bodyTextTwo}
-                </Section>
-              </StyledSections>
-            </StyledDisplay>
-          }
-          <ProjectImage src={pageValues.bodyImageThree}/>
-          {pageValues.extended && pageValues.bodyTextThree &&
-            <StyledDisplay>
-              <StyledSections>
-                <Section
-                  title="Misc"
-                  number="03"
-                >
-                  {pageValues.bodyTextThree}
-                </Section>
-              </StyledSections>
-            </StyledDisplay>
-          }
-          <ProjectImage src={pageValues.bodyImageFour}/>
+        {pageValues.addImageOne &&
+          <StyledDisplaySmall size={pageValues.addImageOneSize}>
+            <StyledImage src={pageValues.addImageOne}/>
+          </StyledDisplaySmall>
+        }
+        {pageValues.extended && pageValues.bodyTextTwo &&
+          <StyledDisplay>
+            <StyledSections>
+              <Section
+                title="Backend"
+                number="02"
+              >
+                {pageValues.bodyTextTwo}
+              </Section>
+            </StyledSections>
+          </StyledDisplay>
+        }
+        <ProjectImage src={pageValues.bodyImageThree}/>
+        {pageValues.extended && pageValues.bodyTextThree &&
+          <StyledDisplay>
+            <StyledSections>
+              <Section
+                title="Misc"
+                number="03"
+              >
+                {pageValues.bodyTextThree}
+              </Section>
+            </StyledSections>
+          </StyledDisplay>
+        }
+        <ProjectImage src={pageValues.bodyImageFour}/>
         <MobileImageView pageValues = {pageValues}/>
       </StyledContainer>
 

@@ -12,8 +12,8 @@ const MiscProjectsEditForm = ({projectData, onSubmit}) => {
       enableReinitialize
       initialValues={projectData?.doc}
       onSubmit={values => onSubmit(values)}
-     >
-       {(isSubmitting) =>
+    >
+      {(isSubmitting) =>
         <Form>
           <Label label="Name"/>
           <Field name="name"/>
@@ -26,7 +26,7 @@ const MiscProjectsEditForm = ({projectData, onSubmit}) => {
         </Form>
       }
     </Formik>
-  )
+  );
 };
 
 const mapStateToProps = (state, props) => {

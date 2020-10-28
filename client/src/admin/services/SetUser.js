@@ -1,17 +1,17 @@
 import {useEffect} from 'react';
 import {connect} from 'react-redux';
-import * as authActions from 'actions/authentication';
+import {getCurrentUser} from 'actions/authentication';
 
-const SetUser = props => {
+const SetUser = ({getUser}) => {
   useEffect(() => {
-    props.getCurrentUser();
-  }, []);
+    getUser();
+  }, [getUser]);
   return null;
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getCurrentUser: () => dispatch(authActions.getCurrentUser()),
+    getUser: () => dispatch(getCurrentUser()),
   };
 };
 

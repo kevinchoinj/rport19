@@ -16,12 +16,12 @@ const Contact = ({submitForm}) => {
       <ContactForm onSubmit={submitForm}/>
     </StyledWrapper>
   );
-}
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
     submitForm: values => dispatch(contactActions.submitForm(values, '/api/v1/email/contact')),
-  }
+  };
 };
 
 export default connect (null, mapDispatchToProps)(Contact);

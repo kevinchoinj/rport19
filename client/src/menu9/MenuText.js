@@ -141,6 +141,7 @@ const StyledWrapper = styled.div`
 `;
 
 const MenuText = ({menuDisplay, location, hoverOption}) => {
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const memoizedHover = useCallback(hoverOption, []);
   return(
     <StyledWrapper

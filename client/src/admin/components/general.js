@@ -22,5 +22,5 @@ export const Label = ({label}) => {
         {label}
       </label>
     </StyledLabelWrapper>
-  )
-}
+  );
+};

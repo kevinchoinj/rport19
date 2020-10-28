@@ -6,7 +6,7 @@ const DEFAULT_STATE={
   miscProjects: [],
 };
 
-export default(state=DEFAULT_STATE, payload) => {
+const imagesReducer = (state=DEFAULT_STATE, payload) => {
   switch(payload.type){
   case FETCH_MISC_PROJECTS_SUCCEEDED:
     return state = {
@@ -17,3 +17,5 @@ export default(state=DEFAULT_STATE, payload) => {
     return state;
   }
 };
+
+export default imagesReducer;

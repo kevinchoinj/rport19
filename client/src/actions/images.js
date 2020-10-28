@@ -63,7 +63,7 @@ const getMiscProjects = () => {
   return () => {
     return fetch('/api/v1/project');
   };
-}
+};
 export const fetchMiscProjects = () => {
   return (dispatch) => {
     dispatch(fetchMiscProjectsStarted());
@@ -75,8 +75,7 @@ export const fetchMiscProjects = () => {
       })
       .catch(error => dispatch(fetchMiscProjectsFailure(error)));
   };
-}
-
+};
 const postMiscProjects = (data) => {
   return () => {
     return fetch('/api/v1/project',
@@ -89,7 +88,7 @@ const postMiscProjects = (data) => {
         body: JSON.stringify(data)
       });
   };
-}
+};
 export const addMiscProjects = (values) => {
   return (dispatch) => {
     dispatch(addMiscProjectsStarted());
@@ -101,14 +100,14 @@ export const addMiscProjects = (values) => {
       })
       .catch(error => dispatch(addMiscProjectsFailure(error)));
   };
-}
-
+};
 export const addMiscProjectsThenUpdate = (values) => {
   return (dispatch) => {
     dispatch(addMiscProjects(values))
       .then(() => dispatch(fetchMiscProjects()));
   };
-}
+};
+
 /*======================================
 =             EDIT IMAGE               =
 ======================================*/
@@ -124,7 +123,7 @@ const putMiscProjects = (data) => {
         body: JSON.stringify(data)
       });
   };
-}
+};
 export const editMiscProjects = (values) => {
   return (dispatch) => {
     dispatch(editMiscProjectsStarted());
@@ -136,7 +135,7 @@ export const editMiscProjects = (values) => {
       })
       .catch(error => dispatch(editMiscProjectsFailure(error)));
   };
-}
+};
 
 export const editMiscProjectsThenUpdate = (values, path) => {
   return (dispatch) => {
@@ -146,7 +145,7 @@ export const editMiscProjectsThenUpdate = (values, path) => {
         history.push(path);
       });
   };
-}
+};
 /*======================================
 =            REMOVE IMAGE              =
 ======================================*/
@@ -163,7 +162,7 @@ const deleteImage = (awsKey) => {
         body: JSON.stringify({awsKey: awsKey})
       });
   };
-}
+};
 
 export const removeImage = (awsKey) => {
   return (dispatch) => {
@@ -176,8 +175,7 @@ export const removeImage = (awsKey) => {
       })
       .catch(error => dispatch(removeImageFailure(error)));
   };
-}
-
+};
 const deleteMiscProjects = (id, rev) => {
   return () => {
     return fetch('/api/v1/project',
@@ -193,7 +191,7 @@ const deleteMiscProjects = (id, rev) => {
         })
       });
   };
-}
+};
 export const removeMiscProjects = (id, rev, awsKey) => {
   return (dispatch) => {
     dispatch(removeMiscProjectsStarted());
@@ -206,14 +204,14 @@ export const removeMiscProjects = (id, rev, awsKey) => {
       })
       .catch(error => dispatch(removeMiscProjectsFailure(error)));
   };
-}
+};
 //requires () => dispatch for fetchViewData or data is fetched before content is added
 export const removeMiscProjectsThenUpdate = (id, rev, awsKey) => {
   return (dispatch) => {
     dispatch(removeMiscProjects(id, rev, awsKey))
       .then(() => dispatch(fetchMiscProjects()));
   };
-}
+};
 /*======================================
 =             AWS BUCKET               =
 ======================================*/
@@ -229,11 +227,11 @@ const postS3Image = (values) => {
         body: values,
       });
   };
-}
+};
 
 export const addStorePhotoImageAndUrl = (data) => {
-let jsonData = {};
-data.forEach((value, key) => {jsonData[key] = value});
+  let jsonData = {};
+  data.forEach((value, key) => {jsonData[key] = value;});
   return (dispatch) => {
     dispatch(addImageStarted());
     return dispatch(postS3Image(data))
@@ -248,5 +246,4 @@ data.forEach((value, key) => {jsonData[key] = value});
       })
       .catch(error => dispatch(editMiscProjectsFailure(error)));
   };
-}
-
+};

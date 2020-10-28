@@ -6,7 +6,7 @@ const DEFAULT_STATE={
   image: '',
 };
 
-export default(state=DEFAULT_STATE, payload) => {
+const gamingReducer = (state=DEFAULT_STATE, payload) => {
   switch(payload.type){
   case SET_LIGHTBOX_IMAGE:
     return state = {
@@ -17,3 +17,5 @@ export default(state=DEFAULT_STATE, payload) => {
     return state;
   }
 };
+
+export default gamingReducer;

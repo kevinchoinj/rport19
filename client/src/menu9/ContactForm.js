@@ -55,7 +55,7 @@ const StyledButtonWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-;`
+`;
 
 const ContactForm = ({onSubmit}) => {
   return (
@@ -63,7 +63,7 @@ const ContactForm = ({onSubmit}) => {
       <Formik
         enableReinitialize
         initialValues={{
-          message: "",
+          message: '',
         }}
         onSubmit={(values) => onSubmit(values)}
       >
@@ -93,6 +93,6 @@ const ContactForm = ({onSubmit}) => {
       </Formik>
     </StyledWrapper>
   );
-}
+};
 
 export default ContactForm;

@@ -94,7 +94,8 @@ const handleKeyDown = (event, action) => {
   if (event.keyCode === 13) {
     action();
   }
-}
+};
+
 const MenuButton = ({menuDisplay, toggleMenu}) => {
   return(
     <StyledWrapper
@@ -104,11 +105,11 @@ const MenuButton = ({menuDisplay, toggleMenu}) => {
       aria-label="menu button"
     >
       <StyledTextWrapper>
-      <StyledText
-        menuDisplay={menuDisplay}
-      >
-        EXPLORE
-      </StyledText>
+        <StyledText
+          menuDisplay={menuDisplay}
+        >
+          EXPLORE
+        </StyledText>
       </StyledTextWrapper>
       <StyledContainer>
         <StyledLines >

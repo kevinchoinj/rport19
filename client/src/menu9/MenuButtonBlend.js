@@ -84,7 +84,8 @@ const handleKeyDown = (event, action) => {
   if (event.keyCode === 13) {
     action();
   }
-}
+};
+
 const MenuButton = ({menuDisplay, toggleMenu}) => {
   return(
     <StyledWrapper

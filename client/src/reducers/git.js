@@ -6,7 +6,7 @@ const DEFAULT_STATE={
   commits: [],
 };
 
-export default(state=DEFAULT_STATE, payload) => {
+const gitReducer = (state=DEFAULT_STATE, payload) => {
   switch(payload.type){
   case FETCH_GIT_SUCCEEDED:
     return state = {
@@ -17,3 +17,5 @@ export default(state=DEFAULT_STATE, payload) => {
     return state;
   }
 };
+
+export default gitReducer;

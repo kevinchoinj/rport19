@@ -300,14 +300,14 @@ const BackgroundImageWrapper = ({location}) => {
   const memoizedData = useMemo(() => location.pathname !== pageData.home ? menuData : menuData.slice(1), [location]);
   return(
     <StyledWrapper bg={bg}>
-       {memoizedData.map((value) => (
+      {memoizedData.map((value) => (
         <div key={value.link}>
           <BackgroundImageDisplay
             image={value.image}
             link={value.link}
           />
         </div>
-       ))}
+      ))}
     </StyledWrapper>
   );
 };

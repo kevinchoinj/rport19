@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, {useEffect, useRef} from 'react';
 import styled from 'styled-components';
 import {
   Polyline,
@@ -6,7 +6,7 @@ import {
   Transform,
   Vec3,
   Color
-} from "ogl";
+} from 'ogl';
 import {createPortal} from 'react-dom';
 import {useAnimationFrame} from 'components/services/useAnimationFrame';
 
@@ -85,9 +85,9 @@ const CursorTrail = () => {
       renderer.setSize(window.innerWidth, window.innerHeight);
       lines.forEach(line => line.polyline.resize());
     }
-    window.addEventListener("resize", resize, false);
+    window.addEventListener('resize', resize, false);
 
-    ["#d8b2d8", "#000", "#222", "#333", "#444"].forEach(
+    ['#d8b2d8', '#000', '#222', '#333', '#444'].forEach(
       (color) => {
         const line = {
           spring: random(0.02, 0.1),
@@ -116,8 +116,8 @@ const CursorTrail = () => {
       }
     );
     resize();
-    if (!("ontouchstart" in window)) {
-      window.addEventListener("mousemove", updateMouse, false);
+    if (!('ontouchstart' in window)) {
+      window.addEventListener('mousemove', updateMouse, false);
     }
 
     function updateMouse(e) {
@@ -133,7 +133,8 @@ const CursorTrail = () => {
         0
       );
     }
-  }, [])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   const tmp = new Vec3();
 
   function update() {
@@ -161,8 +162,7 @@ const CursorTrail = () => {
 
   return createPortal(
     <StyledContainer ref={containerRef}/>, portalRoot
-  )
-}
-
+  );
+};
 
 export default CursorTrail;

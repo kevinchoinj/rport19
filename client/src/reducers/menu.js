@@ -8,7 +8,7 @@ const DEFAULT_STATE={
   hoverOption: null,
 };
 
-export default(state=DEFAULT_STATE, payload) => {
+const menuReducer = (state=DEFAULT_STATE, payload) => {
   switch(payload.type){
   case TOGGLE_MENU:
     return state = {
@@ -24,3 +24,5 @@ export default(state=DEFAULT_STATE, payload) => {
     return state;
   }
 };
+
+export default menuReducer;

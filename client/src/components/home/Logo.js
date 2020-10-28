@@ -40,7 +40,7 @@ const handleKeyDown = (event, action) => {
   if (event.keyCode === 13) {
     action();
   }
-}
+};
 const Logo = ({menuDisplay, toggleMenu}) => {
   return(
     <StyledWrapper>

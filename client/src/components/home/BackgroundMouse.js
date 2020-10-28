@@ -82,13 +82,13 @@ const VideoComponent = memo(() => (
 ));
 
 const Background = ({menuDisplay, mousePosition}) => {
-  const memoizedMovement = useMemo(() => mousePosition.xValue/35, [mousePosition])
+  const memoizedMovement = useMemo(() => mousePosition.xValue/35, [mousePosition]);
   return(
     <>
-    <StyledWrapper>
-      <VideoComponent/>
-    </StyledWrapper>
-    <StyledTextWrapper menuDisplay={menuDisplay}>
+      <StyledWrapper>
+        <VideoComponent/>
+      </StyledWrapper>
+      <StyledTextWrapper menuDisplay={menuDisplay}>
         <StyledText
           marginLeft="-3rem"
           style={{

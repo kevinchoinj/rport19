@@ -33,7 +33,7 @@ const BackgroundImage = React.memo(({menuOpen, link, src, onClick}) => {
       backgroundImage: `url(${src})`,
     }}
     onClick={() => onClick(link, true)}
-  />
+  />;
 });
 
 const BackgroundImageDisplay = ({hoverOption, image, link, location, menuDisplay, toggleMenu}) => {
@@ -48,6 +48,7 @@ const BackgroundImageDisplay = ({hoverOption, image, link, location, menuDisplay
       return image===hoverOption;
     }
   }, [menuDisplay, hoverOption, location, image, link]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const memoizedCallback = useCallback(toggleMenu, []);
   return(
     <BackgroundImage

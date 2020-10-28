@@ -115,12 +115,12 @@ const ProjectMisc = ({ miscProjects, toggleMenu }) => {
       <StyledContainer>
         <StyledButtons>
           <StyledButton
-            onClick={() => {pageId >= 2 && setPageId(prev => prev - 1)}}
+            onClick={() => {pageId >= 2 && setPageId(prev => prev - 1);}}
           >
             Previous
           </StyledButton>
           <StyledButton
-            onClick={() => {miscProjects.length/(pageId*PAGE_SIZE) >= 1 && setPageId(prev => prev + 1)}}
+            onClick={() => {miscProjects.length/(pageId*PAGE_SIZE) >= 1 && setPageId(prev => prev + 1);}}
           >
             Next
           </StyledButton>

@@ -98,7 +98,6 @@ const PassportCheck = ({loggedIn, login, register}) => {
   );
 };
 
-
 const mapStateToProps = (state) => {
   return {
     loggedIn: selectAuthLoggedIn(state),

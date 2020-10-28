@@ -54,7 +54,7 @@ const TopRightDisplay = () => {
           <br/>
           Dallas, TX
         </DetailsWrapper>
-        </div>
+      </div>
       <ContactWrapper/>
     </StyledWrapper>
   );

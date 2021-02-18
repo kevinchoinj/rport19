@@ -109,7 +109,7 @@ const StyledDisplay = styled.div`
 `;
 const StyledDisplaySmall = styled(StyledDisplay)`
   width: ${props => props.size ? props.size : '375px'};
-  padding: 3.5rem 0;
+  padding: 3.5rem 0 10.5rem 0;
   right: 8.333333333%;
   align-self: flex-end;
 

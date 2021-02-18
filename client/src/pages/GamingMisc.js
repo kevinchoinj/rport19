@@ -188,14 +188,14 @@ const GamingMisc = ({ toggleMenu }) => {
           title="LEAGUE OF LEGENDS"
           displayName="lol"
         >
-          Diamond League (top 0.5%) 2010 - 2019.
+          Diamond League (top 0.5%) 2010 - 2020.
           <div>
             <a href="http://na.op.gg/summoner/userName=shodyra"
               aria-label="gaming link"
               target="_blank"
               rel="noopener noreferrer"
               className="gaming_link">
-              Profile with diamond rating in Seasons 4, 5, 6, 7, 8, and 9.
+              Profile with diamond rating in Seasons 4, 5, 6, 7, 8, 9, and 10.
             </a>
           </div>
         </Update>
@@ -276,7 +276,9 @@ const GamingMisc = ({ toggleMenu }) => {
         <Update
           title="TEAMFIGHT TACTICS"
         >
-          S3 - Diamond (top 0.6011% at time of achievement)
+          S3 - Diamond<br/>
+          S4 - Diamond<br/>
+          S5- Diamond
           <div>
             <a href="https://lolchess.gg/index.php/profile/na/shodyra?hl=en-US"
               aria-label="gaming link"
@@ -294,9 +296,13 @@ const GamingMisc = ({ toggleMenu }) => {
         <Update
           title="MISC"
         >
+          King's Raid - KING’S CRAIDERS CUP WORLD WIDE PVP TOURNAMENT 3rd Place (NA)
+          <br/>
           Counterstrike: Global Offensive - Legendary Eagle rank with limited FPS experience
           <br/>
-          WoW - Gladiator (2400+) rating after an eight year break from the game
+          WoW (BFA) - Gladiator (2400+) rating after an eight year break from the game in week 6 (top ~600)
+          <br/>
+          WoW (SL) - Gladiator (2400+) in week 7 (~top 900)
           <br/>
           Path of Exile - Multiple level ~90 characters
         </Update>

@@ -53,10 +53,10 @@ const RenderGallery = ({images, openLightbox}) => {
   const gallery = images.map((obj, i) => {
     return (
       <StyledObject
-        key={obj.id}
-        onClick={() => openLightbox(images[i].id)}
+        key={obj}
+        onClick={() => openLightbox(images[i])}
       >
-        <StyledImage src={obj.id}/>
+        <StyledImage src={obj}/>
       </StyledObject>
     );
   });

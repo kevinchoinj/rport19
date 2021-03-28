@@ -7,9 +7,16 @@ export const projectData = {
     bannerTextThree: 'React Electron',
     bannerTextFour: 'https://redact.dev/',
     aboutText: 'Redact is an application for removing your past messages across social networking, instant messaging and communication platforms.',
-    bodyTextOne: `Both a customer site and an electron application were created for selectively deleting social media content. The customer site and application were both writte in Javascript using the reactjs framework and were each built to match design specs provided by the designer.`,
+    bodyTextOne: `Both a customer site and an electron application were created for selectively deleting social media content. The customer site and application were both written in Javascript using the reactjs framework and were each built to match design specs provided by the designer.
+    <br/><br/>
+    Dynamic forms alongside rapidly changing UI were generated for new requirements and features. Customized inputs such as a Discord server/channel selector were created to create the most intuitive UI possible.
+    <br/><br/>
+    The customer-facing site was built such that a nonspecialized editor could edit generalized pages, blog posts, and documentation. (duckerz nova ...)
+    `,
     bodyTextTwo: `This is currently a work in progress :)`,
-    bodyTextThree: `This is currently a work in progress :)`,
+    bodyTextThree: `Redact.dev earned second place at TechCrunch Miami in March 2021.
+    <br/><br/>
+    Redact.dev also registered more than a thousand active users in its first month without any advertising or marketing.`,
     bodyImageOne: '/static/images/redact/1.jpg',
     bodyImageTwo: '/static/images/redact/2.jpg',
     bodyImageThree: '/static/images/redact/3.jpg',

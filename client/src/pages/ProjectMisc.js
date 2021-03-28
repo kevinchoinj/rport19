@@ -85,8 +85,10 @@ const StyledButton = styled.div`
   padding: .5rem 1rem;
   transition: .2s ease;
   margin-right: 1rem;
+  color: ${props => props['data-disabled'] && '#666'};
+  cursor: ${props => props['data-disabled'] && 'not-allowed'};
   &:hover {
-    background-color: #333;
+    cursor: ${props => !props['data-disabled'] && '#333'};
   }
 `;
 
@@ -115,12 +117,16 @@ const ProjectMisc = ({ miscProjects, toggleMenu }) => {
       <StyledContainer>
         <StyledButtons>
           <StyledButton
+            data-disabled={pageId < 2}
             onClick={() => {pageId >= 2 && setPageId(prev => prev - 1);}}
           >
             Previous
           </StyledButton>
           <StyledButton
-            onClick={() => {miscProjects.length/(pageId*PAGE_SIZE) >= 1 && setPageId(prev => prev + 1);}}
+            data-disabled={miscProjects.length - (pageId*PAGE_SIZE) < 1}
+            onClick={() => {
+              miscProjects.length - (pageId*PAGE_SIZE) >= 1 && setPageId(prev => prev + 1);
+            }}
           >
             Next
           </StyledButton>

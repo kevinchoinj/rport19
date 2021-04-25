@@ -24,6 +24,29 @@ export const projectData = {
     addImageOne: '/static/images/redact/logo.svg',
     addImageOneSize: '600px',
   },
+  ttm: {
+    extended: true,
+    bannerTextOne: 'TTM Digital Assets & Technologies',
+    bannerTextTwo: '2021',
+    bannerTextThree: 'React DatoCMS',
+    bannerTextFour: 'https://ttmdigitalassets.com/',
+    aboutText: 'TTM is the core of the largest publicly traded Ethereum mining company in the US. An early adopter recognizing the power of the Ethereum network, since 2017 TTM has mined ~15,000 Ether (ETH), the currency fueling Ethereum. TTM owns and operates more than 12,000 NVIDIA GPUs, securing the blockchain and generating ETH around the clock with industry leading efficiency.',
+    bodyTextOne: `Shortly before a reverse triangular merge with publicly traded company Sysorex (SYSX),
+    the TTM customer-facing site was generated in a matter of days through a collaboration with designer <a href="https://www.behance.net/totopc" target="_blank"
+    rel="noopener noreferrer">Totopc</a>.
+    The frontend was generated to fetch data from the backend,
+    which received data from DatoCMS through GraphQL queries, along with APIs measuring stock performance and cryptocurrency performance.
+    `,
+    bodyTextTwo: `Express was used to build a basic API backend which retreieved data via GraphQL from DatoCMS.`,
+    bodyTextThree: `After merging with SYSX, TTM multiplied the stock six fold in a single day. TTM is the largest publicly traded Ethereum mining company in the United States and is now the core of SYSX's business operations.`,
+    bodyImageOne: '/static/images/ttm/1.jpg',
+    bodyImageTwo: '/static/images/ttm/2.jpg',
+    bodyImageThree: '/static/images/ttm/3.jpg',
+    bodyImageFour: '/static/images/ttm/4.jpg',
+    mobileImageOne: '/static/images/ttm/5.jpg',
+    mobileImageTwo: '/static/images/ttm/6.jpg',
+    mobileImageThree: '/static/images/ttm/7.jpg',
+  },
   fasffy: {
     extended: true,
     bannerTextOne: 'Fasffy',

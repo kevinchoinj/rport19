@@ -56,6 +56,12 @@ const StyledContainer = styled.div`
   flex-direction: column;
   align-items: center;
   position: relative;
+  a {
+    color: #ddd;
+    &:hover {
+      color: ${props => props.theme.colorTheme};
+    }
+  }
   @media screen and (max-width: 992px) {
     padding: 0;
   }

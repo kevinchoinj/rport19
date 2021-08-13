@@ -1,4 +1,5 @@
 import {
+  SET_FORM_STATUS,
   SUBMIT_FORM_STARTED,
   SUBMIT_FORM_SUCCEEDED,
   SUBMIT_FORM_FAILURE,
@@ -10,6 +11,11 @@ const DEFAULT_STATE={
 
 const contactReducer = (state=DEFAULT_STATE, payload) => {
   switch(payload.type){
+  case SET_FORM_STATUS:
+    return {
+      ...state,
+      formStatus: payload.formStatus,
+    };
   case SUBMIT_FORM_STARTED:
     return {
       ...state,

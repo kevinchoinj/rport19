@@ -257,6 +257,7 @@ const GamingMisc = ({ toggleMenu }) => {
           <br/>
           MTG Arena - Rank 31st globally for Limited 2019 . Mythic Constructed/Limited.
           <br/>
+          Peak Rank 17th DND Limited
 
         </Update>
         <GamingCarousel

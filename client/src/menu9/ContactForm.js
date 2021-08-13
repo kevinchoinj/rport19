@@ -1,7 +1,9 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import {Formik, Form, Field} from 'formik';
 import styled from 'styled-components';
 import ContactFormSending from 'menu9/ContactFormSending';
+import {setFormStatus} from 'actions/contact';
 
 const StyledWrapper = styled.div`
     label {
@@ -57,7 +59,7 @@ const StyledButtonWrapper = styled.div`
   align-items: center;
 `;
 
-const ContactForm = ({onSubmit}) => {
+const ContactForm = ({onSubmit, setFormWarning}) => {
   return (
     <StyledWrapper>
       <Formik
@@ -65,7 +67,13 @@ const ContactForm = ({onSubmit}) => {
         initialValues={{
           message: '',
         }}
-        onSubmit={(values) => onSubmit(values)}
+        onSubmit={(values) => {
+          if (values.message === '') {
+            setFormWarning('validate');
+          } else {
+            onSubmit(values);
+          }
+        }}
       >
         {() =>
           <Form>
@@ -87,6 +95,7 @@ const ContactForm = ({onSubmit}) => {
                 Contact
               </button>
               <ContactFormSending/>
+
             </StyledButtonWrapper>
           </Form>
         }
@@ -95,4 +104,11 @@ const ContactForm = ({onSubmit}) => {
   );
 };
 
-export default ContactForm;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setFormWarning: (text) => dispatch(setFormStatus(text))
+  };
+};
+
+
+export default connect(null, mapDispatchToProps)(ContactForm);

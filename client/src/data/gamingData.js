@@ -46,13 +46,14 @@ export const gamingData = {
     '/static/images/gaming/pokemon3.png',
   ],
   MTG_ARRAY: [
+    '/static/images/gaming/misc9.jpg',
     '/static/images/gaming/misc8.png',
     '/static/images/gaming/misc7.png',
     '/static/images/gaming/misc5.png',
   ],
   NEO_ARRAY: [
     '/static/images/gaming/neo1.png',
-    '/static/images/gaming/neo2.png',
+    '/static/images/gaming/neo2.jpg',
     '/static/images/gaming/neo3.png',
   ],
   TFT_ARRAY: [

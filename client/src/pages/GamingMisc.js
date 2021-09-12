@@ -257,8 +257,9 @@ const GamingMisc = ({ toggleMenu }) => {
           <br/>
           MTG Arena - Rank 31st globally for Limited 2019 . Mythic Constructed/Limited.
           <br/>
-          Peak Rank 17th DND Limited
-
+          July 2021 - Peak Rank 17th DND Limited, End of season 58th
+          <br/>
+          August 2021 - Peak Rank 187th DND Limited, End of season 419th
         </Update>
         <GamingCarousel
           images = {gamingData.MTG_ARRAY}

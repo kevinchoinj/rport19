@@ -255,11 +255,15 @@ const GamingMisc = ({ toggleMenu }) => {
         >
           Paper MTG - Experience in multiple formats including Limited, Standard, Modern, and Legacy from 2010 to 2014. Generated ~$25,000 in prize earnings and card speculation/trading/selling.
           <br/>
-          MTG Arena - Rank 31st globally for Limited 2019 . Mythic Constructed/Limited.
+          MTG Arena
+          <br/>
+          2019 - Peak Rank 31 Limited
           <br/>
           July 2021 - Peak Rank 17th DND Limited, End of season 58th
           <br/>
           August 2021 - Peak Rank 187th DND Limited, End of season 419th
+          <br/>
+          September 2021 - Peak Rank 70th MID Limited
         </Update>
         <GamingCarousel
           images = {gamingData.MTG_ARRAY}

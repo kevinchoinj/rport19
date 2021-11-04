@@ -47,6 +47,7 @@ export const gamingData = {
   ],
   MTG_ARRAY: [
     '/static/images/gaming/misc9.jpg',
+    '/static/images/gaming/misc10.jpg',
     '/static/images/gaming/misc8.png',
     '/static/images/gaming/misc7.png',
     '/static/images/gaming/misc5.png',

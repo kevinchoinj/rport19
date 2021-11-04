@@ -1,6 +1,5 @@
 import thunk from 'redux-thunk';
 import { createLogger } from 'redux-logger';
-import { connectRouter} from 'connected-react-router';
 import {createBrowserHistory} from 'history';
 import {createStore, combineReducers, applyMiddleware, compose} from 'redux';
 
@@ -12,7 +11,6 @@ const store = (initialState) => {
   return createStore(
     combineReducers({
       ...reducers,
-      router: connectRouter(history),
     }),
     initialState,
     compose(

@@ -1,7 +1,7 @@
 import React, {useCallback} from 'react';
 import {hoverMenuOption} from 'actions/menu';
 import {connect} from 'react-redux';
-import {Link, withRouter} from 'react-router-dom';
+import {Link, useLocation} from 'react-router-dom';
 import {menuData} from 'data/menuData';
 import styled from 'styled-components';
 import {
@@ -140,7 +140,8 @@ const StyledWrapper = styled.div`
   overflow-x: hidden;
 `;
 
-const MenuText = ({menuDisplay, location, hoverOption}) => {
+const MenuText = ({menuDisplay, hoverOption}) => {
+  const location = useLocation();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const memoizedHover = useCallback(hoverOption, []);
   return(
@@ -177,4 +178,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default React.memo(withRouter(connect(mapStateToProps, mapDispatchToProps)(MenuText)));
+export default React.memo(connect(mapStateToProps, mapDispatchToProps)(MenuText));

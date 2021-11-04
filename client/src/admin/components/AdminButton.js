@@ -11,6 +11,7 @@ const Button = ({className, children, onClick}) => (
     {children}
   </button>
 );
+
 const StyledButton = styled(Button)`
   cursor: pointer;
   font-size: 13px;
@@ -37,10 +38,10 @@ const LinkWrapper = ({link, children}) =>
     :
     children;
 
-const AdminButton = ({children, link, onClick}) => {
+const AdminButton = ({children, link, onClick, type}) => {
   return (
     <LinkWrapper link={link}>
-      <StyledButton onClick={onClick}>
+      <StyledButton onClick={onClick} type={type}>
         {children}
       </StyledButton>
     </LinkWrapper>

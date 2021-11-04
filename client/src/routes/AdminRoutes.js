@@ -1,12 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import {Switch, Route} from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import AdminMenu from 'admin/menu/AdminMenu';
-import {pageData} from 'data/pageData';
 import GetMiscProjects from 'components/services/GetMiscProjects';
-import Admin from 'admin/pages/AdminHome';
-import AdminMiscProjects from 'admin/pages/AdminMiscProjects';
-import AdminMiscProjectsEdit from 'admin/pages/AdminMiscProjectsEdit';
 
 const StyledWrapper = styled.div`
   display: flex;
@@ -35,18 +31,14 @@ const StyledPlaceholder = styled.div`
 const RoutesAdmin = () => {
   return (
     <StyledWrapper>
-      <GetMiscProjects/>
+      <GetMiscProjects />
       <StyledLeft>
-        <AdminMenu/>
+        <AdminMenu />
       </StyledLeft>
       <StyledRight>
-        <Switch>
-          <Route exact path={pageData.adminHome} render={(props) => <Admin {...props} />}/>
-          <Route exact path={pageData.adminMiscProjects} render={(props) => <AdminMiscProjects {...props} />}/>
-          <Route exact path={`${pageData.adminMiscProjects}/:id`} render={(props) => <AdminMiscProjectsEdit {...props} />}/>
-        </Switch>
+        <Outlet />
       </StyledRight>
-      <StyledPlaceholder/>
+      <StyledPlaceholder />
     </StyledWrapper>
   );
 };

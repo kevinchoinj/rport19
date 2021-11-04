@@ -1,13 +1,12 @@
-import React, {useCallback, useMemo} from 'react';
-import {connect} from 'react-redux';
+import React, { useCallback, useMemo } from 'react';
+import { connect } from 'react-redux';
 import * as menuActions from 'actions/menu';
-import {history} from 'store';
 import styled from 'styled-components';
 import {
   selectMenuDisplay,
   selectMenuHover,
 } from 'reducers';
-import {withRouter} from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const StyledBackground = styled.div`
   cursor: pointer;
@@ -26,7 +25,7 @@ const StyledBackground = styled.div`
   }
 `;
 
-const BackgroundImage = React.memo(({menuOpen, link, src, onClick}) => {
+const BackgroundImage = React.memo(({ menuOpen, link, src, onClick }) => {
   return <StyledBackground
     menuOpen={menuOpen}
     style={{
@@ -36,21 +35,27 @@ const BackgroundImage = React.memo(({menuOpen, link, src, onClick}) => {
   />;
 });
 
-const BackgroundImageDisplay = ({hoverOption, image, link, location, menuDisplay, toggleMenu}) => {
+const BackgroundImageDisplay = ({ hoverOption, image, link, menuDisplay, toggleMenu }) => {
+  const location = useLocation();
+  let navigate = useNavigate();
   const memoizedMenuOpen = useMemo(() => {
     if (!menuDisplay) {
-      return (link===location.pathname);
+      return (link === location.pathname);
     }
     else {
       if (!hoverOption) {
-        return (link===location.pathname);
+        return (link === location.pathname);
       }
-      return image===hoverOption;
+      return image === hoverOption;
     }
   }, [menuDisplay, hoverOption, location, image, link]);
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  const memoizedCallback = useCallback(toggleMenu, []);
-  return(
+  const clickOption = (path, menuDisplay) => {
+    toggleMenu(!menuDisplay);
+    navigate(path);
+  };
+  const memoizedCallback = useCallback(clickOption, [navigate, toggleMenu]);
+  return (
     <BackgroundImage
       menuOpen={memoizedMenuOpen}
       src={image}
@@ -71,9 +76,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     toggleMenu: (path, menuDisplay) => {
       dispatch(menuActions.toggleMenu(!menuDisplay));
-      history.push(path);
     }
   };
 };
 
-export default React.memo(withRouter(connect(mapStateToProps, mapDispatchToProps)(BackgroundImageDisplay)));
+export default React.memo(connect(mapStateToProps, mapDispatchToProps)(BackgroundImageDisplay));

@@ -1,9 +1,9 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import Banner from 'components/projects/Banner';
 import AboutContainer from 'components/projects/AboutContainer';
 import Skew from 'components/projects/Skew';
-import {connect} from 'react-redux';
-import {toggleMenu} from 'actions/menu';
+import { connect } from 'react-redux';
+import { toggleMenu } from 'actions/menu';
 import MobileImagesStatic from 'components/projects/MobileImagesStatic';
 import ProjectVideo from 'components/projects/ProjectVideo';
 import Section from 'components/projects/Section';
@@ -17,8 +17,8 @@ const scrollUp = () => {
   scroller.scrollTo(0);
 };
 
-const Image = ({className, src}) => (
-  <img src={src} alt="" className={className} loading="lazy"/>
+const Image = ({ className, src }) => (
+  <img src={src} alt="" className={className} loading="lazy" />
 );
 const StyledImage = styled(Image)`
   width: 100%;
@@ -29,12 +29,12 @@ const StyledImage = styled(Image)`
 
 const MobileImageView = ({ projectMobileVisible, pageValues }) => {
   if (pageValues.mobileImageOne &&
-      pageValues.mobileImageTwo &&
-      pageValues.mobileImageThree
+    pageValues.mobileImageTwo &&
+    pageValues.mobileImageThree
   ) {
     return (
       <MobileImagesStatic
-        isVisible = {projectMobileVisible}
+        isVisible={projectMobileVisible}
         image1={pageValues.mobileImageOne}
         image2={pageValues.mobileImageTwo}
         image3={pageValues.mobileImageThree}
@@ -144,10 +144,10 @@ const StyledSections = styled.div`
   margin-top: 4rem;
 `;
 
-const ProjectImage = React.memo(({src}) => {
+const ProjectImage = React.memo(({ src }) => {
   return src ? (
     <StyledDisplay>
-      <StyledImage src={src}/>
+      <StyledImage src={src} />
     </StyledDisplay>
   ) : null;
 });
@@ -186,9 +186,9 @@ const ProjectVideoObject = React.memo(({
               </StyledTitle>
               <StyledBodyText>
                 {textOne}
-                <br/><br/>
+                <br /><br />
                 {textTwo}
-                <br/><br/>
+                <br /><br />
                 {textThree}
               </StyledBodyText>
             </StyledText>
@@ -211,16 +211,16 @@ const ProjectLayout = ({ pageValues, toggleMenu }) => {
   return (
     <Skew>
       <Banner
-        line1 = {pageValues.bannerTextOne}
-        line2 = {pageValues.bannerTextTwo}
-        line3 = {pageValues.bannerTextThree}
-        line4 = {pageValues.bannerTextFour}
+        line1={pageValues.bannerTextOne}
+        line2={pageValues.bannerTextTwo}
+        line3={pageValues.bannerTextThree}
+        line4={pageValues.bannerTextFour}
       />
       <AboutContainer title={pageValues.bannerTextOne}>
         {pageValues.aboutText}
       </AboutContainer>
       <StyledContainer>
-        <Sticky title ={pageValues.bannerTextOne}/>
+        <Sticky title={pageValues.bannerTextOne} />
         <ProjectVideoObject
           extended={pageValues.extended}
           src={pageValues.bodyImageOne}
@@ -229,10 +229,10 @@ const ProjectLayout = ({ pageValues, toggleMenu }) => {
           textThree={pageValues.bodyTextThree}
           video={pageValues.video}
         />
-        <ProjectImage src={pageValues.bodyImageTwo}/>
+        <ProjectImage src={pageValues.bodyImageTwo} />
         {pageValues.addImageOne &&
           <StyledDisplaySmall size={pageValues.addImageOneSize}>
-            <StyledImage src={pageValues.addImageOne}/>
+            <StyledImage src={pageValues.addImageOne} />
           </StyledDisplaySmall>
         }
         {pageValues.extended && pageValues.bodyTextTwo &&
@@ -247,7 +247,7 @@ const ProjectLayout = ({ pageValues, toggleMenu }) => {
             </StyledSections>
           </StyledDisplay>
         }
-        <ProjectImage src={pageValues.bodyImageThree}/>
+        <ProjectImage src={pageValues.bodyImageThree} />
         {pageValues.extended && pageValues.bodyTextThree &&
           <StyledDisplay>
             <StyledSections>
@@ -260,8 +260,8 @@ const ProjectLayout = ({ pageValues, toggleMenu }) => {
             </StyledSections>
           </StyledDisplay>
         }
-        <ProjectImage src={pageValues.bodyImageFour}/>
-        <MobileImageView pageValues = {pageValues}/>
+        <ProjectImage src={pageValues.bodyImageFour} />
+        <MobileImageView pageValues={pageValues} />
       </StyledContainer>
 
       <StyledFooter

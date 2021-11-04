@@ -1,9 +1,9 @@
-import React, {useMemo} from 'react';
-import styled, {keyframes} from 'styled-components';
-import {menuData} from 'data/menuData';
+import React, { useMemo } from 'react';
+import styled, { keyframes } from 'styled-components';
+import { menuData } from 'data/menuData';
 import BackgroundImageDisplay from 'menu9/BackgroundImageDisplay';
-import {pageData} from 'data/pageData';
-import {withRouter} from 'react-router-dom';
+import { pageData } from 'data/pageData';
+import { useLocation } from 'react-router-dom';
 
 const noise = keyframes`
   0%{
@@ -296,9 +296,10 @@ const StyledWrapper = styled.div`
   }
 `;
 
-const BackgroundImageWrapper = ({location}) => {
+const BackgroundImageWrapper = () => {
+  const location = useLocation();
   const memoizedData = useMemo(() => location.pathname !== pageData.home ? menuData : menuData.slice(1), [location]);
-  return(
+  return (
     <StyledWrapper bg={bg}>
       {memoizedData.map((value) => (
         <div key={value.link}>
@@ -312,4 +313,4 @@ const BackgroundImageWrapper = ({location}) => {
   );
 };
 
-export default React.memo(withRouter(BackgroundImageWrapper));
+export default React.memo(BackgroundImageWrapper);

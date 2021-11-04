@@ -1,15 +1,28 @@
 import React from 'react';
 
 import SiteRoutesWrapper from 'routes/SiteRoutesWrapper';
-import AppliedRoute from 'components/split/AppliedRoute';
 import asyncComponent from 'components/split/AsyncComponent';
-import {Switch, Route} from 'react-router-dom';
-import styled, {createGlobalStyle, ThemeProvider} from 'styled-components';
-import {themeData} from 'data/themeData';
+import { Routes, Route } from 'react-router-dom';
+import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
+import { themeData } from 'data/themeData';
 import TrackMouse from 'components/services/TrackMouse';
 import CursorCircle from 'components/services/CursorCircle';
+import { projectData } from 'data/projectData';
 
+import Home from 'pages/Home';
+import ProjectLayout from 'pages/ProjectLayout';
+import NotFound from 'pages/NotFound';
+
+import { pageData } from 'data/pageData';
+
+import Admin from 'admin/pages/AdminHome';
+import AdminMiscProjects from 'admin/pages/AdminMiscProjects';
+import AdminMiscProjectsEdit from 'admin/pages/AdminMiscProjectsEdit';
+
+const AsyncMisc = asyncComponent(() => import('pages/ProjectMisc'));
+const AsyncGaming = asyncComponent(() => import('pages/GamingMisc'));
 const AsyncAdmin = asyncComponent(() => import('routes/PassportCheck'));
+
 const StyledWrapper = styled.div`
   -webkit-overflow-scrolling: touch;
   * {
@@ -77,19 +90,42 @@ const GlobalStyle = createGlobalStyle`
 const App = () => {
   return (
     <ThemeProvider theme={themeData}>
-      <GlobalStyle/>
+      <GlobalStyle />
       <TrackMouse>
         <StyledWrapper id="main_app">
-          <Switch>
-            <AppliedRoute
+          <Routes>
+            <Route
               path="/shodyra/admin"
-              component={AsyncAdmin}
-            />
-            <Route path="/" render={(props) => <SiteRoutesWrapper {...props}/>}/>
-          </Switch>
+              element={<AsyncAdmin />}
+            >
+              <Route exact path={pageData.adminHome} element={<Admin />} />
+              <Route exact path={pageData.adminMiscProjects} element={<AdminMiscProjects />} />
+              <Route exact path={`${pageData.adminMiscProjects}/:id`} element={<AdminMiscProjectsEdit />} />
+            </Route>
+            <Route path="/" element={<SiteRoutesWrapper />}>
+              <Route exact path={pageData.home} element={<Home />} />
+              <Route
+                path={pageData.miscProjects}
+                element={<AsyncMisc />}
+              />
+              {Object.keys(projectData).map((key) => {
+                return (
+                  <Route
+                    exact path={`${pageData.projects}/${key}`}
+                    element={<ProjectLayout key={key} pageValues={projectData[key]} />} />
+                );
+              })
+              }
+              <Route
+                path={pageData.gaming}
+                element={<AsyncGaming />}
+              />
+              <Route element={<NotFound />} />
+            </Route>
+          </Routes>
         </StyledWrapper>
       </TrackMouse>
-      <CursorCircle/>
+      <CursorCircle />
     </ThemeProvider>
   );
 };

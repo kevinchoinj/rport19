@@ -87,6 +87,7 @@ const GlobalStyle = createGlobalStyle`
     background: #555;
   }
 `;
+
 const App = () => {
   return (
     <ThemeProvider theme={themeData}>
@@ -120,8 +121,8 @@ const App = () => {
                 path={pageData.gaming}
                 element={<AsyncGaming />}
               />
-              <Route element={<NotFound />} />
             </Route>
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </StyledWrapper>
       </TrackMouse>

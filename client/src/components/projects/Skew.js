@@ -1,12 +1,12 @@
-import React from 'react';
-import {connect} from 'react-redux';
-import styled from 'styled-components';
+import React from "react";
+import {connect} from "react-redux";
+import styled from "styled-components";
 import {
   selectMenuDisplay,
-} from 'reducers';
+} from "reducers";
 
 const StyledSkew = styled.div`
-  pointer-events: ${props => props.menuDisplay ? 'none' : 'auto'};
+  pointer-events: ${props => props.menuDisplay ? "none" : "auto"};
   position: relative;
   @media screen and (min-width: 768px) {
     will-change: opacity;

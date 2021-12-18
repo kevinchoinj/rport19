@@ -1,9 +1,9 @@
-import React from 'react';
-import {connect} from 'react-redux';
-import {Formik, Form, Field} from 'formik';
-import styled from 'styled-components';
-import ContactFormSending from 'menu9/ContactFormSending';
-import {setFormStatus} from 'actions/contact';
+import React from "react";
+import {connect} from "react-redux";
+import {Formik, Form, Field} from "formik";
+import styled from "styled-components";
+import ContactFormSending from "menu9/ContactFormSending";
+import {setFormStatus} from "actions/contact";
 
 const StyledWrapper = styled.div`
     label {
@@ -65,11 +65,11 @@ const ContactForm = ({onSubmit, setFormWarning}) => {
       <Formik
         enableReinitialize
         initialValues={{
-          message: '',
+          message: "",
         }}
         onSubmit={(values) => {
-          if (values.message === '') {
-            setFormWarning('validate');
+          if (values.message === "") {
+            setFormWarning("validate");
           } else {
             onSubmit(values);
           }

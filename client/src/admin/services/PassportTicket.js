@@ -1,6 +1,6 @@
-import {useEffect} from 'react';
-import {connect} from 'react-redux';
-import * as authActions from 'actions/authentication';
+import {useEffect} from "react";
+import {connect} from "react-redux";
+import * as authActions from "actions/authentication";
 
 const PassportTicket = ({findPassport}) => {
   useEffect(() => {
@@ -11,7 +11,7 @@ const PassportTicket = ({findPassport}) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    findPassport: () => dispatch(authActions.findPassport('Shodyra')),
+    findPassport: () => dispatch(authActions.findPassport("Shodyra")),
   };
 };
 

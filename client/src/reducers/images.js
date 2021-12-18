@@ -1,6 +1,6 @@
 import {
   FETCH_MISC_PROJECTS_SUCCEEDED,
-} from 'actions/images';
+} from "actions/images";
 
 const DEFAULT_STATE={
   miscProjects: [],

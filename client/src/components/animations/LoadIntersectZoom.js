@@ -1,12 +1,12 @@
-import React from 'react';
-import useIntersect from 'hooks/useIntersect';
-import styled from 'styled-components';
+import React from "react";
+import useIntersect from "hooks/useIntersect";
+import styled from "styled-components";
 
 const StyledContainer = styled.div`
   overflow: hidden;
   img {
     transition: .6s ease;
-    transform: ${({ ratio }) => ratio ? 'scale(1, 1)' : 'scale(1.3, 1.3)'};
+    transform: ${({ ratio }) => ratio ? "scale(1, 1)" : "scale(1.3, 1.3)"};
     transform-origin: top center;
     width: 100%;
   }

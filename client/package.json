@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "connected-react-router": "^6.9.1",
     "date-fns": "^2.25.0",
     "formik": "^2.2.1",
     "js-cookie": "^3.0.1",
@@ -12,7 +11,7 @@
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.6",
     "react-router-dom": "^6.0.0",
-    "react-scripts": "^4.0.3",
+    "react-scripts": "^5.0.0",
     "react-scroll": "^1.8.1",
     "redux": "^4.1.2",
     "redux-logger": "^3.0.6",
@@ -26,10 +25,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint:fix": "eslint --fix --ext .js,.jsx ."
-  },
-  "eslintConfig": {
-    "extends": "react-app"
+    "lint": "eslint . --ext .js",
+    "lint:fix": "eslint . --fix --ext .js,.jsx ."
   },
   "browserslist": [
     ">0.2%",

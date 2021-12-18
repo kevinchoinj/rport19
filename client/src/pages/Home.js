@@ -1,9 +1,9 @@
-import React, {useEffect} from 'react';
-import Background from 'components/home/BackgroundMouse';
-import Logo from 'components/home/Logo';
-import Contact from 'components/home/Contact';
-import {connect} from 'react-redux';
-import {toggleMenu} from 'actions/menu';
+import React, {useEffect} from "react";
+import Background from "components/home/BackgroundMouse";
+import Logo from "components/home/Logo";
+import Contact from "components/home/Contact";
+import {connect} from "react-redux";
+import {toggleMenu} from "actions/menu";
 
 export const Home = ({toggleMenu}) => {
   useEffect(() => {

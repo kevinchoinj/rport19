@@ -2,10 +2,10 @@ import React, {
   useState,
   useRef,
   useLayoutEffect,
-} from 'react';
-import {connect} from 'react-redux';
-import {selectCurrentMousePosition} from 'reducers';
-import CursorCircleInner from 'components/services/CursorCircleInner';
+} from "react";
+import {connect} from "react-redux";
+import {selectCurrentMousePosition} from "reducers";
+import CursorCircleInner from "components/services/CursorCircleInner";
 
 //https://github.com/facebook/react/issues/14195
 //useMutationEffect removed: https://github.com/facebook/react/pull/14336

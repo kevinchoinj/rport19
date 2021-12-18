@@ -1,14 +1,14 @@
-import React, {useEffect, useRef} from 'react';
-import styled from 'styled-components';
+import React, {useEffect, useRef} from "react";
+import styled from "styled-components";
 import {
   Polyline,
   Renderer,
   Transform,
   Vec3,
   Color
-} from 'ogl';
-import {createPortal} from 'react-dom';
-import {useAnimationFrame} from 'components/services/useAnimationFrame';
+} from "ogl";
+import {createPortal} from "react-dom";
+import {useAnimationFrame} from "components/services/useAnimationFrame";
 
 const vertex = `
     attribute vec3 position;
@@ -68,7 +68,7 @@ function random(a, b) {
   return a * (1.0 - alpha) + b * alpha;
 }
 
-const portalRoot = document.getElementById('portal-root');
+const portalRoot = document.getElementById("portal-root");
 
 const CursorTrail = () => {
   const containerRef = useRef(null);
@@ -85,9 +85,9 @@ const CursorTrail = () => {
       renderer.setSize(window.innerWidth, window.innerHeight);
       lines.forEach(line => line.polyline.resize());
     }
-    window.addEventListener('resize', resize, false);
+    window.addEventListener("resize", resize, false);
 
-    ['#d8b2d8', '#000', '#222', '#333', '#444'].forEach(
+    ["#d8b2d8", "#000", "#222", "#333", "#444"].forEach(
       (color) => {
         const line = {
           spring: random(0.02, 0.1),
@@ -116,8 +116,8 @@ const CursorTrail = () => {
       }
     );
     resize();
-    if (!('ontouchstart' in window)) {
-      window.addEventListener('mousemove', updateMouse, false);
+    if (!("ontouchstart" in window)) {
+      window.addEventListener("mousemove", updateMouse, false);
     }
 
     function updateMouse(e) {

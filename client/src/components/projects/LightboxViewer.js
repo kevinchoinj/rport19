@@ -1,7 +1,7 @@
-import React, {useState, useRef} from 'react';
-import styled from 'styled-components';
-import {setLightboxImage} from 'actions/gaming';
-import { connect } from 'react-redux';
+import React, {useState, useRef} from "react";
+import styled from "styled-components";
+import {setLightboxImage} from "actions/gaming";
+import { connect } from "react-redux";
 
 const StyledWrapper = styled.div`
   overflow-x: auto;

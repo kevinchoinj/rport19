@@ -1,14 +1,14 @@
-import React, {useEffect, useState} from 'react';
-import {connect} from 'react-redux';
-import {toggleMenu} from 'actions/menu';
-import Skew from 'components/projects/Skew';
-import GetMiscProjects from 'components/services/GetMiscProjects';
-import Banner from 'components/projects/Banner';
-import styled from 'styled-components';
+import React, {useEffect, useState} from "react";
+import {connect} from "react-redux";
+import {toggleMenu} from "actions/menu";
+import Skew from "components/projects/Skew";
+import GetMiscProjects from "components/services/GetMiscProjects";
+import Banner from "components/projects/Banner";
+import styled from "styled-components";
 
 import {
   selectImagesProjects,
-} from 'reducers';
+} from "reducers";
 
 const StyledContainer = styled.div`
   background-color: ${props => props.theme.colorBackground};
@@ -85,10 +85,10 @@ const StyledButton = styled.div`
   padding: .5rem 1rem;
   transition: .2s ease;
   margin-right: 1rem;
-  color: ${props => props['data-disabled'] && '#666'};
-  cursor: ${props => props['data-disabled'] && 'not-allowed'};
+  color: ${props => props["data-disabled"] && "#666"};
+  cursor: ${props => props["data-disabled"] && "not-allowed"};
   &:hover {
-    cursor: ${props => !props['data-disabled'] && '#333'};
+    cursor: ${props => !props["data-disabled"] && "#333"};
   }
 `;
 

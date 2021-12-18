@@ -1,10 +1,10 @@
-import React from 'react';
-import {connect} from 'react-redux';
-import {toggleMenu} from 'actions/menu';
+import React from "react";
+import {connect} from "react-redux";
+import {toggleMenu} from "actions/menu";
 import {
   selectMenuDisplay,
-} from 'reducers';
-import styled from 'styled-components';
+} from "reducers";
+import styled from "styled-components";
 
 const StyledContainer = styled.div`
   background: transparent;
@@ -32,7 +32,7 @@ const StyledLineOne = styled.span`
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: ${props => props.menuDisplay ? 'translate(-50%, -50%) rotate(-45deg)' : 'translate(-50%, -50%)'};
+  transform: ${props => props.menuDisplay ? "translate(-50%, -50%) rotate(-45deg)" : "translate(-50%, -50%)"};
   height: 100%;
   width: .1vw;
   background-color: #fff;
@@ -42,7 +42,7 @@ const StyledLineTwo = styled.span`
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: ${props => props.menuDisplay ? 'translate(-50%, -50%) rotate(45deg)' : 'translate(-50%, -50%)'};
+  transform: ${props => props.menuDisplay ? "translate(-50%, -50%) rotate(45deg)" : "translate(-50%, -50%)"};
   height: 100%;
   width: .1vw;
   background-color: #fff;

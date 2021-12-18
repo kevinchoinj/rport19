@@ -1,8 +1,8 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Outlet } from 'react-router-dom';
-import AdminMenu from 'admin/menu/AdminMenu';
-import GetMiscProjects from 'components/services/GetMiscProjects';
+import React from "react";
+import styled from "styled-components";
+import { Outlet } from "react-router-dom";
+import AdminMenu from "admin/menu/AdminMenu";
+import GetMiscProjects from "components/services/GetMiscProjects";
 
 const StyledWrapper = styled.div`
   display: flex;

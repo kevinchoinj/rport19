@@ -1,13 +1,13 @@
-import React from 'react';
-import styled from 'styled-components';
-import {connect} from 'react-redux';
-import * as imagesActions from 'actions/images';
-import {Link} from 'react-router-dom';
-import {pageData} from 'data/pageData';
-import AdminButton from 'admin/components/AdminButton';
+import React from "react";
+import styled from "styled-components";
+import {connect} from "react-redux";
+import * as imagesActions from "actions/images";
+import {Link} from "react-router-dom";
+import {pageData} from "data/pageData";
+import AdminButton from "admin/components/AdminButton";
 import {
   selectImagesProjects,
-} from 'reducers';
+} from "reducers";
 
 const StyledWrapper = styled.div`
   color: #fff;

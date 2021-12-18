@@ -1,12 +1,12 @@
-import React, { useCallback, useMemo } from 'react';
-import { connect } from 'react-redux';
-import * as menuActions from 'actions/menu';
-import styled from 'styled-components';
+import React, { useCallback, useMemo } from "react";
+import { connect } from "react-redux";
+import * as menuActions from "actions/menu";
+import styled from "styled-components";
 import {
   selectMenuDisplay,
   selectMenuHover,
-} from 'reducers';
-import { useLocation, useNavigate } from 'react-router-dom';
+} from "reducers";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const StyledBackground = styled.div`
   cursor: pointer;
@@ -16,12 +16,12 @@ const StyledBackground = styled.div`
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  pointer-events: ${props => props.menuOpen ? 'auto' : 'none'};
+  pointer-events: ${props => props.menuOpen ? "auto" : "none"};
   opacity: ${props => !props.menuOpen && 0};
   transition: .4s ease;
 
   @media screen and (max-width: 768px) {
-    display: ${props => !props.menuOpen ? 'none' : 'block'};
+    display: ${props => !props.menuOpen ? "none" : "block"};
   }
 `;
 

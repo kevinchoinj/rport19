@@ -1,7 +1,7 @@
 import React, {
   memo,
-} from 'react';
-import styled from 'styled-components';
+} from "react";
+import styled from "styled-components";
 
 const StyledWrapper = styled.div`
   height: 5rem;

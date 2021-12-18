@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from "react";
 
 const useIntersect = ({ root = null, rootMargin, threshold = 0 }) => {
   const [entry, updateEntry] = useState({});

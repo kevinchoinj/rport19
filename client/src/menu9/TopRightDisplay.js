@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-import ContactWrapper from 'menu9/ContactWrapper';
+import React from "react";
+import styled from "styled-components";
+import ContactWrapper from "menu9/ContactWrapper";
 
 const StyledWrapper = styled.div`
   padding: 42px 48px;
@@ -75,10 +75,10 @@ const TopRightDisplay = () => {
           2016 - Frontend @ Why Not Smile<br/>
           2017 - Rank 19 NA HS Arena<br/>
           2017 - React/Node.js<br/>
-          2019-2021 - Cloud-Elements<br/>
-          2021 - 2nd @ TechCrunch Miami (Redact.dev)<br/>
+          2019 - Cloud-Elements<br/>
+          2021 - 2nd @ TechCrunch Miami (Redact)<br/>
           2017-now - Freelance (Shodyra)<br/>
-          2020-now - Redact.dev<br/>
+          2020-now - Redact<br/>
           2021-now - UiPath<br/>
         </DetailsWrapper>
       </div>

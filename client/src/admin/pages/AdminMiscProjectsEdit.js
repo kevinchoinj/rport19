@@ -1,8 +1,8 @@
-import React from 'react';
-import styled from 'styled-components';
-import { connect } from 'react-redux';
-import * as imagesActions from 'actions/images';
-import MiscProjectsEditForm from 'admin/forms/MiscProjectsEditForm';
+import React from "react";
+import styled from "styled-components";
+import { connect } from "react-redux";
+import * as imagesActions from "actions/images";
+import MiscProjectsEditForm from "admin/forms/MiscProjectsEditForm";
 
 const StyledWrapper = styled.div`
   background-color: ${props => props.theme.colorAdminContainer};
@@ -35,7 +35,7 @@ const AdminMiscProjects = ({match, editImage}) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     editImage: (values) => {
-      dispatch(imagesActions.editMiscProjectsThenUpdate(values, '/shodyra/admin/misc'));
+      dispatch(imagesActions.editMiscProjectsThenUpdate(values, "/shodyra/admin/misc"));
     },
   };
 };

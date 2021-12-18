@@ -1,10 +1,10 @@
-import React from 'react';
-import {connect} from 'react-redux';
-import {hoverMenuOption, toggleMenu} from 'actions/menu';
+import React from "react";
+import {connect} from "react-redux";
+import {hoverMenuOption, toggleMenu} from "actions/menu";
 import {
   selectMenuDisplay,
-} from 'reducers';
-import styled from 'styled-components';
+} from "reducers";
+import styled from "styled-components";
 
 const StyledContainer = styled.div`
   background: transparent;
@@ -33,7 +33,7 @@ const StyledLineOne = styled.span`
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: ${props => props.menuDisplay ? 'translate(-50%, -50%) rotate(-45deg)' : 'translate(-50%, -30%) rotate(90deg) scaleY(0.7)'};
+  transform: ${props => props.menuDisplay ? "translate(-50%, -50%) rotate(-45deg)" : "translate(-50%, -30%) rotate(90deg) scaleY(0.7)"};
   height: 100%;
   width: 1px;
   background-color: #000;
@@ -43,7 +43,7 @@ const StyledLineTwo = styled.span`
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: ${props => props.menuDisplay ? 'translate(-50%, -50%) rotate(45deg)' : 'translate(-50%, -70%) rotate(90deg) scaleY(0.7)'};
+  transform: ${props => props.menuDisplay ? "translate(-50%, -50%) rotate(45deg)" : "translate(-50%, -70%) rotate(90deg) scaleY(0.7)"};
   height: 100%;
   width: 1px;
   background-color: #000;
@@ -57,7 +57,7 @@ const StyledText = styled.div`
   display: flex;
   align-items: center;
   background-color: ${props => props.theme.colorTheme};
-  transform: ${props => props.menuDisplay && 'translateX(calc(100%))'};
+  transform: ${props => props.menuDisplay && "translateX(calc(100%))"};
   transition: .2s ease;
   font-size: var(--size-small);
   @media screen and (max-width: 768px) {
@@ -86,7 +86,7 @@ const StyledWrapper = styled.div`
     outline: none;
   }
   &:hover ${StyledText} {
-    transform: ${props => !props.menuDisplay && 'translateX(1rem)'};
+    transform: ${props => !props.menuDisplay && "translateX(1rem)"};
   }
 `;
 

@@ -1,9 +1,9 @@
-import React from 'react';
-import {Link} from 'react-router-dom';
-import { connect } from 'react-redux';
-import {pageData} from 'data/pageData';
-import * as authActions from 'actions/authentication';
-import styled from 'styled-components';
+import React from "react";
+import {Link} from "react-router-dom";
+import { connect } from "react-redux";
+import {pageData} from "data/pageData";
+import * as authActions from "actions/authentication";
+import styled from "styled-components";
 
 const StyledWrapper = styled.div`
   font-family: 'Open Sans', Helvetica, sans-serif;
@@ -51,8 +51,8 @@ const StyledLogOut = styled.div`
 `;
 const AdminMenu = ({logOut}) => {
   const menuValues = [
-    {text: 'Home', link: pageData.adminHome},
-    {text: 'Edit Gallery', link: pageData.adminMiscProjects},
+    {text: "Home", link: pageData.adminHome},
+    {text: "Edit Gallery", link: pageData.adminMiscProjects},
   ];
   return (
     <StyledWrapper>

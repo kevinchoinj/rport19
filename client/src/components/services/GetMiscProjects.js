@@ -1,6 +1,6 @@
-import {useEffect} from 'react';
-import { connect } from 'react-redux';
-import * as imagesActions from 'actions/images';
+import {useEffect} from "react";
+import { connect } from "react-redux";
+import * as imagesActions from "actions/images";
 
 const GetMiscProjects = ({fetchMiscProjects}) => {
   useEffect(() => {

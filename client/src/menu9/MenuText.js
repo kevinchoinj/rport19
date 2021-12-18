@@ -1,12 +1,12 @@
-import React, {useCallback} from 'react';
-import {hoverMenuOption} from 'actions/menu';
-import {connect} from 'react-redux';
-import {Link, useLocation} from 'react-router-dom';
-import {menuData} from 'data/menuData';
-import styled from 'styled-components';
+import React, {useCallback} from "react";
+import {hoverMenuOption} from "actions/menu";
+import {connect} from "react-redux";
+import {Link, useLocation} from "react-router-dom";
+import {menuData} from "data/menuData";
+import styled from "styled-components";
 import {
   selectMenuDisplay,
-} from 'reducers';
+} from "reducers";
 
 const StyledLinkWrapper = styled.div`
   display: flex;
@@ -28,7 +28,7 @@ const LinkDivWrapper = React.memo(({
         <StyledNumber>
           {number}
         </StyledNumber>
-        <div style={{marginLeft: '1rem'}}>
+        <div style={{marginLeft: "1rem"}}>
           {text}
         </div>
       </StyledLinkWrapper>
@@ -40,7 +40,7 @@ const LinkDivWrapper = React.memo(({
         <StyledNumber>
           {number}
         </StyledNumber>
-        <div style={{marginLeft: '1rem'}}>
+        <div style={{marginLeft: "1rem"}}>
           {text}
         </div>
       </StyledLinkWrapper>
@@ -134,7 +134,7 @@ const StyledRow = styled.div`
 
 `;
 const StyledWrapper = styled.div`
-  pointer-events: '${props => props.menuDisplay ? 'auto' : 'none'}';
+  pointer-events: '${props => props.menuDisplay ? "auto" : "none"}';
   overflow: auto;
   height: 100%;
   overflow-x: hidden;

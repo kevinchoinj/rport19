@@ -1,6 +1,6 @@
-import React from 'react';
-import LoadIn from 'components/animations/LoadIn';
-import styled, {keyframes} from 'styled-components';
+import React from "react";
+import LoadIn from "components/animations/LoadIn";
+import styled, {keyframes} from "styled-components";
 
 const StyledTextWrapper = styled.div`
   width: 16.66666667%;
@@ -18,7 +18,7 @@ const StyledTextSmall = styled.div`
   margin-top: .5rem;
 `;
 const TextDisplay = ({ textLine, loadDelay, label }) => {
-  if ((label === 'LINK') && textLine) {
+  if ((label === "LINK") && textLine) {
     return (
       <StyledTextWrapper>
         <LoadIn

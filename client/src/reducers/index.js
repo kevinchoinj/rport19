@@ -1,13 +1,13 @@
-import menu from 'reducers/menu';
-import authentication from 'reducers/authentication';
-import images from 'reducers/images';
-import git from 'reducers/git';
-import mouse from 'reducers/mouse';
-import gaming from 'reducers/gaming';
-import contact from 'reducers/contact';
-import {createSelector} from 'reselect';
+import menu from "reducers/menu";
+import authentication from "reducers/authentication";
+import images from "reducers/images";
+import git from "reducers/git";
+import mouse from "reducers/mouse";
+import gaming from "reducers/gaming";
+import contact from "reducers/contact";
+import {createSelector} from "reselect";
 
-import {find, propEq} from 'ramda';
+import {find, propEq} from "ramda";
 
 const reducers={
   menu,
@@ -39,7 +39,7 @@ export const selectImagesProjects = (state) => state.images.miscProjects;
 
 export const selectImagesProjectsById = (state, id) => createSelector(
   selectImagesProjects,
-  (miscProjects) =>  find(propEq('id', id), miscProjects)
+  (miscProjects) =>  find(propEq("id", id), miscProjects)
 )(state);
 
 /*======================================
@@ -56,7 +56,7 @@ export const selectGitCommits = (state) => state.git.commits;
 =               MOUSE                  =
 ======================================*/
 export const selectCurrentMousePosition = (state) => state.mouse.mousePosition;
-export const selectMouseContent = (state) => state.mouse.content ? state.mouse.content : '';
+export const selectMouseContent = (state) => state.mouse.content ? state.mouse.content : "";
 export const selectIsMobile = (state) => state.mouse.isMobile;
 export const selectIsEdge = (state) => state.mouse.isEdge;
 

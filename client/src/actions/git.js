@@ -1,6 +1,6 @@
-export const FETCH_GIT_STARTED = Symbol('FETCH_GIT_STARTED');
-export const FETCH_GIT_SUCCEEDED = Symbol('FETCH_GIT_SUCCEEDED');
-export const FETCH_GIT_FAILURE = Symbol('FETCH_GIT_FAILURE');
+export const FETCH_GIT_STARTED = Symbol("FETCH_GIT_STARTED");
+export const FETCH_GIT_SUCCEEDED = Symbol("FETCH_GIT_SUCCEEDED");
+export const FETCH_GIT_FAILURE = Symbol("FETCH_GIT_FAILURE");
 
 const fetchGitStarted = request => ({type: FETCH_GIT_STARTED, request});
 const fetchGitSucceeded = data => ({type: FETCH_GIT_SUCCEEDED, data});
@@ -15,7 +15,7 @@ function handleErrors(response) {
 
 function getGit() {
   return () => {
-    return fetch('/api/v1/git/commits');
+    return fetch("/api/v1/git/commits");
   };
 }
 export function fetchGit() {

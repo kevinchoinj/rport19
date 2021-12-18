@@ -1,6 +1,6 @@
-export const TOGGLE_MENU = Symbol('TOGGLE_MENU');
-export const SET_LOADED = Symbol('SET_LOADED');
-export const HOVER_MENU_OPTION = Symbol('HOVER_MENU_OPTION');
+export const TOGGLE_MENU = Symbol("TOGGLE_MENU");
+export const SET_LOADED = Symbol("SET_LOADED");
+export const HOVER_MENU_OPTION = Symbol("HOVER_MENU_OPTION");
 
 export const toggleMenu = (menuDisplay) => {
   return{

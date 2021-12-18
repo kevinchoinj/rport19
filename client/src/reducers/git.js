@@ -1,6 +1,6 @@
 import {
   FETCH_GIT_SUCCEEDED,
-} from 'actions/git';
+} from "actions/git";
 
 const DEFAULT_STATE={
   commits: [],

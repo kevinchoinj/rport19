@@ -1,7 +1,7 @@
-import React, {useState} from 'react';
-import {Formik, Form, Field} from 'formik';
-import AdminButton from 'admin/components/AdminButton';
-import {Label} from 'admin/components/general';
+import React, {useState} from "react";
+import {Formik, Form, Field} from "formik";
+import AdminButton from "admin/components/AdminButton";
+import {Label} from "admin/components/general";
 
 const MiscProjectsForm = ({onSubmit}) => {
   // Notice that we have to initialize ALL of fields with values. These
@@ -11,7 +11,7 @@ const MiscProjectsForm = ({onSubmit}) => {
 
   const fileUpload = React.createRef();
   const [photo, setPhoto] = useState(null);
-  const [fileName, setFileName] = useState('');
+  const [fileName, setFileName] = useState("");
 
   const setFile = evt => {
     setPhoto(evt.target.files[0]);
@@ -24,20 +24,20 @@ const MiscProjectsForm = ({onSubmit}) => {
   const handleSubmit = async evt => {
     try {
       let bodyFormData = new FormData();
-      bodyFormData.set('name', evt.name);
-      bodyFormData.set('link', evt.link);
-      bodyFormData.append('image', photo);
+      bodyFormData.set("name", evt.name);
+      bodyFormData.set("link", evt.link);
+      bodyFormData.append("image", photo);
       await onSubmit(bodyFormData);
     } catch (error) {
-      alert('Upload must be an image');
+      alert("Upload must be an image");
     }
   };
   return (
     <Formik
       enableReinitialize
       initialValues={{
-        name: '',
-        link: '',
+        name: "",
+        link: "",
         image: {},
       }}
       onSubmit={handleSubmit}
@@ -55,7 +55,7 @@ const MiscProjectsForm = ({onSubmit}) => {
             type="file"
             ref={fileUpload}
             name="image"
-            style={{ display: 'none' }}
+            style={{ display: "none" }}
             onChange={setFile}
           />
           <div className="file-box">

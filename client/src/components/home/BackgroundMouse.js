@@ -1,10 +1,10 @@
-import React, {memo, useMemo} from 'react';
-import {connect} from 'react-redux';
-import styled from 'styled-components';
+import React, {memo, useMemo} from "react";
+import {connect} from "react-redux";
+import styled from "styled-components";
 import {
   selectCurrentMousePosition,
   selectMenuDisplay,
-} from 'reducers';
+} from "reducers";
 
 const StyledWrapper = styled.div`
   z-index: -1;

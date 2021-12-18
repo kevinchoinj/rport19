@@ -2,9 +2,9 @@ import {
   useState,
   useRef,
   useLayoutEffect,
-} from 'react';
-import {connect} from 'react-redux';
-import * as scrollActions from 'actions/scroll';
+} from "react";
+import {connect} from "react-redux";
+import * as scrollActions from "actions/scroll";
 
 //https://github.com/facebook/react/issues/14195
 //useMutationEffect removed: https://github.com/facebook/react/pull/14336

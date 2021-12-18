@@ -1,27 +1,27 @@
-import React from 'react';
+import React from "react";
 
-import SiteRoutesWrapper from 'routes/SiteRoutesWrapper';
-import asyncComponent from 'components/split/AsyncComponent';
-import { Routes, Route } from 'react-router-dom';
-import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
-import { themeData } from 'data/themeData';
-import TrackMouse from 'components/services/TrackMouse';
-import CursorCircle from 'components/services/CursorCircle';
-import { projectData } from 'data/projectData';
+import SiteRoutesWrapper from "routes/SiteRoutesWrapper";
+import asyncComponent from "components/split/AsyncComponent";
+import { Routes, Route } from "react-router-dom";
+import styled, { createGlobalStyle, ThemeProvider } from "styled-components";
+import { themeData } from "data/themeData";
+import TrackMouse from "components/services/TrackMouse";
+import CursorCircle from "components/services/CursorCircle";
+import { projectData } from "data/projectData";
 
-import Home from 'pages/Home';
-import ProjectLayout from 'pages/ProjectLayout';
-import NotFound from 'pages/NotFound';
+import Home from "pages/Home";
+import ProjectLayout from "pages/ProjectLayout";
+import NotFound from "pages/NotFound";
 
-import { pageData } from 'data/pageData';
+import { pageData } from "data/pageData";
 
-import Admin from 'admin/pages/AdminHome';
-import AdminMiscProjects from 'admin/pages/AdminMiscProjects';
-import AdminMiscProjectsEdit from 'admin/pages/AdminMiscProjectsEdit';
+import Admin from "admin/pages/AdminHome";
+import AdminMiscProjects from "admin/pages/AdminMiscProjects";
+import AdminMiscProjectsEdit from "admin/pages/AdminMiscProjectsEdit";
 
-const AsyncMisc = asyncComponent(() => import('pages/ProjectMisc'));
-const AsyncGaming = asyncComponent(() => import('pages/GamingMisc'));
-const AsyncAdmin = asyncComponent(() => import('routes/PassportCheck'));
+const AsyncMisc = asyncComponent(() => import("pages/ProjectMisc"));
+const AsyncGaming = asyncComponent(() => import("pages/GamingMisc"));
+const AsyncAdmin = asyncComponent(() => import("routes/PassportCheck"));
 
 const StyledWrapper = styled.div`
   -webkit-overflow-scrolling: touch;

@@ -1,9 +1,9 @@
-import React, { useMemo } from 'react';
-import styled, { keyframes } from 'styled-components';
-import { menuData } from 'data/menuData';
-import BackgroundImageDisplay from 'menu9/BackgroundImageDisplay';
-import { pageData } from 'data/pageData';
-import { useLocation } from 'react-router-dom';
+import React, { useMemo } from "react";
+import styled, { keyframes } from "styled-components";
+import { menuData } from "data/menuData";
+import BackgroundImageDisplay from "menu9/BackgroundImageDisplay";
+import { pageData } from "data/pageData";
+import { useLocation } from "react-router-dom";
 
 const noise = keyframes`
   0%{

@@ -1,10 +1,10 @@
-import React from 'react';
-import {connect} from 'react-redux';
-import {Formik, Form, Field} from 'formik';
-import AdminButton from 'admin/components/AdminButton';
-import {Label} from 'admin/components/general';
+import React from "react";
+import {connect} from "react-redux";
+import {Formik, Form, Field} from "formik";
+import AdminButton from "admin/components/AdminButton";
+import {Label} from "admin/components/general";
 
-import {selectImagesProjectsById} from 'reducers';
+import {selectImagesProjectsById} from "reducers";
 
 const MiscProjectsEditForm = ({projectData, onSubmit}) => {
   return (

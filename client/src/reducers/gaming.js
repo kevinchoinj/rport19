@@ -1,9 +1,9 @@
 import {
   SET_LIGHTBOX_IMAGE,
-} from 'actions/gaming';
+} from "actions/gaming";
 
 const DEFAULT_STATE={
-  image: '',
+  image: "",
 };
 
 const gamingReducer = (state=DEFAULT_STATE, payload) => {

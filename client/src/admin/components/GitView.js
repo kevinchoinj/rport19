@@ -1,10 +1,10 @@
-import React from 'react';
-import {connect} from 'react-redux';
-import {formatDistanceToNow} from 'date-fns';
-import styled from 'styled-components';
+import React from "react";
+import {connect} from "react-redux";
+import {formatDistanceToNow} from "date-fns";
+import styled from "styled-components";
 import {
   selectGitCommits,
-} from 'reducers';
+} from "reducers";
 
 const StyledWrapper = styled.div`
   display: flex;

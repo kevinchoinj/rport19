@@ -1,17 +1,17 @@
-import React from 'react';
-import {connect} from 'react-redux';
-import {Formik, Form, Field} from 'formik';
-import {loginPassport} from 'actions/authentication';
-import AdminButton from 'admin/components/AdminButton';
-import {Label} from 'admin/components/general';
+import React from "react";
+import {connect} from "react-redux";
+import {Formik, Form, Field} from "formik";
+import {loginPassport} from "actions/authentication";
+import AdminButton from "admin/components/AdminButton";
+import {Label} from "admin/components/general";
 
 const LoginForm = ({login}) => {
   return (
     <Formik
       enableReinitialize
       initialValues={{
-        username: '',
-        password: '',
+        username: "",
+        password: "",
       }}
       onSubmit={values => {
         login(values);

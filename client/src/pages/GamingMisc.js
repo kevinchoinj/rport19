@@ -1,13 +1,13 @@
-import React, {useEffect} from 'react';
-import Banner from 'components/projects/Banner';
-import Update from 'components/projects/Update';
-import {connect} from 'react-redux';
-import {toggleMenu} from 'actions/menu';
-import {gamingData} from 'data/gamingData';
-import GamingCarousel from 'components/projects/LightboxViewer';
-import styled from 'styled-components';
-import Lightbox from 'components/projects/Lightbox';
-import Skew from 'components/projects/Skew';
+import React, {useEffect} from "react";
+import Banner from "components/projects/Banner";
+import Update from "components/projects/Update";
+import {connect} from "react-redux";
+import {toggleMenu} from "actions/menu";
+import {gamingData} from "data/gamingData";
+import GamingCarousel from "components/projects/LightboxViewer";
+import styled from "styled-components";
+import Lightbox from "components/projects/Lightbox";
+import Skew from "components/projects/Skew";
 
 const StyledContainer = styled.div`
   background-color: ${props => props.theme.colorBackground};
@@ -263,7 +263,7 @@ const GamingMisc = ({ toggleMenu }) => {
           <br/>
           August 2021 - Peak Rank 187th DND Limited, End of season 419th
           <br/>
-          September 2021 - Peak Rank 70th MID Limited
+          September 2021 - Peak Rank 70th MID Limited, End of Season 355th
         </Update>
         <GamingCarousel
           images = {gamingData.MTG_ARRAY}
@@ -282,9 +282,7 @@ const GamingMisc = ({ toggleMenu }) => {
         <Update
           title="TEAMFIGHT TACTICS"
         >
-          S3 - Diamond<br/>
-          S4 - Diamond<br/>
-          S5- Diamond
+          Diamond - Set 3, Set 3.5, Set 4.5, Set 5.5, Set 6
           <div>
             <a href="https://lolchess.gg/index.php/profile/na/shodyra?hl=en-US"
               aria-label="gaming link"

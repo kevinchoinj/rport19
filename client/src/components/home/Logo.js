@@ -1,10 +1,10 @@
-import React from 'react';
-import {connect} from 'react-redux';
-import {hoverMenuOption, toggleMenu} from 'actions/menu';
-import styled from 'styled-components';
+import React from "react";
+import {connect} from "react-redux";
+import {hoverMenuOption, toggleMenu} from "actions/menu";
+import styled from "styled-components";
 import {
   selectMenuDisplay,
-} from 'reducers';
+} from "reducers";
 
 const StyledWrapper = styled.div`
   position: fixed;
@@ -66,7 +66,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     toggleMenu: (menuDisplay) => {
-      dispatch(hoverMenuOption(''));
+      dispatch(hoverMenuOption(""));
       dispatch(toggleMenu(!menuDisplay));
     }
   };

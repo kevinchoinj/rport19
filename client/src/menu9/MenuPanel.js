@@ -1,11 +1,11 @@
-import React from 'react';
-import {connect} from 'react-redux';
-import MenuText from 'menu9/MenuText';
-import TopRightDisplay from 'menu9/TopRightDisplay';
-import styled from 'styled-components';
+import React from "react";
+import {connect} from "react-redux";
+import MenuText from "menu9/MenuText";
+import TopRightDisplay from "menu9/TopRightDisplay";
+import styled from "styled-components";
 import {
   selectMenuDisplay,
-} from 'reducers';
+} from "reducers";
 
 const StyledWrapper = styled.div`
   position: fixed;
@@ -28,17 +28,17 @@ const StyledLeft = styled.div`
   left: -33vw;
   will-change: transform;
   -webkit-overflow-scrolling: touch;
-  transform: ${props => props.menuDisplay ? 'translateX(33vw)' : 'translateX(0px)'};
+  transform: ${props => props.menuDisplay ? "translateX(33vw)" : "translateX(0px)"};
   @media screen and (max-width: 1590px) {
     left: -50vw;
     width: 50vw;
-    transform: ${props => props.menuDisplay ? 'translateX(50vw)' : 'translateX(0px)'};
+    transform: ${props => props.menuDisplay ? "translateX(50vw)" : "translateX(0px)"};
   }
   @media screen and (max-width: 768px) {
     left: -100vw;
     width: 100%;
     min-width: 0px;
-    transform: ${props => props.menuDisplay ? 'translateX(100vw)' : 'translateX(0px)'};
+    transform: ${props => props.menuDisplay ? "translateX(100vw)" : "translateX(0px)"};
   }
 `;
 const StyledRight = styled.div`
@@ -50,7 +50,7 @@ const StyledRight = styled.div`
   will-change: transform;
   background-color: ${props => props.theme.colorBackground};
   transition: ${props => props.theme.transitionLong};
-  transform: ${props => props.menuDisplay ? 'translateX(-33vw)' : 'translateX(0px)'};
+  transform: ${props => props.menuDisplay ? "translateX(-33vw)" : "translateX(0px)"};
   @media screen and (max-width: 768px) {
     display: none;
   }

@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-import useIntersect from 'hooks/useIntersect';
+import React from "react";
+import styled from "styled-components";
+import useIntersect from "hooks/useIntersect";
 
 const StyledWrapper = styled.div`
   bottom: 0px;
@@ -43,7 +43,7 @@ const StyledColumn = styled.div`
   img {
     transition: 1s ease ${props => props.delay};
     opacity: ${({ ratio }) => ratio ? 1 : 0};
-    transform: ${({ ratio }) => ratio ? 'transformY(0px)' : 'transformY(1rem)'};
+    transform: ${({ ratio }) => ratio ? "transformY(0px)" : "transformY(1rem)"};
     transform-origin: top center;
     width: 100%;
   }

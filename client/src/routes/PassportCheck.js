@@ -1,14 +1,14 @@
-import React from 'react';
-import styled from 'styled-components';
-import { connect } from 'react-redux';
-import {Link} from 'react-router-dom';
-import AdminRoutes from 'routes/AdminRoutes';
-import LoginForm from 'admin/forms/LoginForm';
-import PassportTicket from 'admin/services/PassportTicket';
-import {pageData} from 'data/pageData';
+import React from "react";
+import styled from "styled-components";
+import { connect } from "react-redux";
+import {Link} from "react-router-dom";
+import AdminRoutes from "routes/AdminRoutes";
+import LoginForm from "admin/forms/LoginForm";
+import PassportTicket from "admin/services/PassportTicket";
+import {pageData} from "data/pageData";
 import {
   selectAuthLoggedIn,
-} from 'reducers';
+} from "reducers";
 
 const StyledWrapper = styled.div`
   width: 100vw;
@@ -40,7 +40,7 @@ const StyledForm = styled.div`
 `;
 const LinkObject = ({className, link, children}) => (
   <Link
-    to={link || '/'}
+    to={link || "/"}
     className = {className}
   >
     {children}

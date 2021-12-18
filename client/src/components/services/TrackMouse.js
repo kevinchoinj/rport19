@@ -1,6 +1,6 @@
-import React from 'react';
-import {getMousePosition} from 'actions/mouse';
-import {connect} from 'react-redux';
+import React from "react";
+import {getMousePosition} from "actions/mouse";
+import {connect} from "react-redux";
 
 const TrackMouse = ({children, getMousePosition}) => {
   return(

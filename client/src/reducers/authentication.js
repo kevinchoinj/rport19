@@ -2,7 +2,7 @@ import {
   FIND_PASSPORT_SUCCEEDED,
   LOGIN_PASSPORT_SUCCEEDED,
   LOG_OUT,
-} from 'actions/authentication';
+} from "actions/authentication";
 
 const DEFAULT_STATE={
   loggedIn: false,
@@ -13,12 +13,12 @@ const authenticationReducer = (state=DEFAULT_STATE, payload) => {
   case FIND_PASSPORT_SUCCEEDED:
     return {
       ...state,
-      loggedIn: payload.data.username === 'shodyra' ? true : false,
+      loggedIn: payload.data.username === "shodyra" ? true : false,
     };
   case LOGIN_PASSPORT_SUCCEEDED:
     return {
       ...state,
-      loggedIn: payload.data.username === 'shodyra' ? true : false,
+      loggedIn: payload.data.username === "shodyra" ? true : false,
     };
   case LOG_OUT:
     return {

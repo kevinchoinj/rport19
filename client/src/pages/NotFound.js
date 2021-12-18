@@ -1,7 +1,7 @@
-import React, {useEffect} from 'react';
-import {connect} from 'react-redux';
-import * as menuActions from 'actions/menu';
-import styled from 'styled-components';
+import React, {useEffect} from "react";
+import {connect} from "react-redux";
+import * as menuActions from "actions/menu";
+import styled from "styled-components";
 
 const StyledWrapper = styled.div`
   height: 100%;

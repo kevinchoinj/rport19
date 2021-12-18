@@ -1,6 +1,6 @@
-import {useEffect} from 'react';
-import {connect} from 'react-redux';
-import {getCurrentUser} from 'actions/authentication';
+import {useEffect} from "react";
+import {connect} from "react-redux";
+import {getCurrentUser} from "actions/authentication";
 
 const SetUser = ({getUser}) => {
   useEffect(() => {

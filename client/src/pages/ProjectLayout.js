@@ -1,15 +1,15 @@
-import React, { useEffect } from 'react';
-import Banner from 'components/projects/Banner';
-import AboutContainer from 'components/projects/AboutContainer';
-import Skew from 'components/projects/Skew';
-import { connect } from 'react-redux';
-import { toggleMenu } from 'actions/menu';
-import MobileImagesStatic from 'components/projects/MobileImagesStatic';
-import ProjectVideo from 'components/projects/ProjectVideo';
-import Section from 'components/projects/Section';
-import styled from 'styled-components';
-import scroll from 'react-scroll';
-import Sticky from 'components/projects/Sticky';
+import React, { useEffect } from "react";
+import Banner from "components/projects/Banner";
+import AboutContainer from "components/projects/AboutContainer";
+import Skew from "components/projects/Skew";
+import { connect } from "react-redux";
+import { toggleMenu } from "actions/menu";
+import MobileImagesStatic from "components/projects/MobileImagesStatic";
+import ProjectVideo from "components/projects/ProjectVideo";
+import Section from "components/projects/Section";
+import styled from "styled-components";
+import scroll from "react-scroll";
+import Sticky from "components/projects/Sticky";
 
 let scroller = scroll.animateScroll;
 
@@ -114,7 +114,7 @@ const StyledDisplay = styled.div`
   }
 `;
 const StyledDisplaySmall = styled(StyledDisplay)`
-  width: ${props => props.size ? props.size : '375px'};
+  width: ${props => props.size ? props.size : "375px"};
   padding: 3.5rem 0 10.5rem 0;
   right: 8.333333333%;
   align-self: flex-end;
@@ -122,7 +122,7 @@ const StyledDisplaySmall = styled(StyledDisplay)`
   @media screen and (max-width: 992px) {
     right: auto;
     width: calc(100% - 3rem);
-    max-width: ${props => props.size ? props.size : '375px'};
+    max-width: ${props => props.size ? props.size : "375px"};
     align-self: center;
     display: none;
   }

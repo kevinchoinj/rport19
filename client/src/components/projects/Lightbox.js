@@ -1,11 +1,11 @@
-import React from 'react';
-import styled from 'styled-components';
-import { connect } from 'react-redux';
-import * as gamingActions from 'actions/gaming';
+import React from "react";
+import styled from "styled-components";
+import { connect } from "react-redux";
+import * as gamingActions from "actions/gaming";
 import {
   selectGamingImage
-} from 'reducers';
-import {createPortal} from 'react-dom';
+} from "reducers";
+import {createPortal} from "react-dom";
 
 const StyledWrapper = styled.div`
   position: fixed;
@@ -14,7 +14,7 @@ const StyledWrapper = styled.div`
   height: 100%;
   width: 100vw;
   background-color: rgba(0,0,0,.9);
-  display: ${props => props.image ? 'flex' : 'none'};
+  display: ${props => props.image ? "flex" : "none"};
   justify-content: center;
   align-items: center;
   img {
@@ -24,7 +24,7 @@ const StyledWrapper = styled.div`
   }
 `;
 
-const portalRoot = document.getElementById('portal-root');
+const portalRoot = document.getElementById("portal-root");
 
 const Lightbox = ({ image, closeImage }) => {
   return createPortal(

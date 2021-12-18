@@ -1,7 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
-import GitView from 'admin/components/GitView';
-import FetchGit from 'admin/services/FetchGit';
+import React from "react";
+import styled from "styled-components";
+import GitView from "admin/components/GitView";
+import FetchGit from "admin/services/FetchGit";
 
 const StyledWrapper = styled.div`
   background-color: ${props => props.theme.colorAdminContainer};

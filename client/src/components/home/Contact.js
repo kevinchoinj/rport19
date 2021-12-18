@@ -1,6 +1,6 @@
-import React from 'react';
-import {pageData} from 'data/pageData';
-import styled from 'styled-components';
+import React from "react";
+import {pageData} from "data/pageData";
+import styled from "styled-components";
 
 const StyledWrapper = styled.div`
   position: fixed;

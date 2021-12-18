@@ -1,12 +1,12 @@
-import React from 'react';
-import {connect} from 'react-redux';
-import { createGlobalStyle } from 'styled-components';
-import {selectMenuDisplay} from 'reducers';
+import React from "react";
+import {connect} from "react-redux";
+import { createGlobalStyle } from "styled-components";
+import {selectMenuDisplay} from "reducers";
 
 const GlobalStyle = createGlobalStyle`
   body {
     @media screen and (max-width: 992px) {
-      overflow-y: ${props => (props.menuDisplay ? 'hidden' : 'auto')};
+      overflow-y: ${props => (props.menuDisplay ? "hidden" : "auto")};
     }
   }
 `;

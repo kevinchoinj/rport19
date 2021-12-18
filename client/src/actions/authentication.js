@@ -1,18 +1,18 @@
-import Cookies from 'js-cookie';
+import Cookies from "js-cookie";
 
-export const REGISTER_PASSPORT_STARTED = Symbol('REGISTER_PASSPORT_STARTED');
-export const REGISTER_PASSPORT_SUCCEEDED = Symbol('REGISTER_PASSPORT_SUCCEEDED');
-export const REGISTER_PASSPORT_FAILURE = Symbol('REGISTER_PASSPORT_FAILURE');
+export const REGISTER_PASSPORT_STARTED = Symbol("REGISTER_PASSPORT_STARTED");
+export const REGISTER_PASSPORT_SUCCEEDED = Symbol("REGISTER_PASSPORT_SUCCEEDED");
+export const REGISTER_PASSPORT_FAILURE = Symbol("REGISTER_PASSPORT_FAILURE");
 
-export const LOGIN_PASSPORT_STARTED = Symbol('LOGIN_PASSPORT_STARTED');
-export const LOGIN_PASSPORT_SUCCEEDED = Symbol('LOGIN_PASSPORT_SUCCEEDED');
-export const LOGIN_PASSPORT_FAILURE = Symbol('LOGIN_PASSPORT_FAILURE');
+export const LOGIN_PASSPORT_STARTED = Symbol("LOGIN_PASSPORT_STARTED");
+export const LOGIN_PASSPORT_SUCCEEDED = Symbol("LOGIN_PASSPORT_SUCCEEDED");
+export const LOGIN_PASSPORT_FAILURE = Symbol("LOGIN_PASSPORT_FAILURE");
 
-export const FIND_PASSPORT_STARTED = Symbol('FIND_PASSPORT_STARTED');
-export const FIND_PASSPORT_SUCCEEDED = Symbol('FIND_PASSPORT_SUCCEEDED');
-export const FIND_PASSPORT_FAILURE = Symbol('FIND_PASSPORT_FAILURE');
+export const FIND_PASSPORT_STARTED = Symbol("FIND_PASSPORT_STARTED");
+export const FIND_PASSPORT_SUCCEEDED = Symbol("FIND_PASSPORT_SUCCEEDED");
+export const FIND_PASSPORT_FAILURE = Symbol("FIND_PASSPORT_FAILURE");
 
-export const LOG_OUT = Symbol('LOG_OUT');
+export const LOG_OUT = Symbol("LOG_OUT");
 
 const registerPassportStarted = request => ({type: REGISTER_PASSPORT_STARTED, request});
 const registerPassportSucceeded = data => ({type: REGISTER_PASSPORT_SUCCEEDED, data});
@@ -37,11 +37,11 @@ export const withRequest = ({request}) => request;
 
 function findJWT(username, accessString) {
   return () => {
-    return fetch('/findUser', {
-      method: 'GET',
+    return fetch("/findUser", {
+      method: "GET",
       headers: {
-        'Content-type': 'application/json',
-        'Authorization': `JWT ${accessString}`
+        "Content-type": "application/json",
+        "Authorization": `JWT ${accessString}`
       },
       params:{
         username: username,
@@ -51,7 +51,7 @@ function findJWT(username, accessString) {
 }
 
 export function findPassport(username) {
-  const accessString = Cookies.get('JWT');
+  const accessString = Cookies.get("JWT");
   if (accessString != null) {
     return (dispatch) => {
       dispatch(findPassportStarted());
@@ -66,17 +66,17 @@ export function findPassport(username) {
   }
   else {
     return (dispatch) => {
-      dispatch(findPassportFailure('no token'));
+      dispatch(findPassportFailure("no token"));
     };
   }
 }
 
 function loginJWT(data) {
   return () => {
-    return fetch('/loginUser', {
-      method: 'POST',
+    return fetch("/loginUser", {
+      method: "POST",
       headers: {
-        'Content-type': 'application/json'
+        "Content-type": "application/json"
       },
       body: JSON.stringify(data),
     });
@@ -91,7 +91,7 @@ export function loginPassport(values) {
       .then(json => {
         //secure: true only for https so doesn't work on localhost
         //Cookies.set('JWT', json.token, {secure: true, expires: 7});
-        Cookies.set('JWT', json.token, {expires: 7});
+        Cookies.set("JWT", json.token, {expires: 7});
         dispatch(loginPassportSucceeded(json));
       })
       .catch(error => dispatch(loginPassportFailure(error)));
@@ -99,11 +99,11 @@ export function loginPassport(values) {
 }
 function registerJWT(data) {
   return () => {
-    return fetch('/registerUser',
+    return fetch("/registerUser",
       {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-type': 'application/json'
+          "Content-type": "application/json"
         },
         body: JSON.stringify(data)
       });
@@ -123,7 +123,7 @@ export function registerPassport(values) {
 };
 
 export const logout = () => {
-  Cookies.remove('JWT');
+  Cookies.remove("JWT");
   return{
     type: LOG_OUT,
   };

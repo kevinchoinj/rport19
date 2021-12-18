@@ -1,7 +1,7 @@
 import {
   TOGGLE_MENU,
   HOVER_MENU_OPTION,
-} from 'actions/menu';
+} from "actions/menu";
 
 const DEFAULT_STATE={
   menuDisplay: null,

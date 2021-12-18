@@ -1,6 +1,6 @@
 import {
   GET_MOUSE_POSITION,
-} from 'actions/mouse';
+} from "actions/mouse";
 
 const DEFAULT_STATE={
   mousePosition: {xValue: 0, yValue: 0},

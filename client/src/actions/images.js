@@ -1,29 +1,29 @@
-import {history} from 'store';
-import Cookies from 'js-cookie';
+import {history} from "store";
+import Cookies from "js-cookie";
 
-export const FETCH_MISC_PROJECTS_STARTED = Symbol('FETCH_MISC_PROJECTS_STARTED');
-export const FETCH_MISC_PROJECTS_SUCCEEDED = Symbol('FETCH_MISC_PROJECTS_SUCCEEDED');
-export const FETCH_MISC_PROJECTS_FAILURE = Symbol('FETCH_MISC_PROJECTS_FAILURE');
+export const FETCH_MISC_PROJECTS_STARTED = Symbol("FETCH_MISC_PROJECTS_STARTED");
+export const FETCH_MISC_PROJECTS_SUCCEEDED = Symbol("FETCH_MISC_PROJECTS_SUCCEEDED");
+export const FETCH_MISC_PROJECTS_FAILURE = Symbol("FETCH_MISC_PROJECTS_FAILURE");
 
-export const ADD_MISC_PROJECTS_STARTED = Symbol('ADD_MISC_PROJECTS_STARTED');
-export const ADD_MISC_PROJECTS_SUCCEEDED = Symbol('ADD_MISC_PROJECTS_SUCCEEDED');
-export const ADD_MISC_PROJECTS_FAILURE = Symbol('ADD_MISC_PROJECTS_FAILURE');
+export const ADD_MISC_PROJECTS_STARTED = Symbol("ADD_MISC_PROJECTS_STARTED");
+export const ADD_MISC_PROJECTS_SUCCEEDED = Symbol("ADD_MISC_PROJECTS_SUCCEEDED");
+export const ADD_MISC_PROJECTS_FAILURE = Symbol("ADD_MISC_PROJECTS_FAILURE");
 
-export const EDIT_MISC_PROJECTS_STARTED = Symbol('EDIT_MISC_PROJECTS_STARTED');
-export const EDIT_MISC_PROJECTS_SUCCEEDED = Symbol('EDIT_MISC_PROJECTS_SUCCEEDED');
-export const EDIT_MISC_PROJECTS_FAILURE = Symbol('EDIT_MISC_PROJECTS_FAILURE');
+export const EDIT_MISC_PROJECTS_STARTED = Symbol("EDIT_MISC_PROJECTS_STARTED");
+export const EDIT_MISC_PROJECTS_SUCCEEDED = Symbol("EDIT_MISC_PROJECTS_SUCCEEDED");
+export const EDIT_MISC_PROJECTS_FAILURE = Symbol("EDIT_MISC_PROJECTS_FAILURE");
 
-export const REMOVE_IMAGE_STARTED = Symbol('REMOVE_IMAGE_STARTED');
-export const REMOVE_IMAGE_SUCCEEDED = Symbol('REMOVE_IMAGE_SUCCEEDED');
-export const REMOVE_IMAGE_FAILURE = Symbol('REMOVE_IMAGE_FAILURE');
+export const REMOVE_IMAGE_STARTED = Symbol("REMOVE_IMAGE_STARTED");
+export const REMOVE_IMAGE_SUCCEEDED = Symbol("REMOVE_IMAGE_SUCCEEDED");
+export const REMOVE_IMAGE_FAILURE = Symbol("REMOVE_IMAGE_FAILURE");
 
-export const REMOVE_MISC_PROJECTS_STARTED = Symbol('REMOVE_MISC_PROJECTS_STARTED');
-export const REMOVE_MISC_PROJECTS_SUCCEEDED = Symbol('REMOVE_MISC_PROJECTS_SUCCEEDED');
-export const REMOVE_MISC_PROJECTS_FAILURE = Symbol('REMOVE_MISC_PROJECTS_FAILURE');
+export const REMOVE_MISC_PROJECTS_STARTED = Symbol("REMOVE_MISC_PROJECTS_STARTED");
+export const REMOVE_MISC_PROJECTS_SUCCEEDED = Symbol("REMOVE_MISC_PROJECTS_SUCCEEDED");
+export const REMOVE_MISC_PROJECTS_FAILURE = Symbol("REMOVE_MISC_PROJECTS_FAILURE");
 
-export const ADD_IMAGE_STARTED = Symbol('ADD_IMAGE_STARTED');
-export const ADD_IMAGE_SUCCEEDED = Symbol('ADD_IMAGE_SUCCEEDED');
-export const ADD_IMAGE_FAILURE = Symbol('ADD_IMAGE_FAILURE');
+export const ADD_IMAGE_STARTED = Symbol("ADD_IMAGE_STARTED");
+export const ADD_IMAGE_SUCCEEDED = Symbol("ADD_IMAGE_SUCCEEDED");
+export const ADD_IMAGE_FAILURE = Symbol("ADD_IMAGE_FAILURE");
 
 const fetchMiscProjectsStarted = request => ({type: FETCH_MISC_PROJECTS_STARTED, request});
 const fetchMiscProjectsSucceeded = data => ({type: FETCH_MISC_PROJECTS_SUCCEEDED, data});
@@ -61,7 +61,7 @@ function handleErrors(response) {
 
 const getMiscProjects = () => {
   return () => {
-    return fetch('/api/v1/project');
+    return fetch("/api/v1/project");
   };
 };
 export const fetchMiscProjects = () => {
@@ -78,12 +78,12 @@ export const fetchMiscProjects = () => {
 };
 const postMiscProjects = (data) => {
   return () => {
-    return fetch('/api/v1/project',
+    return fetch("/api/v1/project",
       {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-type': 'application/json',
-          'Authorization': `JWT ${Cookies.get('JWT')}`
+          "Content-type": "application/json",
+          "Authorization": `JWT ${Cookies.get("JWT")}`
         },
         body: JSON.stringify(data)
       });
@@ -113,12 +113,12 @@ export const addMiscProjectsThenUpdate = (values) => {
 ======================================*/
 const putMiscProjects = (data) => {
   return () => {
-    return fetch('/api/v1/project',
+    return fetch("/api/v1/project",
       {
-        method: 'PUT',
+        method: "PUT",
         headers: {
-          'Content-type': 'application/json',
-          'Authorization': `JWT ${Cookies.get('JWT')}`
+          "Content-type": "application/json",
+          "Authorization": `JWT ${Cookies.get("JWT")}`
         },
         body: JSON.stringify(data)
       });
@@ -152,12 +152,12 @@ export const editMiscProjectsThenUpdate = (values, path) => {
 
 const deleteImage = (awsKey) => {
   return () => {
-    return fetch('/api/v1/aws',
+    return fetch("/api/v1/aws",
       {
-        method: 'DELETE',
+        method: "DELETE",
         headers: {
-          'Content-type': 'application/json',
-          'Authorization': `JWT ${Cookies.get('JWT')}`
+          "Content-type": "application/json",
+          "Authorization": `JWT ${Cookies.get("JWT")}`
         },
         body: JSON.stringify({awsKey: awsKey})
       });
@@ -178,12 +178,12 @@ export const removeImage = (awsKey) => {
 };
 const deleteMiscProjects = (id, rev) => {
   return () => {
-    return fetch('/api/v1/project',
+    return fetch("/api/v1/project",
       {
-        method: 'DELETE',
+        method: "DELETE",
         headers: {
-          'Content-type': 'application/json',
-          'Authorization': `JWT ${Cookies.get('JWT')}`
+          "Content-type": "application/json",
+          "Authorization": `JWT ${Cookies.get("JWT")}`
         },
         body: JSON.stringify({
           id: id,
@@ -218,11 +218,11 @@ export const removeMiscProjectsThenUpdate = (id, rev, awsKey) => {
 
 const postS3Image = (values) => {
   return () => {
-    return fetch('/api/v1/aws',
+    return fetch("/api/v1/aws",
       {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Authorization': `JWT ${Cookies.get('JWT')}`
+          "Authorization": `JWT ${Cookies.get("JWT")}`
         },
         body: values,
       });

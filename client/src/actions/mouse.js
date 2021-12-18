@@ -1,4 +1,4 @@
-export const GET_MOUSE_POSITION = Symbol('GET_MOUSE_POSITION');
+export const GET_MOUSE_POSITION = Symbol("GET_MOUSE_POSITION");
 
 export const getMousePosition = (xValue, yValue) => {
   return{

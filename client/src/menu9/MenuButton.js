@@ -102,7 +102,6 @@ const MenuButton = ({menuDisplay, toggleMenu}) => {
       menuDisplay={menuDisplay}
       onClick={() => toggleMenu(menuDisplay)}
       onKeyDown={(event) => handleKeyDown(event, () => toggleMenu(menuDisplay))}
-      aria-label="menu button"
     >
       <StyledTextWrapper>
         <StyledText

@@ -18,6 +18,7 @@ import { pageData } from "data/pageData";
 import Admin from "admin/pages/AdminHome";
 import AdminMiscProjects from "admin/pages/AdminMiscProjects";
 import AdminMiscProjectsEdit from "admin/pages/AdminMiscProjectsEdit";
+import Amogus from "pages/Amogus";
 
 const AsyncMisc = asyncComponent(() => import("pages/ProjectMisc"));
 const AsyncGaming = asyncComponent(() => import("pages/GamingMisc"));
@@ -95,6 +96,8 @@ const App = () => {
       <TrackMouse>
         <StyledWrapper id="main_app">
           <Routes>
+            <Route path="/amogus" element={<Amogus />}>
+            </Route>
             <Route
               path="/shodyra/admin"
               element={<AsyncAdmin />}

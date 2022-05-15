@@ -1,28 +1,23 @@
-import React, {useEffect} from "react";
+import { useEffect } from "react";
 import Background from "components/home/BackgroundMouse";
 import Logo from "components/home/Logo";
 import Contact from "components/home/Contact";
-import {connect} from "react-redux";
-import {toggleMenu} from "actions/menu";
+import { useDispatch } from "react-redux";
+import { toggleMenu } from "actions/menu";
 
-export const Home = ({toggleMenu}) => {
+export const Home = () => {
+  const dispatch = useDispatch();
   useEffect(() => {
-    toggleMenu();
-  }, [toggleMenu]);
+    dispatch(toggleMenu());
+  }, [dispatch]);
 
-  return(
+  return (
     <>
-      <Background/>
-      <Logo/>
-      <Contact/>
+      <Background />
+      <Logo />
+      <Contact />
     </>
   );
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    toggleMenu: () => dispatch(toggleMenu(false)),
-  };
-};
-
-export default connect (null, mapDispatchToProps)(Home);
+export default Home;

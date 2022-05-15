@@ -13,7 +13,7 @@ export const projectData = {
     <br/><br/>
     The customer-facing site was built such that a nonspecialized editor could edit generalized pages, blog posts, and documentation. (duckerz nova ...)
     `,
-    bodyTextTwo: `This is currently a work in progress :)`,
+    bodyTextTwo: `Over the course of one year since the start of the project, Redact has had more than 100,000 unique installs and over 100,000,000 redacted items.`,
     bodyTextThree: `Redact.dev earned second place at TechCrunch Miami in March 2021.
     <br/><br/>
     Redact.dev also registered more than a thousand active users in its first month without any advertising or marketing.`,

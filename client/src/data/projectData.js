@@ -6,7 +6,7 @@ export const projectData = {
     bannerTextTwo: '2020-current',
     bannerTextThree: 'React Electron',
     bannerTextFour: 'https://redact.dev/',
-    aboutText: 'Redact is an application for removing your past messages across social networking, instant messaging and communication platforms.',
+    aboutText: 'Redact is an application for removing your past messages across social networking, instant messaging and communication platforms. Redact had over 100,000 unique installs and over 100,000,000 redactions completed within its first year.',
     bodyTextOne: `Both a customer site and an electron application were created for selectively deleting social media content. The customer site and application were both written in Javascript using the reactjs framework and were each built to match design specs provided by the designer.
     <br/><br/>
     Dynamic forms alongside rapidly changing UI were generated for new requirements and features. Customized inputs such as a Discord server/channel selector were created to create the most intuitive UI possible.

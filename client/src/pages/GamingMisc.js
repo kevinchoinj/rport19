@@ -4,7 +4,7 @@ import Update from "components/projects/Update";
 import { connect } from "react-redux";
 import { toggleMenu } from "actions/menu";
 import { gamingData } from "data/gamingData";
-import GamingCarousel from "components/projects/LightboxViewer";
+import GamingCarousel from "components/projects/GamingCarousel";
 import styled from "styled-components";
 import Lightbox from "components/projects/Lightbox";
 import Skew from "components/projects/Skew";

@@ -108,10 +108,15 @@ const TopRightDisplay = () => {
           2021-now - UiPath
           <br />
           <br />
-          <GamingLink>2008 - Rank 8 WoW global</GamingLink>
+          <GamingLink>2008 - Top 8 World of Warcraft global</GamingLink>
           <br />
-          <GamingLink>2010 - Top 10k LoL / Top 400 SC2 NA</GamingLink> <br />
-          <GamingLink>2017 - Rank 19 HS Arena NA</GamingLink>
+          <GamingLink>2010 - Top 400 Starcraft 2 NA</GamingLink> <br />
+          <GamingLink>2016 - Top 10k League of Legends NA</GamingLink> <br />
+          <GamingLink>2017 - Top 20 Hearthstone NA</GamingLink>
+          <br />
+          <GamingLink>2019 - Top 5k Teamfight Tactics NA</GamingLink>
+          <br />
+          <GamingLink>2020 - 3rd @ King's Raid CRaiders Tournament NA</GamingLink>
           <br />
           <GamingLink>2021 - Top 20 MTG Arena global</GamingLink>
           <br />

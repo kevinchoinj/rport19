@@ -115,6 +115,7 @@ const App = () => {
               {Object.keys(projectData).map((key) => {
                 return (
                   <Route
+                    key={key}
                     exact path={`${pageData.projects}/${key}`}
                     element={<ProjectLayout key={key} pageValues={projectData[key]} />} />
                 );

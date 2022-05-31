@@ -71,6 +71,7 @@ export const gamingData = {
   ],
   LA_ARRAY: [
     "/static/images/gaming/la1.jpg",
+    "/static/images/gaming/la3.jpg",
     "/static/images/gaming/la2.jpg",
   ],
 };

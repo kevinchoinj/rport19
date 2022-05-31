@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Banner from "components/projects/Banner";
 import AboutContainer from "components/projects/AboutContainer";
 import Skew from "components/projects/Skew";
-import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
 import { toggleMenu } from "actions/menu";
 import MobileImagesStatic from "components/projects/MobileImagesStatic";
 import ProjectVideo from "components/projects/ProjectVideo";
@@ -17,9 +17,7 @@ const scrollUp = () => {
   scroller.scrollTo(0);
 };
 
-const Image = ({ className, src }) => (
-  <img src={src} alt="" className={className} loading="lazy" />
-);
+const Image = ({ className, src }) => <img src={src} alt="" className={className} loading="lazy" />;
 const StyledImage = styled(Image)`
   width: 100%;
   @media screen and (max-width: 992px) {
@@ -28,10 +26,7 @@ const StyledImage = styled(Image)`
 `;
 
 const MobileImageView = ({ projectMobileVisible, pageValues }) => {
-  if (pageValues.mobileImageOne &&
-    pageValues.mobileImageTwo &&
-    pageValues.mobileImageThree
-  ) {
+  if (pageValues.mobileImageOne && pageValues.mobileImageTwo && pageValues.mobileImageThree) {
     return (
       <MobileImagesStatic
         isVisible={projectMobileVisible}
@@ -40,17 +35,15 @@ const MobileImageView = ({ projectMobileVisible, pageValues }) => {
         image3={pageValues.mobileImageThree}
       />
     );
-  }
-  else {
+  } else {
     return null;
   }
 };
 
-
 const StyledContainer = styled.div`
-  background-color: ${props => props.theme.colorBackground};
+  background-color: ${(props) => props.theme.colorBackground};
   width: 100%;
-  color: ${props => props.theme.colorText};
+  color: ${(props) => props.theme.colorText};
   padding: 3rem 0;
   display: flex;
   flex-direction: column;
@@ -59,7 +52,7 @@ const StyledContainer = styled.div`
   a {
     color: #ddd;
     &:hover {
-      color: ${props => props.theme.colorTheme};
+      color: ${(props) => props.theme.colorTheme};
     }
   }
   @media screen and (max-width: 992px) {
@@ -71,21 +64,21 @@ const StyledText = styled.div`
   letter-spacing: 1px;
   width: 66.6%;
   padding: 0 0 var(--size-spacing-large) 0px;
-  font-family: 'Josefin Sans', Helvetica, sans-serif;
+  font-family: "Josefin Sans", Helvetica, sans-serif;
   line-height: 140%;
   @media screen and (max-width: 992px) {
     width: 100%;
     font-size: 1.5rem;
     padding: 6rem 1rem;
     margin-left: 0;
-    box-sizing:border-box;
+    box-sizing: border-box;
   }
 `;
 const StyledTitle = styled.div`
   font-size: 3rem;
   cursor: default;
   line-height: 140%;
-  color: ${props => props.theme.colorTheme}
+  color: ${(props) => props.theme.colorTheme};
 `;
 const StyledDisplayContainer = styled.div`
   width: 100%;
@@ -114,7 +107,7 @@ const StyledDisplay = styled.div`
   }
 `;
 const StyledDisplaySmall = styled(StyledDisplay)`
-  width: ${props => props.size ? props.size : "375px"};
+  width: ${(props) => (props.size ? props.size : "375px")};
   padding: 3.5rem 0 10.5rem 0;
   right: 8.333333333%;
   align-self: flex-end;
@@ -122,7 +115,7 @@ const StyledDisplaySmall = styled(StyledDisplay)`
   @media screen and (max-width: 992px) {
     right: auto;
     width: calc(100% - 3rem);
-    max-width: ${props => props.size ? props.size : "375px"};
+    max-width: ${(props) => (props.size ? props.size : "375px")};
     align-self: center;
     display: none;
   }
@@ -152,62 +145,44 @@ const ProjectImage = React.memo(({ src }) => {
   ) : null;
 });
 
-const ProjectVideoObject = React.memo(({
-  extended,
-  src,
-  textOne,
-  textTwo,
-  textThree,
-  video,
-}) => {
+const ProjectVideoObject = ({ extended, src, textOne, textTwo, textThree, video }) => {
   return (
     <StyledDisplayContainer>
       <StyledDisplay>
-        {src && video &&
-          <ProjectVideo
-            backgroundImage={src}
-            backgroundVideo={video}
-          />
-        }
-        {textOne &&
-          [extended ?
-            <StyledSections>
-              <Section
-                title="Frontend"
-                number="01"
-              >
+        {src && video && <ProjectVideo backgroundImage={src} backgroundVideo={video} />}
+        {textOne && [
+          extended ? (
+            <StyledSections key="extended">
+              <Section title="Frontend" number="01">
                 {textOne}
               </Section>
             </StyledSections>
-            :
-            <StyledText>
-              <StyledTitle>
-                OVERVIEW
-              </StyledTitle>
+          ) : (
+            <StyledText key="basic">
+              <StyledTitle>OVERVIEW</StyledTitle>
               <StyledBodyText>
                 {textOne}
-                <br /><br />
+                <br />
+                <br />
                 {textTwo}
-                <br /><br />
+                <br />
+                <br />
                 {textThree}
               </StyledBodyText>
             </StyledText>
-          ]
-        }
-        {!video && src &&
-          <StyledImage
-            src={src}
-          />
-        }
+          ),
+        ]}
+        {!video && src && <StyledImage src={src} />}
       </StyledDisplay>
     </StyledDisplayContainer>
   );
-});
+};
 
-const ProjectLayout = ({ pageValues, toggleMenu }) => {
+const ProjectLayout = ({ pageValues }) => {
+  const dispatch = useDispatch();
   useEffect(() => {
-    toggleMenu();
-  }, [toggleMenu]);
+    dispatch(toggleMenu(false));
+  }, [dispatch]);
   return (
     <Skew>
       <Banner
@@ -216,9 +191,7 @@ const ProjectLayout = ({ pageValues, toggleMenu }) => {
         line3={pageValues.bannerTextThree}
         line4={pageValues.bannerTextFour}
       />
-      <AboutContainer title={pageValues.bannerTextOne}>
-        {pageValues.aboutText}
-      </AboutContainer>
+      <AboutContainer title={pageValues.bannerTextOne}>{pageValues.aboutText}</AboutContainer>
       <StyledContainer>
         <Sticky title={pageValues.bannerTextOne} />
         <ProjectVideoObject
@@ -230,53 +203,37 @@ const ProjectLayout = ({ pageValues, toggleMenu }) => {
           video={pageValues.video}
         />
         <ProjectImage src={pageValues.bodyImageTwo} />
-        {pageValues.addImageOne &&
+        {pageValues.addImageOne && (
           <StyledDisplaySmall size={pageValues.addImageOneSize}>
             <StyledImage src={pageValues.addImageOne} />
           </StyledDisplaySmall>
-        }
-        {pageValues.extended && pageValues.bodyTextTwo &&
+        )}
+        {pageValues.extended && pageValues.bodyTextTwo && (
           <StyledDisplay>
             <StyledSections>
-              <Section
-                title="Backend"
-                number="02"
-              >
+              <Section title="Backend" number="02">
                 {pageValues.bodyTextTwo}
               </Section>
             </StyledSections>
           </StyledDisplay>
-        }
+        )}
         <ProjectImage src={pageValues.bodyImageThree} />
-        {pageValues.extended && pageValues.bodyTextThree &&
+        {pageValues.extended && pageValues.bodyTextThree && (
           <StyledDisplay>
             <StyledSections>
-              <Section
-                title="Misc"
-                number="03"
-              >
+              <Section title="Misc" number="03">
                 {pageValues.bodyTextThree}
               </Section>
             </StyledSections>
           </StyledDisplay>
-        }
+        )}
         <ProjectImage src={pageValues.bodyImageFour} />
         <MobileImageView pageValues={pageValues} />
       </StyledContainer>
 
-      <StyledFooter
-        onClick={() => scrollUp()}
-      />
+      <StyledFooter onClick={() => scrollUp()} />
     </Skew>
   );
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    toggleMenu: () => {
-      dispatch(toggleMenu(false));
-    },
-  };
-};
-
-export default React.memo(connect(null, mapDispatchToProps)(ProjectLayout));
+export default ProjectLayout;

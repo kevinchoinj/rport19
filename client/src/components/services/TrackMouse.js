@@ -1,22 +1,10 @@
 import React from "react";
-import {getMousePosition} from "actions/mouse";
-import {connect} from "react-redux";
+import { getMousePosition } from "actions/mouse";
+import { useDispatch } from "react-redux";
 
-const TrackMouse = ({children, getMousePosition}) => {
-  return(
-    <div onMouseMove={(e) => getMousePosition(e)}>
-      {children}
-    </div>
-  );
+const TrackMouse = ({ children }) => {
+  const dispatch = useDispatch();
+  return <div onMouseMove={(e) => dispatch(getMousePosition(e.clientX, e.clientY))}>{children}</div>;
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    getMousePosition: e => dispatch(getMousePosition(
-      e.clientX,
-      e.clientY,
-    )),
-  };
-};
-
-export default connect(null, mapDispatchToProps)(TrackMouse);
+export default TrackMouse;

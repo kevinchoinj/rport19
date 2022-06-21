@@ -1,11 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import { connect } from "react-redux";
-import * as gamingActions from "actions/gaming";
-import {
-  selectGamingImage
-} from "reducers";
-import {createPortal} from "react-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { setLightboxImage } from "reducers/gaming";
+import { selectGamingImage } from "reducers";
+import { createPortal } from "react-dom";
 
 const StyledWrapper = styled.div`
   position: fixed;
@@ -13,8 +11,8 @@ const StyledWrapper = styled.div`
   left: 0;
   height: 100%;
   width: 100vw;
-  background-color: rgba(0,0,0,.9);
-  display: ${props => props.image ? "flex" : "none"};
+  background-color: rgba(0, 0, 0, 0.9);
+  display: ${(props) => (props.image ? "flex" : "none")};
   justify-content: center;
   align-items: center;
   img {
@@ -26,30 +24,16 @@ const StyledWrapper = styled.div`
 
 const portalRoot = document.getElementById("portal-root");
 
-const Lightbox = ({ image, closeImage }) => {
+const Lightbox = () => {
+  const dispatch = useDispatch();
+  const image = useSelector(selectGamingImage);
+
   return createPortal(
-    <StyledWrapper
-      image={image}
-      onClick={() => closeImage()}
-    >
-      <img src={image} alt={image} loading="lazy"/>
+    <StyledWrapper image={image} onClick={() => dispatch(setLightboxImage())}>
+      <img src={image} alt={image} loading="lazy" />
     </StyledWrapper>,
     portalRoot
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    image: selectGamingImage(state),
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    closeImage: (image) => {
-      dispatch(gamingActions.setLightboxImage(image));
-    },
-  };
-};
-
-export default connect (mapStateToProps, mapDispatchToProps)(Lightbox);
+export default Lightbox;

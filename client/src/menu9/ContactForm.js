@@ -1,57 +1,58 @@
 import React from "react";
-import {connect} from "react-redux";
-import {Formik, Form, Field} from "formik";
+import { useDispatch } from "react-redux";
+import { Formik, Form, Field } from "formik";
 import styled from "styled-components";
 import ContactFormSending from "menu9/ContactFormSending";
-import {setFormStatus} from "actions/contact";
+import { setFormStatus } from "reducers/contact";
 
 const StyledWrapper = styled.div`
-    label {
-      font-size: var(--size-smallest);
-      margin-bottom: .5rem;
-      font-family: 'Josefin Sans', sans-serif;
+  label {
+    font-size: var(--size-smallest);
+    margin-bottom: 0.5rem;
+    font-family: "Josefin Sans", sans-serif;
+  }
+  input,
+  textarea {
+    font-family: "Open Sans", Helvetica, sans-serif;
+    background-color: transparent;
+    width: 100%;
+    border-top: none;
+    border-right: none;
+    border-left: 1px solid ${(props) => props.theme.topRightText};
+    border-bottom: 1px solid ${(props) => props.theme.topRightText};
+    padding: 0.5rem;
+    font-size: var(--size-smallest);
+    box-sizing: border-box;
+    color: ${(props) => props.theme.colorText};
+    margin-bottom: 1rem;
+    resize: none;
+    &:focus {
+      outline: none;
     }
-    input, textarea {
-      font-family: 'Open Sans', Helvetica, sans-serif;
+    &:-internal-autofill-selected {
       background-color: transparent;
-      width: 100%;
-      border-top: none;
-      border-right: none;
-      border-left: 1px solid ${props => props.theme.topRightText};
-      border-bottom: 1px solid ${props => props.theme.topRightText};
-      padding: .5rem;
-      font-size: var(--size-smallest);
-      box-sizing: border-box;
-      color: ${props => props.theme.colorText};
-      margin-bottom: 1rem;
-      resize: none;
-      &:focus {
-        outline: none;
-      }
-      &:-internal-autofill-selected {
-        background-color: transparent;
-        color: ${props => props.theme.colorText};
-      }
+      color: ${(props) => props.theme.colorText};
     }
-    button {
-      background-color: transparent;
-      color: ${props => props.theme.colorTheme};
-      padding: .5rem;
-      font-size: var(--size-smallest);
-      border-top: none;
-      border-right: none;
-      font-family: 'Josefin Sans', sans-serif;
-      border-left: 1px solid ${props => props.theme.colorTheme};
-      border-bottom: 1px solid ${props => props.theme.colorTheme};
-      cursor: pointer;
-      &:focus {
-        outline: none;
-      }
-      &:hover {
-        background-color: #222;
-        transition: ${props => props.theme.transitionMedium};
-      }
+  }
+  button {
+    background-color: transparent;
+    color: ${(props) => props.theme.colorTheme};
+    padding: 0.5rem;
+    font-size: var(--size-smallest);
+    border-top: none;
+    border-right: none;
+    font-family: "Josefin Sans", sans-serif;
+    border-left: 1px solid ${(props) => props.theme.colorTheme};
+    border-bottom: 1px solid ${(props) => props.theme.colorTheme};
+    cursor: pointer;
+    &:focus {
+      outline: none;
     }
+    &:hover {
+      background-color: #222;
+      transition: ${(props) => props.theme.transitionMedium};
+    }
+  }
 `;
 const StyledButtonWrapper = styled.div`
   display: flex;
@@ -59,7 +60,8 @@ const StyledButtonWrapper = styled.div`
   align-items: center;
 `;
 
-const ContactForm = ({onSubmit, setFormWarning}) => {
+const ContactForm = ({ onSubmit }) => {
+  const dispatch = useDispatch();
   return (
     <StyledWrapper>
       <Formik
@@ -69,46 +71,32 @@ const ContactForm = ({onSubmit, setFormWarning}) => {
         }}
         onSubmit={(values) => {
           if (values.message === "") {
-            setFormWarning("validate");
+            dispatch(setFormStatus("validate"));
           } else {
             onSubmit(values);
           }
         }}
       >
-        {() =>
+        {() => (
           <Form>
             <label htmlFor="email">
               Email
-              <Field name="email"/>
+              <Field name="email" />
             </label>
 
             <label htmlFor="email">
               Message
-              <Field
-                name="message"
-                as="textarea"
-                rows="8"
-              />
+              <Field name="message" as="textarea" rows="8" />
             </label>
             <StyledButtonWrapper>
-              <button type="submit">
-                Contact
-              </button>
-              <ContactFormSending/>
-
+              <button type="submit">Contact</button>
+              <ContactFormSending />
             </StyledButtonWrapper>
           </Form>
-        }
+        )}
       </Formik>
     </StyledWrapper>
   );
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    setFormWarning: (text) => dispatch(setFormStatus(text))
-  };
-};
-
-
-export default connect(null, mapDispatchToProps)(ContactForm);
+export default ContactForm;

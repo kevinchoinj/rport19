@@ -1,10 +1,12 @@
 import React from "react";
-import { getMousePosition } from "actions/mouse";
+import { setMousePosition } from "reducers/mouse";
 import { useDispatch } from "react-redux";
 
 const TrackMouse = ({ children }) => {
   const dispatch = useDispatch();
-  return <div onMouseMove={(e) => dispatch(getMousePosition(e.clientX, e.clientY))}>{children}</div>;
+  return (
+    <div onMouseMove={(e) => dispatch(setMousePosition({ xValue: e.clientX, yValue: e.clientY }))}>{children}</div>
+  );
 };
 
 export default TrackMouse;

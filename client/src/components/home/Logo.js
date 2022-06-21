@@ -1,10 +1,8 @@
 import React from "react";
-import {connect} from "react-redux";
-import {hoverMenuOption, toggleMenu} from "actions/menu";
+import { useDispatch, useSelector } from "react-redux";
+import { setMenuDisplayAndResetHover } from "reducers/menu";
 import styled from "styled-components";
-import {
-  selectMenuDisplay,
-} from "reducers";
+import { selectMenuDisplay } from "reducers";
 
 const StyledWrapper = styled.div`
   position: fixed;
@@ -27,13 +25,13 @@ const StyledLink = styled.span`
   letter-spacing: 3px;
   color: #fff;
   text-decoration: none;
-  transition: ${props => props.theme.transitionMedium}
+  transition: ${(props) => props.theme.transitionMedium}
   :hover {
-    color: ${props => props.theme.colorLinkHover}
+    color: ${(props) => props.theme.colorLinkHover}
   }
 `;
 const StyledSecondary = styled.span`
-  color: ${props => props.theme.colorTheme};
+  color: ${(props) => props.theme.colorTheme};
 `;
 
 const handleKeyDown = (event, action) => {
@@ -41,35 +39,23 @@ const handleKeyDown = (event, action) => {
     action();
   }
 };
-const Logo = ({menuDisplay, toggleMenu}) => {
-  return(
+
+const Logo = () => {
+  const dispatch = useDispatch();
+  const menuDisplay = useSelector(selectMenuDisplay);
+  return (
     <StyledWrapper>
       <StyledContainer
         aria-label="logo Kevin Choi"
-        onClick={() => toggleMenu(menuDisplay)}
-        onKeyDown={(event) => handleKeyDown(event, () => toggleMenu(menuDisplay))}
+        onClick={() => dispatch(setMenuDisplayAndResetHover(!menuDisplay))}
+        onKeyDown={(event) => handleKeyDown(event, () => dispatch(setMenuDisplayAndResetHover(!menuDisplay)))}
       >
         <StyledLink>
-         K E V I N&nbsp;<StyledSecondary>C H O I</StyledSecondary>
+          K E V I N&nbsp;<StyledSecondary>C H O I</StyledSecondary>
         </StyledLink>
       </StyledContainer>
     </StyledWrapper>
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    menuDisplay: selectMenuDisplay(state),
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    toggleMenu: (menuDisplay) => {
-      dispatch(hoverMenuOption(""));
-      dispatch(toggleMenu(!menuDisplay));
-    }
-  };
-};
-
-export default connect (mapStateToProps, mapDispatchToProps)(Logo);
+export default Logo;

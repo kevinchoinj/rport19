@@ -1,39 +1,45 @@
-import {
-  SET_FORM_STATUS,
-  SUBMIT_FORM_STARTED,
-  SUBMIT_FORM_SUCCEEDED,
-  SUBMIT_FORM_FAILURE,
-} from "actions/contact.js";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-const DEFAULT_STATE={
+const initialState = {
   formStatus: "none",
 };
 
-const contactReducer = (state=DEFAULT_STATE, payload) => {
-  switch(payload.type){
-  case SET_FORM_STATUS:
-    return {
-      ...state,
-      formStatus: payload.formStatus,
-    };
-  case SUBMIT_FORM_STARTED:
-    return {
-      ...state,
-      formStatus: "sending",
-    };
-  case SUBMIT_FORM_SUCCEEDED:
-    return {
-      ...state,
-      formStatus: "success",
-    };
-  case SUBMIT_FORM_FAILURE:
-    return {
-      ...state,
-      formStatus: "failure",
-    };
-  default:
-    return state;
+export const postContact = createAsyncThunk("contact/postContact", async (payload, { rejectWithValue }) => {
+  const response = await fetch("/api/v1/email/contact", {
+    method: "POST",
+    headers: {
+      "Content-type": "application/json",
+    },
+    body: payload,
+  });
+  if (!response.ok) {
+    return rejectWithValue("rejected");
   }
-};
+  return response.json();
+});
 
-export default contactReducer;
+const contactSlice = createSlice({
+  name: "contact",
+  initialState,
+  reducers: {
+    setFormStatus: (state, action) => {
+      state.formStatus = action.payload;
+    },
+  },
+  extraReducers(builder) {
+    builder
+      .addCase(postContact.pending, (state) => {
+        state.formStatus = "sending";
+      })
+      .addCase(postContact.fulfilled, (state) => {
+        state.formStatus = "success";
+      })
+      .addCase(postContact.rejected, (state) => {
+        state.formStatus = "failure";
+      });
+  },
+});
+
+export const { setGithubToken } = contactSlice.actions;
+
+export default contactSlice.reducer;

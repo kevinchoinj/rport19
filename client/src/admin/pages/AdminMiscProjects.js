@@ -1,16 +1,16 @@
 import React from "react";
 import styled from "styled-components";
-import { connect } from "react-redux";
-import {addStorePhotoImageAndUrl} from "actions/images";
+import { useDispatch } from "react-redux";
+import { postImage, postProject } from "reducers/projects";
 import MiscProjectsForm from "admin/forms/MiscProjectsForm";
 import MiscProjectsView from "admin/components/MiscProjectsView";
 
 const StyledWrapper = styled.div`
-  background-color: ${props => props.theme.colorAdminContainer};
-  box-shadow: ${props => props.theme.shadowAdmin};
+  background-color: ${(props) => props.theme.colorAdminContainer};
+  box-shadow: ${(props) => props.theme.shadowAdmin};
   display: flex;
   flex-direction: column;
-  font-family: 'Open Sans', Helvetica, sans-serif;
+  font-family: "Open Sans", Helvetica, sans-serif;
   color: #babcc4;
   margin-bottom: 14px;
 `;
@@ -26,28 +26,29 @@ const StyledContainer = styled.div`
   display: flex;
 `;
 
-const AdminMiscProjects = ({addImage}) => {
+const AdminMiscProjects = () => {
+  const dispatch = useDispatch();
   return (
     <>
       <StyledWrapper>
-        <StyledTitle>
-          Edit Gallery
-        </StyledTitle>
+        <StyledTitle>Edit Gallery</StyledTitle>
         <StyledContainer>
-          <MiscProjectsForm onSubmit={addImage}/>
+          <MiscProjectsForm
+            onSubmit={(data) =>
+              dispatch(postImage(data)).then((res) => {
+                let jsonData = {};
+                data.forEach((value, key) => {
+                  jsonData[key] = value;
+                });
+                dispatch(postProject({ ...data, url: res.url, awsKey: res.awsKey }));
+              })
+            }
+          />
         </StyledContainer>
       </StyledWrapper>
-      <MiscProjectsView/>
+      <MiscProjectsView />
     </>
   );
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    addImage: (values) => {
-      dispatch(addStorePhotoImageAndUrl(values));
-    },
-  };
-};
-
-export default connect (null, mapDispatchToProps)(AdminMiscProjects);
+export default AdminMiscProjects;

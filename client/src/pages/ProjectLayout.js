@@ -3,7 +3,7 @@ import Banner from "components/projects/Banner";
 import AboutContainer from "components/projects/AboutContainer";
 import Skew from "components/projects/Skew";
 import { useDispatch } from "react-redux";
-import { toggleMenu } from "actions/menu";
+import { setMenuDisplay } from "reducers/menu";
 import MobileImagesStatic from "components/projects/MobileImagesStatic";
 import ProjectVideo from "components/projects/ProjectVideo";
 import Section from "components/projects/Section";
@@ -181,7 +181,7 @@ const ProjectVideoObject = ({ extended, src, textOne, textTwo, textThree, video 
 const ProjectLayout = ({ pageValues }) => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(toggleMenu(false));
+    dispatch(setMenuDisplay(false));
   }, [dispatch]);
   return (
     <Skew>

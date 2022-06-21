@@ -1,21 +1,19 @@
 import React from "react";
-import {connect} from "react-redux";
-import {hoverMenuOption, toggleMenu} from "actions/menu";
-import {
-  selectMenuDisplay,
-} from "reducers";
+import { useDispatch, useSelector } from "react-redux";
+import { setMenuDisplayAndResetHover } from "reducers/menu";
+import { selectMenuDisplay } from "reducers";
 import styled from "styled-components";
 
 const StyledContainer = styled.div`
   background: transparent;
-  color: ${props => props.theme.colorBackground};
+  color: ${(props) => props.theme.colorBackground};
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 2rem;
   height: 2rem;
   padding: 1rem;
-  background-color: ${props => props.theme.colorTheme};
+  background-color: ${(props) => props.theme.colorTheme};
   poisition: relative;
   @media screen and (max-width: 768px) {
     height: 1rem;
@@ -33,32 +31,34 @@ const StyledLineOne = styled.span`
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: ${props => props.menuDisplay ? "translate(-50%, -50%) rotate(-45deg)" : "translate(-50%, -30%) rotate(90deg) scaleY(0.7)"};
+  transform: ${(props) =>
+    props.menuDisplay ? "translate(-50%, -50%) rotate(-45deg)" : "translate(-50%, -30%) rotate(90deg) scaleY(0.7)"};
   height: 100%;
   width: 1px;
   background-color: #000;
-  transition: all 0.5s cubic-bezier(0.000, 0.785, 0.000, 1.000);
+  transition: all 0.5s cubic-bezier(0, 0.785, 0, 1);
 `;
 const StyledLineTwo = styled.span`
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: ${props => props.menuDisplay ? "translate(-50%, -50%) rotate(45deg)" : "translate(-50%, -70%) rotate(90deg) scaleY(0.7)"};
+  transform: ${(props) =>
+    props.menuDisplay ? "translate(-50%, -50%) rotate(45deg)" : "translate(-50%, -70%) rotate(90deg) scaleY(0.7)"};
   height: 100%;
   width: 1px;
   background-color: #000;
-  transition: all 0.5s cubic-bezier(0.000, 0.785, 0.000, 1.000);
+  transition: all 0.5s cubic-bezier(0, 0.785, 0, 1);
 `;
 const StyledText = styled.div`
   position: relative;
   height: 2rem;
   padding: 1rem;
-  background-color: ${props => props.theme.colorTheme};
+  background-color: ${(props) => props.theme.colorTheme};
   display: flex;
   align-items: center;
-  background-color: ${props => props.theme.colorTheme};
-  transform: ${props => props.menuDisplay && "translateX(calc(100%))"};
-  transition: .2s ease;
+  background-color: ${(props) => props.theme.colorTheme};
+  transform: ${(props) => props.menuDisplay && "translateX(calc(100%))"};
+  transition: 0.2s ease;
   font-size: var(--size-small);
   @media screen and (max-width: 768px) {
     display: none;
@@ -73,7 +73,7 @@ const StyledWrapper = styled.div`
   right: 1rem;
   z-index: 4;
   cursor: pointer;
-  transition: ${props => props.theme.transitionMedium};
+  transition: ${(props) => props.theme.transitionMedium};
   display: flex;
   box-sizing: border-box;
   &:hover ${StyledContainer} ${StyledLines} ${StyledLineOne} {
@@ -82,11 +82,12 @@ const StyledWrapper = styled.div`
   &:hover ${StyledLineTwo} {
     transform: translate(-50%, -50%);
   }
-  &:active, &:focus {
+  &:active,
+  &:focus {
     outline: none;
   }
   &:hover ${StyledText} {
-    transform: ${props => !props.menuDisplay && "translateX(1rem)"};
+    transform: ${(props) => !props.menuDisplay && "translateX(1rem)"};
   }
 `;
 
@@ -96,43 +97,26 @@ const handleKeyDown = (event, action) => {
   }
 };
 
-const MenuButton = ({menuDisplay, toggleMenu}) => {
-  return(
+const MenuButton = () => {
+  const dispatch = useDispatch();
+  const menuDisplay = useSelector(selectMenuDisplay);
+  return (
     <StyledWrapper
       menuDisplay={menuDisplay}
-      onClick={() => toggleMenu(menuDisplay)}
-      onKeyDown={(event) => handleKeyDown(event, () => toggleMenu(menuDisplay))}
+      onClick={() => dispatch(setMenuDisplayAndResetHover(!menuDisplay))}
+      onKeyDown={(event) => handleKeyDown(event, () => dispatch(setMenuDisplayAndResetHover(!menuDisplay)))}
     >
       <StyledTextWrapper>
-        <StyledText
-          menuDisplay={menuDisplay}
-        >
-          EXPLORE
-        </StyledText>
+        <StyledText menuDisplay={menuDisplay}>EXPLORE</StyledText>
       </StyledTextWrapper>
       <StyledContainer>
-        <StyledLines >
-          <StyledLineOne menuDisplay={menuDisplay}/>
-          <StyledLineTwo menuDisplay={menuDisplay}/>
+        <StyledLines>
+          <StyledLineOne menuDisplay={menuDisplay} />
+          <StyledLineTwo menuDisplay={menuDisplay} />
         </StyledLines>
       </StyledContainer>
     </StyledWrapper>
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    menuDisplay: selectMenuDisplay(state),
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    toggleMenu: (menuDisplay) => {
-      dispatch(toggleMenu(!menuDisplay));
-      dispatch(hoverMenuOption(null));
-    }
-  };
-};
-
-export default React.memo(connect(mapStateToProps, mapDispatchToProps)(MenuButton));
+export default MenuButton;

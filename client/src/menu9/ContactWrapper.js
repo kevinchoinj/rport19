@@ -1,7 +1,7 @@
 import React from "react";
 import ContactForm from "menu9/ContactForm";
-import {connect} from "react-redux";
-import * as contactActions from "actions/contact";
+import { useDispatch } from "react-redux";
+import { postContact } from "reducers/contact";
 import styled from "styled-components";
 
 const StyledWrapper = styled.div`
@@ -10,18 +10,13 @@ const StyledWrapper = styled.div`
   }
 `;
 
-const Contact = ({submitForm}) => {
-  return(
+const Contact = () => {
+  const dispatch = useDispatch();
+  return (
     <StyledWrapper>
-      <ContactForm onSubmit={submitForm}/>
+      <ContactForm onSubmit={(data) => dispatch(postContact(data))} />
     </StyledWrapper>
   );
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    submitForm: values => dispatch(contactActions.submitForm(values, "/api/v1/email/contact")),
-  };
-};
-
-export default connect (null, mapDispatchToProps)(Contact);
+export default Contact;

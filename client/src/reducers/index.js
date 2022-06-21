@@ -1,7 +1,6 @@
 import menu from "reducers/menu";
 import authentication from "reducers/authentication";
-import images from "reducers/images";
-import git from "reducers/git";
+import projects from "reducers/projects";
 import mouse from "reducers/mouse";
 import gaming from "reducers/gaming";
 import contact from "reducers/contact";
@@ -13,9 +12,8 @@ const reducers={
   menu,
   gaming,
   authentication,
-  images,
+  projects,
   mouse,
-  git,
   contact,
 };
 
@@ -35,7 +33,7 @@ export const selectScrollSkew = (state) => state.scroll.skew;
 /*======================================
 =                IMAGES                 =
 ========================-==============*/
-export const selectImagesProjects = (state) => state.images.miscProjects;
+export const selectImagesProjects = (state) => state.projects.miscProjects;
 
 export const selectImagesProjectsById = (state, id) => createSelector(
   selectImagesProjects,

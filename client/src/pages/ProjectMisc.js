@@ -1,19 +1,17 @@
-import React, {useEffect, useState} from "react";
-import {connect} from "react-redux";
-import {toggleMenu} from "actions/menu";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setMenuDisplay } from "reducers/menu";
 import Skew from "components/projects/Skew";
 import GetMiscProjects from "components/services/GetMiscProjects";
 import Banner from "components/projects/Banner";
 import styled from "styled-components";
 
-import {
-  selectImagesProjects,
-} from "reducers";
+import { selectImagesProjects } from "reducers";
 
 const StyledContainer = styled.div`
-  background-color: ${props => props.theme.colorBackground};
+  background-color: ${(props) => props.theme.colorBackground};
   width: 100%;
-  color: ${props => props.theme.colorText};
+  color: ${(props) => props.theme.colorText};
   padding-top: 6rem;
   padding-right: 3rem;
   box-sizing: border-box;
@@ -37,7 +35,7 @@ const StyledObject = styled.div`
   padding: var(--size-small);
   box-sizing: border-box;
   font-size: var(--size-small);
-  font-family: 'Open Sans', Helvetica, sans-serif;
+  font-family: "Open Sans", Helvetica, sans-serif;
   align-items: center;
   min-height: 50vh;
   a {
@@ -54,13 +52,11 @@ const StyledTitle = styled.div`
   text-align: center;
 `;
 
-const Image = ({className, src}) => (
-  <img src={src} alt="" className={className} loading="lazy"/>
-);
+const Image = ({ className, src }) => <img src={src} alt="" className={className} loading="lazy" />;
 const StyledImage = styled(Image)`
   object-fit: contain;
   cursor: pointer;
-  transition: .4s ease-out;
+  transition: 0.4s ease-out;
   max-width: 100%;
   &:hover {
     transform: translateY(-8px);
@@ -82,13 +78,13 @@ const StyledButtons = styled.div`
 const StyledButton = styled.div`
   border: 1px solid #ddd;
   cursor: pointer;
-  padding: .5rem 1rem;
-  transition: .2s ease;
+  padding: 0.5rem 1rem;
+  transition: 0.2s ease;
   margin-right: 1rem;
-  color: ${props => props["data-disabled"] && "#666"};
-  cursor: ${props => props["data-disabled"] && "not-allowed"};
+  color: ${(props) => props["data-disabled"] && "#666"};
+  cursor: ${(props) => props["data-disabled"] && "not-allowed"};
   &:hover {
-    cursor: ${props => !props["data-disabled"] && "#333"};
+    cursor: ${(props) => !props["data-disabled"] && "#333"};
   }
 `;
 
@@ -98,10 +94,12 @@ const paginate = (array, page_size, page_number) => {
 };
 const PAGE_SIZE = 4;
 
-const ProjectMisc = ({ miscProjects, toggleMenu }) => {
+const ProjectMisc = () => {
+  const miscProjects = useSelector(selectImagesProjects);
+  const dispatch = useDispatch();
   useEffect(() => {
-    toggleMenu();
-  }, [toggleMenu]);
+    dispatch(setMenuDisplay(null));
+  }, [dispatch]);
   const [pageId, setPageId] = useState(1);
   const [displayData, setDisplayData] = useState([]);
   useEffect(() => {
@@ -110,43 +108,34 @@ const ProjectMisc = ({ miscProjects, toggleMenu }) => {
 
   return (
     <Skew>
-      <GetMiscProjects/>
-      <Banner
-        line1="Misc Projects"
-      />
+      <GetMiscProjects />
+      <Banner line1="Misc Projects" />
       <StyledContainer>
         <StyledButtons>
           <StyledButton
             data-disabled={pageId < 2}
-            onClick={() => {pageId >= 2 && setPageId(prev => prev - 1);}}
+            onClick={() => {
+              pageId >= 2 && setPageId((prev) => prev - 1);
+            }}
           >
             Previous
           </StyledButton>
           <StyledButton
-            data-disabled={miscProjects.length - (pageId*PAGE_SIZE) < 1}
+            data-disabled={miscProjects.length - pageId * PAGE_SIZE < 1}
             onClick={() => {
-              miscProjects.length - (pageId*PAGE_SIZE) >= 1 && setPageId(prev => prev + 1);
+              miscProjects.length - pageId * PAGE_SIZE >= 1 && setPageId((prev) => prev + 1);
             }}
           >
             Next
           </StyledButton>
-          {pageId}/{Math.ceil(miscProjects.length/(PAGE_SIZE))}
+          {pageId}/{Math.ceil(miscProjects.length / PAGE_SIZE)}
         </StyledButtons>
         <StyledObjects>
           {displayData?.map((value) => (
             <StyledObject key={value.value.name}>
-              <StyledTitle>
-                {value.value.name}
-              </StyledTitle>
-              <a
-                href={value.value.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={value.value.name}
-              >
-                <StyledImage
-                  src={value.value.url}
-                />
+              <StyledTitle>{value.value.name}</StyledTitle>
+              <a href={value.value.link} target="_blank" rel="noopener noreferrer" aria-label={value.value.name}>
+                <StyledImage src={value.value.url} />
               </a>
             </StyledObject>
           ))}
@@ -156,18 +145,4 @@ const ProjectMisc = ({ miscProjects, toggleMenu }) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    miscProjects: selectImagesProjects(state),
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    toggleMenu: () => {
-      dispatch(toggleMenu(false));
-    },
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(ProjectMisc);
+export default ProjectMisc;

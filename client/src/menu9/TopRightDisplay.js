@@ -1,8 +1,7 @@
 import styled from "styled-components";
-import { hoverMenuOption } from "actions/menu";
+import { hoverMenuOption, setMenuDisplay } from "reducers/menu";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { toggleMenu } from "actions/menu";
 
 const StyledWrapper = styled.div`
   padding: 42px 48px;
@@ -69,7 +68,7 @@ const GamingLink = ({ children }) => {
     <Link
       to="/gaming"
       onClick={() => {
-        dispatch(toggleMenu(false));
+        dispatch(setMenuDisplay(false));
       }}
       onMouseOver={() => dispatch(hoverMenuOption("/static/images/chess.jpg"))}
     >

@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import styled from "styled-components";
-import { setLightboxImage } from "actions/gaming";
+import { setLightboxImage } from "reducers/gaming";
 import { useDispatch } from "react-redux";
 import useDragScroll from "components/services/useDragScroll";
 

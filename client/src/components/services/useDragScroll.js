@@ -1,8 +1,11 @@
 import { useState, useEffect, useCallback } from "react";
 
-function useSwipeScroll({ sliderRef, reliants = [], momentumVelocity = 0.9 }) {
+const momentumVelocity = 0.9;
+
+function useDragScroll({ sliderRef }) {
   const [hasSwiped, setHasSwiped] = useState(false);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const init = useCallback(() => {
     const slider = sliderRef.current;
     let isDown = false;
@@ -33,7 +36,7 @@ function useSwipeScroll({ sliderRef, reliants = [], momentumVelocity = 0.9 }) {
       if (!isDown) return;
       e.preventDefault();
       const x = e.pageX - slider.offsetLeft;
-      const walk = (x - startX);
+      const walk = x - startX;
       let prevScrollLeft = slider.scrollLeft;
       slider.scrollLeft = scrollLeft - walk;
       velX = slider.scrollLeft - prevScrollLeft;
@@ -68,11 +71,12 @@ function useSwipeScroll({ sliderRef, reliants = [], momentumVelocity = 0.9 }) {
 
   useEffect(() => {
     init();
-  }, [...reliants]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return {
     hasSwiped,
   };
 }
 
-export default useSwipeScroll;
+export default useDragScroll;

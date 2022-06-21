@@ -15,5 +15,4 @@ export const menuData = [
   {value: "13", text: "Harvard", link: "/projects/harvard", image: "/static/images/harvard/banner.jpg"},
   {value: "14", text: "Smile", link: "/projects/wns", image: "/static/images/wns/banner.jpg"},
   {value: "15", text: "Gaming", link: "/gaming", image: "/static/images/chess.jpg"},
-  {value: "16", text: "Misc", link: "/projects/misc", image: "/static/images/heroku/herokubanner.jpg"},
 ];

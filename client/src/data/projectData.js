@@ -6,14 +6,14 @@ export const projectData = {
     bannerTextTwo: '2020-current',
     bannerTextThree: 'React Electron',
     bannerTextFour: 'https://redact.dev/',
-    aboutText: 'Redact is an application for removing your past messages across social networking, instant messaging and communication platforms. Redact had over 100,000 unique installs and over 100,000,000 redactions completed within its first year.',
+    aboutText: 'Redact is an application for removing your past messages across social networking, instant messaging and communication platforms. Redact had over 200,000 unique installs and over 100,000,000 redactions completed within its first year.',
     bodyTextOne: `Both a customer site and an electron application were created for selectively deleting social media content. The customer site and application were both written in Javascript using the reactjs framework and were each built to match design specs provided by the designer.
     <br/><br/>
     Dynamic forms alongside rapidly changing UI were generated for new requirements and features. Customized inputs such as a Discord server/channel selector were created to create the most intuitive UI possible.
     <br/><br/>
     The customer-facing site was built such that a nonspecialized editor could edit generalized pages, blog posts, and documentation. (duckerz nova ...)
     `,
-    bodyTextTwo: `Over the course of one year since the start of the project, Redact has had more than 100,000 unique installs and over 100,000,000 redacted items.`,
+    bodyTextTwo: `Over the course of one year since the start of the project, Redact has had more than 200,000 unique installs and over 100,000,000 redacted items.`,
     bodyTextThree: `Redact.dev earned second place at TechCrunch Miami in March 2021.
     <br/><br/>
     Redact.dev also registered more than a thousand active users in its first month without any advertising or marketing.`,

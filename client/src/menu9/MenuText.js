@@ -1,4 +1,4 @@
-import { hoverMenuOption } from "actions/menu";
+import { hoverMenuOption } from "reducers/menu";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 import { menuData } from "data/menuData";

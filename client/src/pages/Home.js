@@ -3,12 +3,12 @@ import Background from "components/home/BackgroundMouse";
 import Logo from "components/home/Logo";
 import Contact from "components/home/Contact";
 import { useDispatch } from "react-redux";
-import { toggleMenu } from "actions/menu";
+import { setMenuDisplay } from "reducers/menu";
 
 export const Home = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(toggleMenu());
+    dispatch(setMenuDisplay(null));
   }, [dispatch]);
 
   return (

@@ -1,28 +1,27 @@
-import {
-  TOGGLE_MENU,
-  HOVER_MENU_OPTION,
-} from "actions/menu";
+import { createSlice } from "@reduxjs/toolkit";
 
-const DEFAULT_STATE={
+const initialState = {
   menuDisplay: null,
   hoverOption: null,
 };
 
-const menuReducer = (state=DEFAULT_STATE, payload) => {
-  switch(payload.type){
-  case TOGGLE_MENU:
-    return state = {
-      ...state,
-      menuDisplay:payload.menuDisplay
-    };
-  case HOVER_MENU_OPTION:
-    return state = {
-      ...state,
-      hoverOption:payload.hoverOption
-    };
-  default:
-    return state;
-  }
-};
+export const menuREducer = createSlice({
+  name: "menu",
+  initialState,
+  reducers: {
+    hoverMenuOption: (state, action) => {
+      state.hoverOption = action.payload;
+    },
+    setMenuDisplay: (state, action) => {
+      state.menuDisplay = action.payload;
+    },
+    setMenuDisplayAndResetHover: (state, action) => {
+      state.menuDisplay = action.payload;
+      state.hoverOption = "";
+    },
+  },
+});
 
-export default menuReducer;
+export const { hoverMenuOption, setMenuDisplay, setMenuDisplayAndResetHover } = menuREducer.actions;
+
+export default menuREducer.reducer;

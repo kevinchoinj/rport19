@@ -1,21 +1,19 @@
-import {
-  SET_LIGHTBOX_IMAGE,
-} from "actions/gaming";
+import { createSlice } from "@reduxjs/toolkit";
 
-const DEFAULT_STATE={
+const initialState = {
   image: "",
 };
 
-const gamingReducer = (state=DEFAULT_STATE, payload) => {
-  switch(payload.type){
-  case SET_LIGHTBOX_IMAGE:
-    return state = {
-      ...state,
-      image: payload.image
-    };
-  default:
-    return state;
-  }
-};
+export const gamingReducer = createSlice({
+  name: "gaming",
+  initialState,
+  reducers: {
+    setLightboxImage: (state, action) => {
+      state.image = action.payload;
+    },
+  },
+});
 
-export default gamingReducer;
+export const { setLightboxImage } = gamingReducer.actions;
+
+export default gamingReducer.reducer;

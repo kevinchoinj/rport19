@@ -1,24 +1,20 @@
-import {
-  GET_MOUSE_POSITION,
-} from "actions/mouse";
+import { createSlice } from "@reduxjs/toolkit";
 
-const DEFAULT_STATE={
+const initialState = {
   mousePosition: {xValue: 0, yValue: 0},
 };
 
-const mouseReducer = (state=DEFAULT_STATE, payload) => {
-  switch(payload.type){
-  case GET_MOUSE_POSITION:
-    return state = {
-      ...state,
-      mousePosition: {
-        xValue: payload.xValue,
-        yValue: payload.yValue,
-      },
-    };
-  default:
-    return state;
-  }
-};
+export const mouseReducer = createSlice({
+  name: "mouse",
+  initialState,
+  reducers: {
+    setMousePosition: (state, action) => {
+      state.mousePosition.xValue = action.payload.xValue;
+      state.mousePosition.yValue = action.payload.yValue;
+    },
+  },
+});
 
-export default mouseReducer;
+export const { setMousePosition } = mouseReducer.actions;
+
+export default mouseReducer.reducer;

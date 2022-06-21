@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import Banner from "components/projects/Banner";
 import Update from "components/projects/Update";
-import { connect } from "react-redux";
-import { toggleMenu } from "actions/menu";
+import { useDispatch } from "react-redux";
+import { setMenuDisplay } from "reducers/menu";
 import { gamingData } from "data/gamingData";
 import GamingCarousel from "components/projects/GamingCarousel";
 import styled from "styled-components";
@@ -22,10 +22,11 @@ const StyledContainer = styled.div`
     }
   }
 `;
-const GamingMisc = ({ toggleMenu }) => {
+const GamingMisc = () => {
+  const dispatch = useDispatch();
   useEffect(() => {
-    toggleMenu();
-  }, [toggleMenu]);
+    dispatch(setMenuDisplay());
+  }, [dispatch]);
 
   return (
     <Skew>
@@ -209,9 +210,7 @@ const GamingMisc = ({ toggleMenu }) => {
         </Update>
         <GamingCarousel images={gamingData.LOL_ARRAY} />
 
-        <Update title="LOST ARK">
-          Season 1 - Diamond (Rank ~500 NA EAST) - 2022
-        </Update>
+        <Update title="LOST ARK">Season 1 - Diamond (Rank ~500 NA EAST) - 2022</Update>
 
         <GamingCarousel images={gamingData.LA_ARRAY} />
 
@@ -309,12 +308,4 @@ const GamingMisc = ({ toggleMenu }) => {
   );
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    toggleMenu: () => {
-      dispatch(toggleMenu(false));
-    },
-  };
-};
-
-export default React.memo(connect(null, mapDispatchToProps)(GamingMisc));
+export default GamingMisc;

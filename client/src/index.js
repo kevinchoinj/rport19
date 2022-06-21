@@ -1,20 +1,16 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 import App from "./App";
-
-import {Provider} from "react-redux";
+import { Provider } from "react-redux";
+import store from "./store";
 import { BrowserRouter } from "react-router-dom";
-import Store, { history } from "./store";
-import * as serviceWorker from "./serviceWorker";
+const container = document.getElementById("root");
+const root = createRoot(container); // createRoot(container!) if you use TypeScript
 
-const StoreInstance = Store();
-
-ReactDOM.render(
-  <Provider store={StoreInstance}>
-    <BrowserRouter history={history}>
+root.render(
+  <Provider store={store}>
+    <BrowserRouter>
       <App />
     </BrowserRouter>
   </Provider>
-  , document.getElementById("root"));
-
-serviceWorker.unregister();
+);

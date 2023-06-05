@@ -210,7 +210,10 @@ const GamingMisc = () => {
         </Update>
         <GamingCarousel images={gamingData.LOL_ARRAY} />
 
-        <Update title="LOST ARK">Season 1 - Diamond (Rank ~500 NA EAST) - 2022</Update>
+        <Update title="LOST ARK">
+          <div>Season 1 - Diamond (Rank ~500 NA EAST) - 2022</div>
+          <div>Season 2 - Masters (Rank ~100 NA EAST) - 2023</div>
+        </Update>
 
         <GamingCarousel images={gamingData.LA_ARRAY} />
 
@@ -264,6 +267,10 @@ const GamingMisc = () => {
           August 2021 - Peak Rank 187th DND Limited, End of season 419th
           <br />
           September 2021 - Peak Rank 70th MID Limited, End of Season 355th
+          <br />
+          July 2022 - Peak Rank 62nd HBG Limited
+          <br />
+          February 2023 - Peak Rank 337th ONE Limited
         </Update>
         <GamingCarousel images={gamingData.MTG_ARRAY} />
 

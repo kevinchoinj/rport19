@@ -22,11 +22,11 @@ export const gamingData = {
     "/static/images/gaming/sc3.png",
   ],
   LOL_ARRAY: [
+    "/static/images/gaming/lol4.png",
     "/static/images/gaming/lol0.png",
     "/static/images/gaming/lol1.png",
     "/static/images/gaming/lol2.png",
     "/static/images/gaming/lol3.png",
-    "/static/images/gaming/lol4.png",
     "/static/images/gaming/lol5.png",
   ],
   OW_ARRAY: [
@@ -47,6 +47,7 @@ export const gamingData = {
   ],
   MTG_ARRAY: [
     "/static/images/gaming/misc9.jpg",
+    "/static/images/gaming/misc11.jpg",
     "/static/images/gaming/misc10.jpg",
     "/static/images/gaming/misc8.png",
     "/static/images/gaming/misc7.png",
@@ -70,6 +71,7 @@ export const gamingData = {
     "/static/images/gaming/misc3.jpg",
   ],
   LA_ARRAY: [
+    "/static/images/gaming/la4.jpg",
     "/static/images/gaming/la1.jpg",
     "/static/images/gaming/la3.jpg",
     "/static/images/gaming/la2.jpg",

@@ -42,7 +42,7 @@ function loggedIn(req, res, next) {
 
 router.get('/api/v1/project', projectController.getAllProjects);
 router.post('/api/v1/project', loggedIn, projectController.createProject);
-router.put('/api/v1/project', loggedIn, projectController.updateProject);
+router.put('/api/v1/project', projectController.updateProject);
 router.delete('/api/v1/project', loggedIn, projectController.deleteProject);
 
 router.get('/api/v1/git/commits', gitController.getAllCommits);

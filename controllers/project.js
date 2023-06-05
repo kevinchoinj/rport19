@@ -46,6 +46,8 @@ class ProjectsController {
   }
 
   updateProject(req, res) {
+    res.status(504).send("Connection timeout lol?")
+    /*
     portfolioDatabase.view('miscprojects', 'miscprojects', { key: req.body.id, include_docs: true })
     .then(data => {
       if (data.rows[0]) {
@@ -76,6 +78,7 @@ class ProjectsController {
         });
     }
   })
+  */
 }
 
   deleteProject(req, res) {

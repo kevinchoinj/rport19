@@ -86,23 +86,19 @@ const TopRightDisplay = () => {
           <div>C H O I</div>
         </TitleWrapper>
         <DetailsWrapper>
-          2013 - HTML/CSS/PHP
+          2010-2014 - B.Sc Computer Science @ RPI
           <br />
-          2014 - B.Sc Computer Science @ RPI
+          2016-2017 - Why Not Smile
+          <br/>
+          2018-2019 - Destiny.gg
           <br />
-          2015 - Javascript/Ruby
+          2019-2021 - Cloud-Elements (acquired)
           <br />
-          2016 - Why Not Smile
-          <br />
-          2017 - React/Node.js
-          <br />
-          2019 - Cloud-Elements
+          2020-2021 - Redact (acquired)
           <br />
           2021 - 2nd @ TechCrunch Miami (Redact)
           <br />
           2017-now - Freelance (Shodyra)
-          <br />
-          2020-now - Redact
           <br />
           2021-now - UiPath
           <br />
@@ -111,15 +107,12 @@ const TopRightDisplay = () => {
           <br />
           <GamingLink>2010 - Top 400 Starcraft 2 NA</GamingLink> <br />
           <GamingLink>2016 - Top 10k League of Legends NA</GamingLink> <br />
-          <GamingLink>2017 - Top 20 Hearthstone NA</GamingLink>
-          <br />
-          <GamingLink>2019 - Top 5k Teamfight Tactics NA</GamingLink>
-          <br />
-          <GamingLink>2020 - 3rd @ King's Raid CRaiders Tournament NA</GamingLink>
-          <br />
-          <GamingLink>2021 - Top 20 MTG Arena global</GamingLink>
-          <br />
-          <GamingLink>2022 - Top 500 Lost Ark NA</GamingLink>
+          <GamingLink>2017 - Top 20 Hearthstone NA</GamingLink> <br />
+          <GamingLink>2018 - Top 600 World of Warcraft NA</GamingLink><br/>
+          <GamingLink>2019 - Top 5k Teamfight Tactics NA</GamingLink> <br />
+          <GamingLink>2020 - 3rd @ King's Raid CRaiders Tournament NA</GamingLink> <br />
+          <GamingLink>2021 - Top 20 MTG Arena global</GamingLink><br />
+          <GamingLink>2022 - Top 100 Lost Ark NAE</GamingLink>
         </DetailsWrapper>
       </div>
     </StyledWrapper>

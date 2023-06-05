@@ -1,7 +1,7 @@
 const Amogus = () => {
   return (
     <div style={{height: "100vh", width: "100%", display: "flex", alignItems: "center", justifyContent: "center"}}>
-      <iframe title="amogus" width="420" height="315" src="https://www.youtube.com/embed/bIisAoOtEZg"></iframe>
+      <iframe title="amogus" width="568" height="420" src="https://www.youtube.com/embed/tcjtOC86f4w"></iframe>
     </div>
   );
 };

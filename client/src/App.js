@@ -19,6 +19,9 @@ import Admin from "admin/pages/AdminHome";
 import AdminMiscProjects from "admin/pages/AdminMiscProjects";
 import AdminMiscProjectsEdit from "admin/pages/AdminMiscProjectsEdit";
 import Amogus from "pages/Amogus";
+import Sus from "pages/Sus";
+import Me from "pages/Me";
+
 
 const AsyncMisc = asyncComponent(() => import("pages/ProjectMisc"));
 const AsyncGaming = asyncComponent(() => import("pages/GamingMisc"));
@@ -27,12 +30,12 @@ const AsyncAdmin = asyncComponent(() => import("routes/PassportCheck"));
 const StyledWrapper = styled.div`
   -webkit-overflow-scrolling: touch;
   * {
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     ::selection {
-      background: ${props => props.theme.colorTheme};
+      background: ${(props) => props.theme.colorTheme};
     }
     ::-moz-selection {
-      background: ${props => props.theme.colorTheme};
+      background: ${(props) => props.theme.colorTheme};
     }
   }
 `;
@@ -96,35 +99,28 @@ const App = () => {
       <TrackMouse>
         <StyledWrapper id="main_app">
           <Routes>
-            <Route path="/amogus" element={<Amogus />}>
-            </Route>
-            <Route
-              path="/shodyra/admin"
-              element={<AsyncAdmin />}
-            >
+            <Route path="/amogus" element={<Amogus />}></Route>
+            <Route path="/sus" element={<Sus />}></Route>
+            <Route path="/me" element={<Me />}></Route>
+            <Route path="/shodyra/admin" element={<AsyncAdmin />}>
               <Route exact path={pageData.adminHome} element={<Admin />} />
               <Route exact path={pageData.adminMiscProjects} element={<AdminMiscProjects />} />
               <Route exact path={`${pageData.adminMiscProjects}/:id`} element={<AdminMiscProjectsEdit />} />
             </Route>
             <Route path="/" element={<SiteRoutesWrapper />}>
               <Route exact path={pageData.home} element={<Home />} />
-              <Route
-                path={pageData.miscProjects}
-                element={<AsyncMisc />}
-              />
+              <Route path={pageData.miscProjects} element={<AsyncMisc />} />
               {Object.keys(projectData).map((key) => {
                 return (
                   <Route
                     key={key}
-                    exact path={`${pageData.projects}/${key}`}
-                    element={<ProjectLayout key={key} pageValues={projectData[key]} />} />
+                    exact
+                    path={`${pageData.projects}/${key}`}
+                    element={<ProjectLayout key={key} pageValues={projectData[key]} />}
+                  />
                 );
-              })
-              }
-              <Route
-                path={pageData.gaming}
-                element={<AsyncGaming />}
-              />
+              })}
+              <Route path={pageData.gaming} element={<AsyncGaming />} />
             </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>
